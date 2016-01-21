@@ -1,0 +1,16 @@
+*-coveralls.json
+*.egg-info
+*.elc
+*.ipynb
+*.pyc
+*.sqlite
+*~
+.cask/
+.coverage
+.ipynb_checkpoints/
+.project/
+.tox/
+[#]*[#]
+__pycache__/
+build/
+dist/

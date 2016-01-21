@@ -1,0 +1,8 @@
+# Compiled
+*.elc
+
+# Packaging
+.cask
+
+# Other
+.DS_Store

@@ -1,0 +1,173 @@
+#+TITLE: magnatune.el
+
+[[http://melpa.org/#/magnatune][file:http://melpa.org/packages/magnatune-badge.svg]]
+
+This library lets you browse through [[http://www.magnatune.com][magnatune's]] great music
+collection using emacs. The [[https://sqlite.org/][sqlite3]] tool is required for this to work.
+
+When on an artist, album or song the ~magnatune-open-item-at-point~
+command collects the stream urls and calls a hook. There are three
+provided hook functions:
+
+1. add the urls via emac's built in ~mpc~ library to the current
+   playlist of a local mpd
+2. add the urls to emms' playlist
+3. pass the urls to some external player
+
+Magnatune provides its catalog as an sqlite3 file at [[http://magnatune.com/info/sqlite-normalized][this site]]. This
+file is downloaded and the =sqlite3= program is used to search the
+database. To be polite, by default the gzipped database file is
+downloaded and unzipped using the local =gzip= command. If this does
+not exist on your platform, then you can set ~magnatune-enable-gzip~
+to ~nil~. The database file is checked every week for updates and
+redownloaded, if it changed upstream.
+
+* Installation
+
+Install [[http://www.sqlite.org/download.html][sqlite]] first, on most linuxes it is often already installed,
+or just use your package manager. It's also recommended to install
+[[http://www.gzip.org/][gzip]]. Again on most *nixes this is usually already there.
+
+You can install it from [[http://melpa.org][MELPA]] via ~package.el~, by doing
+
+#+begin_example
+M-x package-install RET magnatune
+#+end_example
+
+Or clone the repository and add it to Emac's ~load-path~. Then require
+the file:
+
+#+begin_src emacs-lisp :tangle
+(require 'magnatune)
+#+end_src
+
+There is a helm interface, provided via
+
+#+begin_src emacs-lisp :tangle yes
+(require 'magnatune-helm)
+#+end_src
+
+The ~helm~ package must be installed (it is not installed as a
+dependency when using melpa).
+
+* Configuration
+
+For membership stream urls, you need to set username and password.
+
+#+begin_src emacs-lisp :tangle no
+(setq magnatune-username "username")
+(setq magnatune-password "password")
+#+end_src
+
+To enable the open command, add a function to the
+~magnatune-open-urls-hook~:
+
+#+begin_src emacs-lisp :tangle no
+(add-hook 'magnatune-open-urls-hook 'magnatune-mpc-url-hook)
+;; or
+;; (add-hook 'magnatune-open-urls-hook 'magnatune-external-url-hook)
+;; (add-hook 'magnatune-open-urls-hook 'magnatune-emms-url-hook)
+#+end_src
+
+If using ~magnatune-external-url-hook~ you also might want to set
+~magnatune-external-player~ to the desired player command. If using
+~magnatune-emms-url-hook~, you need to have [[http://www.gnu.org/software/emms/][emms]] configured.
+
+The hook functions are called with the url list and a second optional
+argument which is the prefix arg if used (in raw form). The provided
+hooks (for mpd and emms) simply add the urls to the current
+playlist. If a prefix arg is given, the playlist is cleared before.
+
+If you don't have a ~gzip~ command on your system, disable the use of
+it (by default it is enabled):
+#+begin_src emacs-lisp :tangle no
+(setq magnatune-enable-gzip nil)
+#+end_src
+
+The location of the ~sqlite3~ command can be configured, too:
+#+begin_src emacs-lisp :tangle no
+(setq magnatune-sqlite-cmd "/usr/local/bin/sqlite3")
+#+end_src
+
+* Usage
+
+** standard interface
+
+The ~magnatune-browse~ function is the entry point to the
+collection. Usually it's convenient to have a key binding for it:
+#+begin_src emacs-lisp :tangle no
+(global-set-key (kbd "C-<f11>") 'magnatune-browse)
+#+end_src
+
+It will ask whether to display a list of artists, albums or genres.
+
+If called with prefix argument, it asks for a search string (only for
+artists and albums). Use SQLs ~%~ character to do prefix searches; for
+example ~A%~ finds all artists or albums whose name starts with ~A~.
+
+In the following buffer, try the keys below.
+
+** helm interface
+
+The function ~magnatune-helm~ starts a helm interface to the music
+catalog (all genres, arists and albums). On artist, album or song the
+persistent action opens a buffer with a description of the current
+item (same buffer as with standard interface). When on a song, a
+description of the album of this song is shown.
+
+The “play” action is bound to ~C-a~. It appends the tracks of the
+current item to the playlist. With prefix, the playlist is cleared
+first. It is a persistent action, so you can add to the playlist
+without quitting the helm session.
+
+The default action steps into the current item and you can go back
+with ~C-.~.
+
+* Key bindings
+
+There are some default bindings:
+
+| Key                | Description                                                          |
+|--------------------+----------------------------------------------------------------------|
+| /                  | Go to the item starting with some prefix                             |
+| A-Z                | Go to the first item in the list starting with this letter.          |
+| e                  | Load the next result chunk from the db.                              |
+| g                  | Reload the buffer.                                                   |
+| <next-line>, n     | Go to the next item in the list.                                     |
+| <previous-line>, p | Go to the previous item in the list.                                 |
+| q                  | Bury or kill the buffer.                                             |
+| s                  | When listing all albums ask for an order to apply.                   |
+| RET                | Go to the next level.                                                |
+| <C-return>         | Go to the next level in another window.                              |
+| C-a                | When on an album go to the artist.                                   |
+| C-b                | Get the web url for the artist or album and either browse or copy it |
+| C-f                | Enable to always follow (~<C-return>~) an item.                      |
+| C-o                | Collect stream urls of item at point and call open-urls-hook.        |
+| C-q                | Quits all windows or kills all magnatune buffers.                    |
+| C-c                | Copy all stream urls of item in kill ring                            |
+| C-d                | Download the album as zip file (only with membership)                |
+| SPC                | Scroll up one line.                                                  |
+|--------------------+----------------------------------------------------------------------|
+
+* Screenshot
+
+[[./screenshot.jpg]]
+
+* License
+
+Copyright © Eike Kettner
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3, or (at your option)
+any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with GNU Emacs; see the file COPYING. If not, write to the Free
+Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+02110-1301, USA.

@@ -1,0 +1,11 @@
+# Generated files
+*.elc
+*-pkg.el
+*.tar
+TAGS
+doc/pycarddavel.texi
+doc/pycarddavel.info
+
+# Packages
+.cask
+elpa

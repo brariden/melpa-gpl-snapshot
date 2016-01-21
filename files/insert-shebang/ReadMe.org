@@ -1,0 +1,60 @@
+* insert-shebang [[https://travis-ci.org/psachin/insert-shebang.png?branch=master][https://travis-ci.org/psachin/insert-shebang.png?branch=master]]
+  Insert shebang line automatically.
+
+** Clone
+     - Clone this repository
+       #+BEGIN_SRC sh
+         git clone https://github.com/psachin/insert-shebang.git
+       #+END_SRC sh
+
+** Install
+*** [[http://marmalade-repo.org/packages/insert-shebang][Marmalade]], [[http://melpa.milkbox.net/#/insert-shebang][MELPA]] [[http://melpa.org/#/insert-shebang][file:http://melpa.org/packages/insert-shebang-badge.svg]]
+       #+BEGIN_SRC emacs-lisp
+         M-x package-install RET insert-shebang RET
+       #+END_SRC emacs-lisp
+*** Manual
+     - Add directory containing =insert-shebang.el= file to
+       =load-path= in your =~/.emacs= file. For example:
+       #+BEGIN_SRC emacs-lisp
+         (add-to-list 'load-path "/path/to/insert-shebang/")
+       #+END_SRC emacs-lisp
+
+     - To load a package, add:
+       #+BEGIN_SRC emacs-lisp
+         (require 'insert-shebang)
+       #+END_SRC emacs-lisp
+
+*** Add hook
+     - To enable it globally, add below code in your Emacs configuration:
+      #+BEGIN_SRC emacs-lisp
+        (add-hook 'find-file-hook 'insert-shebang)
+      #+END_SRC emacs-lisp
+
+     - Optionally, run =make= to byte-compile the file.
+
+** Customize
+   - Customize using:
+     #+BEGIN_SRC emacs-lisp
+       M-x customize-group RET insert-shebang RET
+     #+END_SRC emacs-lisp
+*** Env Path
+    Defines path to =env=. Default is =/usr/bin/env=.
+*** File Types
+    Defines file types.
+*** Custom Headers
+    *insert-shebang* can be extended to insert header for C, C++ and
+    FORTRAN programs etc.
+*** Ignore Extensions
+    Set file types(using extensions) you want to ignore.
+*** Ignored Filename
+    Files ignored during the prompt are stored with their full-path
+    in =~/.insert-shebang.log= file. Set to *nil* if you want to
+    disable this feature.
+
+    You can visit this log file using
+    #+BEGIN_SRC emacs-lisp
+      M-x insert-shebang-open-log-buffer
+    #+END_SRC emacs-lisp
+
+** License
+   - See [[https://github.com/psachin/insert-shebang/blob/master/COPYING][COPYING]]

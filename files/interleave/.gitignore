@@ -1,0 +1,7 @@
+# Compiled
+*.elc
+
+# Packaging
+.cask
+/test.org
+/tm1.pdf

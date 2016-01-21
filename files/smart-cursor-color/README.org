@@ -1,0 +1,39 @@
+[[http://melpa.org/#/smart-cursor-color][file:http://melpa.org/packages/smart-cursor-color-badge.svg]]
+* smart-cursor-color-mode 
+Change cursor-color dynamically on Emacs.
+[[http://www.iterm2.com/#/section/home][iTerm2]] have `smart cursor color'.
+But GNU Emacs doesn't have this option.
+The `smart-cursor-color-mode' can make do that.
+
+** Quickstart
+To make the mode enabled every time Emacs starts, add the following
+to Emacs initialisation file (~/.emacs or ~/.emacs.d/init.el):
+
+- If installed from [[https://melpa.org/#/][MELPA]]
+
+#+BEGIN_SRC emacs-lisp
+  (smart-cursor-color-mode +1)
+#+END_SRC
+
+- If installed manually,
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'load-path "path-to-installed-directory")
+  (require 'smart-cursor-color)
+  (smart-cursor-color-mode +1)
+#+END_SRC
+
+When hl-line-mode is on,
+smart-cursor-color-mode is not work.
+So must turn off hl-line-mode.
+
+#+BEGIN_SRC emacs-lisp
+  (hl-line-mode -1)
+#+END_SRC
+
+But when global-hl-line-mode is on,
+smart-cursor-color-mode is work.
+#+BEGIN_SRC emacs-lisp
+  (global-hl-line-mode +1)
+  (smart-cursor-color-mode +1)
+#+END_SRC
+

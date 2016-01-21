@@ -1,0 +1,257 @@
+ 2011-09-07  (cjwhite)
+ - First release for general distribution based on API 2.0
+
+ 2011-09-18  (cjwhite)
+ - (Bug fix) Properly create contexts that are missing on the
+   server. (cjwhite)
+ - (Bug fix) Eliminate hyphens in the tag/properties that are saved (cjwhite)
+ - Implemented sub-tasks -- requires pro account subscription (cjwhite)
+ - Added customization variable `org-toodledo-sync-import-new-tasks'
+
+ 2011-09-24  (cjwhite)
+ - Use https if pro subscription and patch installed (url-http appears broken
+   for POSTs with data and https, at least on my box).  To enable, apply the
+   patch as follows:
+       $ cd $emacs_install_dir/lisp/url
+       $ patch < $path_to_patch/url-http.el.emacs-23.3.patch
+   Then in emacs:
+       M-x byte-compile-file $emacs_install_dir/lisp/url/url-http.el
+   This patch seems to apply cleanly to 23.2 as well, but is not
+   tested there.  Search below for "bugreport" for more details and
+   bug references.
+
+ - Added `org-toodledo-run-tests' to load and run tests in
+   org-toodledo-test.el.  This uses the active account,
+   creating/modifying/deleting tasks with the prefix
+   'ORGTOODLEDOTEST'.  All other tasks are ignored, so it *should*
+   operate cleanly on an active toodledo account with multiple
+   tasks.  If you run this and it does not pass all tests, please
+   let me know (cjwhite)
+
+ 2011-09-26  (cjwhite)
+ - Bug fix for checking boundp (myuhe)
+ - Support special chars (verified titles/notes) (myuhe)
+ - Added `org-toodledo-inhibit-https' to disable https
+
+ 2011-09-29  (cjwhite)
+ - Bug fix: marking a task completed on the server did not update locally
+
+ 2011-10-16  (cjwhite)
+ - Bug fix: first time sync of tasks with folders failed with org-mode 6.33x
+
+ 2011-12-05  (cjwhite)
+ - Bug fix: folder / id mapping was reversed
+ - Bug fix: added require for aput / assoc
+ - Properly clear fields that are not set locally, ensuring they get
+   cleared on server
+
+ 2012-01-29  (cjwhite) - Version 2.2.0
+ - Added support for starttime / duetime (merged in partical changes
+   for myuhe).  Note that the web site does not seem properly handle
+   timezones.  The time in org-mode is properly converted to a unix
+   timestamp (adjusting for timezone) and sent to the server, but
+   the displayed time on toodledo.com and in apps (at least iPad
+   app) is the time component in GMT, not the timezone set in the
+   account settings.  Waiting for a response from toodledo.com on
+   this.
+
+ - Added `org-toodledo-flatten-all-tasks' which disables
+   parent/child tasking.  Set to true if you have more than 2 levels
+   and wish to sync tasks to the server as a flat list at least for
+   backup.
+
+ - Improved debug logging, use `org-toodledo-toggle-debug' to turn
+   on debug logging
+
+ - Updated `org-toodledo-run-tests' to use a test account instead of
+ the users account.
+
+ 2012-01-30  (cjwhite) - Version 2.3
+ - Bug fix - major problem found whereby sync / modified times would
+   be off just slightly when syncing local changes up to the server.
+   This would make it look like the local task was still modified
+   even after sending it up to the server.  As such, any changes to
+   the task on the server would result in duplicate tasks in
+   org-mode on the next sync, because that's how changes on both
+   sides are handled.  As part of this fix I completely eliminated
+   the per task Modified and Sync properities as these are pretty
+   much unneeded because of the detection of changes by the hash
+   code
+
+ - Bug fix for startdate / duedate.  These were probably working ok,
+   but may have misbehaved if the timezone were more than 12h off
+   GMT, which I think can only happen in a very few rare cases.
+
+ - Fixed up the starttime / duetime.  Turns out that toodledo.com
+   treats these times like alarms, so a duetime of "7:00am" is 7am,
+   regardless of what timezone you are in.  That means you can
+   change your timezone at will and the duetime is still 7am *local*
+   time.  This is stored as an offset from midnight GMT on the due
+   date.
+
+ - Added a version variable / function `org-toodledo-version'.  This
+   is checked on sync and may do some cleanup of things that have
+   changed in various versions.  This will make it easier down the
+   road to detect what version someone is running as well.
+
+ - Added some delays into the devtest -- seems it may have been
+   syncing back and forth too fast (within the same second) such
+   that changes may not be perceived
+
+ - Added a lot more debug messages to help with timing / sync
+   problems
+
+ 2012-02-09  (cjwhite) - Version 2.4
+ - Added new patch for url-http.  This should address at least some
+   of the spurious problems that caused an XML parse error.  If the
+   XML response from the server was just around 1200 bytes, url-http
+   was not handling it properly and cutting off the last few bytes.
+   See the Installation instructions below for installing the
+   patches
+
+ 2012-02-09  (cjwhite) - Version 2.5
+ - Bug fix - requesting a token was still using https even if
+   `org-toodledo-inhibit-https' was set to true.
+
+ 2012-02-19  (cjwhite) - Version 2.6
+ - Added `org-toodledo-agenda-mark-task-deleted' function and
+   suggested binding to mark tasks deleted from agenda mode.  See
+   Installation for info
+
+ - When a task is marked for deleted, move the task to a task titled
+   "Deleted Tasks" to get it out of the way
+
+ - Handle more than 2-levels of hierarchy by flatting all children.
+   The hierarchy will be preserved.  See SUBTASKS above for more
+   details.
+
+ - Realign all tags after sync according to the width of the current window
+
+ - Better handling of 'duplicate' tasks -- When a task has been
+   modified locally and on the server, the user is prompted to
+   resolve the difference by selecting the local copy, the server
+   copy, or editing and resolving manually
+
+ 2012-02-19  (cjwhite) - Version 2.6.1
+ - Fix for use of http vs https
+
+ 2012-02-20  (cjwhite) - Version 2.7
+ - Added support for tags, they are added as org-mode tags.
+
+ - Fixed handling of tasks with an embedded '*' - this would
+   completely mess things up of the '*' was the first char of
+   a line
+
+ - Added customization `org-toodledo-indent-task-note', set to t
+   by default.  This indents the note according to the task level.
+   This has a cleaner look and reduces the chance of errors like
+   the above with '*' as the first char.
+
+ - Better detection of actual note text, eliminating blank lines
+
+ - Fixed handling of "Invalid Key" error that indicates the token
+   needs to be refreshed
+
+ - Fix bug for subtasks if parent is not at top-level
+
+ 2012-03-13  (cjwhite) - Version 2.8
+ - Significantly better error handling for adding, editng and deleting
+   tasks during synchronization.  If errors occurred, only the offending
+   task should be affected, allowing all other tasks to be synced.  The
+   specific error message is logged for better debugging.
+
+ - Added customization `org-toodledo-folder-support-mode'.  Setting this
+   to `heading' will create heading tasks according to the folder name
+   and put all tasks in that folder as child tasks of the heading.
+   No support yet for creating folders in org mode, create the folders
+   on toodledo.com first and put at least one task in the folder.  This
+   feature is somewhat experimental.
+
+ - Improved handling of token expiration / invalid key errors
+
+ - Added simulation mode for testing without actually hitting the server.
+   Allows simulating error conditions that are potentially hard to
+   reproduce with a real connection to the server.  See org-toodledo-sim.el
+   and org-toodledo-test.el where sim calls are used.
+
+ 2012-07-21  (cjwhite) - Version 2.9
+ - Added 'length' to the list of fields to ignore if 0 for computing
+   a hash
+
+ - Removed deprecated/obsolete use of aput/adelete from assoc.el
+
+ - Hopefully finally fixed spurious issue where syncing resulted in
+   "Failed to find todo entry...".  When processing incoming tasks
+   from the server, process parent tasks *then* child tasks.  It seems
+   in some cases the child task may show up first before the parent
+   is known.
+
+ 2013-03-24  (cjwhite) - Version 2.10
+ - Renamed folder/goal properties to ToodledoFolder and ToodledoGoal
+
+ - Added `org-toodledo-reset' function to eliminate any trace of
+   toodledo from an org file (great to use if you want to refresh
+   the server from your master org file)
+
+ - Fixed a bug where parent/child tasks may not sync properly.
+
+ - Improved folder support, works well now supporting creating folders
+   and moving tasks around to folders, including subtasks.
+
+ - Fixed a bug that was causing issues running tests
+
+ 2013-06-08  (cjwhite) - Version 2.11
+ - Fixed github issue #15, org-sync failed with org 8.x due to
+   missing function
+
+ 2013-08-20  (cjwhite) - Version 2.12
+ - Revamp how deleted tasks are handled, just store the deleted
+   task ids instead of the "Deleted Tasks" folder
+
+
+ - Support for `org-toodledo-archive-deleted-tasks'.  When non-nil
+   deleted tasks are automatically archived after synced to the
+   the server.  This is related to github issue #17.
+
+ - Fixed github issue #21, error adding context that already exists.
+   The issue occurred because org is case sensitive, whereas toodledo
+   is not.  Fixed by ignoring case when looking for contexts and folders.
+
+ - Fixed github issue #22, toodledo does not support empty tasks.  Added
+   a check to skip over any such tasks
+
+ 2013-09-01  (cjwhite) - Version 2.13
+ - Support for `org-toodledo-archive-completed-tasks'.  When non-nil
+   completed tasks are archived.  This supports archiving tasks completed
+   locally via org as well as syncing-in tasks that were completed on
+   Toodledo.
+
+ 2013-09-02  (cjwhite) - Version 2.14
+ - Fixed issue #24 - pay attention to org-default-priority
+
+ 2013-09-28  (cjwhite) - Version 2.15
+ - Fixed issue #26 - look at `org-toodledo-sync-new-completed-tasks'
+   when syncing for the first time.  If t, sync all completed tasks
+
+ - Fixed issue #27 - support priority -1 as org levels E-Z
+
+ - Fixed issue #28 - drop extra space in dates when no repeat
+
+ - Fixed issue #31 - cleaned up compiler warnings
+
+ - Fixed issue #29 - added `org-toodledo-post-sync-hook' to call after
+   each synchronization, even if errors occurred.
+
+ 2013-11-30  (jeffkowalski) - Version 2.16
+ - Whitespace cleanup
+
+ - Support for 'org-toodledo-preserve-drawers'.  When non-nil drawer
+   properties will be preserved in entry text.  As a consequence of this
+   modification, incoming entry text will have properties pulled out.
+
+ - Set Repeat even if only the SCHEDULED/start repeats, and the DEADLINE
+   does not.
+
+  2014-03-30  (cjwhite) - Version 2.16
+ - Fixed problem with "Effort" showing up in drawers when not expected
+

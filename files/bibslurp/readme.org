@@ -1,0 +1,141 @@
+#+TITLE: bibslurp.el --- retrieve BibTeX entries from NASA ADS
+
+=bibslurp= provides an easy way to find BibTeX entries from the [[http://adswww.harvard.edu/][NASA
+ADS]] server and to copy them into your local database.  All from within
+emacs!
+
+We have tried to make bibslurp as simple and as unobtrusive as
+possible, with advanced features available when you need them.  We
+hope you like the interface!
+
+* Example usage:
+  1. add an entry to a bibtex buffer:
+     #+BEGIN_EXAMPLE
+     M-x bibslurp-query-ads RET ^Quataert 2008 RET
+     #+END_EXAMPLE
+
+     Type the corresponding number and hit =RET=:
+     #+BEGIN_EXAMPLE
+     1 RET
+     q
+     C-y
+     #+END_EXAMPLE
+
+     Alternatively, you can navigate to the abstract you want with the
+     =n= and =p= keys, or search in the buffer with =s= or =r=, and
+     then press
+     #+BEGIN_EXAMPLE
+     RET
+     q
+     C-y
+     #+END_EXAMPLE
+
+
+* Description:
+  Creating a BibTeX file is one of the more tedious aspects of writing
+  a paper.  The NASA ADS system (http://adswww.harvard.edu/) helps a
+  lot by making bibliography data available and easy to find, but
+  there's still the matter of copying and pasting it into your local
+  database.  Since I find that process annoying, I wrote =BibSlurp=, a
+  set of emacs functions to speed it along.
+
+  BibSlurp enables you to query nasa ads without leaving emacs.  As an
+  example, typing =M-x bibslurp-query-ads RET white rees RET= brings up
+  the following buffer: (the search string is sent directly to ADS, so
+  things like =^white rees= or =^white 1978= will also work as
+  expected.)
+
+  #+ATTR_HTML: alt="search-results" title="search-results" width="602" height="856"
+  [[file:images/search-results.png]]
+
+  Let's say I want to add the second paper to my =.bib= database.  All I have to
+  do is hit =2 RET= (or simply =RET= if point is on that entry).  After waiting
+  for the appropriate files to download, =BibSlurp= responds with the message
+  =saved bibtex entry to kill ring=.
+
+  #+ATTR_HTML: alt="saved-to-kill-ring" title="saved-to-kill-ring" width="432" height="295" class="pad bottom left"
+  [[file:images/saved-to-kill-ring.png]]
+
+  From here, hitting =q= takes me back to my =.bib= file, where I can
+  yank the entry with =C-y=: (note that bibslurp automatically
+  generates a label for the entry)
+
+  #+ATTR_HTML: alt="yanked-entry" title="yanked-entry" width="602" height="466"
+  [[file:images/yanked-entry.png]]
+
+  If I'm not sure which paper I want, I can pull up the abstract by hitting =2
+  a= (or simply =a= if point is already on the wanted abstract).  From there,
+  =q= takes me back to the search results.
+
+  #+ATTR_HTML: alt="abstract-view" title="abstract-view" width="602" height="466"
+  [[file:images/abstract-view.png]]
+
+** Advanced search
+   You can turn to the ADS advanced search interface, akin to
+   http://adsabs.harvard.edu/abstract_service.html, either by pressing =C-c C-c=
+   after having issued =bibslurp-query-ads=, or directly with =M-x
+   bibslurp-query-ads-advanced-search RET=.  This pulls up a buffer
+   like this:
+   #+ATTR_HTML: alt="advanced-search" title="advanced-search" width="629" height="686"
+   [[file:images/advanced-search.png]]
+
+   Here you can fill the wanted search fields (authors, publication
+   date, objects, title, abstract) and specify combination logics, and
+   then send the query either with =C-c C-c= or by pressing the button
+   =Send Query=.  Use =TAB= to move through fields, and =q= outside an
+   input field to quit the search interface.
+
+** Other features
+   In the ADS search result buffer you can also visit some useful pages related
+   to each entry:
+   - on-line data at other data centers, with =d=
+   - on-line version of the selected article, with =e=
+   - on-line articles in PDF or Postscript, with =f=
+   - lists of objects for the selected abstract in the NED database, with =N=
+   - lists of objects for the selected abstract in the SIMBAD database, with =S=
+   - on-line pre-print version of the article in the arXiv database, with =x=
+   For each of these commands, =BibSlurp= will use by default the abstract point
+   is currenly on, but you can specify a different abstract by prefixing the
+   command with a number.  For example, =7 x= will fire up your browser to the
+   arXiv version of the seventh abstract in the list.
+
+* Installation:
+  Use package.el. You'll need to add MELPA to your archives:
+
+  #+BEGIN_SRC emacs-lisp
+  (require 'package)
+  (add-to-list 'package-archives
+               '("melpa" . "https://melpa.org/packages/") t)
+  #+END_SRC
+
+  Alternatively, you can just save this file and do the standard
+  #+BEGIN_SRC emacs-lisp
+  (add-to-list 'load-path "/path/to/bibslurp.el")
+  (require 'bibslurp)
+  #+END_SRC
+
+  Note that =bibslurp= requires the [[https://github.com/magnars/s.el][s]] and [[https://github.com/magnars/dash.el][dash]] libraries.  If you
+  install bibslurp manually, you need to make sure you also have
+  these in place.
+
+  You might consider giving it a keybinding, e.g.
+  #+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "C-x M-b") 'bibslurp-query-ads)
+  #+END_SRC
+
+* License
+ Copyright (C) 2013-2015 authors
+
+ written by Mike McCourt and Mosè Giordano
+
+ license: [[https://gnu.org/licenses/gpl-3.0.txt][GPLv3]]
+
+
+
+* TODO:
+  1. Look into using an xml parser instead of regular expressions
+
+
+# Local Variables:
+# coding: utf-8-unix
+# End:

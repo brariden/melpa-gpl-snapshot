@@ -1,0 +1,26 @@
+* hydandata-light-theme
+
+  A light color theme with a bluish tint that is very easy on your
+  eyes.
+
+** Installation
+
+   This package is available in MELPA. =M-x= =package-install=
+   =hydandata-light-theme=.
+
+   To manually install this theme, clone this repository and place
+   =hydandata-light-theme.el= it in your Emacs theme folder.
+
+** Configuration
+
+   Check it out using =(load-theme 'hydandata-light)= or ad it to your =.emacs=.
+
+** Credits
+
+   The theme was extracted from
+   https://github.com/senny/theme-roller.el and modified to use
+   deftheme.
+
+** Screenshot
+
+   [[file:hydandata-light-theme-screenshot.png]]

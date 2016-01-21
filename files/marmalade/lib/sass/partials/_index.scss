@@ -1,0 +1,91 @@
+/* Marmalade: an Emacs Lisp package server.
+ * Copyright (C) 2010 Google Inc.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+@import "blueprint/fancy-type";
+@import "compass/css3/inline-block";
+@import "compass/css3/box-sizing";
+@import "fancy-buttons";
+
+#main.index {
+  $start-columns: floor($blueprint-grid-columns/2);
+  #start {
+    @include column($start-columns);
+    font-size: 120%;
+    .intro {
+      font-variant: small-caps;
+      letter-spacing: 1px;
+      font-weight: bold;
+      font-size: 120%;
+    }
+    .elisp {
+      @include inline-block;
+      font-size: 90%;
+      letter-spacing: -1px;
+    }
+    .assoc-entry {
+      @include inline-block;
+      margin-left: 30px;
+    }
+  }
+
+  #packages {
+    @include column($blueprint-grid-columns - $start-columns, true);
+    .add {
+      @include fancy-button;
+      @include fancy-button-colors($marmalade);
+      @include box-sizing(border-box);
+      width: 100%;
+      text-align: center;
+      font-size: 2em;
+      letter-spacing: 1px;
+      position: relative;
+      &:before {
+        content: "+";
+        position: absolute;
+        font-size: 1.4em;
+        left: 3em;
+      }
+      &:active:before {
+        margin-left: -1px;
+      }
+    }
+
+    table {
+      font-size: 110%;
+      .name {width: 35%}
+      .author {
+        width: 50%;
+        text-align: right;
+      }
+      a {
+        @extend .package-link;
+        display: block;
+      }
+      tr:hover {
+        background-color: $marmalade-hover;
+        a {font-weight: bold}
+      }
+      margin-bottom: 0;
+    }
+
+    .all {
+      display: block;
+      padding-left: 4px;
+      font-size: 120%;
+    }
+  }
+}

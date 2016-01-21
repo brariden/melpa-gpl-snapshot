@@ -1,0 +1,19 @@
+a = 
+  if | x -> y
+     | z -> z
+
+a =
+  if | x, x <- Just y -> y
+
+a =
+  f $ \x ->
+    -- hello
+    z
+
+a =
+  f $ \x -> do
+    -- hello
+    z
+
+{-# OPTIONS_GHC -option #-}
+>

@@ -1,0 +1,61 @@
+* Automatically complete delimiters
+Tired of having to manually type out delimiters when ending a large block, especially with varianted delimiters? 
+Don't like the heavy handed current solutions, that complete while you type, without much control?
+That's where this package comes in!
+
+* Usage 
+This package has four, public facing functions 
+
+#+BEGIN_SRC elisp
+paren-completer-add-single-delimiter
+#+END_SRC
+and 
+#+BEGIN_SRC elisp
+paren-completer-add-all-delimiters
+#+END_SRC
+Along with a version that inserts a newline after each delimiter,
+
+#+BEGIN_SRC elisp
+paren-completer-add-single-delimiter-with-newline
+paren-completer-add-all-delimiters-with-newline
+#+END_SRC
+
+Calling the former will insert the next delimiter to close the nearest open one.
+
+IE
+#+BEGIN_SRC 
+{ ( 
+#+END_SRC
+Calling paren-completer-add-delimiter-in, right here, inserts ), and then } if called a second time. 
+
+The latter function, completes all missing delimiters, completing closing the block. 
+
+Be aware that these functions are only aware of delimiters from the beginning of the buffer, up till your point. 
+* Customizing what delimiters to look for.
+Modify paren-completer--open-delimiter-list, and paren-completer--close-delimiter-list
+They must be in the same order.
+IE, (ignoring the paren-completer prefix for brevity)
+#+BEGIN_SRC 
+open-delimiter-list : [ \( \{ ]
+close-delimiter-list : [\( \{ ] 
+#+END_SRC
+is fine, but
+#+BEGIN_SRC 
+open-delimiter-list : [ \{ \[ ]
+close-delimiter-list : [\( \{ ] 
+#+END_SRC 
+Is quite problematic.
+* MISC
+Caching the point won't work, because it's too easy to be at the same point, despite having made changes.
+Could make a hook to hook into on buffer change, but that would likely cancel any performance gains, might as well just run it multiple times.... ( Plus that's a bit uglier.)
+
+* Customizations
+- paren-completer--complete-stringsp? : If true, use the syntax table to auto-close strings also.
+- paren-completer--ignore-commentsp? : If true, ignore delimiters in comments
+- paren-completer--ignore-stringsp? : If true, ignore delimiters within strings
+  
+* TODO
+- Possibly use http://www.gnu.org/software/emacs/manual/html_node/elisp/Parser-State.html#Parser-State to avoid scanning everything? Future thing to do...
+- Switch to the syntax table for checking delimiters, original reason not to is gone....
+
+

@@ -1,0 +1,34 @@
+using NUnit.Core
+using Nemerle.Collections
+using Nemerle.IO
+
+module TestHelper
+    public FindTest(test_name: string,tests: list[ITest]): ITest
+        match ( tests.Find( (x=>x.TestName.Name.Equals(test_name)) ) )
+                    | Some(x) => x
+                    | None => null
+        
+    public TestPasses(test_name: string, tests:list[ITest]): bool
+        def the_test = FindTest(test_name,tests) 
+        def test_result = (the_test:>Test).Run(NullListener())
+        test_result.IsSuccess
+
+    public MessageAfterTestRun(test_name: string, test_fixture: string): string
+        def the_test = FindTest(test_name,GetAllTests(GetFixture(test_fixture)))
+        def test_result = (the_test:>Test).Run(NullListener())
+        test_result.Message
+
+    public TestPasses(test_name: string, test_fixture: ITest): bool
+        TestPasses(test_name,GetAllTests(test_fixture))
+
+    public GetAllTests(a_test: ITest): list[ITest]
+        def descendants = if (a_test.Tests != null) 
+             $[GetAllTests(child:>ITest) | child in a_test.Tests]
+        else
+            []
+        a_test :: NList.Concat(descendants)
+
+    public GetFixture(name: string): ITest
+        def suite_builder = TestSuiteBuilder()
+        def test_suite = suite_builder.Build( TestPackage("fixture.dll") )
+        FindTest( name, GetAllTests(test_suite) )

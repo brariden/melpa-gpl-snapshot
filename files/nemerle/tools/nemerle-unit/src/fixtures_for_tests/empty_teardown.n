@@ -1,0 +1,13 @@
+using NemerleUnit
+
+teardown
+    ()
+
+test "empty"
+    ()
+
+test "with assertion"
+    assert true
+
+test "failing"
+    assert false

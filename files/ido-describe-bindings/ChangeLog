@@ -1,0 +1,29 @@
+2016-01-04  Danil Kutkevich  <danil@kutkevich.org>
+
+        * ido-describe-bindings.el (ido-describe-bindings):
+        `ido-describe-bindings` function now respects `ido`-related user
+        config (fixes #3).
+
+        * ido-describe-bindings.el (ido-describe-bindings--run): Move most
+        of the "code" to `ido-describe-bindings--run` function.
+
+2015-08-28  Danil Kutkevich  <danil@kutkevich.org>
+
+        * ido-describe-bindings.el (ido-describe-bindings--dirty-bindings-string):
+        Respects all key bindings (fixes #2).
+
+        * README.md: Remove "knowing bugs" section.
+
+2015-08-16  Danil Kutkevich  <danil@kutkevich.org>
+
+        * ido-describe-bindings.el (ido-describe-bindings): Depend on
+        `ido-vertical-mode`, and enable it explicitly while calling
+        `ido-completing-read`.
+
+        * README.md: Add installation section.
+
+2015-08-14  Danil Kutkevich  <danil@kutkevich.org>
+
+        * ido-describe-bindings.el (ido-describe-bindings): copy
+        ido-describe-bindings implementation from
+        <http://stackoverflow.com/questions/15938272/is-there-an-emacs-encyclopedia-of-keybindings#15939667>

@@ -1,0 +1,373 @@
+#  -*- coding:utf-8 mode:org -*-
+#+TITLE: GitHubによる開発の流れについて [Development.ja]
+#+STARTUP: showall
+#+TEXT: この文章は org-mode で記述されています。
+#+TEXT: Emacs上でこの文書を開き、C-c C-e h h とすることで html のドキュメントが生成されます。
+
+
+* はじめに
+
+2014 年 12 月、DDSKK の開発ツールを GitHub へ変更したことに伴ない、GitHub を用いて開発に参加される方の作業の流れとして
+工程の大まかな流れをまとめます。
+
+DDSKK に特化していない箇所もありますが、
+今後の開発工程の確立とともにこの文書は改訂されていく予定です。
+
+-----------
+
+* ソースへの直接コミット
+
+GitHub で Owners team または ddskk-committers team に所属するメンバーは、コントリビュータの pull request を
+ソースにマージする権限とともに、直接ソースに対して更新をかける権限も持っています。
+
+まずローカルのテストの後、upstream のクローンを作ります。
+
+:        $ git clone git@github.com:skk-dev/ddskk.git     [ssh の例]
+
+変更を加えてコミット (git add -u && git commit) したら
+
+:        $ git push
+
+とすることで upstream に対して変更点を反映することができます。
+
+変更を行うときは、同時に Changelog や NEWS.ja も更新してください。
+
+また、スペルミス程度の小さな修正の場合は、
+更新するファイルを GitHub のサイトで表示したときに、
+ソースの右上に表示されている鉛筆のマークをクリックしてください。
+
+ソースを直接書き換えることができます。
+
+なお、他のコミッターの更新と操作が重なった場合、conflict が発生することがあります。
+
+conflict の解消方法は git の本などを参照してください。
+
+コミッターに参加したい場合は、skk-dev/ddskk レポジトリに対して issue などで
+参加の意思を表示してもらえれば、コミット権のある ddskk-contributer チームに
+登録いたします。
+
+-------------
+
+* fork による開発の流れ
+
+大規模な更新などがあって他のコミッターのレビューが必要な場合、
+ブランチをレポジトリに対して切り、
+更新内容について pull request を発行します。
+
+もしくはコミット権が無い場合も同様にして開発を行います。
+
+** github 上にリポジトリを設置
+
+github のアカウントはお持ちであるとします。
+
+https://github.com/skk-dev/ddskk で "fork" します。
+
+すると 自分のアカウントのページに fork したリポジトリができます。
+
+--------------
+
+** 手元のコンピュータにリポジトリを設置
+
+github の、自分のアカウントのページの中で repositories のタブを
+選ぶと ddskk が存在しているはずなので、そこをクリックします。
+
+自分の ddskk のページが開くはずなので、その右下を見ると
+https 又は ssh 経由でローカルに clone するための URL の記載があります。
+
+(github 側に push に必要な ssh の鍵を設定しておく必要があるので
+github のヘルプを調べてみて下さい。)
+
+手元の PC に git がインストールされていれば、この URL で clone でき
+ます。
+
+:        $ git clone git@github.com:YOURACCOUNT/ddskk.git     [ssh の例]
+
+ここまでで 3つのリポジトリが出てきました。
+
+      -  upstream ->  https://github.com/skk-dev/ddskk
+
+      -  origin   ->  git@github.com:YOURACCOUNT/ddskk.git
+
+      -  local    ->  手元の PC (origin から clone したもの)
+
+local 中の .git/config にて upstream と origin を定義して
+ない場合は、この段階で定義しておく必要があります。
+
+: [remote "origin"]
+:        url = git@github.com:YOURACCOUNT/ddskk.git
+:        fetch = +refs/heads/*:refs/remotes/origin/*
+: [remote "upstream"]
+:        url = git@github.com:skk-dev/ddskk.git
+:        fetch = +refs/heads/*:refs/remotes/upstream/*
+
+--------------
+
+** コントリビュータとしての作業の流れ
+
+*** upstream の最新版を追跡する方法
+
+まずは、改良などせず最新版を追跡する方法を説明します。
+local のデフォルトでは master というブランチが選択されていて
+ここは、独自の改良を反映しないで下さい。ここは upstream
+での反映を取り込む箇所のようです。独自の改良の成果は
+別のブランチで実施します。成果は master との diff として
+公表することになります。
+
+upstream の master を local の master に取り込みます。
+
+:        $ git pull upstream master:master    {local:remote}
+
+(設定なりでより短いコマンドラインにできたはずです。)
+
+
+必要があるかどうかわからないのですが、次のコマンドラインで
+local の master を origin の master に反映できます。
+
+:        $ git push origin master:master
+
+これで
+
+        upstream => local => origin
+
+と変更を反映することができました。
+
+*** 改良する方法
+
+では改良をしてみましょう。
+
+改良の目的に応じて名前を
+つけてそれをブランチ名とします。ここでは REFACTOR とします。
+(特に大文字の必要はありません。)
+
+:        $ git branch REFACTOR
+:        $ git checkout REFACTOR
+
+これで準備ができました。
+念のため、現在いるブランチを確認しておきます。
+
+:        $ git branch
+:        * REFACTOR
+:          master
+
+変更を加えてコミット (git add -u && git commit) したら
+
+:        $ git push origin REFACTOR:REFACTOR
+
+とします。すると自分の github のページの ddskk の
+リポジトリに REFACTOR というブランチが作られ、
+local の変更がそこに格納(？)されます。
+
+*** プルリクエスト
+
+自分の ddskk のページを開くと、読み直し(？)の緑のボタンのとなり
+にブランチを選択するためのポップアップメニューがあり、そこで確認できます。
+特に選択しなくとも push した直後にはバナーのような形式で
+ページの上部に pull request を出すためのボタンが出現します。
+ボタンを押すと upstream に対してプルリクエストが出ます。
+
+レビュアーから書き直しの指示があると、ブランチ上で
+
+:        $ git rebase -i master
+
+などとして、ブランチに修正を加えます（これは git の本なりをご覧下さい）。
+その後
+
+:        $ git push --force origin REFACTOR:REFACTOR
+
+とすると、修正内容で origin 上のブランチを上書きできます。
+
+--------------
+
+** SKK git レポジトリ構成
+
+github で開発を行う際のレポジトリは、以下のような構成になっています。
+
+upstream および origin は github のサーバ上にあるレポジトリとなっていて、おもに WEB ブラウザを経由して操作をします。
+
+一方で local は手元の PC 上のレポジトリとなっていて、git checkout (ブランチ名) でブランチを切り替えることができます。
+ブランチの中で行った改変は、git コマンドを使用しない限り他のブランチの内容には影響しません。
+
+:
+:  +======================================+  (fork)   +==========================================
+:  | upstream                             | --------> | origin (masterブランチ)                  
+:  |  -> https://github.com/skk-dev/ddskk |           |  -> git@github.com:YOURACCOUNT/ddskk.git 
+:  +======================================+           +==========================================
+:               ^    |                                                            |
+:               |    |                                                            |
+:               |    |           $ git clone git@github.com:YOURACCOUNT/ddskk.git | 
+:               |    |                                                            |
+:               |    |                                                            V
+:               |    |                                    +-----------------------------------
+:               |    +----------------------------------> | local   (masterブランチ)                
+:               |     $ git pull upstream master:master   |   ->   手元の PC                  
+:               |                                         +-----------------------------------
+:               |                                                |
+:               |                                                | $ git branch REFACTOR
+:               |                                                | $ git checkout REFACTOR
+:               |                                                |    (REFACTORは例としてつけた名称です)
+:               |                                                V
+:               |                                         +-----------------------------------
+:               |                                         | local  (REFACTORブランチ)         
+:               |                                         |   改良作業はここで行う            
+:               |                                         |   改良後 git add -u && git commit 
+:               |                                         +-----------------------------------
+:               |                                                |
+:               |                                                | $ git push origin REFACTOR:REFACTOR
+:               |                                                |
+:               |                                                V
+:               |                                     +==========================================
+:               +------------------------------------ | origin (REFACTORブランチ)
+:                   (pull-request)                    |  -> git@github.com:YOURACCOUNT/ddskk.git 
+:                                                     +==========================================
+:
+
+-------------
+
+* コントリビュータからの pull request が来たときのソースのテスト方法について
+
+** 該当部分のテストを書いてもらう
+
+一番簡単な方法は、pull request を発行したコントリビュータに
+該当部分のテストを書いてもらうことです。
+
+pull request が来たときに、Travis Ci が自動でテストを走らせてくれるので、
+テストを記述してもらうことで確認の手間を減らすことができます。
+
+
+
+** pull request から patch を取り出す。
+
+pull request が発行されたときに、同時に issue が発行されます。
+
+例えば、#18 の pull request に対して発行された、
+ https://github.com/skk-dev/ddskk/pull/18  の issue から、
+https://github.com/skk-dev/ddskk/pull/18.patch という形で拡張子として .patch をつけることで
+パッチファイルの形をしたテキストを取得可能です。
+
+このパッチファイルを、upstream から local に clone した環境に対して適用することで、
+pull request を upstream に適用した場合の環境を作ることができます。
+
+この環境上で動作のテスト結果から、issue に反映したり pull requset を merge したりしましょう。
+
+
+
+** local の環境にブランチを切って、テスト環境を用意する
+
+ddskk は大規模なプロジェクトではないので、通常は以下の操作をする必要は無いと思います。
+
+pull reqeust された時点で、コントリビュータの、
+そのリポジトリが Public に閲覧できる状態になっています。
+
+そこで、テストのために upstream から local に clone したあとで、
+pull request を発行したコントリビュータのリポジトリに fetch することで
+テスト環境を用意することができます。
+
+相手方のリポジトリを通常作業しているディレクトリと別ディレクトリに clone して
+確認および破棄という方が綺麗な状態を保てます。
+
+origin (REFACTORブランチ) (PR送信者) のレポジトリから local (REFACTOR-testブランチ)に fetch します。
+
+:        $ git remote add (PR送信者) git@github.com:(PR送信者)/ddskk.git
+:        $ git fetch (PR送信者)
+
+この時点ではPR送信者の remote 環境を取り込んだだけとなります。
+
+PR受信者の環境で pull request を取り込んだ状態を再現します。
+
+:        $ git checkout -b pr1
+:        $ git merge PR送信者/work
+
+これによって pr1 ブランチにPR送信者/work ブランチの変更が取り込まれますので、
+pr1 でテストを行います。
+
+--------------
+
+* リポジトリの更新
+
+自分の pull request が採用された場合や、自分が改良中に他の人の成果が upstream に
+導入された場合を考えます。採用された pull request に使っていたブランチとは別の
+ブランチで、別の改良作業 (OPTIMIZE) をしていたとします。特にその改良を長い期間かけて実施
+している場合、upstream の master との差異が大きくなります。更新 (rebase) する
+ことで差異を縮めることができます。
+
+まず OPTIMIZE ブランチの作業内容について保存します。git stash を使うか、あ
+るいはあとからわかる適当なログを書いて commit してしまいましょう。
+
+次に最新の変更を master に取り込みます。
+
+:        $ git checkout master
+:        $ git pull upstream master:master
+
+
+OPTIMIZE ブランチで溜め込んでいた独自の変更点を、最新の master に対する変
+更として保存し直します。このとき master でなされた変更と OPTIMIZE 上での変更
+の間で発生する conflict は、手動で解決する必要があります。
+
+:        $ git checkout OPTIMIZE
+:        $ git rebase master
+
+-------------
+
+* 不要となったブランチの削除
+
+プルリクエストが採用されたあとは、local, origin の作業用ブランチを削除します。
+
+local と origin のブランチは以下のコマンドで調べることができます。
+
+:        $ git branch -a
+
+checkout 現在の作業用ブランチに * がついています。
+
+上記で例として使いました REFACTOR ブランチを例として説明します。
+
+まず、master ブランチに移動します。
+
+:        $ git checkout master
+
+local のブランチを削除します。
+
+:        $ git branch -D REFACTOR
+
+次いで origin のブランチも削除します。
+
+:        $ git push origin :REFACTOR
+
+作業用ブランチが削除されたことを確認します。
+
+:        $ git branch -a
+
+-------------
+
+* git の入手方法
+
+** UN*X環境
+
+ご利用のUN*X環境によっては git の開発環境がインストールされていないことがあります。
+
+git のインストールに関しては、
+#+BEGIN_HTML
+<a href="http://git-scm.com/book/ja/v1/%E4%BD%BF%E3%81%84%E5%A7%8B%E3%82%81%E3%82%8B-Git%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">
+使い始める-Gitのインストール</a>
+#+END_HTML
+などのサイトを参照下さい。
+
+** Windows環境
+
+https://msysgit.github.io/ より Git for Windows を入手します。
+
+インストールする要素の選択（Select Components）は、[Windows Explorer integration]
+および [Associate .sh files to be run with Bash] のチェックを外し、次に進みます。
+
+SKK ディストリビューションは、Windows のバッチファイルを含むため、リポジトリの改行コード(LF or CRLF)を保つために、
+改行コードの変換設定（Configuring the line ending conversions）は、
+[Checkout as-is, commit as-is] にチェッックを入れてください。
+
+なお、Windows 環境では cvs と同様に cygwin を利用することも可能です。
+
+cygwin を使用した場合と、上記の Git for Windows を利用する場合では、
+shell を起動したときのホームディレクトリが異なることに注意して下さい。
+
+デフォルトのインストールでは、WindowsのログインIDを LOGINID としたときにホームディレクトリは以下のようになります。
+
+   - Git for Windows:  c:\Users\LOGINID\
+   - cygwin: c:\cygwin\home\LOGINID\   (または、 c:\cygwin64\home\LOGINID\  

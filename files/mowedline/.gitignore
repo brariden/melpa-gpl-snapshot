@@ -1,0 +1,8 @@
+/mowedline
+/mowedline-client
+/scratch
+*.c
+*.o
+*.so
+*.import.*
+\#*

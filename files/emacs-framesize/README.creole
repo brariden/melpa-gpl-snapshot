@@ -1,0 +1,20 @@
+= Framesize - adjusting framesize =
+
+This let's you change the font size of a frame. Any buffer displayed
+in the frame will have the same font size.
+
+This is useful for presenting where the thing you here the most when
+live coding is //"can you make it bigger?"//
+
+{{{frame-font-keychord-init}}} can be used to initialize this to
+automatically bind this to keychords, something like:
+
+{{{
+(add-hook 'after-init-hook 'frame-font-keychord-init)
+}}}
+
+This binds the following keychords:
+
+| {{{fv}}} | make the frame bigger  |
+| {{{fc}}} | make the frame smaller |
+

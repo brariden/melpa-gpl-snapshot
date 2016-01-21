@@ -1,0 +1,18 @@
+# Personal Development
+.dir-locals.el
+
+# Backup Files
+*~
+\#*\#
+
+# Compiled Elisp
+*.elc
+
+# Package Artifacts
+/.cask/
+/url/
+/.sx/
+
+# Generated Files
+/sx.info
+/sx.texi

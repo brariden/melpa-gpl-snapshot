@@ -1,0 +1,88 @@
+/* Marmalade: an Emacs Lisp package server.
+ * Copyright (C) 2010 Google Inc.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#main.packages-show {
+  h3 {
+    text-align: center;
+    font-size: 120%;
+    @include column($blueprint-grid-columns, true);
+  }
+
+  .metadata {
+    @include container;
+    font-size: 120%;
+
+    > * {padding: {top: 5px; bottom: 5px}}
+
+    .label {
+      @include column(2);
+      font-weight: bold;
+      text-align: right;
+    }
+
+    pre {
+      @include column(8);
+      @extend .elisp;
+      margin: {top: 0; bottom: 0}
+      text-align: center;
+    }
+
+    .author {@include column(4)}
+
+    > a {
+      @include column(2);
+      @include pull(-1);
+    }
+
+    .label.owners, li.add {
+      $image-height: 65px;
+      $image-padding: 5px*2;
+      $height: 21px;
+      height: $height;
+      $padding: ($image-height + $image-padding - $height)/2;
+      padding: {top: $padding; bottom: $padding};
+    }
+
+    .delete {
+      @include column(3);
+
+      input[type="submit"] {
+        width: 100%;
+        margin-top: 20px;
+      }
+    }
+
+    ul {
+      margin: 0;
+      li {
+        padding: 5px 0;
+        @include column(2);
+        &.add {
+          @include column(3);
+        }
+      }
+    }
+  }
+
+  .commentary {
+    @include column($blueprint-grid-columns - 6);
+    @include prepend(3);
+
+    margin-top: 20px;
+    font-size: 130%;
+  }
+}

@@ -1,0 +1,115 @@
+name:            scion
+version:         0.3
+license:         BSD3
+license-file:    LICENSE
+author:          Thomas Schilling <nominolo@googlemail.com>
+maintainer:      Thomas Schilling <nominolo@googlemail.com>
+homepage:        http://github.com/nominolo/scion
+synopsis:        Haskell IDE library
+description:
+  Scion is a Haskell library that aims to implement those parts of a
+  Haskell IDE which are independent of a particular front-end.  Scion
+  is based on the GHC API and Cabal.  It provides both a Haskell API and
+  a server for non-Haskell clients such as Emacs and Vim.
+  .
+  See the homepage <http://code.google.com/p/scion-lib> and the README
+  <http://github.com/nominolo/scion/blob/master/README.markdown> for
+  more information.
+
+category:        Development
+stability:       provisional
+build-type:      Simple
+cabal-version:   >= 1.10
+extra-source-files: README.markdown
+--data-files:
+--  emacs/*.el
+--  vim_runtime_path/autoload/*.vim
+--  vim_runtime_path/ftplugin/*.vim
+--  vim_runtime_path/plugin/*.vim
+
+--flag testing
+--  description: Enable Debugging things like QuickCheck properties, etc.
+--  default: False
+
+flag server
+  description: Build the Scion server.
+  default: True
+
+library
+  default-language: Haskell2010
+  build-depends:
+    base         >= 4.2 && < 4.6,
+    Cabal        >= 1.8 && < 1.15,
+    containers   >= 0.3 && < 0.5,
+    directory    >= 1.0 && < 1.2,
+    filepath     >= 1.1 && < 1.4,
+    ghc          >= 6.12 && < 7.5,
+    ghc-paths    == 0.1.*,
+    multiset     >= 0.1 && < 0.3,
+    time         >= 1.1 && < 1.5,
+    text         >= 0.11 && < 0.12,
+    process      >= 1.0 && < 1.2,
+    unix-compat  >= 0.2 && < 0.4,
+    bytestring   >= 0.9 && < 0.10,
+    binary       >= 0.5 && < 0.6,
+    old-locale   >= 1.0 && < 1.1,
+    network      >= 2.3 && < 2.4,
+    temporary    == 1.1.*,
+    canonical-filepath == 1.0.*
+
+  hs-source-dirs:  src
+  default-extensions: CPP, PatternGuards
+  exposed-modules:
+    Scion.Cabal,
+    Scion.Ghc,
+    Scion.Session,
+    Scion.Types.Compiler,
+    Scion.Types.Commands,
+    Scion.Types.Core,
+    Scion.Types.Monad,
+    Scion.Types.Note,
+    Scion.Types.Session,
+    Scion.Types.Worker,
+    Scion.Utils.Convert,
+    Scion.Utils.IO,
+    Scion.Worker.Commands,
+    Scion.Worker.Main
+  other-modules:
+    Paths_scion
+
+  cpp-options:   -DHAVE_PACKAGE_DB_MODULES
+
+  -- TODO: drop after 6.10.2 is out
+  if impl(ghc >= 6.11.20081113) || impl(ghc >= 6.10.2 && < 6.11)
+    cpp-options:   -DRECOMPILE_BUG_FIXED
+
+  if impl(ghc == 6.10.*)
+    cpp-options:   -DWPINLINE
+
+  ghc-options:  -Wall
+
+executable scion-worker
+  main-is: Worker.hs
+  hs-source-dirs: src-execs
+  default-language: Haskell2010
+  build-depends:
+    scion,
+    base         >= 4.2 && < 4.6
+
+executable scion-server
+  if !flag(server)
+    buildable: False
+  main-is: Server.hs
+  hs-source-dirs: src-execs
+  default-language: Haskell2010
+  build-depends:
+    scion,
+    atto-lisp    >= 0.2     && < 0.3,
+    attoparsec   >= 0.8.5.1 && < 0.11,
+    base         >= 4.2     && < 4.6,
+    bytestring   >= 0.9     && < 0.10,
+    multiset     >= 0.1     && < 0.3,
+    network      >= 2.3     && < 2.4,
+    text         >= 0.11    && < 0.12,
+    canonical-filepath == 1.0.*
+  ghc-options: -fcontext-stack=30

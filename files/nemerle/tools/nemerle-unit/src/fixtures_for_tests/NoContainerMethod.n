@@ -1,0 +1,13 @@
+using NemerleUnit
+
+setup
+    def a = 0
+
+test "failing test that doesn't use variables from setup"
+    assert false
+
+test "passing test"
+    assert a equals 0
+
+test "failing test"
+    assert a equals 1

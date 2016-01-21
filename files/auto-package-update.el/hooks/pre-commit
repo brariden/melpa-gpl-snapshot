@@ -1,0 +1,5 @@
+#!/bin/bash
+echo 'Generating README.md ...'
+make README.md
+git add README.md
+echo 'Done'

@@ -1,0 +1,4 @@
+*.elc
+screenshots
+alect-test.el
+temp

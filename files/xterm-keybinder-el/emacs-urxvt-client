@@ -1,0 +1,337 @@
+#!/bin/sh
+
+# How to use this file?
+# 1. Start urxvt daemon:
+#
+#    $ urxvtd -q -o -f
+#
+# 2. Start Emacs or Emacsclinet like this:
+#
+#    #!/bin/sh
+#    emacs_urxvt_client=/path/to/this/file/emacs-urxvt-client
+#    ${emacs-urxvt-client} -e emacscliet -t &
+#
+#  To avoid urxvt's keybind like M-s, you can insert following
+#  configuration before -e option:
+#     --xrm 'URxvt*perl-ext:' --xrm 'URxvt*perl-ext-common:'
+#  or you can add above configuration in your .Xresources file.
+#  (without that --xrm option and quotes)
+#
+# Emacs' configuration:
+#
+# (require 'cl-lib)
+# (add-hook
+#  'tty-setup-hook
+#  '(lambda ()
+#     (cl-case (assoc-default 'terminal-initted (terminal-parameters))
+#       (terminal-init-rxvt
+#        (when (getenv "COLORTERM" (selected-frame))
+#          (urxvt-keybinder-setup))))))
+#
+# Note:
+# As default setting, I set mod3 as hyper and mod4 as super.
+# If you are using different number, please modify this config file or
+# make your own (you can see your modifier's numbers by xmodmap -pm).
+# To make new config, you can use `M-x urxvt-keybinder-insert`.
+urxvtc \
+-keysym.Mod3-S-0x20 'string:[====== ' \
+-keysym.Mod4-S-0x20 'string:[===== ' \
+-keysym.Mod3-S-0x21 'string:[======!' \
+-keysym.Mod4-S-0x21 'string:[=====!' \
+-keysym.C-S-0x21 'string:[=!' \
+-keysym.Mod3-S-0x22 'string:[======"' \
+-keysym.Mod4-S-0x22 'string:[====="' \
+-keysym.C-S-0x22 'string:[="' \
+-keysym.Mod3-S-0x23 'string:[======#' \
+-keysym.Mod4-S-0x23 'string:[=====#' \
+-keysym.C-S-0x23 'string:[=#' \
+-keysym.Mod3-S-0x24 'string:[======$' \
+-keysym.Mod4-S-0x24 'string:[=====$' \
+-keysym.C-S-0x24 'string:[=$' \
+-keysym.Mod3-S-0x25 'string:[======%' \
+-keysym.Mod4-S-0x25 'string:[=====%' \
+-keysym.C-S-0x25 'string:[=%' \
+-keysym.Mod3-S-0x26 'string:[======&' \
+-keysym.Mod4-S-0x26 'string:[=====&' \
+-keysym.C-S-0x26 'string:[=&' \
+-keysym.Mod3-0x27 "string:@h'" \
+-keysym.Mod4-0x27 "string:@s'" \
+-keysym.C-0x27 "string:@c'" \
+-keysym.Mod3-S-0x28 'string:[======(' \
+-keysym.Mod4-S-0x28 'string:[=====(' \
+-keysym.C-S-0x28 'string:[=(' \
+-keysym.Mod3-S-0x29 'string:[======)' \
+-keysym.Mod4-S-0x29 'string:[=====)' \
+-keysym.C-S-0x29 'string:[=)' \
+-keysym.Mod3-S-0x2a 'string:[======*' \
+-keysym.Mod4-S-0x2a 'string:[=====*' \
+-keysym.C-S-0x2a 'string:[=*' \
+-keysym.Mod3-S-0x2b 'string:[======+' \
+-keysym.Mod4-S-0x2b 'string:[=====+' \
+-keysym.C-S-0x2b 'string:[=+' \
+-keysym.Mod3-0x2c 'string:@h,' \
+-keysym.Mod4-0x2c 'string:@s,' \
+-keysym.C-0x2c 'string:@c,' \
+-keysym.Mod3-0x2d 'string:@h-' \
+-keysym.Mod4-0x2d 'string:@s-' \
+-keysym.C-0x2d 'string:@c-' \
+-keysym.Mod3-0x2e 'string:@h.' \
+-keysym.Mod4-0x2e 'string:@s.' \
+-keysym.C-0x2e 'string:@c.' \
+-keysym.Mod3-0x2f 'string:@h/' \
+-keysym.Mod4-0x2f 'string:@s/' \
+-keysym.Mod3-0x30 'string:@h0' \
+-keysym.Mod4-0x30 'string:@s0' \
+-keysym.C-0x30 'string:@c0' \
+-keysym.Mod3-0x31 'string:@h1' \
+-keysym.Mod4-0x31 'string:@s1' \
+-keysym.C-0x31 'string:@c1' \
+-keysym.Mod3-0x32 'string:@h2' \
+-keysym.Mod4-0x32 'string:@s2' \
+-keysym.C-0x32 'string:@c2' \
+-keysym.Mod3-0x33 'string:@h3' \
+-keysym.Mod4-0x33 'string:@s3' \
+-keysym.C-0x33 'string:@c3' \
+-keysym.Mod3-0x34 'string:@h4' \
+-keysym.Mod4-0x34 'string:@s4' \
+-keysym.C-0x34 'string:@c4' \
+-keysym.Mod3-0x35 'string:@h5' \
+-keysym.Mod4-0x35 'string:@s5' \
+-keysym.C-0x35 'string:@c5' \
+-keysym.Mod3-0x36 'string:@h6' \
+-keysym.Mod4-0x36 'string:@s6' \
+-keysym.C-0x36 'string:@c6' \
+-keysym.Mod3-0x37 'string:@h7' \
+-keysym.Mod4-0x37 'string:@s7' \
+-keysym.C-0x37 'string:@c7' \
+-keysym.Mod3-0x38 'string:@h8' \
+-keysym.Mod4-0x38 'string:@s8' \
+-keysym.C-0x38 'string:@c8' \
+-keysym.Mod3-0x39 'string:@h9' \
+-keysym.Mod4-0x39 'string:@s9' \
+-keysym.C-0x39 'string:@c9' \
+-keysym.Mod3-S-0x3a 'string:[======:' \
+-keysym.Mod4-S-0x3a 'string:[=====:' \
+-keysym.Mod3-0x3b 'string:@h;' \
+-keysym.Mod4-0x3b 'string:@s;' \
+-keysym.C-0x3b 'string:@c;' \
+-keysym.Mod3-S-0x3c 'string:[======<' \
+-keysym.Mod4-S-0x3c 'string:[=====<' \
+-keysym.Mod3-0x3d 'string:@h=' \
+-keysym.Mod4-0x3d 'string:@s=' \
+-keysym.C-S-0x3d 'string:[==' \
+-keysym.Mod3-S-0x3e 'string:[======>' \
+-keysym.Mod4-S-0x3e 'string:[=====>' \
+-keysym.Mod3-S-0x3f 'string:[======?' \
+-keysym.Mod4-S-0x3f 'string:[=====?' \
+-keysym.Mod3-S-0x40 'string:[======@' \
+-keysym.Mod4-S-0x40 'string:[=====@' \
+-keysym.Mod3-S-0x41 'string:[======A' \
+-keysym.Mod4-S-0x41 'string:[=====A' \
+-keysym.C-S-0x41 'string:[=A' \
+-keysym.M-S-0x41 'string:[===A' \
+-keysym.C-M-S-0x41 'string:[==A' \
+-keysym.Mod3-S-0x42 'string:[======B' \
+-keysym.Mod4-S-0x42 'string:[=====B' \
+-keysym.C-S-0x42 'string:[=B' \
+-keysym.M-S-0x42 'string:[===B' \
+-keysym.C-M-S-0x42 'string:[==B' \
+-keysym.Mod3-S-0x43 'string:[======C' \
+-keysym.Mod4-S-0x43 'string:[=====C' \
+-keysym.C-S-0x43 'string:[=C' \
+-keysym.M-S-0x43 'string:[===C' \
+-keysym.C-M-S-0x43 'string:[==C' \
+-keysym.Mod3-S-0x44 'string:[======D' \
+-keysym.Mod4-S-0x44 'string:[=====D' \
+-keysym.C-S-0x44 'string:[=D' \
+-keysym.M-S-0x44 'string:[===D' \
+-keysym.C-M-S-0x44 'string:[==D' \
+-keysym.Mod3-S-0x45 'string:[======E' \
+-keysym.Mod4-S-0x45 'string:[=====E' \
+-keysym.C-S-0x45 'string:[=E' \
+-keysym.M-S-0x45 'string:[===E' \
+-keysym.C-M-S-0x45 'string:[==E' \
+-keysym.Mod3-S-0x46 'string:[======F' \
+-keysym.Mod4-S-0x46 'string:[=====F' \
+-keysym.C-S-0x46 'string:[=F' \
+-keysym.M-S-0x46 'string:[===F' \
+-keysym.C-M-S-0x46 'string:[==F' \
+-keysym.Mod3-S-0x47 'string:[======G' \
+-keysym.Mod4-S-0x47 'string:[=====G' \
+-keysym.C-S-0x47 'string:[=G' \
+-keysym.M-S-0x47 'string:[===G' \
+-keysym.C-M-S-0x47 'string:[==G' \
+-keysym.Mod3-S-0x48 'string:[======H' \
+-keysym.Mod4-S-0x48 'string:[=====H' \
+-keysym.C-S-0x48 'string:[=H' \
+-keysym.M-S-0x48 'string:[===H' \
+-keysym.C-M-S-0x48 'string:[==H' \
+-keysym.Mod3-S-0x49 'string:[======I' \
+-keysym.Mod4-S-0x49 'string:[=====I' \
+-keysym.C-S-0x49 'string:[=I' \
+-keysym.M-S-0x49 'string:[===I' \
+-keysym.C-M-S-0x49 'string:[==I' \
+-keysym.Mod3-S-0x4a 'string:[======J' \
+-keysym.Mod4-S-0x4a 'string:[=====J' \
+-keysym.C-S-0x4a 'string:[=J' \
+-keysym.M-S-0x4a 'string:[===J' \
+-keysym.C-M-S-0x4a 'string:[==J' \
+-keysym.Mod3-S-0x4b 'string:[======K' \
+-keysym.Mod4-S-0x4b 'string:[=====K' \
+-keysym.C-S-0x4b 'string:[=K' \
+-keysym.M-S-0x4b 'string:[===K' \
+-keysym.C-M-S-0x4b 'string:[==K' \
+-keysym.Mod3-S-0x4c 'string:[======L' \
+-keysym.Mod4-S-0x4c 'string:[=====L' \
+-keysym.C-S-0x4c 'string:[=L' \
+-keysym.M-S-0x4c 'string:[===L' \
+-keysym.C-M-S-0x4c 'string:[==L' \
+-keysym.Mod3-S-0x4d 'string:[======M' \
+-keysym.Mod4-S-0x4d 'string:[=====M' \
+-keysym.C-S-0x4d 'string:[=M' \
+-keysym.M-S-0x4d 'string:[===M' \
+-keysym.C-M-S-0x4d 'string:[==M' \
+-keysym.Mod3-S-0x4e 'string:[======N' \
+-keysym.Mod4-S-0x4e 'string:[=====N' \
+-keysym.C-S-0x4e 'string:[=N' \
+-keysym.M-S-0x4e 'string:[===N' \
+-keysym.C-M-S-0x4e 'string:[==N' \
+-keysym.Mod3-S-0x4f 'string:[======O' \
+-keysym.Mod4-S-0x4f 'string:[=====O' \
+-keysym.C-S-0x4f 'string:[=O' \
+-keysym.M-S-0x4f 'string:[===O' \
+-keysym.C-M-S-0x4f 'string:[==O' \
+-keysym.Mod3-S-0x50 'string:[======P' \
+-keysym.Mod4-S-0x50 'string:[=====P' \
+-keysym.C-S-0x50 'string:[=P' \
+-keysym.M-S-0x50 'string:[===P' \
+-keysym.C-M-S-0x50 'string:[==P' \
+-keysym.Mod3-S-0x51 'string:[======Q' \
+-keysym.Mod4-S-0x51 'string:[=====Q' \
+-keysym.C-S-0x51 'string:[=Q' \
+-keysym.M-S-0x51 'string:[===Q' \
+-keysym.C-M-S-0x51 'string:[==Q' \
+-keysym.Mod3-S-0x52 'string:[======R' \
+-keysym.Mod4-S-0x52 'string:[=====R' \
+-keysym.C-S-0x52 'string:[=R' \
+-keysym.M-S-0x52 'string:[===R' \
+-keysym.C-M-S-0x52 'string:[==R' \
+-keysym.Mod3-S-0x53 'string:[======S' \
+-keysym.Mod4-S-0x53 'string:[=====S' \
+-keysym.C-S-0x53 'string:[=S' \
+-keysym.M-S-0x53 'string:[===S' \
+-keysym.C-M-S-0x53 'string:[==S' \
+-keysym.Mod3-S-0x54 'string:[======T' \
+-keysym.Mod4-S-0x54 'string:[=====T' \
+-keysym.C-S-0x54 'string:[=T' \
+-keysym.M-S-0x54 'string:[===T' \
+-keysym.C-M-S-0x54 'string:[==T' \
+-keysym.Mod3-S-0x55 'string:[======U' \
+-keysym.Mod4-S-0x55 'string:[=====U' \
+-keysym.C-S-0x55 'string:[=U' \
+-keysym.M-S-0x55 'string:[===U' \
+-keysym.C-M-S-0x55 'string:[==U' \
+-keysym.Mod3-S-0x56 'string:[======V' \
+-keysym.Mod4-S-0x56 'string:[=====V' \
+-keysym.C-S-0x56 'string:[=V' \
+-keysym.M-S-0x56 'string:[===V' \
+-keysym.C-M-S-0x56 'string:[==V' \
+-keysym.Mod3-S-0x57 'string:[======W' \
+-keysym.Mod4-S-0x57 'string:[=====W' \
+-keysym.C-S-0x57 'string:[=W' \
+-keysym.M-S-0x57 'string:[===W' \
+-keysym.C-M-S-0x57 'string:[==W' \
+-keysym.Mod3-S-0x58 'string:[======X' \
+-keysym.Mod4-S-0x58 'string:[=====X' \
+-keysym.C-S-0x58 'string:[=X' \
+-keysym.M-S-0x58 'string:[===X' \
+-keysym.C-M-S-0x58 'string:[==X' \
+-keysym.Mod3-S-0x59 'string:[======Y' \
+-keysym.Mod4-S-0x59 'string:[=====Y' \
+-keysym.C-S-0x59 'string:[=Y' \
+-keysym.M-S-0x59 'string:[===Y' \
+-keysym.C-M-S-0x59 'string:[==Y' \
+-keysym.Mod3-S-0x5a 'string:[======Z' \
+-keysym.Mod4-S-0x5a 'string:[=====Z' \
+-keysym.C-S-0x5a 'string:[=Z' \
+-keysym.M-S-0x5a 'string:[===Z' \
+-keysym.C-M-S-0x5a 'string:[==Z' \
+-keysym.Mod3-0x5b 'string:@h[' \
+-keysym.Mod4-0x5b 'string:@s[' \
+-keysym.Mod3-0x5c 'string:@h\' \
+-keysym.Mod4-0x5c 'string:@s\' \
+-keysym.Mod3-0x5d 'string:@h]' \
+-keysym.Mod4-0x5d 'string:@s]' \
+-keysym.Mod3-S-0x5e 'string:[======^' \
+-keysym.Mod4-S-0x5e 'string:[=====^' \
+-keysym.Mod3-S-0x5f 'string:[======_' \
+-keysym.Mod4-S-0x5f 'string:[=====_' \
+-keysym.Mod3-0x60 'string:@h`' \
+-keysym.Mod4-0x60 'string:@s`' \
+-keysym.Mod3-0x61 'string:@ha' \
+-keysym.Mod4-0x61 'string:@sa' \
+-keysym.Mod3-0x62 'string:@hb' \
+-keysym.Mod4-0x62 'string:@sb' \
+-keysym.Mod3-0x63 'string:@hc' \
+-keysym.Mod4-0x63 'string:@sc' \
+-keysym.Mod3-0x64 'string:@hd' \
+-keysym.Mod4-0x64 'string:@sd' \
+-keysym.Mod3-0x65 'string:@he' \
+-keysym.Mod4-0x65 'string:@se' \
+-keysym.Mod3-0x66 'string:@hf' \
+-keysym.Mod4-0x66 'string:@sf' \
+-keysym.Mod3-0x67 'string:@hg' \
+-keysym.Mod4-0x67 'string:@sg' \
+-keysym.Mod3-0x68 'string:@hh' \
+-keysym.Mod4-0x68 'string:@sh' \
+-keysym.Mod3-0x69 'string:@hi' \
+-keysym.Mod4-0x69 'string:@si' \
+-keysym.Mod3-0x6a 'string:@hj' \
+-keysym.Mod4-0x6a 'string:@sj' \
+-keysym.Mod3-0x6b 'string:@hk' \
+-keysym.Mod4-0x6b 'string:@sk' \
+-keysym.Mod3-0x6c 'string:@hl' \
+-keysym.Mod4-0x6c 'string:@sl' \
+-keysym.Mod3-0x6d 'string:@hm' \
+-keysym.Mod4-0x6d 'string:@sm' \
+-keysym.Mod3-0x6e 'string:@hn' \
+-keysym.Mod4-0x6e 'string:@sn' \
+-keysym.Mod3-0x6f 'string:@ho' \
+-keysym.Mod4-0x6f 'string:@so' \
+-keysym.Mod3-0x70 'string:@hp' \
+-keysym.Mod4-0x70 'string:@sp' \
+-keysym.Mod3-0x71 'string:@hq' \
+-keysym.Mod4-0x71 'string:@sq' \
+-keysym.Mod3-0x72 'string:@hr' \
+-keysym.Mod4-0x72 'string:@sr' \
+-keysym.Mod3-0x73 'string:@hs' \
+-keysym.Mod4-0x73 'string:@ss' \
+-keysym.Mod3-0x74 'string:@ht' \
+-keysym.Mod4-0x74 'string:@st' \
+-keysym.Mod3-0x75 'string:@hu' \
+-keysym.Mod4-0x75 'string:@su' \
+-keysym.Mod3-0x76 'string:@hv' \
+-keysym.Mod4-0x76 'string:@sv' \
+-keysym.Mod3-0x77 'string:@hw' \
+-keysym.Mod4-0x77 'string:@sw' \
+-keysym.Mod3-0x78 'string:@hx' \
+-keysym.Mod4-0x78 'string:@sx' \
+-keysym.Mod3-0x79 'string:@hy' \
+-keysym.Mod4-0x79 'string:@sy' \
+-keysym.Mod3-0x7a 'string:@hz' \
+-keysym.Mod4-0x7a 'string:@sz' \
+-keysym.Mod3-S-0x7b 'string:[======{' \
+-keysym.Mod4-S-0x7b 'string:[====={' \
+-keysym.Mod3-S-0x7c 'string:[======|' \
+-keysym.Mod4-S-0x7c 'string:[=====|' \
+-keysym.Mod3-S-0x7d 'string:[======}' \
+-keysym.Mod4-S-0x7d 'string:[=====}' \
+-keysym.Mod3-S-0x7e 'string:[======~' \
+-keysym.Mod4-S-0x7e 'string:[=====~' \
+-keysym.C-M-0x67 'string:[====g' \
+-keysym.C-M-0x20 'string:[==== ' \
+-keysym.Shift-0x20 'string:@S ' \
+-keysym.C-M-Return "[====" \
+-keysym.C-Return 'string:@c' \
+-keysym.Shift-Return 'string:@S' \
+$@

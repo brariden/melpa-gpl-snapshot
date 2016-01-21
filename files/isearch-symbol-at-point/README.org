@@ -1,0 +1,15 @@
+* Commentary
+
+Taken / adapted from stuff in http://www.emacswiki.org/emacs/SearchAtPoint
+
+* Installation
+
+Install package from http://melpa.milkbox.net/#installing
+: M-x package-install RET isearch-symbol-at-point
+
+* Usage
+: (require 'isearch-symbol-at-point)
+
+use interactive functions isearch-symbol-at-point and
+isearch-backward-symbol-at-point to quickly start searching forward or
+backward for the symbol at point, similar to vims ‘*’ and ‘#’ keys

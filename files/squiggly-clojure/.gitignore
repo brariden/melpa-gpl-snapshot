@@ -1,0 +1,10 @@
+# Compiled
+*.elc
+.lein*
+.nrepl*
+target/*
+
+# Packaging
+.cask
+
+/pom.xml

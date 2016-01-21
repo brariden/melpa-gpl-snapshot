@@ -1,0 +1,5 @@
+#+TITLE:ggo-mode
+An Emacs major mode for editing [[http://www.gnu.org/software/gengetopt/][gengetopt]] files.
+
+This was written a long time ago, and is not necessarily up-to-date
+with all of the latest features.  Suggestions are welcome.

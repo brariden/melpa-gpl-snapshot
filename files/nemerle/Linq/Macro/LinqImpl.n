@@ -1,0 +1,269 @@
+﻿using System;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Text;
+using System.Reflection;
+
+using Nemerle.Collections;
+using Nemerle.Imperative;
+using Nemerle.IO;
+using Nemerle.Builtins.Function;
+using Nemerle.Utility;
+
+using Nemerle.Compiler;
+using Nemerle.Compiler.Parsetree;
+//using Nemerle.Compiler.Typedtree;
+
+using Nemerle.Assertions;
+
+using TT = Nemerle.Compiler.Typedtree;
+using TExpr = Nemerle.Compiler.Typedtree.TExpr;
+using SCG = System.Collections.Generic;
+using Debug = System.Diagnostics.Debug;
+
+namespace Nemerle.Linq
+{
+  /// <summary>
+  /// Description of LinqSyntax.
+  /// </summary>
+  module LinqSyntax
+  {
+    internal LinqImpl(typer : Typer, expr : PExpr) : PExpr
+    {
+      match (expr)
+      {
+        | PExpr.Literal(Literal.String(_) as lit) => 
+          ParseAndTranformLinqQuery(typer, expr.Location, lit.RawString)
+          
+        | PExpr.Call(PExpr.Member(PExpr.Literal(Literal.String(_) as lit) as litExpr, member) as obj, parms) => 
+          // this section add support of "linq <# from ... #>.Sum()" syntax
+          PExpr.Call(expr.Location, PExpr.Member(obj.Location, 
+            ParseAndTranformLinqQuery(typer, litExpr.Location, lit.RawString), member), parms)
+          
+        | _ => 
+          Message.Error(expr.Location, 
+            "The 'linq' macro expect string literal with query code (try enclose query in round brackets)");
+          <[ () ]>
+      }
+    }
+    
+    internal ParseAndTranformLinqQuery(typer : Typer, loc : Location, queryStrLiteral : string) : PExpr
+    {
+      unless (queryStrLiteral.StartsWith("<#"))
+      {
+        Message.Error(loc, "The 'linq' macro hould use recursive strinq (<#...#>)");
+        return <[ () ]>;
+      }
+      
+      Macros.DefineCTX(typer);
+      
+      def query = queryStrLiteral.Substring(2, queryStrLiteral.Length - 4);
+
+      def (complMarkLine, complMarkChar) = 
+        if (typer.Manager.IsCompletionInProgress)
+          (typer.Manager.CompletionMarkLine, typer.Manager.CompletionMarkChar)
+        else (-1, -1);
+
+      def lexer = LexerLinq(typer, query, 
+        Location(loc, loc.Line, loc.Column + 2, loc.EndLine, loc.EndColumn),
+        complMarkLine, complMarkChar);
+      
+      def expectKeyword(keywordName : string) : void
+      {
+        def tok = lexer.GetAnyToken();
+        
+        match (tok)
+        {
+          | Token.Operator(x) when x == keywordName => () //It's OK!
+          | Token.Keyword(x)  when x == keywordName => () //It's OK!
+          | _ => 
+            Message.Error(tok.Location, $"expected keyword $keywordName but found '$tok'");
+            throw ParseErrorException();
+        }
+      }
+      def tryExpectKeyword(keywordName : string) : bool
+      {
+        def tok = lexer.GetAnyToken();
+        
+        match (tok)
+        {
+          | Token.Operator(x) when x == keywordName
+          | Token.Keyword(x)  when x == keywordName => true //It's OK!
+          | _ => 
+            Message.Error(tok.Location, $"expected keyword $keywordName but found '$tok'");
+            false
+        }
+      }
+      def tryParseKeyword[T](keyword : string, sucsessContinuation : void -> T, failValue : T) : T
+      {
+        match (lexer.Peek())
+        {
+          | Token.Keyword(kwd) when kwd == keyword => 
+            _ = lexer.GetAnyToken();
+            sucsessContinuation()
+          
+          | _ => failValue
+        }
+      }
+      def tryPeekAnyToken(tokenName : string) : bool
+      {
+        def tok = lexer.GetAnyToken();
+        lexer.PushBack(tok);
+        
+        match (tok)
+        {
+          | Token.Comma with x = ","
+          | Token.Operator(x) 
+          | Token.Keyword(x)  
+          | Token.Identifier(x) => x == tokenName
+          | _ => false
+        }
+      }
+      def parseIdentifier() : Name
+      {
+        def tok = lexer.GetAnyToken();
+        
+        match (tok)
+        {
+          | Token.Identifier(name) as tok => Name(name, tok.Location) //It's OK!
+          | _ => 
+            Message.Error(tok.Location, $"expected identifier but found '$tok'");
+            throw ParseErrorException();
+        }
+      }
+      def parseExpr() : PExpr
+      {
+        def expr = MainParser.ParseExpr(lexer.Env, lexer, false);
+        expr
+      }
+      def parseFromClause(first) : QueryClause.From
+      {
+        expectKeyword("from");
+        def paramName = parseIdentifier();
+        expectKeyword("in");
+        def expr = parseExpr();
+        QueryClause.From(first + expr.Location, paramName, expr)
+      }
+      def parseSelectClause(first) : QueryClause.Select
+      {
+        expectKeyword("select");
+        def expr = parseExpr();
+        QueryClause.Select(first + expr.Location, expr)
+      }
+      def parseLetClause(first) : QueryClause.Let
+      {
+        expectKeyword("let");
+        def paramName = parseIdentifier();
+        expectKeyword("=");
+        def expr = parseExpr();
+        QueryClause.Let(first + expr.Location, paramName, expr)
+      }
+      def parseWhereClause(first) : QueryClause.Where
+      {
+        expectKeyword("where");
+        def expr = parseExpr();
+        QueryClause.Where(first + expr.Location, expr)
+      }
+      def parseJoinClause(first) : QueryClause.Join
+      {
+        expectKeyword("join");
+        def ident = parseIdentifier();
+        expectKeyword("in");
+        def inExpr = parseExpr();
+        def (loc, key1Expr, key2Expr, into) = if (tryExpectKeyword("on"))
+        {
+          def keyExprs = parseExpr();
+          def (key1Expr, key2Expr) = match (keyExprs)
+          {
+            | <[ $key1Expr == $key2Expr ]> => (key1Expr, key2Expr)
+            | _ =>
+              Message.Error(keyExprs.Location, "expected key1 == key2 expression");
+              (keyExprs, <[ () ]>)
+              //throw ParseErrorException();
+          }
+          def into = tryParseKeyword("into", () => Some(parseIdentifier()), None());
+          def last = match (into) { | Some(x) => x.Location | _ => key2Expr.Location };
+          (first + last, key1Expr, key2Expr, into)
+        }
+        else (first + inExpr.Location, <[ () ]>, <[ () ]>, None());
+
+        QueryClause.Join(loc, ident, inExpr, key1Expr, key2Expr, into)
+      }
+      def parseOrderClause(first) : QueryClause.Orderby
+      {
+        def parseOrderings() : list[PExpr * bool]
+        {
+          def expr = parseExpr();
+          def ascending1 =                 tryParseKeyword("desc",       () => false, true);
+          def ascending2 = if (ascending1) tryParseKeyword("descending", () => false, true) // C# syntax
+                           else false;
+          def ascending3 = if (ascending2) tryParseKeyword("ascending",  () => true,  true) // C# syntax
+                           else false;
+          
+          if (tryPeekAnyToken(","))
+          {
+            _ = lexer.GetAnyToken();
+            (expr, ascending3) :: parseOrderings()
+          }
+          else (expr, ascending3) :: []
+        }
+        unless (tryParseKeyword("order", () => { expectKeyword("by"); true }, false))
+          expectKeyword("orderby");
+        def orderings = parseOrderings();
+        def last = if (orderings.IsEmpty) lexer.Location else orderings.Last[0].Location;
+        QueryClause.Orderby(first + last, orderings)
+      }
+      def parseGroupClause(first) : QueryClause.Group
+      {
+        expectKeyword("group");
+        def expr = parseExpr();
+        expectKeyword("by");
+        def byExpr = parseExpr();
+        QueryClause.Group(first + byExpr.Location, expr, byExpr)
+      }
+      def parseQueryBody() : list[QueryClause]
+      {
+        def tok = lexer.Peek();
+        def first = tok.Location;
+        def clause = match (tok)
+          {
+            | Token.Keyword("from")   => parseFromClause(first)
+            | Token.Keyword("select") => parseSelectClause(first)
+            | Token.Keyword("let")    => parseLetClause(first)
+            | Token.Keyword("where")  => parseWhereClause(first)
+            | Token.Keyword("join")   => parseJoinClause(first)
+            | Token.Keyword("orderby")
+            | Token.Keyword("order")  => parseOrderClause(first)
+            | Token.Keyword("group")  => parseGroupClause(first)
+            | Token.Keyword("into")   => parseIntoClause(first)
+            | Token.EndOfFile => null
+            | _ => null 
+              //TODO: Add error report
+          };
+          
+        def res = if (clause == null) []
+                  else clause :: parseQueryBody();
+        res
+      }
+      and parseIntoClause(first) : QueryClause.Into
+      {
+        expectKeyword("into");
+        def ident = parseIdentifier();
+        QueryClause.Into(first + ident.Location, ident)
+      }
+      def parseQuery() : list[QueryClause]
+      {
+        def from = parseFromClause(lexer.Location);
+        def queryBody = parseQueryBody();
+        def query = from :: queryBody;
+        query
+      }
+      
+      typer.Env.Manager.MacroColors.PushUseSiteColor();
+      try { QueryClause.ConvertQuery(parseQuery()) }
+      catch { | _ => <[ () ]> }
+      finally { typer.Env.Manager.MacroColors.PopColor(); }
+    }
+  
+  }
+}

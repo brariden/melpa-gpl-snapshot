@@ -1,0 +1,50 @@
+Revision history for helm-open-github.el
+
+Revision 0.14 2015/10/10 syohex
+   - Fix too many candidates issue(#12 Thanks thierryvolpiatto)
+   - Update minimum helm version
+   - Fix buffer name by helm way(#15 Thanks xuchunyang)
+
+Revision 0.13 2015/03/03 syohex
+   - Fix wrong 'gh' version #9(Reported by nlamirault)
+
+Revision 0.12 2015/01/17 syohex
+   - Improve issue command(Thanks thierryvolpiatto)
+     We can see all issues now.
+
+Revision 0.11 2014/07/02 syohex
+   - Re-factoring
+
+Revision 0.10 2014/07/02 syohex
+   - Re-factoring
+
+Revision 0.09 2014/06/21 syohex
+   - Fix for cl-lib
+   - Use Cask now
+
+Revision 0.08 2014/03/08 syohex
+   - Enable lexical binding
+   - switch cl-lib
+
+Revision 0.07 2013/11/14 syohex
+   - Fix missing requirements(Thanks tdksk)
+
+Revision 0.06 2013/11/14 syohex
+   - Implement pull request interface
+
+Revision 0.05 2013/10/26 syohex
+   - Fix repository regexp
+   - Support multiple candidates
+
+Revision 0.04 2013/05/01 syohex
+   - Implement persistent action to helm-open-github-from-commit
+
+Revision 0.03 2013/04/30 syohex
+   - Fix name attribute of helm-open-github--from-file-source
+     (Thanks shibayu36)
+
+Revision 0.02 2013/04/30 syohex
+   - Implement show commit detail
+
+Revision 0.01 2013/04/27 syohex
+   - Initial release

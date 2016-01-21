@@ -1,0 +1,79 @@
+* Helm Github Stars
+
+[[http://travis-ci.org/Sliim/helm-github-stars][http://secure.travis-ci.org/Sliim/helm-github-stars.png?branch=master]]
+[[http://melpa.org/#/helm-github-stars][file:http://melpa.org/packages/helm-github-stars-badge.svg]]
+[[http://stable.melpa.org/#/helm-github-stars][file:http://stable.melpa.org/packages/helm-github-stars-badge.svg]]
+
+~helm-github-stars~ provides capabilities to fetch your starred repositories from github and select one for browsing.
+
+** Requirements
+  - Emacs >= 24.4
+  - [[http://melpa.org/#/helm][Helm]] >= 1.6.8
+
+** Installation
+*** MELPA
+~helm-github-stars~ is available on [[http://melpa.milkbox.net/][Melpa]]:
+#+BEGIN_SRC
+M-x package-install helm-github-stars
+#+END_SRC
+
+*** Manual
+Drop ~helm-github-stars.el~ in your ~load-path~:
+#+BEGIN_SRC elisp
+(add-to-list 'load-path "/path/to/helm-github-stars")
+(require 'helm-github-stars)
+#+END_SRC
+
+** Usage
+To show your starred repositories:
+#+BEGIN_SRC
+M-x helm-github-stars
+#+END_SRC
+
+*** Setup your username
+#+BEGIN_SRC elisp
+(setq helm-github-stars-username "USERNAME")
+#+END_SRC
+
+*** Cache
+At the first execution of ~helm-github-stars~, list of repositories is
+fetched from github and saved into a cache file.
+
+To refresh cache and open helm interface run:
+#+BEGIN_SRC
+M-x helm-github-stars-fetch
+#+END_SRC
+
+The default cache location is ~$HOME/.emacs.d/hgs-cache~, you can customize this path:
+#+BEGIN_SRC elisp
+(setq helm-github-stars-cache-file "/cache/path")
+#+END_SRC
+
+*** Update the cache file automatically
+Besides runing ~helm-github-stars-fetch~ to update the cache file manually, you
+can also do it automatically while runing ~helm-github-stars~ by customizing
+~helm-github-stars-refetch-time~, for example, refresh the cache file once it is
+older than 0.5 days (i.e., 12 hours):
+#+BEGIN_SRC elisp
+(setq helm-github-stars-refetch-time 0.5)
+#+END_SRC
+
+*** Align repositories's description
+For a clean look, repositories's description is aligned by default, you can
+customize this behavior via ~helm-github-stars-name-length~, it's default
+value is ~30~.
+You can disable this by setting ~helm-github-stars-name-length~ to ~nil~:
+#+BEGIN_SRC elisp
+(setq helm-github-stars-name-length nil)
+#+END_SRC
+
+*** Private repositories
+If you want to be able to show your private repositories, customize
+~helm-github-stars-token~ then call ~helm-github-stars-fetch~ or ~helm-github-stars~.
+
+** Run tests
+Move into repository's root directory and run:
+#+BEGIN_SRC shell
+cask install
+cask exec ert-runner
+#+END_SRC

@@ -1,0 +1,15 @@
+/theme/css/small-icon.css
+/slide_config.js
+*~
+*.elc
+*.[oa]
+*.swp
+*.a
+*.so
+*.out
+*.exe
+.#*
+.cask/
+flycheck_*
+.sandbox/
+.sass-cache/

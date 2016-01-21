@@ -1,0 +1,10 @@
+^\.apl.history$
+~$
+\.orig$
+\.o$
+\.so$
+\.dylib$
+^GPATH$
+^GRTAGS$
+^GSYMS$
+^GTAGS$

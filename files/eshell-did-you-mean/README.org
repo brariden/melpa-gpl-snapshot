@@ -1,0 +1,16 @@
+* eshell-did-you-mean [[http://melpa.org/#/eshell-did-you-mean][http://melpa.org/packages/eshell-did-you-mean-badge.svg]]
+
+command not found ("did you mean…" feature) in Eshell.
+
+[[./img/eshell-did-you-mean.png]]
+
+** Setup
+
+#+BEGIN_SRC emacs-lisp
+(eshell-did-you-mean-setup)
+#+END_SRC
+
+** Known issues
+
+eshell-did-you-mean does not work at the first invocation during an Emacs
+session, I can not figure out why, maybe it is a bug of Eshell.

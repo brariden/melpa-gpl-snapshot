@@ -1,0 +1,92 @@
+* el-init ChangeLog
+
+** 0.2.0
+
+[[https://github.com/HKey/el-init/compare/0.1.5...0.2.0][commits]]
+
+- Following =require= wrappers now respect =debug-on-error= ([[https://github.com/HKey/el-init/pull/12][#12]]). \\
+  This is useful when using =emacs --debug-init=.
+  - =el-init-require/record-error=
+  - =el-init-require/ignore-errors=
+  - =el-init-require/record-eval-after-load-error=
+  - =el-init-require/compile-old-library=
+
+** 0.1.5
+
+[[https://github.com/HKey/el-init/compare/0.1.4...0.1.5][commits]]
+
+- Removed obsolete things ([[https://github.com/HKey/el-init/issues/4][#4]])
+  - =el-init:define-require=
+  - =el-init:load-function-list=
+  - =el-init:load-directory-list=
+  - =directory-list= parameter of =el-init-load=
+  - =function-list= parameter of =el-init-load=
+
+- Removed old namespace, =el-init:= ([[https://github.com/HKey/el-init/issues/6][#6]])
+
+- Added an option, =el-init-lazy-feature-type= ([[https://github.com/HKey/el-init/pull/9][#9]]) \\
+  This option controls the =file= argument type of =eval-after-load= in
+  =el-init-require/lazy=.
+  =el-init-require/lazy= was changed to use symbol as default.
+
+** 0.1.4
+
+[[https://github.com/HKey/el-init/compare/0.1.3...0.1.4][commits]]
+
+- Fixed wrong match data reference in =el-init-require/lazy=
+
+** 0.1.3
+
+[[https://github.com/HKey/el-init/compare/0.1.2...0.1.3][commits]]
+
+- Add a variable =el-init-overridden-require-p=
+
+- =el-init-require/lazy= allows to be loaded by other configuration files. \\
+  For example, =init-foo.el= can load =init-lazy-foo.el=.
+
+- Exclude child results from the record value of =el-init-require/benchmark=
+
+- Added an optional parameter =default= to =el-init-get-record=
+
+** 0.1.2
+
+[[https://github.com/HKey/el-init/compare/0.1.1...0.1.2][commits]]
+
+- Minor fix for obsolete symbols
+
+** 0.1.1
+
+[[https://github.com/HKey/el-init/compare/0.1.0...0.1.1][commits]]
+
+- Change the namespace prefix: =el-init:= to =el-init-=
+
+** 0.1.0
+
+[[https://github.com/HKey/el-init/compare/0.0.9...0.1.0][commits]]
+
+- Use lexical binding
+
+- =el-init:define-require= is now obsolete
+
+- =property= parameters of =el-init:get-record= and =el-init:add-record= are
+  now required ones
+
+- =el-init:provide= is now a function
+
+- Add an alert function =el-init:alert=
+
+- Add a =require= wrapper function =el-init:require/lazy=
+
+- Change the record types
+  - =el-init:require/compile-old-library=
+  - =el-init:require/record-old-library=
+  - =el-init:require/record-error=
+  - =el-init:require/record-eval-after-load=
+
+- Parameters of =el-init:load=
+  - Add =override-only-init-files= parameter and it is enabled by default
+  - =override= parameter is now enabled by default
+  - Remove =compile= parameter
+  - Rename =directory-list= parameter to =subdirectories= and it is now
+    =(".")= by default
+  - Rename =function-list= parameter to =wrappers=

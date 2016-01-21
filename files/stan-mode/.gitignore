@@ -1,0 +1,7 @@
+*~
+.cask
+dist/
+*.elc
+*.bak
+
+flycheck_*

@@ -1,0 +1,10 @@
+# Generated files
+*.elc
+*.tar
+TAGS
+doc/shell-switcher.texi
+doc/shell-switcher.info
+
+# Packages
+.cask
+elpa

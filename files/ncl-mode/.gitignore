@@ -1,0 +1,10 @@
+*.elc
+*.html
+*.bkp
+*.new
+tmp*
+*.pyc
+
+data/*.shtml
+/.cask/
+.yas-compiled-snippets.el

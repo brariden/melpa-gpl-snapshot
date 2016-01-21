@@ -1,0 +1,6 @@
+
+Change log
+==========
+
+.. include:: ../ChangeLog
+

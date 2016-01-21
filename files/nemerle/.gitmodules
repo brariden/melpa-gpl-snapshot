@@ -1,0 +1,12 @@
+[submodule "ExternalDependences/vssdk2008"]
+	path = ExternalDependences/vssdk2008
+	url = https://github.com/someone-with-default-username/vssdk2008.git
+[submodule "ExternalDependences/vssdk2010"]
+	path = ExternalDependences/vssdk2010
+	url = https://github.com/someone-with-default-username/vssdk2010.git
+[submodule "ExternalDependences/wix36"]
+	path = ExternalDependences/wix36
+	url = https://github.com/someone-with-default-username/wix36.git
+[submodule "ExternalDependences/wix310"]
+	path = ExternalDependences/wix310
+	url = https://github.com/NN---/wix310.git

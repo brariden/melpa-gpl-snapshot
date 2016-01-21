@@ -1,0 +1,8 @@
+* helm-safari
+
+  Helm integration for Safari Bookmarks and History.
+
+** Usage
+
+   - =M-x helm-safari-bookmarks=
+   - =M-x helm-safari-history=

@@ -1,0 +1,10 @@
+# Compiled
+*.elc
+
+# Packaging
+.cask
+
+# other
+s.el
+*.tar.bz2
+.downloads

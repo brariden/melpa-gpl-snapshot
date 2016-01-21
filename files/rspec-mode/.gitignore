@@ -1,0 +1,5 @@
+# Compiled emacs files
+*.elc
+
+# Build artifacts
+/rspec-mode-*

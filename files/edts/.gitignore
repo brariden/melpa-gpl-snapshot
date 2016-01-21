@@ -1,0 +1,15 @@
+*~
+.eunit
+deps
+ebin
+elisp/erlang-mode
+elisp/ert
+lib/*
+!lib/edts
+log
+edts-autoloads.el
+erl_crash.dump
+*.o
+*.beam
+*.elc
+*.plt

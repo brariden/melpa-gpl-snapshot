@@ -1,0 +1,9 @@
+public_org
+
+**.html
+**.txt
+**.elc
+**~
+
+# ELPA packages
+org-ehtml-*.tar

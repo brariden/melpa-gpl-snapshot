@@ -1,0 +1,191 @@
+#+title: psci-mode [[http://melpa.org/#/psci][file:http://melpa.org/packages/psci-badge.svg]] [[http://stable.melpa.org/#/psci][file:http://stable.melpa.org/packages/psci-badge.svg]]
+#+author: ardumont
+
+A major mode to try and improve the purescript repl experience within emacs.
+
+* TOC                                                                   :TOC:
+ - [[#description][Description]]
+     - [[#what][What]]
+     - [[#how][How]]
+     - [[#why][Why]]
+     - [[#when][When]]
+     - [[#who][Who]]
+ - [[#install][Install]]
+     - [[#git][Git]]
+     - [[#package-repositories][Package repositories]]
+     - [[#el-get][el-get]]
+ - [[#start-and-setup][Start and setup]]
+     - [[#start][Start]]
+     - [[#setup][Setup]]
+ - [[#use][Use]]
+ - [[#runtime-dependencies][Runtime dependencies]]
+ - [[#contributions][Contributions]]
+     - [[#pr][PR]]
+     - [[#issues][Issues]]
+ - [[#miscellaneous][Miscellaneous]]
+
+* Description
+** What
+
+Major mode for [[http://www.purescript.org/][purescript]]'s repl psci.
+
+** How
+
+Based on comint-mode (command interpreter).
+Following [[http://www.masteringemacs.org/article/comint-writing-command-interpreter][this tutorial]].
+
+** Why
+
+The [[https://github.com/dysinger/purescript-mode][purescript-mode]] (forked from [[https://github.com/haskell/haskell-mode][haskell-mode]]) does not provide any repl integration (yet?).
+The experience inside the terminal is somewhat tedious at the moment.
+So I thought of giving it a shot.
+
+** When
+
+How about now?
+(work in progress)
+
+** Who
+
+[[https://github.com/ardumont][me]]
+
+* Install
+
+Many different installation possible:
+
+** Git
+
+Clone the repository, and:
+
+#+begin_src sh
+M-x package-install-file RET /path/to/emacs-psci/psci.el
+#+end_src
+
+*Note* Provided you already use melpa, the needed deps should be installed.
+
+** Package repositories
+*** Melpa
+
+[[http://melpa.org/#/getting-started][Their documentation:]]
+
+#+begin_src emacs-lisp
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages") t)
+(package-initialize)
+#+end_src
+
+*Note* Providing [[https://github.com/milkypostman/melpa/pull/2124][PR]] is merged.
+
+*** Melpa-stable
+
+[[http://stable.melpa.org/#/getting-started][Their documentation:]]
+
+#+begin_src emacs-lisp
+(require 'package)
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t
+(package-initialize)
+#+end_src
+
+*** Marmalade
+
+[[https://marmalade-repo.org/#download][Their documentation:]]
+
+#+begin_src emacs-lisp
+(require 'package)
+(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
+(package-initialize)
+#+end_src
+
+*** Install
+
+With melpa, melpa-stable, marmalade:
+
+#+begin_src sh
+M-x package-install RET psci RET
+#+end_src
+
+** el-get
+
+[[https://github.com/dimitri/el-get][Their documentation:]]
+
+#+begin_src sh
+M-x el-get-install RET psci RET
+#+end_src
+
+*Note* Providing [[https://github.com/dimitri/el-get/pull/1973][PR]] is merged.
+
+* Start and setup
+** Start
+
+#+begin_src sh
+M-x psci
+#+end_src
+
+This will open a psci repl within emacs from your current project root folder (using [[https://github.com/bbatsov/projectile][projectile]] to determine that).
+
+** Setup
+
+*** bindings
+
+Add the inferior-psci-mode to the purescript-mode will permit access to some default bindings:
+
+#+begin_src emacs-lisp
+(add-hook 'purescript-mode-hook 'inferior-psci-mode)
+#+end_src
+
+*** repl toggle
+
+I encounter (thanks to @purcell) a simple mode that I quite like which is called [[https://github.com/tomterl/repl-toggle][repl-toggle]].
+This permits, using the same universal binding `C-c C-z`, to go back and forth between the repl and the buffer.
+
+#+begin_src emacs-lisp
+(require 'repl-toggle)
+(require 'psci)
+(add-to-list 'rtog/mode-repl-alist '(purescript-mode . psci))
+#+end_src
+
+* Use
+
+Default bindings available from a purescript buffer:
+
+|-------------+--------------------------------+----------------------------------------------------------------------------------------------|
+| Keybindings | Interactive commands           | Description                                                                                  |
+|-------------+--------------------------------+----------------------------------------------------------------------------------------------|
+| C-c C-l     | M-x psci/load-current-file!    | Equivalent of `:m /path/to/current/module/file.purs` - Load <file> for importing             |
+| C-c M-n     | M-x psci/load-module!          | Equivalent of `:i your.current.module.name` - Import <module> for use in PSCI                |
+| C-c C-r     | M-x psci/load-project-modules! | Load or reload files defined in the project file .psci                                       |
+| N/A         | M-x psci/reset!                | Equivalent of `:r` - Reset                                                                   |
+| N/A         | M-x psci/quit!                 | Equivalent of `:q` - Quit                                                                    |
+| C-c C-z     |                                | Provided you use the previous setup, this will switch back and forth between repl and buffer |
+|-------------+--------------------------------+----------------------------------------------------------------------------------------------|
+
+* Runtime dependencies
+
+A purescript dev platform ready.
+I based this development on the online book https://leanpub.com/purescript/.
+
+* Contributions
+
+** PR
+
+More than welcome.
+Send me a PR and I will gladly merge it.
+
+Simply, use fork, branch, and rebase to the latest commit.
+Also, I prefer code that is understandable (ymmv) and doc-stringified.
+
+** Issues
+
+Issues, there will be.
+
+Open issues [[https://github.com/ardumont/emacs-psci/issues][on the tracker]], I'll do my best to answer.
+
+Just, be sure to be clear, complete and concise about what your trouble is.
+
+I'm open to suggestions but I'm far from being omniscient. Please, add information links, this helps everyone.
+
+* Miscellaneous
+
+I tend to rely on other people's code.
+That's why I use a lot of dependencies.
+I'll remove the unnecessary dependencies (for the moment, none but surely, some code can be rewritten without the deps) later.

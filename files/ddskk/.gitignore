@@ -1,0 +1,7 @@
+*.elc
+*.*~
+dic/SKK-JISYO.*
+skk.info
+skk-autoloads.el
+skk-setup.el
+ert.el

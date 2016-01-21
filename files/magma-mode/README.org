@@ -1,0 +1,472 @@
+# -*- eval: (auto-fill-mode 1); eval: (toggle-truncate-lines 0) -*-
+#+LINK: magma      http://magma.maths.usyd.edu.au/magma/
+#+LINK: magma-mode http://www-polsys.lip6.fr/~bettale/magma-mode/
+#+LINK: emacs-lisp http://www.gnu.org/software/emacs/manual/html_node/elisp/
+
+* Magma-mode
+[[http://melpa.org/#/magma-mode][file:http://melpa.org/packages/magma-mode-badge.svg]]
+
+** Basics
+
+This is a mode for editting input files for the computer algebra
+software [[magma][Magma]] in emacs.
+
+It is based on the [[magma-mode]] written by Luk Bettale.  The font-lock
+(syntax highlight) specifications were taken from this mode, as well
+as the interaction with a magma process through term-mode.
+
+Suggestions and bug reports are welcome, please use the github issue tracker. 
+Contributions are more than welcome, feel free to clone the =dev= branch and start hacking!
+
+** Installation instructions
+
+*** With Melpa (regular usage)
+
+magma-mode is on [[http://melpa.org/#/][melpa]], so you can install it with:
+
+1. =M-x package-install magma-mode=
+
+2. Add =(require 'magma-mode)= to your init file.
+
+*** With Git (regular usage or contribution)
+
+1. Clone the repository in your favorite elisp folder
+
+   #+begin_src shell-script
+      cd $favoriteElispFolder
+      git clone https://github.com/ThibautVerron/magma-mode.git
+   #+end_src    
+
+2. Make sure that the required packages [[https://github.com/rejeep/f.el][f.el]] (library for managing
+   filenames) and [[https://github.com/magnars/dash.el][dash.el]] (library for managing lists) are installed.
+   
+3. Add the following to your emacs init file :
+
+   #+begin_src emacs-lisp
+      (add-to-list 'load-path "<FavoriteElispFolder>/magma-mode")
+      (require 'magma-mode "<FavoriteElispFolder>/magma-mode/magma-mode.el")
+      ;; Or simply (require 'magma-mode) if you aren't using any other magma-mode
+   #+end_src
+
+*** Additional setup:
+
+   #+begin_src emacs-lisp 
+     ;; If you want to load the mode automatically with some file extensions
+     (setq auto-mode-alist
+     (append '(("\\.mgm$\\|\\.m$" . magma-mode))
+             auto-mode-alist))
+          
+   #+end_src
+   
+If you want to use auto-completion against magma keywords, please see the next section. 
+
+** Completion
+*** Introduction
+    A basic completion engine is provided, to be used in the magma
+    editting window, or in a magma interactive buffer using comint.
+
+    At the moment, it provides completion based on a dictionary. This
+    dictionary is not included at the moment, but if you need to build
+    it, we provide a script for doing so (linux only).
+
+    This dictionary is updated with definitions from the current
+    buffer, and from externally loaded files (using the =load= magma
+    primitive).
+
+*** Building the dictionary
+    The =bin= folder contains a script named
+    =build_completion_table.sh=. It is very basic, and the usage is
+    quite constrained.
+
+    The easiest case is the case where you are using =emacs= on a
+    machine running =magma=. 
+    
+    In this case, follow these instructions:
+    1. Find your magma installation directory;
+    2. Place yourself in the =magma-mode= directory;
+    3. Run the script:
+
+       #+begin_src shell-script
+         .../magma-mode$ bin/build_completion_table.sh $pathtomagma
+       #+end_src
+
+    4. The completion table will be in =data/magma_symbols.txt=
+    
+    In case you are running emacs on a different machine than the one
+    running magma, the easiest way is to first create a fake
+    documentation. Run the following on the magma machine:
+
+    #+begin_src shell-script
+      cd $pathtomagma/doc/html
+      
+      cat *.htm > ~/.magmadoc.htm
+    #+end_src
+
+    Then on the emacs machine:
+
+    #+begin_src shell-script
+       mkdir -p .tmpmagma/doc/html
+     
+       scp $magmamachine:.magmadoc.htm .tmpmagma/doc/html/
+      
+       cd .tmpmagma
+    #+end_src
+    
+    then follow the above instructions to build the completion table,
+    but use =~/.tmpmagma/= as the path to the magma installation.
+    
+    Afterwards, you can remove the directory =.tmpmagma= and the file =magmadoc.htm=.
+
+*** Invoking the completion
+
+    In =magma-mode= and =magma-comint-interactive-mode=, the
+    dictionary provides completion candidates for =completion-at-point=. 
+    In =magma-comint-interactive-mode=,
+    =completion-at-point= is bound to =TAB=, and in =magma-mode= it
+    is not bound to any key by default. 
+
+    In =magma-term-interactive-mode= (with =term-char-mode=),
+    completion is supported out of the box by magma itself.
+
+*** Limitations
+
+    Context-dependent completion is not supported at the moment.
+
+    The dictionary is only updated with function, procedure and
+    intrinsics definitions. If there are requests to be able to 
+    complete variable names, it may be implemented in the future.
+    However, without proper scoping, it would probably not be very useful.
+
+** Keymap and functions
+*** Managing magma processes
+
+| =C-c C-o= | =magma-switch-to-interactive-buffer-same-frame= | start an interactive magma process, in the same frame and in a different window |
+| =C-c o=   | =magma-switch-to-interactive-buffer=            | start an interactive magma process in a different frame                         |
+| =C-c C-k= | =magma-kill=                                    | kill the magma process                                                          |
+| =C-c C-i= | =magma-int=                                     | interrupt the magma process                                                     |
+| =C-c C-a= | =magma-restart=                                 | restart the magma process                                                       |
+
+*** Evaluation of expressions
+
+| =C-c C-e= | =magma-eval=              | send the expression at point to the magma-process                                                  |
+| =C-c C-l= | =magma-eval-line=         | send the current line to the magma process                                                         |
+| =C-c C-r= | =magma-eval-region=       | send the current region to the magma process                                                       |
+| =C-c C-b= | =magma-eval-buffer=       | send the content of current buffer to the magma process                                            |
+| =C-c C-u= | =magma-eval-until=        | send the content of the current buffer, until the point, to the magma process                      |
+| =C-c C-f= | =magma-eval-defun=        | with point in a function definition, send it to the magma process                                  |
+| =C-c C-p= | =magma-eval-paragraph=    | send the current block to the magma process                                                        |
+| =C-c :=   | =magma-send-expression=   | prompt for an expression, send it to the magma process                                             |
+| =C-c C-w= | =magma-show-word=         | evaluate the variable at point in the magma buffer                                                 |
+| =C-c h=   | =magma-help-word=         | prompt for a symbol, and display the available documentation about that symbol in the magma buffer |
+| =C-c C-h= | =magma-help-word-browser= | searches the online documentation                                                                  |
+
+Additionally, all these functions take optional prefix arguments:
+
+ - =C-u 3 C-l= : send the current line to the magma process number 3
+ - =C-u C-l= : prompts for a magma process, and send the current line
+   to this process
+ - =C-u C-u C-l= : send the current line to all magma processes
+   
+The function =magma-comint-send-now= (not bound by default) is a bit
+special: it prompts for a value, then sends it to the magma
+evaluation buffer /without/ waiting for the evaluation queue to be
+empty. It allows to send values to interactive prompts (=read= or
+=readi=) without switching buffers.
+
+** Settings
+
+| Name of the variable                 | Default                      | Details                                       |
+|--------------------------------------+------------------------------+-----------------------------------------------|
+| =magma-completion-table-file=        | =.../data/magma_symbols.txt= | Completion table from the documentation       |
+| =magma-interactive-arguments=        | =\'()=                       | Arguments to pass to magma                    |
+| =magma-interactive-buffer-name=      | =magma=                      | Name of the magma buffer                      |
+| =magma-interactive-program=          | =magma=                      | Name of the magma program                     |
+| =magma-interactive-skip-empty-lines= | =nil=                        | If non =nil=, do not evaluate empty lines.    |
+| =magma-interactive-skip-comments=    | =nil=                        | If non =nil=, do not evaluate comments.       |
+| =magma-interactive-use-comint=       | =nil=                        | If non =nil=, use =comint= instead of =term=. |
+| =magma-use-electric-newline=         | =nil=                        | See the "Extras" section below                |
+
+*** Comint vs term
+
+=Term-mode= will basically render the magma experience you would have
+in a regular terminal emulator, regardless of emacs. The buffer is
+read-only except for the prompt, =C-p= and =C-n= browse the history
+instead of scrolling the window, /et caetera/.
+
+Another specificity of term-mode is that it intercepts some prefix
+keys, most notably =C-c= and =C-x=. For most purposes, =C-x= needs to
+be replaced with =C-c=.  So for example, if you need to switch from
+your magma code buffer to the magma process buffer, then switch back,
+you'll first press =C-x o= (=other-window=), then =C-c o=.
+
+This can be changed by turning on =term-line-mode= (=C-c C-j=), but
+this changes the behavior of =term-mode= way beyond the mere
+interception of signal keys. To change back to the regular behavior,
+turn on =term-char-mode= (=C-x C-k=). Another option is to use =C-c o=
+(=magma-switch-to-interactive-buffer-same-frame=) instead of =C-x o=
+in the editting window.
+
+On the other hand, =comint-mode= spawns an interactive process in a
+full-featured emacs buffer. You can scroll using the usual keys, you
+can edit the output of previous commands... It is mostly equivalent to
+=term-mode= with =term-line-mode=, but in my experience, it suffers
+from less minor bugs.
+
+Another point to note is that =term-mode= sends input to a terminal,
+and =magma= is run in that terminal. Getting the whole thing to run
+under different systems (windows...) can prove tricky. On the other
+hand, =comint= starts the magma process directly from emacs, and does
+not depend on anything apart from emacs and =magma=.
+
+As of today, =term-mode= is disabled by default and no longer
+maintained (it still works, but it won't recieve new features). It may
+be removed in the future, so please create an issue if your workflow
+absolutely requires that you use =term-mode= instead of =comint=.
+
+
+*** Methods for sending input to the magma buffer
+
+The =magma-mode= supports three ways of sending large blocks of input
+to the magma buffer, and this is controlled with the variable
+=magma-interactive-method=:
+ - =whole= : the input is passed without any modification to the
+   magma buffer;
+ - =expr= : the input is cut in magma expressions, and then sent to
+   the magma buffer;
+ - =line= (default) : the input is sent to the magma buffer
+   line-per-line. 
+
+This variable has no noticeable effect in most cases, but on very
+large inputs (for example =magma-eval-buffer= in a large buffer),
+sending the input as a whole will cause =comint= or =term= to cut the
+input at arbitrary locations, effectively confusing =magma=. Cutting
+at end of lines or end of expressions helps ensuring that what is
+sent to magma makes sense.
+
+Additionally, the variable =magma-interactive-wait-between-inputs=
+controls whether we want to wait for magma to output before sending
+the next line of input. With the latest version, the default is =t=. 
+If you experience a noticeable slowdown for large buffers, you can 
+try setting it to =nil=.
+
+Note that, if using =comint= and due to the way magma processes its
+input, if this option is set to =nil=, in the magma buffer, the
+results will no longer be correlated to their input.
+
+The function =magma-eval-buffer= obeys to one more variable 
+=magma-interactive-use-load=: if set to =t=, =magma-eval-buffer= will 
+try to evaluate the buffer by sending =load <filename>;=.
+
+** Extras
+
+All the features described in this section are disabled by default.
+
+*** Support for extra modes
+
+The file =magma-extra.el= provides support for various minor modes:
+ - =hs-minor-mode= : folding of =keyword=... =end keyword;=
+   blocks. It probably will not work correctly in case the code is
+   not syntactically correct (unclosed blocks);
+ - =imenu= : implemented the backend functions, so that code
+   navigation and =which-function= should work fine. At the moment,
+   the defun syntax =foo :== =function (bar)=... =end function;= is not
+   supported;
+ - =smart-parens= : partial support only, it is mainly a function
+   trying to ensure that the second =>= in =hom<A -> B >= is matched
+   to the opening =<=. 
+
+To use these features, simply turn the corresponding modes on.
+
+*** Yasnippet snippets
+
+=magma-mode= comes with a small collection of snippets. At the moment, we
+provide snippets for =case=, =for=, =if=, =try=, =while=, =function=,
+=procedure=, and =load= (with filename completion).
+
+To use this, add the following to your init file:
+
+#+begin_src emacs-lisp
+    (require 'magma-snippets)
+#+end_src
+
+*** Extra "electric" editting features
+
+The following functions are available:
+    
+ - =magma-insert-newline=: inserts a visual
+   newline in the buffer. It is a regular =newline-and-indent= in most
+   situations, but if the point is in the middle of the string, it
+   cuts the string in half before inserting the newline.
+
+   Example: (the [] indicates the point)
+
+   #+begin_example
+      x := "a long sentence, really, a long sentence, [a]nd even a few more words";
+      
+      <RET> --->
+      
+      x := "a long sentence, really, a long sentence, "
+      cat "and even a few more words";
+   #+end_example
+    
+   This shouldn't change the way your code is evaluated.
+
+ - =magma-insert-special-newline==: inserts
+   a "stronger" newline in the buffer. It is a regular
+   =newline-and-indent= in most situations, but in a comment, it will
+   assume that you want to continue the comment in the next line:
+
+   #+begin_example  
+      // Comment []
+      
+      <C-RET> --->
+      
+      // Comment 
+      // []
+   #+end_example
+
+   and in a string, it will insert an explicit newline character:
+
+   #+begin_example 
+      x := "a long sentence, really, a long sentence, [a]nd even a few more words";
+      
+      <RET> --->
+      
+      x := "a long sentence, really, a long sentence, \\n"
+      cat "and even a few more words";"
+   #+end_example
+
+Simply bind them to keys of your choice if you wish to use them.
+For example:
+
+#+begin_src emacs-lisp
+(define-key magma-mode-map (kbd "RET") #'magma-insert-newline)
+(define-key magma-mode-map (kbd "C-RET") #'magma-insert-special-newline)
+#+end_src
+
+*** Initial file contents and file headers
+
+We offer support for initial file contents and automatically updated
+headers. To use them, set the variables =magma-initial-file= and
+=magma-file-header= to either =\'default= (remove the backslash) or a function name, which
+then replaces the default function for inserting the default content
+or updating it.
+
+Additionally, you should activate =auto-insert= for magma:
+
+#+begin_src emacs-lisp
+  (add-hook 'magma-mode-hook 'auto-insert)
+#+end_src
+
+The header inserted by the default functions looks like this:
+
+#+begin_src c
+  // Created: Sun Mar 16 13:31:33 2014
+  // Last modified: Thu Apr 17 11:35:26 2014
+  // Hash: bb0dadd0604bafdaa20282285c2d85ff
+  // load "filename.m";
+#+end_src
+
+** Changelog
+*** 2015-09-23
+
+ - *Bugfix* Error in process filter if the buffer is too short
+ - *New feature* Emacs now attempts to set the working directory of
+   magma (accessible through =GetWorkingDirectory()=, relevant for
+   =load= instructions). This will be either =magma-default-directory=
+   if not nil, or the directory of the buffer if the buffer has a
+   file, or the user's home directory. When running magma on a remote
+   system with a different filesystem, you will probably have to set
+   =magma-default-directory= to a non-nil value.
+ - *Change* =magma-default-directory= now defaults to =nil= (instead
+   of the user's home directory). 
+
+*** 2015-09-13
+
+ - *Bugfix* Sometimes some text would get stuck before the prompt, and
+   the magma buffer would hang
+ - *Bugfix* Cleaner detection of the deleted reecho (=print "> ";=
+   should work as expected now)
+ - *Change* Electric newline features are no longer controlled by a
+   variable, bind the keys manually if you wish to use them. (The
+   original behavior was making it too hard for a user to bind the
+   keys to some other function in the global keymap)
+
+*** 2015-07-11 (hotfix)
+
+ - *Bugfix* Evaluation would miss the semicolon for lines not ending
+   with a newline
+
+*** 2015-07-08 (hotfix)
+ 
+ - *Bugfix* The SMIE parser was failing to jump from inside sexps.
+
+*** 2015-07-06
+
+ - *Bugfix* The SMIE parser was failing to jump over sexps
+ - *Bugfix* During evaluation, stripped comments were added to the
+   kill-ring
+ - *Bugfix* Indent =repeat ... until= statements
+ - *Bugfix* On some occasions, empty lines would cause the evaluation
+   to hang
+ - *Bugfix* Compilation errors. Support for smartparens is improved.
+ - *Bugfix* The parser would misbehave at the beginning of the buffer
+ - *Bugfix* Safer completion when point is inappropriate
+   
+*** 2015-06-04
+
+ - *Bugfix* Indentation for the arguments or =printf= and =vprintf=
+ - *Bugfix* Improved performance in some indentation/parsing helpers
+ - *Bugfix* Users were prompted for a void auto-insert
+ - *Bugfix* Keybindings not matching the documentation
+
+*** 2015-03-12
+
+ - *Bugfix* When =magma-interactive-method= is set to =line= and
+   several instructions are on the same line, =C-c C-e= will evaluate
+   them all.
+ - *Bugfix* Minor formatting tweaks for the timer on the modeline
+   
+*** 2015-02-18
+
+ - *New feature* Mode-line indicator for interactive buffer now shows
+   whether the buffer is ready or running some computation. If
+   running, also show the time since last input was sent.
+ - *New feature* Errors in the interactive buffer are highlighted and
+   link back to the source. (Note: this feature is still experimental,
+   in particular source file name detection still does not work in all
+   cases)
+ - *New feature* Added the function =magma-comint-send-now= 
+ - *Change* In some situations, the magma interactive buffer failed to
+   acknowledge that it is ready for more input. It should happen more
+   rarely now. If it still happens, as a workaround, =C-c C-i=
+   (=magma-int=) will now force the input queue to be emptied.
+ - *Change* Indentation in parenthesed structures is more consistent.
+ - *Change* =magma-working-buffer-number= can be set as a file local
+   variable, and its value is assumed to be safe if it is a number, a
+   char or a string. If it is a symbol, the user is prompted to
+   confirm that it is a safe value, and the symbol is evaluated.
+ - *Bugfix* Indentation after, and inside =<...>=
+ - *Bugfix* Changing the working buffer locally was not easy, now
+   there is a function =magma-set-working-buffer-locally=.
+ - *Bugfix* =magma-eval-until= would evaluate up to the next
+   expression if point was at the end of an expression. 
+ - *Bugfix* Evaluation functions no longer push the comments in the
+   evaluated region to the kill ring.
+
+*** 2014-11-19
+
+ - *Change* =comint-mode= is made the default mode
+ - *Change* Step-by-step evaluation mechanism changed, no more hardcoded waiting time between instructions
+ - *Bugfix* Incorrect indentation in some situations
+ - *Bugfix* Performance improvement when scanning the buffer for new completion candidates (noticeable in the interactive buffer)
+ - *Bugfix* The smie parser was unable to get out of strings
+ - *Bugfix* =build-completion-table.sh= was ignoring some functions
+  
+*** 2014-10-02  
+  
+ - Package added on melpa
+ 
+*** 2014-01-07 
+
+ - Initial release

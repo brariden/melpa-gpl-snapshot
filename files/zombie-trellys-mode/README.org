@@ -1,0 +1,33 @@
+* Zombie Trellys mode
+
+This is a major mode for interacting with the [[https://code.google.com/p/trellys/][Zombie Trellys system]],
+which is a dependently-typed language that is one of the results of
+the Trellys project. You can read about Zombie in papers like:
+ * [[http://www.seas.upenn.edu/~ccasin/papers/combining-TR.pdf][Combining Proofs and Programs in a Dependently Typed Language]] by
+   Casingho, Sjöberg and Weirich, POPL 2014
+ * [[http://www.seas.upenn.edu/~vilhelm/papers/popl15congruence.pdf][Programming Up to Congruence]] by Sjöberg and Weirich, POPL 2015
+
+This mode is presently derived from =haskell-mode= to get
+"good-enough" syntax highlighting and editing commands. If your
+Haskell configuration does things that you don't want for Zombie, then
+customize =zombie-trellys-mode-hook= to get rid of them. The mode
+already takes care of some potentially problematic Haskell minor
+modes.
+
+Right now, =zombie-trellys-mode= has one interesting command aside
+from those provided by the underlying =haskell-mode=: =C-c C-l= will
+compile the current file and provide highlighted output. If it can't
+find your =trellys= executable, then customize the variable
+=zombie-trellys-command=.
+
+Zombie highlights its output to show where terms differ. If you're
+seeing ugly ANSI codes instead of colors, try putting something like
+this in your =init.el=:
+#+BEGIN_SRC elisp
+  (require 'ansi-color)
+  (defun colorize-compilation-buffer ()
+    (when (eq major-mode 'compilation-mode)
+      (let ((inhibit-read-only t))
+        (ansi-color-apply-on-region (point-min) (point-max)))))
+  (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
+#+END_SRC

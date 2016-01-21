@@ -1,0 +1,8 @@
+language: generic
+sudo: false
+script:
+  - cd build
+  - make
+
+notifications:
+  email: false

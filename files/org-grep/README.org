@@ -1,0 +1,291 @@
+#+TITLE: Org Grep — Kind of M-x rgrep adapted for Org mode
+
+This tool allows for grepping files in a set of Org directories,
+formatting the results as a separate Org buffer.  This buffer is
+assorted with a few specific navigation commands so it works a bit
+like =M-x rgrep=.  Optionally, the tool may simultaneously search
+Unix mailboxes, Gnus mailgroups, or other textual files.
+
+** Installation
+
+This tool has been developed on Linux, and likely requires a Unix-like
+system.  Otherwise, one needs compatible *find* and *grep* tools, and a
+shell able to properly decipher the arguments and establish a pipe.
+
+To install Org Grep, just copy =org-grep.el= somewhere Emacs may find
+it.  Optionally, assign some key bindings to trigger the tool.  For
+one, I added these lines to my =~/.emacs= file:
+
+  #+BEGIN_SRC elisp
+    (autoload 'org-grep "org-grep" nil t)
+    (define-key org-mode-map "\C-cng" 'org-grep-full)
+    (define-key org-mode-map "\C-cog" 'org-grep)
+  #+END_SRC
+
+yet of course, one may choose any other key binding.
+
+** Usage
+
+To use this tool, call =M-x org-grep= or the keybinding put aside for
+it, and reply to the prompt with a regular expression to search for.
+Happily enough, Emacs and the *grep* command use rather similar syntax
+for regular expressions.  Be well aware that all currently opened
+files in Emacs are automatically saved to disk before that command
+gets executed.
+
+If the command is given an prefix argument (that is, if *C-u* is given
+immediately before the command), the user may interactively edit the
+*grep* options.  If the user did not configure *org-grep-grep-options*
+otherwise, the default option is =-i=, which ignores case differences
+while searching.  So, if you want to search strictly, use a prefix
+argument and erase that =-i=.
+
+There is another command =M-x org-grep-full= which also search Unix
+mailboxes and Gnus mailgroups, given the user configured the
+appropriate variables.  The command is separate from =M-x org-grep=
+command, giving more control to users who do not like the slowdown.
+
+Both commands create an Org buffer with the found lines, each preceded
+by the base name of the file containing the line, and the line number
+within that file.
+
+This is the =[browse]= view, which is a read-only view.  Org Grep also
+offers the =[edit]= view and the =[tree]= view.  In all views, buttons on
+the title line may be used to switch to the other views.  (You might
+want to set *org-confirm-elisp-link-function* to *nil*, so avoiding all
+confirmation requests.)  There are also =dired= buttons which may be
+added at some places: they normally open Emacs /Dired/ on the proper
+directory for the line.
+
+** Views
+
+In the =[browse]= view, one may use standard Org commands which do not
+modify the buffer, including of course those able to follow links.  A
+few extra key bindings are also available:
+
+  - C-c C-c :: For the search hit as identified by the position of the
+               cursor, open the corresponding original file (unless it
+               is already visited, of course), make it the current
+               window, with the cursor left on that line.
+  - C-x ` :: Move to the next search hit, open the corresponding
+             original file, make it the current window, with the
+             cursor left on the original found line.
+  - . :: For the search hit as identified by the position of the
+         cursor, open the corresponding original file with the cursor
+         positioned on the original found line.  Leave the cursor
+         within the search results window (but see [[Caveats]] below).
+  - n :: Move to the next search hit, open the corresponding original
+         file with the cursor positioned on the original found line.
+         Leave the cursor within the search results window (but see
+         [[Caveats]] below).
+  - p :: Move to the previous search hit, open the corresponding
+         original file with the cursor positioned on the original
+         found line.  Leave the cursor within the search results
+         window (but see [[Caveats]] below).
+  - g :: Save all modified files to disk, then refresh the search hit
+         buffer from the actual contents of the disk files.
+  - e :: Switch to the =[edit]= view.
+  - t :: Switch to the =[tree]= view.
+  - q :: Quit the =*Org Grep*= window, deleting it.
+
+In all Org buffers, command *C-x `* uses the contents of an existing
+=*Org Grep*= buffer for moving to the next search hit.  If that buffer
+does not exist, or if there is no following hit, the standard Emacs
+action is used instead: usually moving to the next compilation error.
+
+In the =[edit]= view, special commands of the =[browse]= view are no more
+available, and all standard Org commands may be used.  For
+convenience, all list items are turned into checklist items.
+
+In the =[tree]= view, like in the =[edit]= view, special commands of the
+=[browse]= view are no more available, and all standard Org commands may
+be used.  In that view, a hierarchical set of headers represent
+directories, and all hits are shown under the appropriate headers.
+This is useful to regroup an overwhelming number of hits under
+projects, or such things.  The headers are sorted lexicographically.
+Also, they get collapsed to avoid deep nesting whenever possible.
+
+** Configuration
+
+Org Grep may be used immediately, without any configuration.  However,
+a few Emacs variables may be set prior to, or after loading
+=org-grep.el=, for altering its behavior.  These variables are:
+
+  - org-grep-directories :: This is a list of directories which the
+       *org-grep* command recursively searches.  The default is to
+       search only within the hierarchy identified by the Org standard
+       *org-directory* variable.  The user may specify *nil* to defeat
+       Org searches, and then rely on *org-grep-extra-shell-commands*.
+  - org-grep-ellipsis :: This string is used to mark, in the hits
+       buffer, context fragments which have been deleted.  The default
+       is an Unicode ellipsis with a space on each side ( … ).  You
+       might want to change this if your computer setup does not
+       support Unicode yet.  However, do not customize it with a
+       string which appears frequently in your files: all occurrences
+       will be highlighted regardless if the ellipsis was real or not,
+       making the result more difficult to correctly interpret.
+       If the value is *nil*, context is always shown in full.
+  - org-grep-maximum-context-size :: Some matched lines may be long
+       enough to be seen as bringing pollution in the hits buffer,
+       this variable controls how some of the text may get removed.
+       The context fragments in a line come from the text between
+       hits, or between the beginning of a line and a hit, or between
+       a hit and the end of the line.  If the size of a context
+       fragment is bigger than the value of this variable (200 by
+       default), the middle part of the context fragment is removed
+       and replaced by the *org-grep-ellipsis* string.  However, if this
+       variable is *nil*, context is always shown in full.
+  - org-grep-maximum-hits :: This integer number sets a limit on the
+       number of displayed hits, as very long Org files may take
+       forever to completely display.  The default value is 2500.  The
+       value *nil* removes the limit and all hits are then shown.
+  - org-grep-extensions :: This is a list of file extensions to retain
+       for the search, including the leading period.  The default is a
+       list containing the =.org= string as its sole member.  If set to
+       *nil*, all files are going to be searched, whatever their
+       extension may be.
+  - org-grep-extra-shell-commands :: This is a list of Emacs Lisp
+       functions provided by the user, meant to further customize
+       searching.  Such functions may be used whenever variables
+       *org-grep-directories* and *org-grep-extensions* above are not
+       sufficient to describe user needs.  The default is *nil*,
+       meaning that there is no extra searching.  Each element in the
+       list is the symbol name for the function.  Each function
+       receives the regular expression given to the *org-grep*
+       command, and returns a string holding a shell command to
+       provide some /grep-like/ output.  See at the end of this
+       section for an example.
+  - org-grep-hide-extension :: If set to *t*, the displayed key on each
+       line of the hits buffer it is shown without the extension when
+       it represents the base name of a file.  This may have a slight
+       effect on the sort order.  This also has an effect on the
+       disambiguation information which gets added whenenever the same
+       key is used to represent more than one file: that information
+       is then the full file name instead of its containing directory.
+       By default, this option is *nil*.
+  - org-grep-gnus-directory :: This string names the directory holding
+       all Gnus mail files.  The value is only used with the
+       *org-grep-full* command.  The feature is not used if the the
+       directory does not exist.  A common value is =~/Mail=.  When the
+       feature is used, links from the hits buffer open whole
+       messages, yet without positioning the cursor on the precise hit
+       line.  The *org-grep-extra-shell-commands* mechanics could be
+       used instead to get precise positioning, and more speed as
+       well, but without the comfort of a proper Emacs mode.
+  - org-grep-grep-options :: This string provides options for the
+       *grep* command, and defaults to the =-i= string.  That value
+       may be overriden interactively by calling the *org-grep*
+       command with a prefix argument.  Note that if the user
+       configured functions providing shell commands, such functions
+       should also insert the value of this variable appropriately in
+       the code they generate.
+  - org-grep-rmail-shell-commands :: This variable works similarly to
+       the *org-grep-extra-shell-commands* variable, except that all
+       searched files should then be Unix mailboxes.  The value is
+       only used with the *org-grep-full* command.  Limitations about
+       links and positioning also apply, as explained in the
+       description of the *org-grep-gnus-directory* variable.
+  - org-grep-shell-command :: Path to the shell executable for
+       launching commands under the scene.  If this variable is *nil*,
+       which is the default value, the shell is taken from the
+       *shell-file-name* variable in Emacs, itself initialized the /SHELL/
+       environment variable.  If you are using some shell with unusual
+       syntax, *fish* for example, you then need to set *org-grep-shell*
+       to something more traditional, like =/bin/sh= or =/bin/dash=.
+
+** Extra shell commands
+
+Here is an example of *org-grep-extra-shell-commands*.  Let's assume
+that one want to /also/ search the file system for matching file names.
+The main trick is to fake that the match occurred on first line of
+found files.  The context is left empty, Org Grep then reacts to this
+little kludge by showing more information about the full file name:
+
+#+BEGIN_SRC elisp
+  (setq org-grep-extra-shell-commands '(fp-org-grep-in-locate))
+
+  (defun fp-org-grep-in-locate (regexp)
+    (concat "locate -e " org-grep-grep-options
+            " -r " (shell-quote-argument regexp)
+            " | sed 's,$,:1:,'"))
+#+END_SRC
+
+This other example for *org-grep-extra-shell-commands* takes advantage
+of Git search speed, when files are under the control of a Git
+repository.  The main trick here is to prepend the directory
+information to the result, as this information would otherwise be lost
+after the directory changed.  Given the repository is located at
+=~/share/bin/=, one could use:
+
+#+BEGIN_SRC elisp
+  (setq org-grep-extra-shell-commands '(fp-org-grep-in-share-bin))
+
+  (defun fp-org-grep-in-share-bin (regexp)
+    (concat "(cd ~/share/bin && git grep " org-grep-grep-options
+            " -n -e " (shell-quote-argument regexp)
+            " | sed 's,^,~/share/bin/,')"))
+#+END_SRC
+
+** Purpose, history
+
+Switching to Org, I immediately populated hundreds of Org files with
+data previously accumulated either as Emacs *allout* files ([[https://github.com/pinard/FP-etc/tree/master/allout-vim][or Vim!]]),
+Tomboy notes or Workflowy items.  The standard Org mechanics for
+searching a collection of files requires them under the control of the
+Org agenda.  Given my volume of notes, Org mode was crawling, so I had
+to relax the agenda and quickly develop some other mean for searching.
+
+The first =org-grep= I wrote was based on Emacs standard =M-x rgrep=,
+using hooks and other tricky machinery so it works the way I wanted.
+Yet, =M-x rgrep= is limited to a single directory.  Moreover, the =*grep*=
+buffer does not render Org lines as nicely as Org mode does, and this
+became critical for some long Org lines using a lot of heavy markup.
+
+So I rewrote =org-grep= with the resulting output as a genuine Org file.
+This seems like a cleaner and easier way to proceed.
+
+** Caveats
+
+Org Grep is constantly useful to me, yet a few minor problems remain,
+which I can easily live with.  Here are those I'm aware of:
+
+- The cursor does not come back into the resulting buffer, for some
+  navigation commands meant so it does.  =(save-current-buffer ...)= or
+  =(save-excursion ...)=, or even more explicit handling, all fail to
+  bring the cursor back into the current window, seemingly whenever an
+  Org link gets followed within the Lisp form.
+
+- Navigation commands should reveal the goal line in the original Org
+  buffer containing the grep hit, but the line stays collapsed and
+  hidden.  It seems that =(org-reveal)= does not do its job.
+
+- The search string may not be always highlighted in the resulting
+  buffer, depending on its capitalization.  This is because
+  *case-fold-search* is ignored by the highlighting mechanism in Emacs.
+  The first letter of the pattern is recognized in both cases, this
+  slightly alleviates the problem, this does not work for letters
+  outside ASCII.
+
+- By default, the *org-grep* command internally calls *grep* with the
+  *-i* flag, which may slow it down considerably.  The difference is
+  very noticeable for me when using *org-grep-full*; I then use a
+  prefix argument to remove that *-i*.
+
+- It would be nice to highlight the search pattern in the original Org
+  buffers containing grep hits.
+
+- Relative links are relocated in the hits buffer so they can be
+  followed, regardless of the directory they come from.  But this is
+  done only for general links: those internally using double brackets.
+  Implicit or explicit =file:= links, and also =rmail:= links, are the
+  only ones to be so relocated.  Plain URL-like links are not
+  relocated: I would need some dependable machinery to recognize them.
+
+- The size of any elided text is reduced so the elision occurs on word
+  boundaries.  As a consequence, it may happen that very long words
+  prevent elision.
+
+- If the Emacs function *rename-buffer* is used on a hits buffer, and a
+  new search is launched afterwards, reverting in the renamed buffer
+  partly uses the arguments of the last search, while it should always
+  use the arguments at the time the renamed buffer was created.

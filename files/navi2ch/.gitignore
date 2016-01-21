@@ -1,0 +1,10 @@
+*.elc
+*~
+Makefile
+config.log
+config.status
+doc/navi2ch.info
+elc-stamp
+navi2ch-config.el
+TAGS
+autom4te.cache/

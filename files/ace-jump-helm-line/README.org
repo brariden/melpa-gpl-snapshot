@@ -1,0 +1,43 @@
+#+TITLE: ace-jump-helm-line
+[[http://melpa.org/#/ace-jump-helm-line][file:http://melpa.org/packages/ace-jump-helm-line-badge.svg]]
+[[http://stable.melpa.org/#/ace-jump-helm-line][file:http://stable.melpa.org/packages/ace-jump-helm-line-badge.svg]]
+
+*Ace-jump to a candidate in helm window.*
+
+This package makes use of the =avy.el=.
+
+* Setup
+  : (add-to-list 'load-path "/path/to/ace-jump-helm-line.el")
+  : (require 'ace-jump-helm-line)
+
+  You can use the following code to bind =ace-jump-helm-line= (or
+  =ace-jump-helm-line-execute-action=. See later) to a key(say, @@html:<kbd>@@C-'@@html:</kbd>@@):
+  : (eval-after-load "helm"
+  : '(define-key helm-map (kbd "C-'") 'ace-jump-helm-line))
+
+* Usage
+  When in a helm session, for example, after you call =helm-M-x=, you can use
+  your key binding(for example, @@html:<kbd>@@C-'@@html:</kbd>@@) to invoke =ace-jump-helm-line=. See the
+  following demos.
+
+  Two commands are available:
+  - =ace-jump-helm-line=: Jump to a candidate in helm window. You can still move
+    around in the helm window after this command.
+  - =ace-jump-helm-line-execute-action=: Jump to a candidate and automatically
+    select the candidate to execute the persistent action. The helm session will
+    end after this command.
+
+* Demos
+  Use =avy= style to jump to a helm candidate:
+  [[./screencasts/avy-jump-style.gif]]
+
+  Or use =ace-jump-mode= style(which should be similar as [[https://github.com/winterTTr/ace-jump-mode][ace-jump-mode]]):
+  [[./screencasts/ace-jump-mode-style.gif]]
+
+  By default, this package uses =avy= style(anyway, it uses =avy.el=!). You can
+  certainly change to =ace-jump-mode-style= by:
+  : (setq ace-jump-helm-line-use-avy-style nil)
+
+* Acknowledgment
+  - Thank [[https://github.com/abo-abo/][Oleh Krehel]] for the awesome [[https://github.com/abo-abo/avy][avy]] package.
+  - Thank @hick for the original idea.

@@ -1,0 +1,83 @@
+= KeyValue Database on PostgreSQL =
+
+A Postgresql interface for
+[[http://github.com/nicferrier/emacs-db|emacs-db]], the basic
+database interface for EmacsLisp.
+
+
+== Example usage ==
+
+Here's a small example that shows, at least, how to specify the
+connection details:
+
+{{{
+##! emacs-lisp
+(let ((db 
+        (db-make 
+          '(db-pg
+             :db "my-db" :username "nic"
+             :table "t1" :column "c1" :key "a"))))
+    (db-get "10" db))
+
+=> '(("a" . 10)("b" . "20"))
+}}}
+
+
+== A note on Hstores ==
+
+This relies on a feature of PostgreSQL called hstore's. Hstores are
+key/value stores in PostgreSQL.
+
+A single hstore column is used to store the key/values for any
+particular database instance in {{{db-pg}}}.
+
+You can create an Hstore column in PostgreSQL like this:
+
+{{{
+##! sql
+create table my_table
+(my_column hstore);
+}}}
+
+The hstore column is all that's important to {{{db-pg}}}. It doesn't
+care what else is in the table, the table could have many more
+columns.
+
+=== Table creation ===
+
+//db-pg// will test for existance of the specified table when the
+{{{db-make}}} is evaluated. If the table does not exist it is created
+by {{{db-pg/create-table}}}.
+
+In the future the CREATE TABLE will be customizable.
+
+=== Hstores and schemas and maintainability ===
+
+Hstores are about rapid development. You can put data in to the
+database in any structure and throw it away and have a new structure
+with very little difficulty.
+
+This is a good thing until you cease rapidly developing, then the
+advantages of a more defined schema become more important. But Hstores
+don't prevent that. Once you have a more settled application you
+should start to define the schema of your data. When using Hstores you
+can do this as a trigger based normalization of your hstore value to
+your schema. 
+
+The advantage of doing it this way is that the entire database schema
+definition is expressed in SQL, it is a function mapping an Hstore (or
+many Hstores) to SQL-tables.
+
+It's the definition of this mapping that I aim to introduce to this
+code as CREATE TABLE customizations.
+
+
+== Tests ==
+
+There are tests but most of them require a real postgresql. The
+database used is the const {{{db-pg-tests-db}}}.
+
+
+== Emacs all the way down ==
+
+Postgresql is the Emacs of the database world. So combine the two!

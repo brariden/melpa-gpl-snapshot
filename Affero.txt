@@ -1,0 +1,5 @@
+artbollocks-mode
+ghc-mod
+lice-el
+mediawiki-el
+ocp-indent

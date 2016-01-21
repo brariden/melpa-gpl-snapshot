@@ -1,0 +1,57 @@
+;;; -*- emacs-lisp -*-
+;; Copyright (c) 2009 Espen Wiborg <espenhw@grumblesmurf.org>
+;;
+;; This program is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU General Public License as
+;; published by the Free Software Foundation; either version 2 of the
+;; License, or (at your option) any later version.
+;;
+;; This program is distributed in the hope that it will be useful, but
+;; WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; General Public License for more details.
+;;
+;; You should have received a copy of the GNU General Public License
+;; along with this program; if not, write to the Free Software
+;; Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+;; 02110-1301 USA.
+;;
+
+(if (not (featurep 'malabar-test-util))
+    (load-file "./malabar-test-util.el"))
+	 
+(setq java-file "src/test/project/basic/src/main/java/com/software_ninja/App.java")
+
+(defun malabar-ede-maven-project-dir ()
+  (if noninteractive
+      (getenv "PWD")
+    (expand-file-name "../../..")))
+
+(defun malabar-ede-maven-expected-classpath (malabar-project-dir repo)
+  (let ((basic-project-dir  (expand-file-name "src/test/project/basic" malabar-project-dir)))
+	
+	(list (expand-file-name "src/test/java" basic-project-dir)
+	      (expand-file-name "src/main/java" basic-project-dir)
+	      (expand-file-name "target/test-classes" basic-project-dir)
+	      (expand-file-name "target/classes" basic-project-dir)
+	      (expand-file-name "target/classes" basic-project-dir)
+	      (expand-file-name "junit/junit/3.8.1/junit-3.8.1.jar" repo))))
+
+
+(ert-deftest malabar-ede-maven-classpath ()
+  "Verify that the classpath is returned from a malabar server."
+  (should (malabar-test-util-wait-for-server 20))
+  (let ((malabar-project-dir (malabar-ede-maven-project-dir)))
+    (with-temp-buffer
+      (add-to-list 'load-path (expand-file-name "src/main/lisp/" malabar-project-dir))
+      (message "Load %s" (load "malabar-ede-maven.el"))
+      (let ((file-name (expand-file-name java-file malabar-project-dir)))
+	(malabar-test-util-find-file-into-buffer file-name)
+	(let ((ede-project (ede-current-project))
+	      (repo (expand-file-name malabar-package-maven-repo)))
+	  (message "%s" (object-print ede-project))
+	  (should (equal "Malabar Maven<basic>"  (oref ede-project name)))
+	  (should (equal 'malabar-ede-maven2-project (object-class  ede-project)))
+	  (should (equal (malabar-ede-maven-expected-classpath malabar-project-dir repo)
+			 (ede-java-classpath ede-project))))))))
+  

@@ -1,0 +1,8 @@
+// -*- mode: javascript -*-
+
+// JSHint configuration file
+// For information about options, see http://www.jshint.com/docs/#options
+{
+  "undef": true,
+  "unused": true
+}

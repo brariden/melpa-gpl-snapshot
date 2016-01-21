@@ -1,0 +1,67 @@
+#+title: backlog
+#+author: ardumont
+
+* 0.0.7 [%]
+- [ ] Add :b binding
+- [ ] Add `:s import` binding
+- [ ] Add `:s loaded` binding
+- [ ] Make psci's default completion work
+* DONE 0.0.6 [100%]
+CLOSED: [2015-01-14 Wed 09:03]
+- [X] Prepare backlog
+- [X] Update version
+- [X] Add TOC to the README.org (Cheers to org-toc!)
+- [X] `M-x psci` errors if there is no .psci file. - CLOSE #3
+- [X] Need better regex for `psci/--compute-module-name!` - CLOSE #4
+* DONE 0.0.5 [100%]
+CLOSED: [2014-10-30 Thu 18:17]
+- [X] Prepare backlog
+- [X] Improve mode description header
+- [X] Update version
+- [X] Reorganize code for a better readability
+  - [X] Reorganize var at the beginning of the buffer
+  - [X] Add missing autoload property on psci function
+  - [X] Remove dead code
+  - [X] Reorganize private functions at the beginning of the buffer
+  - [X] Improve psci minor mode's dosctring description
+- [X] Add quit session command
+- [X] Update documentation about quit command
+* DONE 0.0.4 [100%]
+CLOSED: [2014-10-29 Wed 20:08]
+- [X] Update version
+- [X] Add an interactive command for displaying the current version
+- [X] Use compatible with old emacs version api (replace `(setq-local var val)` with `(set (make-local-variable 'var) val)`)
+- [X] `shell-quote-argument` around shell code
+- [X] Remove projectile dependencies and compute the root folder using emacs primitives (thanks @purcell again)
+- [X] Update el-get PR to remove projectile dependencies - https://github.com/dimitri/el-get/pull/1973
+- [X] Add a minor mode instead of modifying purescript-mode-map
+- [X] Update heading information about the minor-mode activation and setup
+- [X] Update documentation about the minor-mode activation and setup
+- [X] Avoid version function and var. Use directly the package information.
+- [X] Update call to setq default-directory
+* DONE 0.0.3 [100%]
+CLOSED: [2014-10-29 Wed 18:54]
+- [X] Update version
+- [X] Add to marmalade - https://marmalade-repo.org/packages/psci
+- [X] Add to el-get - https://github.com/ardumont/el-get/blob/add-psci-recipe/recipes/psci.rcp
+- [X] Update documentation regarding installation steps
+- [X] Update documentation regarding usage
+* DONE 0.0.2 [100%]
+CLOSED: [2014-10-29 Wed 18:03]
+- [X] Run the psci command from the folder containing the .psci file
+- [X] Improve the modules (re)loading by removing existing files (.psci_modules/node_modules folder)
+- [X] Improve the module (re)loading by removing existings files (inside .psci_modules folder)
+- [X] Create melpa recipe https://github.com/ardumont/melpa/blob/add-new-recipe-psci/recipes/psci
+* DONE 0.0.1 [100%]
+CLOSED: [2014-10-29 Wed 16:37]
+- [X] Prepare backlog
+- [X] First implementation
+- [X] Add some documentation
+- [X] Ensure everything is ok [100%]
+  - [X] Fix prompt regexp
+  - [X] Ensure the psci-mode-map is loaded
+- [X] Load file in the current session
+- [X] Load module in the current session
+- [X] Add purescript-mode-hook function to extend bindings to load file or module
+- [X] Permit the loading of dependencies modules
+- [X] Send the reset command

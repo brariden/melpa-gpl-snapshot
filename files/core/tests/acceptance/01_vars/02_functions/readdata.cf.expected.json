@@ -1,0 +1,66 @@
+{
+  "explicit_csv": [
+    [
+      "a",
+      "b",
+      "c"
+    ],
+    [
+      "d",
+      "e",
+      "f"
+    ],
+    [
+      "g,h,i"
+    ]
+  ],
+  "explicit_json": {
+    "x": [
+      1,
+      2,
+      3
+    ],
+    "y": "more data here",
+    "z": {
+      "300": 400
+    }
+  },
+  "extension_csv": [
+    [
+      "a",
+      "b",
+      "c"
+    ],
+    [
+      "d",
+      "e",
+      "f"
+    ],
+    [
+      "g,h,i"
+    ]
+  ],
+  "extension_json": {
+    "x": [
+      1,
+      2,
+      3
+    ],
+    "y": "more data here",
+    "z": {
+      "300": 400
+    }
+  },
+  "failed_explicit_csv": [],
+  "guess_json": {
+    "x": [
+      1,
+      2,
+      3
+    ],
+    "y": "more data here",
+    "z": {
+      "300": 400
+    }
+  }
+}

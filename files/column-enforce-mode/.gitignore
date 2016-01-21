@@ -1,0 +1,6 @@
+*~
+\#*
+.\#*
+*.elc
+/ido-copy.el.gz
+/performance-test.txt

@@ -1,0 +1,157 @@
+#+TITLE: Emacs VHDL Tools
+
+[[https://github.com/csantosb/vhdl-tools/blob/master/LICENSE][file:http://img.shields.io/badge/license-GNU%20GPLv3-blue.svg]]
+[[http://stable.melpa.org/#/vhdl-tools][file:http://stable.melpa.org/packages/vhdl-tools-badge.svg]]
+[[http://melpa.org/#/vhdl-tools][file:http://melpa.org/packages/vhdl-tools-badge.svg]]
+
+This project provides useful VHDL support for Emacs in terms of navigation.
+
+* Table of contents
+
+ - [[#about][About]]
+ - [[#install][Install]]
+ - [[#use][Use]]
+     - [[#headings][Headings]]
+     - [[#custom-imenu][Custom Imenu]]
+     - [[#jumping-around][Jumping around]]
+ - [[#related-utilities][Related utilities]]
+ - [[#coding][Coding]]
+ - [[#license][License]]
+
+* About
+
+[[https://csantosb.github.io/blog/2015/12/23/vhdl-tools/][Vhdl-tools]] provide a minor mode intended to be used under [[https://guest.iis.ee.ethz.ch/~zimmi/emacs/vhdl-mode.html][vhdl-mode]].
+It adds specific functionality on top of [[https://github.com/leoliu/ggtags][ggtags]], =imenu= and [[https://github.com/tj64/outshine][outshine]]
+to ease navigating vhdl sources. It expects a working setup of =ggtags=,
+completing it with
+
+  - Jumping into instances
+  - Jump to upper level
+  - Searching for references
+  - Link and headings management
+  - Custom use of imenu
+
+* Install
+
+Manual installation: as usual, download it, add to path and require after
+loading =vhdl-mode=
+
+#+begin_src emacs-lisp
+  (with-eval-after-load 'vhdl-mode
+    (add-to-list 'load-path "...")
+    (require 'vhdl-tools))
+#+end_src
+
+This package is available fom [[http://stable.melpa.org/#/vhdl-tools][Melpa]] too, you may install it by calling
+
+#+begin_src emacs-lisp
+  M-x package-install RET vhdl-tools
+#+end_src
+
+Then, activate the minor mode by completing the =vhdl-mode= hook.
+
+#+begin_src emacs-lisp
+  (add-hook 'vhdl-mode-hook
+            (lambda ()
+              (vhdl-tools-mode 1)))
+#+end_src
+
+* Use
+
+** Headings
+
+Following the status of the =vhdl-tools-use-outshine= flag (off by default),
+when the mode is enabled, =vhdl-tools= will activate =outline-minor-mode=
+locally and =outshine= globally, setting =vhdl-tools-outline-regexp= as the
+regexp used to locate headings.
+
+This enables using this kind of headings
+
+#+begin_src example
+  -- * Header Level 1
+
+  -- ** Header Level 2
+  MyInstance : MyComponent
+      port map ( ...
+#+end_src
+
+to delimit code blocks.
+
+The following keybinds are available to navigate headings
+
+  + =C-c C-n=, get to next header
+  + =C-c C-h=, get to previous header
+
+** Custom Imenu
+
+The following keybinds are made available to browse current buffer contents
+
+  + =C-x c i m=    standard imenu
+  + =C-x c i i=    instances
+  + =C-x c i p=    processes
+  + =C-x c i SPC=  headers
+  + =C-x c i a=    all items
+
+** Jumping around
+
+The following keybinds are available
+
+  + =C-c M-D=, jumps to the definition of symbol at point
+
+    [[file:JumpDef.gif][JumpDef.gif]]
+
+  + =C-c M-w=, stores a link
+  + =C-c M-y=, pastes a link
+  + =C-c M-j=, follows the link at point
+
+    [[file:Links.gif][Links.gif]]
+
+  + =C-c M-.=, jumps into the instance at point
+
+    [[file:JumpIntoInstance.gif][JumpIntoInstance.gif]]
+
+  + =C-c M-a=, moves point to first appearance of symbol at point
+
+    [[file:JumpFirst.gif][JumpFirst.gif]]
+
+  + =C-c M-u=, jumps to upper hierarchy level
+
+    [[file:JumpUpper.gif][JumpUpper.gif]]
+
+Cursor will jump to the target if there is one, searching packages too. The ring
+mark is push after jumping, so to get back, press =C-c C-p= or M-, (default
+binds under =ggtags=) if corresponding definition has been found. Works better
+for files with correct syntax: think =vhdl-beautify-buffer= before using
+=vhdl-tools=.
+
+Also have a look at customization possibilities with =M-x customize-group vhdl-tools=.
+
+* Related utilities
+
+Some additional emacs packages useful in this context might be
+
+- [[https://github.com/mickeynp/smart-scan][Smart scan]]
+- [[https://github.com/Malabarba/beacon][Beacon]]
+- [[https://github.com/Malabarba/aggressive-indent-mode][Aggressive auto indent]]
+- [[https://github.com/Malabarba/aggressive-indent-mode][aggressive-indent-mode]]
+
+* Coding
+
+Sparse list of projects intended at improving coding homogeneity
+
+- [[https://github.com/VHDLTool/VHDLHandbook][VHDLHandbook]]
+
+* License
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.

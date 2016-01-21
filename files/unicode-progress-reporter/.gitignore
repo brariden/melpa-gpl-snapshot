@@ -1,0 +1,9 @@
+/ert-tests/ert.el
+/ert-tests/list-utils.el
+/ert-tests/pcache.el
+/ert-tests/persistent-soft.el
+/ert-tests/ucs-utils-6.0-delta.el
+/ert-tests/ucs-utils.el
+*-autoloads.el
+*.elc
+*~

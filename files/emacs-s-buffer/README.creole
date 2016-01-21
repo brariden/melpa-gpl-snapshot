@@ -1,0 +1,24 @@
+= s-buffer - string stuff on buffers =
+
+The s.el library is very cool. It has some useful functions that Emacs
+lacks. But sometimes string things would be useful on buffers.
+
+That's what this package is for. It makes some {{{s}}} functionality
+work on whole buffers. It tries to do this in performat ways.
+
+Currently the two functions we have are:
+
+
+=== s-buffer-format buffer replacer &optional extra ===
+
+Format the text in //buffer// in place with //replacer//.
+
+The arguments for format-buffer are as for [[s-format]].
+
+
+=== s-buffer-lex-format buffer ===
+
+Use scope to resolve the variables in //buffer//.
+
+The buffer form of [[s-lex-format]].
+

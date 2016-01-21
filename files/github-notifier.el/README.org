@@ -1,0 +1,15 @@
+* github-notifier [[http://melpa.org/#/github-notifier][file:http://melpa.org/packages/github-notifier-badge.svg]]
+
+  [[file:img.png]]
+
+  =github-notifier= is a global minor-mode for Emacs that displays your GitHub
+  notifications unread count in mode-line. It checks the GitHub Notifications
+  API every minute.
+
+** Usage
+
+   =M-x github-notifier-mode=
+
+   If you want to call it from lisp (i.e., =(github-notifier-mode 1)=), make
+   sure =github-notifier-token= has been set up FIRSTLY, consult its doc-string
+   to learn how to generate an access token.

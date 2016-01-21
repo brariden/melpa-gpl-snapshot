@@ -1,0 +1,5 @@
+# contributor: Jaromir Hradilek <jhradilek@gmail.com>
+# name: <email>
+# key: email
+# --
+<email>${1:`user-mail-address`}</email>

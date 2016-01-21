@@ -1,0 +1,4 @@
+#!/bin/sh -e
+exec emacs -Q -batch -l package -f package-initialize \
+     -l digistar-mode.el \
+     -l buttercup -f buttercup-run-discover tests

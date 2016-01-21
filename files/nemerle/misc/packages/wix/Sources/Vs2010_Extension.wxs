@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?include ..\Includes\Variables.wxi ?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  <Fragment>
+    <?foreach ide in VS2010;VS2012;VS2013;VS2015 ?>
+
+    <PropertyRef Id="$(var.ide)_ROOT_FOLDER" />
+
+    <ComponentGroup Id="CompGroup_$(var.ide)Extension">
+      <ComponentRef Id="Comp_NemerleCompilerUtils" />
+      <ComponentRef Id="Comp_NemerleVisualStudio" />
+      <ComponentRef Id="Comp_WpfHint" />
+      <ComponentRef Id="Comp_$(var.ide)_Manifest" />
+      <ComponentRef Id="Comp_$(var.ide)_Package" />
+      <ComponentRef Id="Comp_$(var.ide)_Resources" />
+      <ComponentRef Id="Comp_$(var.ide)_SnippetsIndex"/>
+      <ComponentRef Id="Comp_$(var.ide)_Snippets"/>
+      <ComponentRef Id="Comp_$(var.ide)_ItemTemplates"/>
+      <ComponentRef Id="Comp_$(var.ide)_ProjectTemplates"/>
+      <ComponentRef Id="Comp_$(var.ide)_CleanupExtensionFolder"/>
+    </ComponentGroup>
+
+    <DirectoryRef Id="TARGETDIR">
+      <Directory Id="$(var.ide)_ROOT_FOLDER" Name="$(var.ide)">
+        <Directory Id="$(var.ide)_Common7_Folder" Name="Common7">
+          <Directory Id="$(var.ide)_IDE_Folder" Name="IDE">
+            <Directory Id="$(var.ide)_Extensions_Folder" Name="Extensions">
+              <Directory Id="$(var.ide)_ExtensionManufacturer_Folder" Name="$(var.Manufacturer)">
+                <Directory Id="$(var.ide)_ExtensionName_Folder" Name="$(var.ProductName)">
+                  <Directory Id="$(var.ide)EXTENSIONDIR" Name="$(var.ProductVersion)">
+                    <Directory Id="$(var.ide)_Resources_Folder" Name="Resources" />
+                    <Directory Id="$(var.ide)_CodeSnippets_Folder" Name="CodeSnippets">
+                      <Directory Id="$(var.ide)_CodeSnippets_Snippets_Folder" Name="Snippets" />
+                    </Directory>
+                    <Directory Id="$(var.ide)_ItemTemplates_Folder" Name="ItemTemplates">
+                      <Directory Id="$(var.ide)_ItemTemplates_Nemerle_Folder" Name="Nemerle" />
+                    </Directory>
+                    <Directory Id="$(var.ide)_ProjectTemplates_Folder" Name="ProjectTemplates">
+                      <Directory Id="$(var.ide)_ProjectTemplates_Nemerle_Folder" Name="Nemerle" />
+                    </Directory>
+                  </Directory>
+                </Directory>
+              </Directory>
+            </Directory>
+          </Directory>
+        </Directory>
+      </Directory>
+    </DirectoryRef>
+
+    <CustomAction Id="$(var.ide)PatchPkgDefInit" Property="$(var.ide)PatchPkgDef" Value="[APPLICATIONFOLDER]|[$(var.ide)EXTENSIONDIR]|$(var.NemerleVisualStudioVersion)" />
+    <CustomAction Id="$(var.ide)PatchPkgDef" Impersonate="no" BinaryKey="PkgDefPatcher.js" JScriptCall="$(var.ide)" Return="check" Execute="deferred" />
+
+    <CustomAction Id="$(var.ide)UpdateExtensionsInit" Property="$(var.ide)UpdateExtensions" Value="[$(var.ide)_Extensions_Folder]extensions.configurationchanged" />
+    <CustomAction Id="$(var.ide)UpdateExtensions" Impersonate="no" BinaryKey="PkgDefPatcher.js" JScriptCall="UpdateFileTimestamp" Return="check" Execute="deferred" />
+
+    <Property Id="$(var.ide)EXTENSIONDIR">
+      <RegistrySearch Id="$(var.ide)EXTENSIONDIR_REGSEARCH" Key="Software\$(var.ProductName)\$(var.NVer)" Root="HKLM" Type="raw" Name="$(var.ide)ExtensionPath" />
+    </Property>
+
+    <DirectoryRef Id="$(var.ide)EXTENSIONDIR">
+      <Component Id="Comp_$(var.ide)_CleanupExtensionFolder" Guid="*">
+        <RegistryValue Root="HKLM" Key="Software\$(var.ProductName)\$(var.NVer)" Name="$(var.ide)ExtensionPath" Type="string" Value="[$(var.ide)EXTENSIONDIR]" KeyPath="yes" />
+        <util:RemoveFolderEx On="uninstall" Property="$(var.ide)EXTENSIONDIR" />
+      </Component>
+    </DirectoryRef>
+
+    <?endforeach?>
+    <?undef ide?>
+
+    <!-- Common IDE components -->
+
+    <Binary Id="PkgDefPatcher.js" SourceFile="$(var.Sources)\PkgDefPatcher.js" />
+
+    <DirectoryRef Id="Dir_Nver" FileSource="$(var.DistPath)\vs-plugin\">
+      <Component Id="Comp_NemerleCompilerUtils" DiskId="1" Guid="$(var.Comp_NemerleCompilerUtils_Guid)">
+        <File Id="File_Nemerle.Compiler.Utils.dll" Name="Nemerle.Compiler.Utils.dll" KeyPath="yes" />
+<?if $(var.Configuration) = "Debug" ?>
+        <File Id="File_Nemerle.Compiler.Utils.pdb" Name="Nemerle.Compiler.Utils.pdb" CompanionFile="File_Nemerle.Compiler.Utils.dll" />
+<?endif?>
+      </Component>
+      <Component Id="Comp_NemerleVisualStudio" DiskId="1" Guid="$(var.Comp_NemerleVisualStudio_Guid)">
+        <File Id="File_Nemerle.VisualStudio.dll" Name="Nemerle.VisualStudio.dll" KeyPath="yes">
+          <netfx:NativeImage Id="Image_Nemerle.VisualStudio.dll" Priority="1" Platform="all" Dependencies="no" AppBaseDirectory="Dir_Nver" />
+        </File>
+<?if $(var.Configuration) = "Debug" ?>
+        <File Id="File_Nemerle.VisualStudio.pdb" Name="Nemerle.VisualStudio.pdb" CompanionFile="File_Nemerle.VisualStudio.dll" />
+<?endif?>
+      </Component>
+      <Component Id="Comp_WpfHint" DiskId="1" Guid="$(var.Comp_WpfHint_Guid)">
+        <File Id="File_WpfHint.dll" Name="WpfHint.dll" KeyPath="yes" />
+<?if $(var.Configuration) = "Debug" ?>
+        <File Id="File_WpfHint.pdb" Name="WpfHint.pdb" CompanionFile="File_WpfHint.dll" />
+<?endif?>
+      </Component>
+    </DirectoryRef>
+
+    <!-- VS2010 Specific components -->
+
+    <DirectoryRef Id="VS2010EXTENSIONDIR" FileSource="$(var.DistPath)\vs-plugin">
+      <Component Id="Comp_VS2010_Manifest" DiskId="1" Guid="$(var.Comp_VS2010_Manifest_Guid)">
+        <File Id="File_VS2010_extension.vsixmanifest" Name="extension.vsixmanifest" KeyPath="yes"/>
+        <util:XmlFile Id="Xml_VS2010_extension.vsixmanifest_1" File="[VS2010EXTENSIONDIR]extension.vsixmanifest" SelectionLanguage="XPath"
+                      Action="setValue" ElementPath="//*[\[]local-name()='InstalledByMsi'[\]]" Value="true" />
+        <util:XmlFile Id="Xml_VS2010_extension.vsixmanifest_2" File="[VS2010EXTENSIONDIR]extension.vsixmanifest" SelectionLanguage="XPath"
+                      Action="setValue" ElementPath="//*[\[]local-name()='MefComponent' and contains(text(), 'Nemerle.VisualStudio.dll')[\]]" Value="[Dir_Nver]Nemerle.VisualStudio.dll" />
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="VS2010EXTENSIONDIR" FileSource="$(var.DistPath)\vs-plugin">
+      <Component Id="Comp_VS2010_Package" DiskId="1" Guid="$(var.Comp_VS2010_Package_Guid)">
+        <File Id="File_VS2010_Nemerle.VisualStudio.pkgdef" Name="Nemerle.VisualStudio.pkgdef" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="VS2010_Resources_Folder" FileSource="$(var.DistPath)\vs-plugin\Resources">
+      <Component Id="Comp_VS2010_Resources" DiskId="1" Guid="$(var.Comp_VS2010_Resources_Guid)">
+        <File Id="File_VS2010_Nemerle.ico" Name="Nemerle.ico" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="VS2010_CodeSnippets_Folder" FileSource="$(var.DistPath)\vs-plugin\CodeSnippets">
+      <Component Id="Comp_VS2010_SnippetsIndex" DiskId="1" Guid="$(var.Comp_VS2010_SnippetsIndex_Guid)">
+        <File Id="File_VS2010_SnippetsIndex.xml" Name="SnippetsIndex.xml" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="VS2010_CodeSnippets_Snippets_Folder" FileSource="$(var.DistPath)\vs-plugin\CodeSnippets\Snippets">
+      <Component Id="Comp_VS2010_Snippets" DiskId="1" Guid="$(var.Comp_VS2010_Snippets_Guid)">
+        <?define ide = VS2010?>
+        <?include ..\Includes\VsSnippets.wxi ?>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="VS2010_ItemTemplates_Nemerle_Folder" FileSource="$(var.DistPath)\vs-plugin\ItemTemplates\Nemerle">
+      <Component Id="Comp_VS2010_ItemTemplates" DiskId="1" Guid="$(var.Comp_VS2010_ItemTemplates_Guid)">
+        <?define ide = VS2010?>
+        <?include ..\Includes\VsItemTemplates.wxi ?>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="VS2010_ProjectTemplates_Nemerle_Folder" FileSource="$(var.DistPath)\vs-plugin\ProjectTemplates\Nemerle">
+      <Component Id="Comp_VS2010_ProjectTemplates" DiskId="1" Guid="$(var.Comp_VS2010_ProjectTemplates_Guid)">
+        <?define ide = VS2010?>
+        <?include ..\Includes\VsProjectTemplates.wxi ?>
+      </Component>
+    </DirectoryRef>
+
+    <!-- VS2012 Specific components -->
+
+    <DirectoryRef Id="VS2012EXTENSIONDIR" FileSource="$(var.DistPath)\vs-plugin">
+      <Component Id="Comp_VS2012_Manifest" DiskId="1" Guid="$(var.Comp_VS2012_Manifest_Guid)">
+        <File Id="File_VS2012_extension.vsixmanifest" Name="extension.vsixmanifest" KeyPath="yes" />
+        <util:XmlFile Id="Xml_VS2012_extension.vsixmanifest_1" File="[VS2012EXTENSIONDIR]extension.vsixmanifest" SelectionLanguage="XPath"
+                      Action="setValue" ElementPath="//*[\[]local-name()='InstalledByMsi'[\]]" Value="true" />
+        <util:XmlFile Id="Xml_VS2012_extension.vsixmanifest_2" File="[VS2012EXTENSIONDIR]extension.vsixmanifest" SelectionLanguage="XPath"
+                      Action="setValue" ElementPath="//*[\[]local-name()='MefComponent' and contains(text(), 'Nemerle.VisualStudio.dll')[\]]" Value="[Dir_Nver]Nemerle.VisualStudio.dll" />
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="VS2012EXTENSIONDIR" FileSource="$(var.DistPath)\vs-plugin">
+      <Component Id="Comp_VS2012_Package" DiskId="1" Guid="$(var.Comp_VS2012_Package_Guid)">
+        <File Id="File_VS2012_Nemerle.VisualStudio.pkgdef" Name="Nemerle.VisualStudio.pkgdef" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="VS2012_Resources_Folder" FileSource="$(var.DistPath)\vs-plugin\Resources">
+      <Component Id="Comp_VS2012_Resources" DiskId="1" Guid="$(var.Comp_VS2012_Resources_Guid)">
+        <File Id="File_VS2012_Nemerle.ico" Name="Nemerle.ico" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="VS2012_CodeSnippets_Folder" FileSource="$(var.DistPath)\vs-plugin\CodeSnippets">
+      <Component Id="Comp_VS2012_SnippetsIndex" DiskId="1" Guid="$(var.Comp_VS2012_SnippetsIndex_Guid)">
+        <File Id="File_VS2012_SnippetsIndex.xml" Name="SnippetsIndex.xml" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="VS2012_CodeSnippets_Snippets_Folder" FileSource="$(var.DistPath)\vs-plugin\CodeSnippets\Snippets">
+      <Component Id="Comp_VS2012_Snippets" DiskId="1" Guid="$(var.Comp_VS2012_Snippets_Guid)">
+        <?define ide = VS2012?>
+        <?include ..\Includes\VsSnippets.wxi ?>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="VS2012_ItemTemplates_Nemerle_Folder" FileSource="$(var.DistPath)\vs-plugin\ItemTemplates\Nemerle">
+      <Component Id="Comp_VS2012_ItemTemplates" DiskId="1" Guid="$(var.Comp_VS2012_ItemTemplates_Guid)">
+        <?define ide = VS2012?>
+        <?include ..\Includes\VsItemTemplates.wxi ?>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="VS2012_ProjectTemplates_Nemerle_Folder" FileSource="$(var.DistPath)\vs-plugin\ProjectTemplates\Nemerle">
+      <Component Id="Comp_VS2012_ProjectTemplates" DiskId="1" Guid="$(var.Comp_VS2012_ProjectTemplates_Guid)">
+        <?define ide = VS2012?>
+        <?include ..\Includes\VsProjectTemplates.wxi ?>
+      </Component>
+    </DirectoryRef>
+
+    <!-- VS2013 Specific components -->
+
+    <DirectoryRef Id="VS2013EXTENSIONDIR" FileSource="$(var.DistPath)\vs-plugin">
+      <Component Id="Comp_VS2013_Manifest" DiskId="1" Guid="$(var.Comp_VS2013_Manifest_Guid)">
+        <File Id="File_VS2013_extension.vsixmanifest" Name="extension.vsixmanifest" KeyPath="yes"/>
+        <util:XmlFile Id="Xml_VS2013_extension.vsixmanifest_1" File="[VS2013EXTENSIONDIR]extension.vsixmanifest" SelectionLanguage="XPath"
+                      Action="setValue" ElementPath="//*[\[]local-name()='InstalledByMsi'[\]]" Value="true" />
+        <util:XmlFile Id="Xml_VS2013_extension.vsixmanifest_2" File="[VS2013EXTENSIONDIR]extension.vsixmanifest" SelectionLanguage="XPath"
+                      Action="setValue" ElementPath="//*[\[]local-name()='MefComponent' and contains(text(), 'Nemerle.VisualStudio.dll')[\]]" Value="[Dir_Nver]Nemerle.VisualStudio.dll" />
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="VS2013EXTENSIONDIR" FileSource="$(var.DistPath)\vs-plugin">
+      <Component Id="Comp_VS2013_Package" DiskId="1" Guid="$(var.Comp_VS2013_Package_Guid)">
+        <File Id="File_VS2013_Nemerle.VisualStudio.pkgdef" Name="Nemerle.VisualStudio.pkgdef" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="VS2013_Resources_Folder" FileSource="$(var.DistPath)\vs-plugin\Resources">
+      <Component Id="Comp_VS2013_Resources" DiskId="1" Guid="$(var.Comp_VS2013_Resources_Guid)">
+        <File Id="File_VS2013_Nemerle.ico" Name="Nemerle.ico" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="VS2013_CodeSnippets_Folder" FileSource="$(var.DistPath)\vs-plugin\CodeSnippets">
+      <Component Id="Comp_VS2013_SnippetsIndex" DiskId="1" Guid="$(var.Comp_VS2013_SnippetsIndex_Guid)">
+        <File Id="File_VS2013_SnippetsIndex.xml" Name="SnippetsIndex.xml" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="VS2013_CodeSnippets_Snippets_Folder" FileSource="$(var.DistPath)\vs-plugin\CodeSnippets\Snippets">
+      <Component Id="Comp_VS2013_Snippets" DiskId="1" Guid="$(var.Comp_VS2013_Snippets_Guid)">
+        <?define ide = VS2013?>
+        <?include ..\Includes\VsSnippets.wxi ?>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="VS2013_ItemTemplates_Nemerle_Folder" FileSource="$(var.DistPath)\vs-plugin\ItemTemplates\Nemerle">
+      <Component Id="Comp_VS2013_ItemTemplates" DiskId="1" Guid="$(var.Comp_VS2013_ItemTemplates_Guid)">
+        <?define ide = VS2013?>
+        <?include ..\Includes\VsItemTemplates.wxi ?>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="VS2013_ProjectTemplates_Nemerle_Folder" FileSource="$(var.DistPath)\vs-plugin\ProjectTemplates\Nemerle">
+      <Component Id="Comp_VS2013_ProjectTemplates" DiskId="1" Guid="$(var.Comp_VS2013_ProjectTemplates_Guid)">
+        <?define ide = VS2013?>
+        <?include ..\Includes\VsProjectTemplates.wxi ?>
+      </Component>
+    </DirectoryRef>
+
+    <!-- VS2015 Specific components -->
+
+    <DirectoryRef Id="VS2015EXTENSIONDIR" FileSource="$(var.DistPath)\vs-plugin">
+      <Component Id="Comp_VS2015_Manifest" DiskId="1" Guid="$(var.Comp_VS2015_Manifest_Guid)">
+        <File Id="File_VS2015_extension.vsixmanifest" Name="extension.vsixmanifest" KeyPath="yes"/>
+        <util:XmlFile Id="Xml_VS2015_extension.vsixmanifest_1" File="[VS2015EXTENSIONDIR]extension.vsixmanifest" SelectionLanguage="XPath"
+                      Action="setValue" ElementPath="//*[\[]local-name()='InstalledByMsi'[\]]" Value="true" />
+        <util:XmlFile Id="Xml_VS2015_extension.vsixmanifest_2" File="[VS2015EXTENSIONDIR]extension.vsixmanifest" SelectionLanguage="XPath"
+                      Action="setValue" ElementPath="//*[\[]local-name()='MefComponent' and contains(text(), 'Nemerle.VisualStudio.dll')[\]]" Value="[Dir_Nver]Nemerle.VisualStudio.dll" />
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="VS2015EXTENSIONDIR" FileSource="$(var.DistPath)\vs-plugin">
+      <Component Id="Comp_VS2015_Package" DiskId="1" Guid="$(var.Comp_VS2015_Package_Guid)">
+        <File Id="File_VS2015_Nemerle.VisualStudio.pkgdef" Name="Nemerle.VisualStudio.pkgdef" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="VS2015_Resources_Folder" FileSource="$(var.DistPath)\vs-plugin\Resources">
+      <Component Id="Comp_VS2015_Resources" DiskId="1" Guid="$(var.Comp_VS2015_Resources_Guid)">
+        <File Id="File_VS2015_Nemerle.ico" Name="Nemerle.ico" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="VS2015_CodeSnippets_Folder" FileSource="$(var.DistPath)\vs-plugin\CodeSnippets">
+      <Component Id="Comp_VS2015_SnippetsIndex" DiskId="1" Guid="$(var.Comp_VS2015_SnippetsIndex_Guid)">
+        <File Id="File_VS2015_SnippetsIndex.xml" Name="SnippetsIndex.xml" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="VS2015_CodeSnippets_Snippets_Folder" FileSource="$(var.DistPath)\vs-plugin\CodeSnippets\Snippets">
+      <Component Id="Comp_VS2015_Snippets" DiskId="1" Guid="$(var.Comp_VS2015_Snippets_Guid)">
+        <?define ide = VS2015?>
+        <?include ..\Includes\VsSnippets.wxi ?>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="VS2015_ItemTemplates_Nemerle_Folder" FileSource="$(var.DistPath)\vs-plugin\ItemTemplates\Nemerle">
+      <Component Id="Comp_VS2015_ItemTemplates" DiskId="1" Guid="$(var.Comp_VS2015_ItemTemplates_Guid)">
+        <?define ide = VS2015?>
+        <?include ..\Includes\VsItemTemplates.wxi ?>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="VS2015_ProjectTemplates_Nemerle_Folder" FileSource="$(var.DistPath)\vs-plugin\ProjectTemplates\Nemerle">
+      <Component Id="Comp_VS2015_ProjectTemplates" DiskId="1" Guid="$(var.Comp_VS2015_ProjectTemplates_Guid)">
+        <?define ide = VS2015?>
+        <?include ..\Includes\VsProjectTemplates.wxi ?>
+      </Component>
+    </DirectoryRef>
+
+  </Fragment>
+</Wix>
