@@ -1,3 +1,0 @@
-#name : set( arg, val )
-# --
-set(\\${1:arg}, ${2:val});

@@ -1,9 +1,0 @@
-//REFERENCE: Issue-git-0442-lib
-
-MatchAaa("aaa");
-
-/*
-BEGIN-OUTPUT
-OK
-END-OUTPUT
-*/ 

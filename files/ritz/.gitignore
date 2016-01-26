@@ -1,9 +1,0 @@
-pom.xml
-*jar
-lib
-classes
-*.tar
-marmalade
-target
-.lein-*
-data

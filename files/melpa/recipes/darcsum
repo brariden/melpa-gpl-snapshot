@@ -1,2 +1,0 @@
-(darcsum :url "http://hub.darcs.net/simon/darcsum" :fetcher darcs)
-

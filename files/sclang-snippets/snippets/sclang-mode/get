@@ -1,3 +1,0 @@
-#name : get( ..., {|msg| ... }
-# --
-get(${1:0}, {|msg| ${2:msg.postln}});

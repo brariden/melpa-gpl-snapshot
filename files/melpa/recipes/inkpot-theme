@@ -1,3 +1,0 @@
-(inkpot-theme
- :repo "siovan/emacs24-inkpot"
- :fetcher github)

@@ -1,3 +1,0 @@
-(import-js :repo "trotzig/import-js"
-           :fetcher github
-           :files ("plugin/import-js.el"))

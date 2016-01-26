@@ -1,9 +1,0 @@
-# Compiled
-*.elc
-
-# Packaging
-.cask
-dist
-elpa
-build.properties
-build

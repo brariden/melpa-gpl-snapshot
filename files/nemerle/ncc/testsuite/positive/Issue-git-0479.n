@@ -1,9 +1,0 @@
-//REFERENCE: Issue-git-0479-macro
-
-System.Console.WriteLine(M());
-
-/*
-BEGIN-OUTPUT
-(1, 2)
-END-OUTPUT
-*/ 

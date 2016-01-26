@@ -1,3 +1,0 @@
-﻿public class Foo {
-  public static this() { } //E: access modifiers are not allowed on static constructors
-}

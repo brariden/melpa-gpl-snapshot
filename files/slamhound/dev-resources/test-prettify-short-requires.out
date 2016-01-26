@@ -1,3 +1,0 @@
-(ns foo
-  (:require [clojure.java.io :as io]
-            [clojure.pprint :refer [pprint]]))

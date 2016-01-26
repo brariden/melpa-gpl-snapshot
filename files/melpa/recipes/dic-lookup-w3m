@@ -1,3 +1,0 @@
-(dic-lookup-w3m
- :url "http://svn.sourceforge.jp/svnroot/dic-lookup-w3m/"
- :fetcher svn)

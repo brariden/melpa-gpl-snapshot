@@ -1,1 +1,0 @@
-(ghc :fetcher github :repo "kazu-yamamoto/ghc-mod" :files ("elisp/*.el"))

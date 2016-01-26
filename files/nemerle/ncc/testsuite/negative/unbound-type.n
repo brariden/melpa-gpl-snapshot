@@ -1,5 +1,0 @@
-class C {
-  x : print_gutenberg;    // E: unbound type name `print_gutenberg'
-
-  gaa (_ : string[]) : void { }  // E: string\[\] is not a valid type, use just string
-}

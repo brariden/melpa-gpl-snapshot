@@ -1,4 +1,0 @@
-(go-mode
- :repo "dominikh/go-mode.el"
- :fetcher github)
-

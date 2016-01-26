@@ -53,4 +53,30 @@ cat GPLed.txt | xargs -I '{}' mv '{}' ../melpa-gpl-packages
 ```
 
 
+# EDIT - Take 2 - I want to build this to get it into the MELPA structure
+# The earlier stuff gave me all of the code that we needed but I wanted to build it into packages
+# I recloned melpa then ran the following script to only keep the good recipes (Only keeps the ones in GPLed.txt):
+
+#!/bin/bash
+for filename in recipes/*; do
+
+   result=`grep -l "github" $filename | xargs grep ":repo" | sed "s/.*:repo\s*\"\(.*\)/\1/" | sed "s/\".*//" | sed "s/.*\///" `
+   if [ ! -z "$result" ]; then # not empty
+
+        gpled=`grep -Fx $result GPLed.txt`
+        if [ -z "$gpled" ]; then
+                echo $filename >> recipes-deleted.txt
+                rm $filename 
+        else
+                echo $filename >> recipes-kept.txt
+
+        fi
+    else
+                echo $filename >> recipes-deleted.txt
+                rm $filename
+   fi 
+done
+
+
+
 

@@ -1,1 +1,0 @@
-TESTS= test.sh

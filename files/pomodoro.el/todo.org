@@ -1,3 +1,0 @@
-* TODO org mode integration
-** TODO mark a task as current and tick off pomodoros and void
-* TODO add interruptions and unplaned tasks

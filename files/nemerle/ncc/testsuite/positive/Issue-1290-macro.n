@@ -1,9 +1,0 @@
-// REFERENCE: Nemerle.Compiler
-using Nemerle;
-
-[MacroUsage(MacroPhase.WithTypedMembers, MacroTargets.Assembly)]
-macro AsmMacro(ex)
-{         
-  def typer = Macros.ImplicitCTX();
-  _         = typer.TypeExpr(ex);
-}

@@ -1,8 +1,0 @@
-def foo(x) { x.ToLower() }
-System.Console.WriteLine("A" |> foo);
-
-/*
-BEGIN-OUTPUT
-a
-END-OUTPUT
-*/

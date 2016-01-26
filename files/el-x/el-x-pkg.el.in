@@ -1,2 +1,0 @@
-(define-package "el-x" "@VERSION@" "Emacs-lisp extensions."
-  '((cl-lib "0.2")))

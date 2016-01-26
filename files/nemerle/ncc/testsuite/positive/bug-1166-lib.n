@@ -1,6 +1,0 @@
-// REFERENCE: Nemerle.Compiler
-
-macro testMacro () {<[
-  def x = 4;
-  Nemerle.IO.sprint ("test$x")
-]>}

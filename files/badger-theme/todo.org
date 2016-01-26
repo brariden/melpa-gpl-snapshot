@@ -1,4 +1,0 @@
-* TODO finish with ansi-colors necessary for ipython integration
-* TODO post OSX screenshots
-* TODO ido-mode
-* TODO Italics? Bold? etc.

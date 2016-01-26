@@ -1,8 +1,0 @@
-using System.Runtime.CompilerServices;
-
-[assembly: InternalsVisibleTo("internals-visible-to-2")]
-
-class Foo 
-{
-  mutable internal Bar : int;
-}

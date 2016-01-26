@@ -1,9 +1,0 @@
-resolver: lts-2.22
-packages:
-  - stack-ide
-  - stack-ide-api
-  - ide-backend/ide-backend
-  - ide-backend/ide-backend-server
-  - ide-backend/ide-backend-common
-extra-deps:
-  - gitrev-1.1.0

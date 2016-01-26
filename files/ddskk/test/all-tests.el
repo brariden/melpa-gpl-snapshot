@@ -1,1 +1,0 @@
-(load "skk-test.el")

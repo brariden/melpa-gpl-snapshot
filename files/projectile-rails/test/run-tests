@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-"${EMACS:-emacs}" --script "$(dirname $0)"/setup.el -Q

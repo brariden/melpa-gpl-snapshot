@@ -1,6 +1,0 @@
-# name : host
-# condition: serverspec
-# --
-describe host('${1:serverspec.org}') do
-  ${2:it \{ should be_resolvable \}}
-end

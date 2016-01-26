@@ -1,7 +1,0 @@
-from __future__ import division
-from .app.models import Member
-from .app.core import init_app as _app
-import sys.path as P
-from os.path import join as pjoin
-from os.path import abspath, basename
-from settings import dbname

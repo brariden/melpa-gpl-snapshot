@@ -1,5 +1,0 @@
-(:name README
- :description "README"
- :website "https://github.com/CestDiego/sweetgreen.el"
- :type git
- :url "https://github.com/CestDiego/sweetgreen.el.git")

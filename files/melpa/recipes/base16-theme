@@ -1,1 +1,0 @@
-(base16-theme :repo "mkaito/base16-emacs" :fetcher github)

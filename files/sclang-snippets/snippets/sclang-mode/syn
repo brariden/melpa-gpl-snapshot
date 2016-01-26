@@ -1,3 +1,0 @@
-#name : Synth( ... , [ ... ])
-# --
-Synth(\\${1:foobar}, [\\${2:arg}, ${3:value}]);

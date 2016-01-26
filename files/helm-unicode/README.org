@@ -1,3 +1,0 @@
-* Helm Unicode
-A Helm source for inserting unicode characters by name. Useful to
-spice up your source code and communications with emoji 😜.

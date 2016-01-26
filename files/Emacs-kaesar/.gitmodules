@@ -1,3 +1,0 @@
-[submodule "Emacs-openssl-cipher"]
-	path = Emacs-openssl-cipher
-	url = https://github.com/mhayashi1120/Emacs-openssl-cipher.git

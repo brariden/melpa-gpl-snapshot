@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: COGROUP
-# key: cogroup
-# group: basics
-# contributor: David A. Shamma
-# --
-COGROUP ${1:alias} BY ${2:expression} PARALLEL ${3:n};

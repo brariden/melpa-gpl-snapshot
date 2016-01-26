@@ -1,5 +1,0 @@
-A emacs major mode for editing emacs lisp code.
-
-[[http://melpa.org/#/xah-elisp-mode][file:http://melpa.org/packages/xah-elisp-mode-badge.svg]]
-
-Home page: http://ergoemacs.org/emacs/xah-elisp-mode.html 

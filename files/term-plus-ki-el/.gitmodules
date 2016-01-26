@@ -1,3 +1,0 @@
-[submodule "lib/key-intercept-el"]
-	path = lib/key-intercept-el
-	url = git://github.com/tarao/key-intercept-el.git

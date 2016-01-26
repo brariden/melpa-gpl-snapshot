@@ -1,5 +1,0 @@
-
-public enum LibFromLong : long {
-    | A = 0
-    | B = long.MinValue
-}

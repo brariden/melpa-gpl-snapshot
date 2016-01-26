@@ -1,7 +1,0 @@
-def x = '!';
-System.Console.WriteLine(if ($"\r\n$x" == System.Environment.NewLine + "!") "OK" else "Fail");
-/*
-BEGIN-OUTPUT
-OK
-END-OUTPUT
-*/

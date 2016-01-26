@@ -1,1 +1,0 @@
-(flymake-rust :repo "joaoxsouls/flymake-rust" :fetcher github)

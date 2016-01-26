@@ -1,3 +1,0 @@
-* TODO
-
-** Include here imenu related functions

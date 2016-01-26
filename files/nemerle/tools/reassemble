@@ -1,7 +1,0 @@
-#!/bin/sh
-set -x
-DIR=`dirname $0`
-./$DIR/reil ncc exe ./$DIR/../misc/keys/Nemerle.Compiler.snk
-./$DIR/reil Nemerle dll ./$DIR/../misc/keys/Nemerle.snk
-./$DIR/reil Nemerle.Compiler dll ./$DIR/../misc/keys/Nemerle.Compiler.snk
-./$DIR/reil Nemerle.Macros dll ./$DIR/../misc/keys/Nemerle.Compiler.snk

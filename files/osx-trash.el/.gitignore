@@ -1,4 +1,0 @@
-*.elc
-
-# Cask dist tarballs
-/dist/

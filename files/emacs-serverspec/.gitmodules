@@ -1,3 +1,0 @@
-[submodule "t/serverspec"]
-	path = t/serverspec
-	url = https://github.com/serverspec/serverspec.git

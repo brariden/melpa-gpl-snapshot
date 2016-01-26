@@ -1,5 +1,0 @@
-# Compiled Emacs bytecode
-*.elc
-
-# Cask directory
-/.cask/

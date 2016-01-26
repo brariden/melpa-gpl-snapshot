@@ -1,9 +1,0 @@
-using System;
-
-namespace Test
-{
- [AttributeUsage (AttributeTargets.Class | AttributeTargets.Method)]
- public class TestAttribute : Attribute
- {
- }
-}

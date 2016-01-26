@@ -1,8 +1,0 @@
-* uimage
-a iimage like minor mode, but fetch image data from the url
-
-before enable the uimage-mode:
-[[file:before_uimage.png]]
-
-after enable the uimage-mode:
-[[file:after_uimage.png]]

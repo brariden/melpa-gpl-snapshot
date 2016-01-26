@@ -1,8 +1,0 @@
-# Compiled files
-*.elc
-
-# installed packages
-.cask
-
-# Build artifacts
-dist

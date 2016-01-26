@@ -1,2 +1,0 @@
-sdlvis.exe: Data.c Data.h Viewer.c Viewer.h main.c SDL_win32_main.c
-		gcc *.c -o sdlvis.exe -I/mingw/include/SDL/ -lsdl

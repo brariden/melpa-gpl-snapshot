@@ -1,6 +1,0 @@
-* modtime-skip-mode
-  Minor mode for disabling modtime and supersession checks on files.
-
-** Usage
-   M-x modtime-skip-mode to toggle modificaiton time and supersession checking on all buffers.
-   

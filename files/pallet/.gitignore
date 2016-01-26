@@ -1,6 +1,0 @@
-flycheck*
-.cask
-test/sandbox/*
-test/servant/*
-!test/servant/**/.gitkeep
-.vagrant

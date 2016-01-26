@@ -1,5 +1,0 @@
-#!/bin/sh
-DIR=`dirname $0`
-./$DIR/ildasm $1.$2 > temp.il
-sed -e ' s/special-name/specialname/g; ' temp.il > $1.il
-./$DIR/ilasm /quiet /key=$3 /$2 $1.il && rm -f $1.il temp.il

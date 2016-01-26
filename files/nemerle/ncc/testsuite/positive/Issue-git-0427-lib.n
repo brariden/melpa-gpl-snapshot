@@ -1,9 +1,0 @@
-using Nemerle;
-using Nemerle.Extensions;
-
-[Record, StructuralEquality]
-public abstract class A
-{
-  public X : int { get }
-  public Y : int { get }
-}

@@ -1,5 +1,0 @@
-# Compile elisp
-*.elc
-
-# Generated package file
-*-pkg.el

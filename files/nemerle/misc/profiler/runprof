@@ -1,9 +1,0 @@
-#!/bin/sh
-
-DIR=`dirname $0`
-export LD_LIBRARY_PATH=$DIR
-mono --profile=x "$@"
-
-# sort -k1 -n prof-log | less
-# sort -k2 -n prof-log | less
-# sort -k3 -n prof-log | less

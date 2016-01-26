@@ -1,8 +1,0 @@
-﻿variant Y
-{
- | A
- | B
- {
-  | C // E: multi-level variants are not supported
- }
-}
