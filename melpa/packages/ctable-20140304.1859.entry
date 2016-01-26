@@ -1,0 +1,2 @@
+
+(ctable . [(20140304 1859) nil "Table component for Emacs Lisp" single ((:keywords "table") (:url . "https://github.com/kiwanami/emacs-ctable"))])

@@ -1,0 +1,2 @@
+
+(omni-log . [(20150604 1238) ((emacs (24)) (ht (2 0)) (s (1 6 1)) (dash (1 8 0))) "Logging utilities" tar ((:keywords "convenience" "languages" "tools") (:url . "https://github.com/AdrieanKhisbe/omni-log.el"))])

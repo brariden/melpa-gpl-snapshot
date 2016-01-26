@@ -1,0 +1,2 @@
+
+(om-mode . [(20140915 1610) nil "Insert Om component template with life cycle." single ((:keywords "clojurescript"))])

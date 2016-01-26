@@ -1,0 +1,2 @@
+
+(cider-profile . [(20141120 825) ((cider (0 8 0))) "CIDER profiling support" single ((:keywords "cider" "clojure" "profiling") (:url . "http://github.com/thunknyc/nrepl-profile"))])

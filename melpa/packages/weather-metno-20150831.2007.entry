@@ -1,0 +1,2 @@
+
+(weather-metno . [(20150831 2007) ((emacs (24)) (cl-lib (0 3))) "Weather data from met.no in Emacs" tar nil])

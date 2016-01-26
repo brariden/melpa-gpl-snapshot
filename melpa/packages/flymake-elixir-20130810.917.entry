@@ -1,0 +1,2 @@
+
+(flymake-elixir . [(20130810 917) nil "A flymake handler for elixir-mode .ex files." single nil])

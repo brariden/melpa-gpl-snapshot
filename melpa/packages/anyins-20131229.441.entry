@@ -1,0 +1,2 @@
+
+(anyins . [(20131229 441) nil "Insert content at multiple places from shell command or kill-ring" single ((:keywords "insert" "rectangular") (:url . "http://github.com/antham/anyins"))])

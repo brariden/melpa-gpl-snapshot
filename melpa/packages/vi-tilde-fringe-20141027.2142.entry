@@ -1,0 +1,2 @@
+
+(vi-tilde-fringe . [(20141027 2142) ((emacs (24))) "Displays tildes in the fringe on empty lines a la Vi." single ((:keywords "emulation") (:url . "https://github.com/syl20bnr/vi-tilde-fringe"))])

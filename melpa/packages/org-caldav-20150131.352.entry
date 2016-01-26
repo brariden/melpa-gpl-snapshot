@@ -1,0 +1,2 @@
+
+(org-caldav . [(20150131 352) ((org (7))) "Sync org files with external calendar through CalDAV" single ((:keywords "calendar" "caldav"))])

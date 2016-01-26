@@ -1,0 +1,2 @@
+
+(srefactor . [(20151202 2204) ((emacs (24 4))) "A refactoring tool based on Semantic parser framework" tar ((:keywords "c" "languages" "tools") (:url . "https://github.com/tuhdo/semantic-refactor"))])

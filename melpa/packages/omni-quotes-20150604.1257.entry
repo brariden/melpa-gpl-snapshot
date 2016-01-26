@@ -1,0 +1,2 @@
+
+(omni-quotes . [(20150604 1257) ((dash (2 8)) (omni-log (0 1 2))) "Random quotes displayer" tar ((:keywords "convenience") (:url . "https://github.com/AdrieanKhisbe/omni-quotes.el"))])

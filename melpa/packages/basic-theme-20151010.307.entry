@@ -1,0 +1,2 @@
+
+(basic-theme . [(20151010 307) ((emacs (24))) "Minimalistic light color theme" single ((:keywords "theme" "basic" "minimal" "colors") (:url . "http://github.com/fgeller/basic-theme.el"))])

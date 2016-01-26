@@ -1,0 +1,2 @@
+
+(identica-mode . [(20130204 1653) nil "Major mode API client for status.net open microblogging" tar ((:keywords "identica" "web") (:url . "http://blog.gabrielsaldana.org/identica-mode-for-emacs/"))])

@@ -1,0 +1,2 @@
+
+(minibuffer-complete-cycle . [(20130813 1145) nil "Cycle through the *Completions* buffer" single ((:keywords "completion") (:url . "https://github.com/knu/minibuffer-complete-cycle"))])

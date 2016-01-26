@@ -1,0 +1,2 @@
+
+(pcmpl-args . [(20120912 24) nil "Enhanced shell command completion" single ((:keywords "abbrev" "completion" "convenience" "processes" "terminals" "unix") (:url . "https://github.com/JonWaltman/pcmpl-args.el"))])

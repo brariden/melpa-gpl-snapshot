@@ -1,0 +1,2 @@
+
+(python-django . [(20150821 2304) nil "A Jazzy package for managing Django projects" single ((:keywords "languages") (:url . "https://github.com/fgallina/python-django.el"))])

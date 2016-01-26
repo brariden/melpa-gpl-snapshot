@@ -1,0 +1,2 @@
+
+(import-popwin . [(20150716 433) ((popwin (0 6)) (cl-lib (0 5))) "popwin buffer near by import statements with popwin" single ((:url . "https://github.com/syohex/emacs-import-popwin"))])

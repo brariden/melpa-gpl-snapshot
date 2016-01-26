@@ -1,0 +1,2 @@
+
+(helm-idris . [(20141202 1157) ((helm (0 0 0)) (idris-mode (0 9 14))) "A Helm datasource for Idris documentation, queried from the compiler" single ((:keywords "languages" "helm"))])

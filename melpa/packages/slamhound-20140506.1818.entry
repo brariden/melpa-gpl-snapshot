@@ -1,0 +1,2 @@
+
+(slamhound . [(20140506 1818) nil "Rip Clojure namespaces apart and rebuild them." single ((:keywords "tools" "lisp") (:url . "https://github.com/technomancy/slamhound"))])

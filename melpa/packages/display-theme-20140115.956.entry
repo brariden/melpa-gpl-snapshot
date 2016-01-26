@@ -1,0 +1,2 @@
+
+(display-theme . [(20140115 956) ((emacs (24))) "display current theme(s) at mode-line" single ((:keywords "tools") (:url . "https://github.com/kawabata/emacs-display-theme/"))])

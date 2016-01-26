@@ -1,0 +1,2 @@
+
+(nim-mode . [(20160125 354) ((emacs (24 4)) (epc (0 1 1)) (let-alist (1 0 1))) "A major mode for the Nim programming language" tar ((:keywords "nim" "languages"))])

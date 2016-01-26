@@ -1,0 +1,2 @@
+
+(cache . [(20111019 1800) nil "implementation of a hash table whose key-value pairs expire" single nil])

@@ -1,0 +1,2 @@
+
+(isearch-symbol-at-point . [(20130728 1721) nil "Use isearch to search for the symbol at point" single ((:keywords "isearch") (:url . "https://github.com/re5et/isearch-symbol-at-point"))])

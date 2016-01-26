@@ -1,0 +1,2 @@
+
+(flycheck-dmd-dub . [(20151019 822) ((flycheck (0 24))) "Sets flycheck-dmd-include-paths from dub package information" single ((:keywords "languages") (:url . "http://github.com/atilaneves/flycheck-dmd-dub"))])

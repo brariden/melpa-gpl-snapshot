@@ -1,0 +1,2 @@
+
+(eval-sexp-fu . [(20131230 1551) ((highlight (0))) "Tiny functionality enhancements for evaluating sexps." single ((:keywords "lisp" "highlight" "convenience"))])

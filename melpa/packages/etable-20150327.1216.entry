@@ -1,0 +1,2 @@
+
+(etable . [(20150327 1216) ((dash (2 9 0)) (interval-list (0 1)) (emacs (24 4))) "Implementation of javax.swing.JTable for Emacs." tar nil])

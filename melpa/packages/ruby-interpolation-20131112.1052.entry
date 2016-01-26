@@ -1,0 +1,2 @@
+
+(ruby-interpolation . [(20131112 1052) nil "Ruby string interpolation helpers" single ((:url . "http://github.com/leoc/ruby-interpolation.el"))])

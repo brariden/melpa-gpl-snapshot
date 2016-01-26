@@ -1,0 +1,2 @@
+
+(shell-current-directory . [(20140101 1754) nil "create new shell based on buffer directory" single ((:keywords "shell" "comint"))])

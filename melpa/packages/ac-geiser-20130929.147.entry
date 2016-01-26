@@ -1,0 +1,2 @@
+
+(ac-geiser . [(20130929 147) ((geiser (0 5)) (auto-complete (1 4))) "Auto-complete backend for geiser" tar nil])

@@ -1,0 +1,2 @@
+
+(helm-flx . [(20160105 1418) ((emacs (24 4)) (helm (1 7 9)) (flx (0 5))) "Sort helm candidates by flx score" single ((:keywords "convenience" "helm" "fuzzy" "flx") (:url . "https://github.com/PythonNut/helm-flx"))])

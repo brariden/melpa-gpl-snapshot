@@ -1,0 +1,2 @@
+
+(region-bindings-mode . [(20140407 1714) nil "Enable custom bindings when mark is active." single ((:keywords "convenience") (:url . "https://github.com/fgallina/region-bindings-mode"))])

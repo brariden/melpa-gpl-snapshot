@@ -1,0 +1,2 @@
+
+(el-init . [(20150728 420) ((emacs (24)) (cl-lib (0 5)) (anaphora (1 0 0))) "A loader inspired by init-loader" single ((:url . "https://github.com/HKey/el-init"))])

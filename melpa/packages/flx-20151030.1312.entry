@@ -1,0 +1,2 @@
+
+(flx . [(20151030 1312) ((cl-lib (0 3))) "fuzzy matching with good sorting" single ((:url . "https://github.com/lewang/flx"))])

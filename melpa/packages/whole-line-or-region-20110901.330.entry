@@ -1,0 +1,2 @@
+
+(whole-line-or-region . [(20110901 330) nil "operate on current line if region undefined" single ((:keywords "kill" "yank" "cut" "copy" "paste" "whole" "lines"))])

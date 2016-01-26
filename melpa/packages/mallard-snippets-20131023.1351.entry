@@ -1,0 +1,2 @@
+
+(mallard-snippets . [(20131023 1351) ((yasnippet (0 8 0)) (mallard-mode (0 1 1))) "Yasnippets for Mallard" tar ((:keywords "snippets" "mallard") (:url . "https://github.com/jhradilek/emacs-mallard-snippets"))])

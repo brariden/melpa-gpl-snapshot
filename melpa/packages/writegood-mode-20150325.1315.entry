@@ -1,0 +1,2 @@
+
+(writegood-mode . [(20150325 1315) nil "Polish up poor writing on the fly" single ((:keywords "writing" "weasel-words" "grammar") (:url . "http://github.com/bnbeckwith/writegood-mode"))])

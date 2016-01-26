@@ -1,0 +1,2 @@
+
+(slime-ritz . [(20130218 1737) nil "slime extensions for ritz" single ((:keywords "languages" "lisp" "slime") (:url . "https://github.com/pallet/ritz"))])

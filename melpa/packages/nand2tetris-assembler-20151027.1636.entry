@@ -1,0 +1,2 @@
+
+(nand2tetris-assembler . [(20151027 1636) ((names (0 3 0)) (nand2tetris (0 0 1))) "Assembler For the Nand2tetris Course" single ((:keywords "nand2tetris-assembler" "hdl") (:url . "http://www.github.com/CestDiego/nand2tetris-assembler.el/"))])

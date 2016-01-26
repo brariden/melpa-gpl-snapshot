@@ -1,0 +1,2 @@
+
+(stripe-buffer . [(20141208 908) ((cl-lib (1 0))) "Use a different background for even and odd lines" single ((:url . "https://github.com/sabof/stripe-buffer"))])

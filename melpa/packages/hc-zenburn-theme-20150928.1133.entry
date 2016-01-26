@@ -1,0 +1,2 @@
+
+(hc-zenburn-theme . [(20150928 1133) nil "An higher contrast version of the Zenburn theme." single ((:url . "https:github.com/edran/hc-zenburn-emacs"))])

@@ -1,0 +1,2 @@
+
+(spotlight . [(20150929 255) ((emacs (24 1)) (swiper (0 6 0)) (counsel (0 6 0))) "search files with Mac OS X spotlight" single ((:keywords "search" "external") (:url . "http://www.pragmaticemacs.com"))])

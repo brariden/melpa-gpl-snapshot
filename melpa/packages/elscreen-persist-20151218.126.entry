@@ -1,0 +1,2 @@
+
+(elscreen-persist . [(20151218 126) ((elscreen (1 4 6)) (revive (2 19))) "persist the elscreen across sessions" single ((:keywords "elscreen" "frames"))])

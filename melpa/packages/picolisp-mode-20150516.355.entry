@@ -1,0 +1,2 @@
+
+(picolisp-mode . [(20150516 355) nil "Major mode for PicoLisp programming." single ((:keywords "picolisp" "lisp" "programming") (:url . "https://github.com/flexibeast/picolisp-mode"))])

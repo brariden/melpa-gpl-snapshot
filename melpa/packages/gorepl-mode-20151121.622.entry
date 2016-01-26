@@ -1,0 +1,2 @@
+
+(gorepl-mode . [(20151121 622) ((emacs (24))) "Go REPL Interactive Development in top of Gore" single ((:keywords "languages" "go" "golang" "gorepl") (:url . "http://www.github.com/manute/gorepl-mode"))])

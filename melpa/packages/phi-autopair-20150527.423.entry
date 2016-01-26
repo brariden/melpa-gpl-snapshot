@@ -1,0 +1,2 @@
+
+(phi-autopair . [(20150527 423) ((paredit (20))) "another simple-minded autopair implementation" single ((:url . "http://hins11.yu-yake.com/"))])

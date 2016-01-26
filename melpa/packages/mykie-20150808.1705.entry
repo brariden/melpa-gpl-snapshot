@@ -1,0 +1,2 @@
+
+(mykie . [(20150808 1705) ((emacs (24 3)) (cl-lib (0 5))) "Command multiplexer: Register multiple functions to a keybind" tar ((:keywords "emacs" "configuration" "keybind") (:url . "https://github.com/yuutayamada/mykie-el"))])

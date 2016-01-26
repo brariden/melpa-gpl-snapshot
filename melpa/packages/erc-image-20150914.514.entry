@@ -1,0 +1,2 @@
+
+(erc-image . [(20150914 514) nil "Show received image urls in the ERC buffer" single ((:keywords "multimedia"))])

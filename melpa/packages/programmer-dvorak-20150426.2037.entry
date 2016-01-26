@@ -1,0 +1,2 @@
+
+(programmer-dvorak . [(20150426 2037) nil "Input method for Programmer Dvorak." single ((:keywords "dvorak" "programmer-dvorak" "input-method") (:url . "https://github.com/yangchenyun/programmer-dvorak"))])

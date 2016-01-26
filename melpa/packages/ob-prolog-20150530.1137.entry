@@ -1,0 +1,2 @@
+
+(ob-prolog . [(20150530 1137) nil "org-babel functions for prolog evaluation." single ((:keywords "literate programming" "reproducible research") (:url . "https://github.com/ljos/ob-prolog"))])

@@ -1,0 +1,2 @@
+
+(term+key-intercept . [(20140211 150) ((term+ (0 1)) (key-intercept (0 1))) "term+ intercept key mapping" single ((:keywords "terminal" "emulation") (:url . "http://github.com/tarao/term+-el"))])

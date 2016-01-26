@@ -1,0 +1,2 @@
+
+(ibuffer-rcirc . [(20150215 1518) ((cl-lib (0 2))) "Ibuffer integration for rcirc" single ((:keywords "buffer" "convenience" "comm") (:url . "https://github.com/fgallina/ibuffer-rcirc"))])

@@ -1,0 +1,2 @@
+
+(paredit-everywhere . [(20150821 2344) ((paredit (22))) "Enable some paredit features in non-lisp buffers" single ((:keywords "languages" "convenience"))])

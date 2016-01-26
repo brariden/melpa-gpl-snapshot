@@ -1,0 +1,2 @@
+
+(kill-ring-search . [(20140422 1055) nil "incremental search for the kill ring" single ((:keywords "convenience" "matching") (:url . "http://nschum.de/src/emacs/kill-ring-search/"))])

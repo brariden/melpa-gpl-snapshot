@@ -1,0 +1,2 @@
+
+(readability . [(20140715 1927) ((oauth (1 4)) (ov (1 0)) (emacs (24 3))) "Read articles from Readability in Emacs" single ((:keywords "readability" "oauth") (:url . "https://github.com/ShingoFukuyama/emacs-readability"))])

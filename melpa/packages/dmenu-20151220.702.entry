@@ -1,0 +1,2 @@
+
+(dmenu . [(20151220 702) ((cl-lib (0 5))) "use ido to simulate the dmenu command line program" single ((:keywords "convenience" "usability"))])

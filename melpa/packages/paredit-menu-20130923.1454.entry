@@ -1,0 +1,2 @@
+
+(paredit-menu . [(20130923 1454) nil "Adds a menu to paredit.el as memory aid" single ((:keywords "paredit"))])

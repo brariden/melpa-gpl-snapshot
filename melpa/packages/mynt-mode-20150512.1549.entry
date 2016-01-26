@@ -1,0 +1,2 @@
+
+(mynt-mode . [(20150512 1549) ((virtualenvwrapper (20131514))) "Minor mode to work with the mynt static site generator" single ((:keywords "convenience") (:url . "https://github.com/crshd/mynt-mode"))])

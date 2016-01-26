@@ -1,0 +1,2 @@
+
+(ez-query-replace . [(20140810 717) ((dash (1 2 0))) "a smarter context-sensitive query-replace that can be reapplied" single nil])

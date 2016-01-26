@@ -1,0 +1,2 @@
+
+(live-code-talks . [(20150115 1623) ((emacs (24)) (cl-lib (0 5)) (narrowed-page-navigation (0 1))) "Support for slides with live code in them" single ((:keywords "docs" "multimedia"))])

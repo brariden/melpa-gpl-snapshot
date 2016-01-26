@@ -1,0 +1,2 @@
+
+(diminish . [(20151215 1115) nil "Diminished modes are minor modes with no modeline display" single ((:keywords "extensions" "diminish" "minor" "codeprose") (:url . "https://github.com/myrjola/diminish.el"))])

@@ -1,0 +1,2 @@
+
+(wolfram-mode . [(20140118 957) ((emacs (24 3))) "Mathematica editing and inferior mode." single ((:keywords "languages" "processes" "tools") (:url . "https://github.com/kawabata/wolfram-mode/"))])

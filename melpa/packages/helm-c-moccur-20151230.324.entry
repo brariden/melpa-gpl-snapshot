@@ -1,0 +1,2 @@
+
+(helm-c-moccur . [(20151230 324) ((helm (20120811)) (color-moccur (2 71))) "helm source for color-moccur.el" single ((:keywords "convenience" "emulation"))])

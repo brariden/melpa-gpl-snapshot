@@ -1,0 +1,2 @@
+
+(gnuplot-mode . [(20151123 139) nil "Major mode for editing gnuplot scripts" single ((:keywords "gnuplot" "plotting") (:url . "https://github.com/mkmcc/gnuplot"))])

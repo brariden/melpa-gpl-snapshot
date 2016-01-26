@@ -1,0 +1,2 @@
+
+(graphviz-dot-mode . [(20151127 821) nil "Mode for the dot-language used by graphviz (att)." single ((:keywords "mode" "dot" "dot-language" "dotlanguage" "graphviz" "graphs" "att") (:url . "http://ppareit.github.com/graphviz-dot-mode/"))])

@@ -1,0 +1,2 @@
+
+(lxc . [(20140410 1522) nil "lxc integration with Emacs" single ((:keywords "processes") (:url . "https://github.com/nicferrier/emacs-lxc"))])

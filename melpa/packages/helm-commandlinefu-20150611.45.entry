@@ -1,0 +1,2 @@
+
+(helm-commandlinefu . [(20150611 45) ((emacs (24 1)) (helm (1 7 0)) (json (1 3)) (let-alist (1 0 3))) "Search and browse commandlinefu.com from helm" single ((:keywords "commandlinefu.com") (:url . "https://github.com/xuchunyang/helm-commandlinefu"))])

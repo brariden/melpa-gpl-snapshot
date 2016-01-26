@@ -1,0 +1,2 @@
+
+(helm-css-scss . [(20140626 1925) ((helm (1 0)) (emacs (24))) "CSS/SCSS/LESS Selectors with helm interface" single ((:keywords "scss" "css" "less" "selector" "helm") (:url . "https://github.com/ShingoFukuyama/helm-css-scss"))])

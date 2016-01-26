@@ -1,0 +1,2 @@
+
+(chicken-scheme . [(20141116 1339) nil "Scheme-mode extensions for Chicken Scheme" single ((:url . "http://github.com/dleslie/chicken-scheme"))])

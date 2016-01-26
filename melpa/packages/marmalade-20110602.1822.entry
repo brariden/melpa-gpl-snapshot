@@ -1,0 +1,2 @@
+
+(marmalade . [(20110602 1822) ((furl (0 0 2))) "Elisp interface for the Emacs Lisp package server." single ((:url . "http://code.google.com/p/marmalade"))])

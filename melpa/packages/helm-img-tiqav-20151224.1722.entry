@@ -1,0 +1,2 @@
+
+(helm-img-tiqav . [(20151224 1722) ((helm-img (0 0 1))) "An helm-source for joking." single ((:keywords "convenience") (:url . "https://github.com/l3msh0/helm-img"))])

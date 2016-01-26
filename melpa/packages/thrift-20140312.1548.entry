@@ -1,0 +1,2 @@
+
+(thrift . [(20140312 1548) nil "Major mode for Apache Thrift files" single ((:keywords "files"))])

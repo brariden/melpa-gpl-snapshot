@@ -1,0 +1,2 @@
+
+(ov . [(20150312 28) ((emacs (24 3))) "Overlay library for Emacs Lisp" single ((:keywords "overlay") (:url . "https://github.com/ShingoFukuyama/ov.el"))])

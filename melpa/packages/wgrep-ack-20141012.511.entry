@@ -1,0 +1,2 @@
+
+(wgrep-ack . [(20141012 511) ((wgrep (2 1 1))) "Writable ack-and-a-half buffer and apply the changes to files" single ((:keywords "grep" "edit" "extensions") (:url . "http://github.com/mhayashi1120/Emacs-wgrep/raw/master/wgrep-ack.el"))])

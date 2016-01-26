@@ -1,0 +1,2 @@
+
+(ace-jump-helm-line . [(20151113 1300) ((avy (0 2 0)) (helm (1 6 3))) "Ace-jump to a candidate in helm window" single ((:keywords "extensions") (:url . "https://github.com/cute-jumper/ace-jump-helm-line"))])

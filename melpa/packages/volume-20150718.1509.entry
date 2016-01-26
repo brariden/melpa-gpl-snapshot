@@ -1,0 +1,2 @@
+
+(volume . [(20150718 1509) nil "tweak your sound card volume from Emacs" single ((:url . "http://www.brockman.se/software/volume-el/"))])

@@ -1,0 +1,2 @@
+
+(git-timemachine . [(20160120 616) nil "Walk through git revisions of a file" single ((:keywords "git") (:url . "https://github.com/pidu/git-timemachine"))])

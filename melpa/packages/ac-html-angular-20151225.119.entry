@@ -1,0 +1,2 @@
+
+(ac-html-angular . [(20151225 119) ((web-completion-data (0 1))) "auto complete angular15 data for `ac-html' and `company-web'" tar ((:keywords "html" "auto-complete" "angular") (:url . "https://github.com/osv/ac-html-bootstrap"))])

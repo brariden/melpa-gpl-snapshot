@@ -1,0 +1,2 @@
+
+(ac-html . [(20151005 231) ((auto-complete (1 4)) (s (1 9)) (f (0 17)) (dash (2 10))) "auto complete source for html tags and attributes" tar ((:keywords "html" "auto-complete" "slim" "haml" "jade") (:url . "https://github.com/cheunghy/ac-html"))])

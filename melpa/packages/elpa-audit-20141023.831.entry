@@ -1,0 +1,2 @@
+
+(elpa-audit . [(20141023 831) nil "Handy functions for inspecting and comparing package archives" single ((:keywords "maint") (:url . "https://github.com/purcell/elpa-audit"))])

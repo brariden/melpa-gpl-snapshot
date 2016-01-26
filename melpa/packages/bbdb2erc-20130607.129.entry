@@ -1,0 +1,2 @@
+
+(bbdb2erc . [(20130607 129) ((bbdb (3 0))) "make bbdb show if pal is online with ERC, click i to chat" single ((:keywords "irc" "contacts" "chat" "client" "internet"))])

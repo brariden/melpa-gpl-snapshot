@@ -1,0 +1,2 @@
+
+(haskell-emacs-text . [(20150713 916) ((haskell-emacs (2 4 0))) "Haskell functions from Data.Text" tar ((:keywords "haskell" "emacs" "ffi") (:url . "https://github.com/knupfer/haskell-emacs/modules/text"))])

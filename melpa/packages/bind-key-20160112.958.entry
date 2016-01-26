@@ -1,0 +1,2 @@
+
+(bind-key . [(20160112 958) nil "A simple way to manage personal keybindings" single ((:keywords "keys" "keybinding" "config" "dotemacs") (:url . "https://github.com/jwiegley/use-package"))])

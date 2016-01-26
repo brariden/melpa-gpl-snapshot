@@ -1,0 +1,2 @@
+
+(goto-gem . [(20140729 1345) ((s (1 9 0))) "Open dired in gem directory" single ((:keywords "gemfile" "convenience"))])

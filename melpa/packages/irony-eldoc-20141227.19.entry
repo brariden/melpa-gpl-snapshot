@@ -1,0 +1,2 @@
+
+(irony-eldoc . [(20141227 19) ((emacs (24)) (cl-lib (0 5)) (irony (0 1))) "irony-mode support for eldoc-mode" single ((:keywords "c" "c++" "objc" "convenience" "tools") (:url . "https://github.com/ikirill/irony-eldoc"))])

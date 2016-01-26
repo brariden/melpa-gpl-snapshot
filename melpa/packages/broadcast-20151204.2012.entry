@@ -1,0 +1,2 @@
+
+(broadcast . [(20151204 2012) ((emacs (24 4))) "Links buffers together for simultaneous editing." single ((:keywords "convenience" "frames" "link" "cursors") (:url . "https://github.com/killdash9/broadcast.el"))])

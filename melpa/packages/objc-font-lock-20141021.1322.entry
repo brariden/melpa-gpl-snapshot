@@ -1,0 +1,2 @@
+
+(objc-font-lock . [(20141021 1322) nil "Highlight Objective-C method calls." single ((:keywords "languages" "faces") (:url . "https://github.com/Lindydancer/objc-font-lock"))])

@@ -1,0 +1,2 @@
+
+(font-lock-studio . [(20141201 1858) ((emacs (24 3))) "interactive debugger for Font Lock keywords." single ((:keywords "faces" "tools") (:url . "https://github.com/Lindydancer/font-lock-studio"))])

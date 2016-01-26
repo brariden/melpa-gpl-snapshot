@@ -1,0 +1,2 @@
+
+(syslog-mode . [(20140217 1818) ((hide-lines (20130623))) "Major-mode for viewing log files" single ((:keywords "unix") (:url . "https://github.com/vapniks/syslog-mode"))])

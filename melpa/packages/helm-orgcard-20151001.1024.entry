@@ -1,0 +1,2 @@
+
+(helm-orgcard . [(20151001 1024) ((helm-core (1 7 7))) "browse the orgcard by helm" single ((:keywords "convenience" "helm" "org") (:url . "https://github.com/emacs-jp/helm-orgcard"))])

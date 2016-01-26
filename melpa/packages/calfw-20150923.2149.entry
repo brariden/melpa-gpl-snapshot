@@ -1,0 +1,2 @@
+
+(calfw . [(20150923 2149) ((google-maps (20130412 230))) "Calendar view framework on Emacs" tar ((:keywords "calendar") (:url . "https://github.com/kiwanami/emacs-calfw"))])

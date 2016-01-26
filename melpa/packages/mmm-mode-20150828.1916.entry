@@ -1,0 +1,2 @@
+
+(mmm-mode . [(20150828 1916) nil "Allow Multiple Major Modes in a buffer" tar ((:keywords "convenience" "faces" "languages" "tools") (:url . "https://github.com/purcell/mmm-mode"))])

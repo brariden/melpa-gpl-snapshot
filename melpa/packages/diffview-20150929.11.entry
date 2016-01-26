@@ -1,0 +1,2 @@
+
+(diffview . [(20150929 11) nil "View diffs in side-by-side format" single ((:keywords "convenience" "diff") (:url . "https://github.com/mgalgs/diffview-mode"))])

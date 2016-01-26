@@ -1,0 +1,2 @@
+
+(arduino-mode . [(20151018 135) nil "Major mode for the Arduino language" single ((:keywords "languages" "arduino"))])

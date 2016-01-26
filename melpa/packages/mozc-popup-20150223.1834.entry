@@ -1,0 +1,2 @@
+
+(mozc-popup . [(20150223 1834) ((popup (0 5 2)) (mozc (0))) "Mozc with popup" single ((:keywords "i18n" "extentions"))])

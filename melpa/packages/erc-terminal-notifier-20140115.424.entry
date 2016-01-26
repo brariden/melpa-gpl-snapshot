@@ -1,0 +1,2 @@
+
+(erc-terminal-notifier . [(20140115 424) nil "OSX notifications via the terminal-notifier gem for Emacs ERC." single ((:keywords "erc" "terminal-notifier" "nick") (:url . "http://github.com/julienXX/"))])

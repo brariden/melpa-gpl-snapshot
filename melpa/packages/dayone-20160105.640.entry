@@ -1,0 +1,2 @@
+
+(dayone . [(20160105 640) ((uuid (0 0 3)) (mustache (0 22)) (ht (1 5))) "Utility script for Day One" tar ((:keywords "day one" "tools" "convenience") (:url . "https://github.com/mori-dev/emacs-dayone"))])

@@ -1,0 +1,2 @@
+
+(czech-holidays . [(20160113 1152) nil "Adds a list of Czech public holidays to Emacs calendar" single ((:keywords "calendar"))])

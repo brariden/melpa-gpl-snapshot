@@ -1,0 +1,2 @@
+
+(tramp-hdfs . [(20151028 2236) nil "Tramp extension to access hadoop/hdfs file system in Emacs" single ((:keywords "tramp" "emacs" "hdfs" "hadoop" "webhdfs" "rest"))])

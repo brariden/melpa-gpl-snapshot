@@ -1,0 +1,2 @@
+
+(helm-ag-r . [(20131123 931) ((helm (1 0))) "Search something by ag and display by helm" single ((:keywords "searching") (:url . "https://github.com/yuutayamada/helm-ag-r"))])

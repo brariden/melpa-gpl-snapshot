@@ -1,0 +1,2 @@
+
+(quickrun . [(20160119 707) ((emacs (24)) (cl-lib (0 5))) "Run commands quickly" single ((:url . "https://github.com/syohex/emacs-quickrun"))])

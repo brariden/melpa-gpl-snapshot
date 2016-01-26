@@ -1,0 +1,2 @@
+
+(stock-ticker . [(20150204 452) ((s (1 9 0)) (request (0 2 0))) "Show stock prices in mode line" single ((:keywords "comms") (:url . "https://github.com/hagleitn/stock-ticker"))])

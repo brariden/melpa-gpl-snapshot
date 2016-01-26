@@ -1,0 +1,2 @@
+
+(counsel . [(20160124 629) ((emacs (24 1)) (swiper (0 4 0))) "Various completion functions using Ivy" single ((:keywords "completion" "matching") (:url . "https://github.com/abo-abo/swiper"))])

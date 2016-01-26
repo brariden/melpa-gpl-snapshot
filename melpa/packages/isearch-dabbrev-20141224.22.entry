@@ -1,0 +1,2 @@
+
+(isearch-dabbrev . [(20141224 22) ((cl-lib (0 5))) "Use dabbrev in isearch" single ((:keywords "dabbrev" "isearch") (:url . "https://github.com/Dewdrops/isearch-dabbrev"))])

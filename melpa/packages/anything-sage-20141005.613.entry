@@ -1,0 +1,2 @@
+
+(anything-sage . [(20141005 613) ((cl-lib (0 5)) (anything (1 3 9)) (sage-shell-mode (0 0 1))) "An anything extension for sage-shell-mode." single ((:keywords "sage" "math" "anything") (:url . "https://github.com/stakemori/anything-sage"))])

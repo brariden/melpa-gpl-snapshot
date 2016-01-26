@@ -1,0 +1,2 @@
+
+(peep-dired . [(20150518 900) nil "Peep at files in another window from dired buffers" single ((:keywords "files" "convenience"))])

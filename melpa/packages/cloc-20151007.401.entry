@@ -1,0 +1,2 @@
+
+(cloc . [(20151007 401) ((cl-lib (0 5))) "count lines of code over emacs buffers" single ((:keywords "cloc" "count" "source" "code" "lines") (:url . "https://github.com/cosmicexplorer/cloc-emacs"))])

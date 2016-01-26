@@ -1,0 +1,2 @@
+
+(kwin . [(20150308 1312) nil "communicatewith the KWin window manager" single ((:url . "http://github.com/reactormonk/kwin-minor-mode"))])

@@ -1,0 +1,2 @@
+
+(elwm . [(20150817 507) ((dash (1 1 0))) "Minimalistic window manager for emacs" single ((:keywords "docs") (:url . "https://github.com/Fuco1/elwm"))])

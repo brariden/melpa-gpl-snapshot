@@ -1,0 +1,2 @@
+
+(helm-gitlab . [(20150604 233) ((s (1 9 0)) (dash (2 9 0)) (helm (1 0)) (gitlab (0))) "Helm interface to Gitlab" single ((:keywords "gitlab" "helm") (:url . "https://github.com/nlamirault/emacs-gitlab"))])

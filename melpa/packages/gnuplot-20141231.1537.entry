@@ -1,0 +1,2 @@
+
+(gnuplot . [(20141231 1537) nil "drive gnuplot from within emacs" tar ((:keywords "gnuplot" "plotting"))])

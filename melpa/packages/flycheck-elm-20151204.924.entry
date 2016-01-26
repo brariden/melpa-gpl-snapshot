@@ -1,0 +1,2 @@
+
+(flycheck-elm . [(20151204 924) ((flycheck (0 24)) (emacs (24 4))) "Flycheck support for the elm language" single ((:url . "https://github.com/bsermons/flycheck-elm"))])

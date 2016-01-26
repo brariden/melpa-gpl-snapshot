@@ -1,0 +1,2 @@
+
+(web . [(20141231 1401) ((dash (2 9 0)) (s (1 5 0))) "useful HTTP client" single ((:keywords "lisp" "http" "hypermedia") (:url . "http://github.com/nicferrier/emacs-web"))])

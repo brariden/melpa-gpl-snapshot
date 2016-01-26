@@ -1,0 +1,2 @@
+
+(literate-coffee-mode . [(20160114 634) ((coffee-mode (0 5 0))) "major-mode for Literate CoffeeScript" single ((:url . "https://github.com/syohex/emacs-literate-coffee-mode"))])

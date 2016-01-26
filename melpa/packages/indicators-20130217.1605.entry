@@ -1,0 +1,2 @@
+
+(indicators . [(20130217 1605) nil "Display the buffer relative location of line in the fringe." single ((:keywords "fringe" "frames") (:url . "https://github.com/Fuco1/indicators.el"))])

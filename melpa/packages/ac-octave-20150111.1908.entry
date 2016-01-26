@@ -1,0 +1,2 @@
+
+(ac-octave . [(20150111 1908) ((auto-complete (1 4 0))) "An auto-complete source for Octave" single ((:keywords "octave" "auto-complete" "completion") (:url . "https://github.com/coldnew/ac-octave"))])

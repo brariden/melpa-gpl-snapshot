@@ -1,0 +1,2 @@
+
+(pangu-spacing . [(20150927 224) nil "Minor-mode to add space between Chinese and English characters." single ((:url . "http://github.com/coldnew/pangu-spacing"))])

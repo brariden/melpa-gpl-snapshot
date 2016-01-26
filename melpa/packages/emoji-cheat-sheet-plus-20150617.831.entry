@@ -1,0 +1,2 @@
+
+(emoji-cheat-sheet-plus . [(20150617 831) ((emacs (24)) (helm (1 6 4))) "emoji-cheat-sheet for emacs" tar ((:keywords "emacs" "emoji") (:url . "https://github.com/syl20bnr/emacs-emoji-cheat-sheet-plus"))])

@@ -1,0 +1,2 @@
+
+(notmuch-labeler . [(20131230 1119) ((notmuch (0))) "Improve notmuch way of displaying labels" tar ((:keywords "emacs" "package" "elisp" "notmuch" "emails") (:url . "https://github.com/DamienCassou/notmuch-labeler"))])

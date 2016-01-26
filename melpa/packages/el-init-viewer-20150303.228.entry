@@ -1,0 +1,2 @@
+
+(el-init-viewer . [(20150303 228) ((emacs (24)) (cl-lib (0 5)) (ctable (0 1 2)) (dash (2 10 0)) (anaphora (1 0 0)) (el-init (0 1 4))) "Record viewer for el-init" single ((:url . "https://github.com/HKey/el-init-viewer"))])

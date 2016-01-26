@@ -1,0 +1,2 @@
+
+(haste . [(20141030 1534) ((json (1 2))) "Emacs client for hastebin (http://hastebin.com/about.md)" single ((:url . "http://github.com/rlister/emacs-haste-client"))])

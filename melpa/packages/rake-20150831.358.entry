@@ -1,0 +1,2 @@
+
+(rake . [(20150831 358) ((f (0 13 0)) (dash (1 5 0)) (cl-lib (0 5))) "Run rake commands" single ((:keywords "rake" "ruby") (:url . "https://github.com/asok/rake.el"))])

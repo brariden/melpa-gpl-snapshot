@@ -1,0 +1,2 @@
+
+(helm-project-persist . [(20151210 943) ((helm (1 5 2)) (project-persist (0 1 4))) "Helm integration for project-persist package" single ((:keywords "project-persist" "project" "helm"))])

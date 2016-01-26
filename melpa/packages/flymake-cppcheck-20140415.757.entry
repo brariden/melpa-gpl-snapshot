@@ -1,0 +1,2 @@
+
+(flymake-cppcheck . [(20140415 757) ((flymake-easy (0 9))) "Flymake work with Cppcheck for C/C++" single ((:keywords "flymake" "cppcheck" "c" "c++") (:url . "https://github.com/senda-akiha/flymake-cppcheck/"))])

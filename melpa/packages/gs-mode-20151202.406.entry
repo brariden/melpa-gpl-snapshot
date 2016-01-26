@@ -1,0 +1,2 @@
+
+(gs-mode . [(20151202 406) nil "Major mode for editing GrADS script files" single ((:keywords "grads" "script" "major-mode"))])

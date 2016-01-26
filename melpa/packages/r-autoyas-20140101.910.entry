@@ -1,0 +1,2 @@
+
+(r-autoyas . [(20140101 910) ((ess (0)) (yasnippet (0 8 0))) "Provides automatically created yasnippets for R function argument lists." tar ((:keywords "r" "yasnippet") (:url . "https://github.com/mlf176f2/r-autoyas.el"))])

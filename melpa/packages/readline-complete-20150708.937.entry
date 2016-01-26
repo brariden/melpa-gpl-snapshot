@@ -1,0 +1,2 @@
+
+(readline-complete . [(20150708 937) nil "offers completions in shell mode" single nil])

@@ -1,0 +1,2 @@
+
+(smart-indent-rigidly . [(20141205 1815) nil "Smart rigid indenting" single ((:keywords "indenting" "coffee-mode" "haml-mode" "sass-mode") (:url . "https://github.com/re5et/smart-indent-rigidly"))])

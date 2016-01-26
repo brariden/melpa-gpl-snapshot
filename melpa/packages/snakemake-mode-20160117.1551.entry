@@ -1,0 +1,2 @@
+
+(snakemake-mode . [(20160117 1551) ((emacs (24))) "Major mode for editing Snakemake files" tar ((:keywords "tools") (:url . "https://github.com/kyleam/snakemake-mode"))])

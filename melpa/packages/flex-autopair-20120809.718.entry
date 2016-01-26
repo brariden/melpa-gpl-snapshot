@@ -1,0 +1,2 @@
+
+(flex-autopair . [(20120809 718) nil "Automatically insert pair braces and quotes, insertion conditions & actions are highly customizable." single ((:keywords "keyboard" "input") (:url . "https://github.com/uk-ar/flex-autopair.el"))])

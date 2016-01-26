@@ -1,0 +1,2 @@
+
+(logalimacs . [(20131021 1329) ((popwin (0 6 2)) (popup (0 5 0)) (stem (20130120))) "Front-end to logaling-command for Ruby gems" single ((:keywords "translation" "logaling-command") (:url . "https://github.com/logaling/logalimacs"))])

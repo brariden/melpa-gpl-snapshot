@@ -1,0 +1,2 @@
+
+(company-ycm . [(20140904 1317) ((ycm (0 1))) "company-ycm" single ((:keywords "abbrev"))])

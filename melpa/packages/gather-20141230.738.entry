@@ -1,0 +1,2 @@
+
+(gather . [(20141230 738) nil "Gather string in buffer." single ((:keywords "matching" "convenience" "tools") (:url . "https://github.com/mhayashi1120/Emacs-gather/raw/master/gather.el"))])

@@ -1,0 +1,2 @@
+
+(ido-at-point . [(20151021 257) ((emacs (24))) "ido-style completion-at-point" single ((:keywords "convenience" "abbrev") (:url . "https://github.com/katspaugh/ido-at-point"))])

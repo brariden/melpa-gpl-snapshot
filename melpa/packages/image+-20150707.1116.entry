@@ -1,0 +1,2 @@
+
+(image+ . [(20150707 1116) ((cl-lib (0 3))) "Image manipulate extensions for Emacs" single ((:keywords "multimedia" "extensions") (:url . "https://github.com/mhayashi1120/Emacs-imagex"))])

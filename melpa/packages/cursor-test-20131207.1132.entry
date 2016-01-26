@@ -1,0 +1,2 @@
+
+(cursor-test . [(20131207 1132) ((emacs (24))) "testing library for cursor position in emacs." single ((:url . "https://github.com/ainame/cursor-test.el"))])

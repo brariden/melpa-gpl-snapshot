@@ -1,0 +1,2 @@
+
+(helm-dired-recent-dirs . [(20131228 814) ((helm (1 0))) "Show recent dirs with helm.el support." single ((:keywords "helm" "dired" "zsh"))])

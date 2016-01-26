@@ -1,0 +1,2 @@
+
+(wacspace . [(20140827 32) ((dash (1 2 0)) (cl-lib (0 2))) "The WACky WorkSPACE manager for emACS" tar nil])

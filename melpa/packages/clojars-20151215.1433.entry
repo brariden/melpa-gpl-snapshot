@@ -1,0 +1,2 @@
+
+(clojars . [(20151215 1433) ((request (0 1 0)) (cl-lib (0 5))) "clojars.org search interface" single ((:keywords "docs" "help" "tools") (:url . "https://github.com/joshuamiller/clojars.el"))])

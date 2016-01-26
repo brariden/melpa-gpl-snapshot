@@ -1,0 +1,2 @@
+
+(benchmark-init . [(20150905 438) nil "Benchmarks Emacs require and load calls" tar ((:keywords "benchmark"))])

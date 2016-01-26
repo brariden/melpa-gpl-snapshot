@@ -1,0 +1,2 @@
+
+(bibretrieve . [(20131013 1332) ((auctex (11 87)) (emacs (24 3))) "Retrieving BibTeX entries from the web" tar ((:keywords "bibtex" "latex" "mathscinet" "arxiv" "zbmath"))])

@@ -1,0 +1,2 @@
+
+(html-script-src . [(20120403 1315) nil "Insert <script src=\"..\"> for popular JavaScript libraries" single ((:keywords "tools" "convenience") (:url . "http://github.com/rejeep/html-script-src"))])

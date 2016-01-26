@@ -1,0 +1,2 @@
+
+(evil-god-state . [(20141116 2055) ((evil (1 0 8)) (god-mode (2 12 0))) "use god-mode keybindings in evil-mode" single ((:keywords "evil" "leader" "god-mode") (:url . "https://github.com/gridaphobe/evil-god-state"))])

@@ -1,0 +1,2 @@
+
+(rinari . [(20150709 140) ((ruby-mode (1 0)) (inf-ruby (2 2 5)) (ruby-compilation (0 16)) (jump (2 0))) "Rinari Is Not A Rails IDE" single ((:keywords "ruby" "rails" "project" "convenience" "web") (:url . "https://github.com/eschulte/rinari"))])

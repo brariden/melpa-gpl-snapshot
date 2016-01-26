@@ -1,0 +1,2 @@
+
+(smart-mark . [(20150911 2110) nil "Restore point after C-g when mark" single ((:keywords "mark" "restore"))])

@@ -1,0 +1,2 @@
+
+(flymake-easy . [(20140818 255) nil "Helpers for easily building flymake checkers" single ((:keywords "convenience" "internal") (:url . "https://github.com/purcell/flymake-easy"))])

@@ -1,0 +1,2 @@
+
+(lang-refactor-perl . [(20131122 1527) nil "Simple refactorings, primarily for Perl" single ((:keywords "languages" "refactoring" "perl") (:url . "https://github.com/jplindstrom/emacs-lang-refactor-perl"))])

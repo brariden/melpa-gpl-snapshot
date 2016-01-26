@@ -1,0 +1,2 @@
+
+(jira-markup-mode . [(20150601 1609) nil "Emacs Major mode for JIRA-markup-formatted text files" single ((:keywords "jira" "markup") (:url . "https://github.com/mnuessler/jira-markup-mode"))])

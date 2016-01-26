@@ -1,0 +1,2 @@
+
+(coffee-fof . [(20131012 730) ((coffee-mode (0 4 1))) "A coffee-mode configuration for `ff-find-other-file'." single ((:keywords "coffee-mode") (:url . "http://github.com/yasuyk/coffee-fof"))])

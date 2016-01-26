@@ -1,0 +1,2 @@
+
+(stickyfunc-enhance . [(20150429 1314) ((emacs (24 3))) "An enhancement to stock `semantic-stickyfunc-mode'" single ((:keywords "c" "languages" "tools") (:url . "https://github.com/tuhdo/semantic-stickyfunc-enhance"))])

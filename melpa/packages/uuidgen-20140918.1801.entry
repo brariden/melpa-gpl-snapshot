@@ -1,0 +1,2 @@
+
+(uuidgen . [(20140918 1801) nil "Provides various UUID generating functions" single ((:keywords "extensions" "lisp" "tools"))])

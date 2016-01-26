@@ -1,0 +1,2 @@
+
+(ac-haskell-process . [(20150423 902) ((auto-complete (1 4)) (haskell-mode (13))) "Haskell auto-complete source which uses the current haskell process" single ((:keywords "languages"))])

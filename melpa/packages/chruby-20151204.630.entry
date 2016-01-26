@@ -1,0 +1,2 @@
+
+(chruby . [(20151204 630) nil "Emacs integration for chruby" single ((:keywords "ruby" "chruby") (:url . "http://www.emacswiki.org/emacs/ChrubyEl"))])

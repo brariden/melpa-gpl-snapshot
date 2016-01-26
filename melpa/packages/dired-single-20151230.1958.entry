@@ -1,0 +1,2 @@
+
+(dired-single . [(20151230 1958) nil "Reuse the current dired buffer to visit a directory" single ((:keywords "dired" "reuse" "buffer"))])

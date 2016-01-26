@@ -1,0 +1,2 @@
+
+(browse-kill-ring . [(20160125 209) nil "interactively insert items from kill-ring" single ((:keywords "convenience") (:url . "https://github.com/browse-kill-ring/browse-kill-ring"))])

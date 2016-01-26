@@ -1,0 +1,2 @@
+
+(esh-buf-stack . [(20140107 418) nil "Add a buffer stack feature to Eshell" single ((:keywords "eshell" "extensions"))])

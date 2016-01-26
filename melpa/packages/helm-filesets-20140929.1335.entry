@@ -1,0 +1,2 @@
+
+(helm-filesets . [(20140929 1335) ((helm (1 6 3)) (filesets+ (0))) "A helm source for emacs filesets" single ((:keywords "filesets") (:url . "https://github.com/gcla/helm-filesets"))])

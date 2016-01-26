@@ -1,0 +1,2 @@
+
+(bbdb-handy . [(20150707 1952) ((bbdb (3 1))) "BBDB window as email-address chooser when write an email" single ((:url . "https://github.com/tumashu/bbdb-handy"))])

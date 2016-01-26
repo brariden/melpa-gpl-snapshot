@@ -1,0 +1,2 @@
+
+(rcirc-notify . [(20150219 1604) nil "libnotify popups" single ((:keywords "lisp" "rcirc" "irc" "notify" "growl"))])

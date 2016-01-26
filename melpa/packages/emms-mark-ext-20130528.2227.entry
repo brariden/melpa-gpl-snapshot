@@ -1,0 +1,2 @@
+
+(emms-mark-ext . [(20130528 2227) ((emms (3 0))) "Extra functions for emms-mark-mode and emms-tag-edit-mode" single ((:keywords "convenience" "multimedia") (:url . "https://github.com/vapniks/emms-mark-ext"))])

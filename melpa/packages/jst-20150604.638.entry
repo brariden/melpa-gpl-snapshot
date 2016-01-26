@@ -1,0 +1,2 @@
+
+(jst . [(20150604 638) ((s (1 9)) (f (0 17)) (dash (2 10)) (pcache (0 3)) (emacs (24 4))) "JS test mode" single ((:keywords "js" "javascript" "jasmine" "coffee" "coffeescript") (:url . "https://github.com/cheunghy/jst-mode"))])

@@ -1,0 +1,2 @@
+
+(ibuffer-projectile . [(20150121 1037) ((projectile (0 11 0))) "Group ibuffer's list by projectile root" single ((:keywords "themes") (:url . "http://github.com/purcell/ibuffer-projectile"))])

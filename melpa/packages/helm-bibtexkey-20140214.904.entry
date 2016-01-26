@@ -1,0 +1,2 @@
+
+(helm-bibtexkey . [(20140214 904) ((helm (1 5 8))) "Bibtexkey source for helm" tar ((:keywords "bib" "tex") (:url . "https://github.com/kenbeese/helm-bibtexkey"))])

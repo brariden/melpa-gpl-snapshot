@@ -1,0 +1,2 @@
+
+(rtm . [(20160116 1127) ((cl-lib (1 0))) "An elisp implementation of the Remember The Milk API" single ((:keywords "remember" "the" "milk" "productivity" "todo") (:url . "https://github.com/pmiddend/emacs-rtm"))])

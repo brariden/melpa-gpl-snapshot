@@ -1,0 +1,2 @@
+
+(go-autocomplete . [(20150903 2140) ((auto-complete (1 4 0))) "auto-complete-mode backend for go-mode" single ((:keywords "languages"))])

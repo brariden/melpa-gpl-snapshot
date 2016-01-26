@@ -1,0 +1,2 @@
+
+(sibilant-mode . [(20151119 1545) nil "Support for the Sibilant programming language" single ((:keywords "languages") (:url . "http://sibilantjs.info"))])

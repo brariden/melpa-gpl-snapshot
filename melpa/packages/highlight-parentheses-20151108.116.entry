@@ -1,0 +1,2 @@
+
+(highlight-parentheses . [(20151108 116) nil "highlight surrounding parentheses" single ((:keywords "faces" "matching") (:url . "https://github.com/tsdh/highlight-parentheses.el"))])

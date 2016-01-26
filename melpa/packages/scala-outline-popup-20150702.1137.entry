@@ -1,0 +1,2 @@
+
+(scala-outline-popup . [(20150702 1137) ((dash (2 9 0)) (popup (0 5 3)) (scala-mode2 (0 22)) (flx-ido (0 5))) "scala file summary popup" single ((:keywords "scala" "structure" "summary") (:url . "https://github.com/ancane/scala-outline-popup.el"))])

@@ -1,0 +1,2 @@
+
+(org-bullets . [(20140918 1337) nil "Show bullets in org-mode as UTF-8 characters" single ((:url . "https://github.com/sabof/org-bullets"))])

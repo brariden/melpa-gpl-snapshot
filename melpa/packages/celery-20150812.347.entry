@@ -1,0 +1,2 @@
+
+(celery . [(20150812 347) ((emacs (24)) (dash-functional (2 11 0)) (s (1 9 0)) (deferred (0 3 2))) "a minor mode to draw stats from celery and more?" single ((:keywords "celery" "convenience") (:url . "https://github.com/ardumont/emacs-celery"))])

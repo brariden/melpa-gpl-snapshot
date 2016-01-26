@@ -1,0 +1,2 @@
+
+(zencoding-mode . [(20140213 222) nil "Unfold CSS-selector-like expressions to markup" single ((:keywords "convenience") (:url . "https://github.com/rooney/zencoding"))])

@@ -1,0 +1,2 @@
+
+(beginend . [(20150607 1201) ((emacs (24 4))) "Redefine M-< and M-> for some modes" single ((:keywords "dired" "message" "mu4e" "begin" "end" "beginning" "buffer"))])

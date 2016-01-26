@@ -1,0 +1,2 @@
+
+(fasd . [(20151208 116) ((grizzl (0))) "Emacs integration for the command-line productivity booster `fasd'" single ((:keywords "cli" "bash" "zsh" "autojump") (:url . "https://github.com/steckerhalter/emacs-fasd"))])

@@ -1,0 +1,2 @@
+
+(easy-escape . [(20150718 2133) nil "Improve readability of escape characters in regular expressions" single ((:keywords "convenience" "lisp" "tools") (:url . "https://github.com/cpitclaudel/easy-escape"))])

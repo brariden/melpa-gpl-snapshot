@@ -1,0 +1,2 @@
+
+(popup-complete . [(20141108 2108) ((popup (0 5 0))) "completion with popup" single ((:url . "https://github.com/syohex/emacs-popup-complete"))])

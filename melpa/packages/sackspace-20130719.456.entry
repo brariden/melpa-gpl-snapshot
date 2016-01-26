@@ -1,0 +1,2 @@
+
+(sackspace . [(20130719 456) nil "A better backspace" single ((:keywords "delete" "convenience") (:url . "http://github.com/cofi/sackspace.el"))])

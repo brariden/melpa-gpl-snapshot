@@ -1,0 +1,2 @@
+
+(anything-replace-string . [(20140317 536) ((anything (1 3 9))) "`replace-string' and `query-replace' `anything.el' interface" single ((:url . "http://code.101000lab.org"))])

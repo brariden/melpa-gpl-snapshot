@@ -1,0 +1,2 @@
+
+(soothe-theme . [(20141027 941) ((emacs (24 1))) "a dark colorful theme for Emacs24." single ((:url . "https://github.com/jasonm23/emacs-soothe-theme"))])

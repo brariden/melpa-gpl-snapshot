@@ -1,0 +1,2 @@
+
+(jasminejs-mode . [(20150526 1905) nil "A minor mode for manipulating jasmine test files" tar ((:keywords "javascript" "jasmine") (:url . "https://github.com/stoltene2/jasminejs-mode"))])

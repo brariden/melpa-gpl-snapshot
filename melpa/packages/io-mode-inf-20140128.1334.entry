@@ -1,0 +1,2 @@
+
+(io-mode-inf . [(20140128 1334) nil "Interaction with an Io interpreter." single ((:keywords "io" "languages") (:url . "https://github.com/slackorama/io-emacs"))])

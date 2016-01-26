@@ -1,0 +1,2 @@
+
+(key-seq . [(20150907 256) ((key-chord (0 6))) "map pairs of sequentially pressed keys to commands" single ((:keywords "convenience" "keyboard" "keybindings") (:url . "http://github.com/vlevit/key-seq.el"))])

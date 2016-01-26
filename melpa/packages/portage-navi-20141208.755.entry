@@ -1,0 +1,2 @@
+
+(portage-navi . [(20141208 755) ((concurrent (0 3 1)) (ctable (0 1 2))) "portage viewer" single ((:keywords "tools" "gentoo") (:url . "https://github.com/kiwanami/emacs-portage-navi"))])

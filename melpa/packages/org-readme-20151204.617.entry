@@ -1,0 +1,2 @@
+
+(org-readme . [(20151204 617) ((http-post-simple (1 0)) (yaoddmuse (0 1 1)) (header2 (21 0)) (lib-requires (21 0)) (cl-lib (0 5))) "Integrates Readme.org and Commentary/Change-logs." tar ((:keywords "header2" "readme.org" "emacswiki" "git") (:url . "https://github.com/mlf176f2/org-readme"))])

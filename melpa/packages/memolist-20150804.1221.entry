@@ -1,0 +1,2 @@
+
+(memolist . [(20150804 1221) ((markdown-mode (22 0)) (ag (0 45))) "memolist.el is Emacs port of memolist.vim." single ((:keywords "markdown" "memo") (:url . "http://github.com/mikanfactory/emacs-memolist"))])

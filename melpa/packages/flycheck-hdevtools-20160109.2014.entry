@@ -1,0 +1,2 @@
+
+(flycheck-hdevtools . [(20160109 2014) ((flycheck (0 21 -4 1)) (dash (2 0))) "A flycheck checker for Haskell using hdevtools" single ((:keywords "convenience" "languages" "tools") (:url . "https://github.com/flycheck/flycheck-hdevtools"))])

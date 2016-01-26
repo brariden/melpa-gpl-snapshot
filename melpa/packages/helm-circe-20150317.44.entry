@@ -1,0 +1,2 @@
+
+(helm-circe . [(20150317 44) ((emacs (24)) (helm (0 0)) (circe (0 0)) (cl-lib (0 5))) "helm circe buffer management." single ((:keywords "helm" "circe") (:url . "https://github.com/lesharris/helm-circe"))])

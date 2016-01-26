@@ -1,0 +1,2 @@
+
+(org-cua-dwim . [(20120202 2334) nil "Org-mode and Cua mode compatibility layer" single ((:keywords "org-mode" "cua-mode"))])

@@ -1,0 +1,2 @@
+
+(btc-ticker . [(20151113 859) ((json (1 2)) (request (0 2 0))) "Shows latest bitcoin price" single ((:keywords "news"))])

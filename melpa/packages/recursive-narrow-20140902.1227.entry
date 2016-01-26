@@ -1,0 +1,2 @@
+
+(recursive-narrow . [(20140902 1227) nil "narrow-to-region that operates recursively" single ((:url . "http://github.com/nflath/recursive-narrow"))])

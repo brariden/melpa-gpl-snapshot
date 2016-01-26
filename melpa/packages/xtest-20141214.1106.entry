@@ -1,0 +1,2 @@
+
+(xtest . [(20141214 1106) ((cl-lib (0 5))) "Simple Testing with Emacs & ERT" single ((:keywords "testing" "ert") (:url . "https://github.com/promethial/xtest"))])

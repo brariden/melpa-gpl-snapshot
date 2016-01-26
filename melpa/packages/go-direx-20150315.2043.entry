@@ -1,0 +1,2 @@
+
+(go-direx . [(20150315 2043) ((direx (1 0 0)) (cl-lib (0 5))) "Tree style source code viewer for Go language" single ((:url . "https://github.com/syohex/emacs-go-direx"))])

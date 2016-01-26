@@ -1,0 +1,2 @@
+
+(evil-tutor . [(20150103 50) ((evil (1 0 9))) "Vimtutor adapted to Evil and wrapped in a major-mode" tar ((:keywords "convenience" "editing" "evil") (:url . "https://github.com/syl20bnr/evil-tutor"))])

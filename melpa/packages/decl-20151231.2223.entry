@@ -1,0 +1,2 @@
+
+(decl . [(20151231 2223) ((dash (2 5 0)) (emacs (24 3)) (cl-lib (0 3))) "Library for organizing code declaratively" single ((:url . "https://github.com/preetpalS/decl.el"))])

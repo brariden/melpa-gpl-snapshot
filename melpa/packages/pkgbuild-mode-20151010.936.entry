@@ -1,0 +1,2 @@
+
+(pkgbuild-mode . [(20151010 936) nil "Interface to the ArchLinux package manager" single nil])

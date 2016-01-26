@@ -1,0 +1,2 @@
+
+(haskell-emacs-base . [(20150714 1059) ((haskell-emacs (2 4 0))) "Haskell functions from Prelude" tar ((:keywords "haskell" "emacs" "ffi") (:url . "https://github.com/knupfer/haskell-emacs/modules/base"))])

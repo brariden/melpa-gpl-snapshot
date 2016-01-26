@@ -1,0 +1,2 @@
+
+(map-regexp . [(20130522 1603) ((cl-lib (0 2))) "map over matches of a regular expression" single ((:keywords "convenience") (:url . "https://github.com/tarsius/map-regexp"))])

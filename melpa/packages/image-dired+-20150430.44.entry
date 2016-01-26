@@ -1,0 +1,2 @@
+
+(image-dired+ . [(20150430 44) ((cl-lib (0 3))) "Image-dired extensions" single ((:keywords "extensions" "multimedia") (:url . "https://github.com/mhayashi1120/Emacs-image-diredx"))])

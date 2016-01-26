@@ -1,0 +1,2 @@
+
+(speech-tagger . [(20160103 1712) ((cl-lib (0 5))) "tag parts of speech using coreNLP" tar ((:keywords "speech" "tag" "nlp" "language" "corenlp" "parsing" "natural") (:url . "https://github.com/cosmicexplorer/speech-tagger"))])

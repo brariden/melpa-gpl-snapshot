@@ -1,0 +1,2 @@
+
+(system-specific-settings . [(20140818 957) nil "Apply settings only on certain systems" single ((:keywords "configuration") (:url . "https://github.com/DarwinAwardWinner/emacs-system-specific-settings"))])

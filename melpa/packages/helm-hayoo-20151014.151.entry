@@ -1,0 +1,2 @@
+
+(helm-hayoo . [(20151014 151) ((helm (1 6 0)) (json (1 2)) (haskell-mode (13 7))) "Source and configured helm for searching hayoo" single ((:keywords "helm"))])

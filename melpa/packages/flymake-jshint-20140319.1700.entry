@@ -1,0 +1,2 @@
+
+(flymake-jshint . [(20140319 1700) ((flymake-easy (0 8))) "making flymake work with JSHint" single ((:keywords "flymake" "jshint" "javascript"))])

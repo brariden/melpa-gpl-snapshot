@@ -1,0 +1,2 @@
+
+(dired-subtree . [(20150908 1233) ((dash (2 5 0)) (dired-hacks-utils (0 0 1))) "Insert subdirectories in a tree-like fashion" single ((:keywords "files"))])

@@ -1,0 +1,2 @@
+
+(helm-ad . [(20151209 415) ((dash (2 8 0)) (helm (1 6 2))) "helm source for Active Directory" single ((:keywords "comm"))])

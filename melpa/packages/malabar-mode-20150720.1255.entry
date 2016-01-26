@@ -1,0 +1,2 @@
+
+(malabar-mode . [(20150720 1255) ((fringe-helper (1 0 1)) (groovy-mode (0))) "JVM Integration mode for EMACS" tar ((:keywords "java" "maven" "groovy" "language" "malabar") (:url . "http://www.github.com/m0smith/malabar-mode"))])

@@ -1,0 +1,2 @@
+
+(occur-context-resize . [(20151227 2202) nil "dynamically resize context around matches in occur-mode" single ((:keywords "matching") (:url . "https://github.com/dgtized/occur-context-resize.el"))])

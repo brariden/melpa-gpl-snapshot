@@ -1,0 +1,2 @@
+
+(minibuf-isearch . [(20151226 1343) nil "incremental search on minibuffer history" single ((:keywords "minibuffer" "history" "incremental search"))])

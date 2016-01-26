@@ -1,0 +1,2 @@
+
+(flx-isearch . [(20160105 1417) ((emacs (24)) (flx (20140821)) (cl-lib (0 5))) "Fuzzy incremental searching for emacs" single ((:keywords "convenience" "search" "flx") (:url . "https://github.com/pythonnut/flx-isearch"))])

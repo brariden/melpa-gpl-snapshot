@@ -1,0 +1,2 @@
+
+(jenkins-watch . [(20121004 1826) nil "Watch continuous integration build status" single ((:url . "https://github.com/ataylor284/jenkins-watch"))])

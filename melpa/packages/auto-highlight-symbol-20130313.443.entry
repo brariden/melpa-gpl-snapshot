@@ -1,0 +1,2 @@
+
+(auto-highlight-symbol . [(20130313 443) nil "Automatic highlighting current symbol minor mode" single ((:keywords "highlight" "face" "match" "convenience") (:url . "http://github.com/gennad/auto-highlight-symbol/raw/master/auto-highlight-symbol.el"))])

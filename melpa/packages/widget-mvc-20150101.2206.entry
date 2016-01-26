@@ -1,0 +1,2 @@
+
+(widget-mvc . [(20150101 2206) nil "MVC framework for the emacs widgets" single ((:keywords "lisp" "widget"))])

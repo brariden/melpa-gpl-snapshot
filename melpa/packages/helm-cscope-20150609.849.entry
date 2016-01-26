@@ -1,0 +1,2 @@
+
+(helm-cscope . [(20150609 849) ((xcscope (1 0)) (helm (1 6 7)) (cl-lib (0 5)) (emacs (24 1))) "Helm interface for xcscope.el." single ((:keywords "cscope" "helm") (:url . "https://github.com/alpha22jp/helm-cscope.el"))])

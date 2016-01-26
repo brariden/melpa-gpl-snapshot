@@ -1,0 +1,2 @@
+
+(imenu-anywhere . [(20160126 938) ((cl-lib (0 5))) "ido/helm imenu tag selection across all buffers with the same mode" single ((:keywords "ido" "imenu" "tags") (:url . "https://github.com/vitoshka/imenu-anywhere"))])

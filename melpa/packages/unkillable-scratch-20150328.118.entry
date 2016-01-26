@@ -1,0 +1,2 @@
+
+(unkillable-scratch . [(20150328 118) nil "Disallow buffers from being killed by regexp -- default is *scratch* buffer" single ((:keywords "scratch"))])

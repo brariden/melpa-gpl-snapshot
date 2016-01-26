@@ -1,0 +1,2 @@
+
+(erefactor . [(20160121 359) ((cl-lib (0 3))) "Emacs-Lisp refactoring utilities" single ((:keywords "extensions" "tools" "maint") (:url . "https://github.com/mhayashi1120/Emacs-erefactor"))])

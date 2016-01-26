@@ -1,0 +1,2 @@
+
+(tracwiki-mode . [(20150119 1021) ((xml-rpc (1 6 8))) "Emacs Major mode for working with Trac" single ((:keywords "trac" "wiki" "tickets"))])

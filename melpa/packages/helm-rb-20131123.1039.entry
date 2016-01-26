@@ -1,0 +1,2 @@
+
+(helm-rb . [(20131123 1039) ((helm (1 0)) (helm-ag-r (20131123))) "Search Ruby's method by ag and display helm" tar ((:keywords "searching" "ruby") (:url . "https://github.com/yuutayamada/helm-rb"))])

@@ -1,0 +1,2 @@
+
+(draft-mode . [(20140609 956) nil "Rough drafting for Emacs." single ((:keywords "draft" "drafting") (:url . "https://github.com/gaudecker/draft-mode"))])

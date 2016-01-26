@@ -1,0 +1,2 @@
+
+(epc . [(20140610 34) ((concurrent (0 3 1)) (ctable (0 1 2))) "A RPC stack for the Emacs Lisp" tar ((:keywords "lisp" "rpc") (:url . "https://github.com/kiwanami/emacs-epc"))])

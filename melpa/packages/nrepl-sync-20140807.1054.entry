@@ -1,0 +1,2 @@
+
+(nrepl-sync . [(20140807 1054) ((cider (0 6))) "connect to nrepl port and eval .sync.clj." single ((:url . "https://github.com/phillord/lein-sync"))])

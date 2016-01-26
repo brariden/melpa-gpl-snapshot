@@ -1,0 +1,2 @@
+
+(helm-flyspell . [(20151026 1112) ((helm (1 6 5))) "Helm extension for correcting words with flyspell" single nil])

@@ -1,0 +1,2 @@
+
+(reveal-in-osx-finder . [(20150802 1157) nil "Reveal file associated with buffer in OS X Finder" single ((:keywords "os x" "finder") (:url . "https://github.com/kaz-yos/reveal-in-osx-finder"))])

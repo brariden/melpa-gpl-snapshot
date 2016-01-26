@@ -1,0 +1,2 @@
+
+(todotxt . [(20150513 2129) nil "A major mode for editing todo.txt files" single ((:keywords "todo.txt" "todotxt" "todotxt.el") (:url . "https://github.com/rpdillon/todotxt.el"))])

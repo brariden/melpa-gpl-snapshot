@@ -1,0 +1,2 @@
+
+(c0-mode . [(20151110 1252) nil "Major mode for editing C0 files" tar ((:keywords "c0" "languages") (:url . "http://c0.typesafety.net/"))])

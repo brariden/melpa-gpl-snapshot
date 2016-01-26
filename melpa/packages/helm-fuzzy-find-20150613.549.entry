@@ -1,0 +1,2 @@
+
+(helm-fuzzy-find . [(20150613 549) ((emacs (24 1)) (helm (1 7 0))) "Find file using Fuzzy Search" single ((:keywords "helm" "fuzzy" "find" "file") (:url . "https://github.com/xuchunyang/helm-fuzzy-find"))])

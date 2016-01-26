@@ -1,0 +1,2 @@
+
+(shell-toggle . [(20150226 811) nil "Toggle to and from the shell buffer" single ((:keywords "processes") (:url . "https://github.com/knu/shell-toggle.el"))])

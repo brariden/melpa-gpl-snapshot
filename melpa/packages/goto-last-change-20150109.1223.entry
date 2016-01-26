@@ -1,0 +1,2 @@
+
+(goto-last-change . [(20150109 1223) nil "Move point through buffer-undo-list positions" single ((:keywords "convenience") (:url . "https://github.com/camdez/goto-last-change.el"))])

@@ -1,0 +1,2 @@
+
+(helm-swoop . [(20160126 1320) ((helm (1 0)) (emacs (24))) "Efficiently hopping squeezed lines powered by helm interface" single ((:keywords "helm" "swoop" "inner" "buffer" "search") (:url . "https://github.com/ShingoFukuyama/helm-swoop"))])

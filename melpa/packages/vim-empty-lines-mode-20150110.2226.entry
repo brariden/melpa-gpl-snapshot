@@ -1,0 +1,2 @@
+
+(vim-empty-lines-mode . [(20150110 2226) ((emacs (23))) "Vim-like empty line indicator at end of files." single ((:keywords "emulations") (:url . "https://github.com/jmickelin/vim-empty-lines-mode"))])

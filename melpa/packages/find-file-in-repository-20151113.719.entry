@@ -1,0 +1,2 @@
+
+(find-file-in-repository . [(20151113 719) nil "Quickly find files in a git, mercurial or other repository" single ((:keywords "files" "convenience" "repository" "project" "source control") (:url . "https://github.com/hoffstaetter/find-file-in-repository"))])

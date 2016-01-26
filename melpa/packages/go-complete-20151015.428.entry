@@ -1,0 +1,2 @@
+
+(go-complete . [(20151015 428) ((go-mode (0)) (cl-lib (0 5))) "Native code completion for Go" single ((:keywords "go" "golang" "completion") (:url . "https://github.com/vibhavp/go-complete"))])

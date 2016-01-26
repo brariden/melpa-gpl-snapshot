@@ -1,0 +1,2 @@
+
+(rigid-tabs . [(20150807 1056) ((emacs (24 3))) "Rigidify and adjust the visual alignment of TABs" single ((:keywords "diff" "whitespace" "version control" "magit") (:url . "https://github.com/wavexx/rigid-tabs.el"))])

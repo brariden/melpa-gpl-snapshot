@@ -1,0 +1,2 @@
+
+(isend-mode . [(20130419 458) nil "Interactively send parts of an Emacs buffer to an interpreter" single ((:url . "https://github.com/ffevotte/isend-mode.el"))])

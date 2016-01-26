@@ -1,0 +1,2 @@
+
+(keyset . [(20150219 2330) ((dash (2 8 0)) (cl-lib (0 5))) "A small library for structuring key bindings." single ((:url . "https://github.com/HKey/keyset"))])

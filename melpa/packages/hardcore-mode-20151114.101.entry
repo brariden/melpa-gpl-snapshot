@@ -1,0 +1,2 @@
+
+(hardcore-mode . [(20151114 101) nil "Disable arrow keys + optionally backspace and return" single nil])

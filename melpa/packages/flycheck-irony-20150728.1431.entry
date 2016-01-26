@@ -1,0 +1,2 @@
+
+(flycheck-irony . [(20150728 1431) ((emacs (24 1)) (flycheck (0 22)) (irony (0 2 0 -4 4))) "Flycheck: C/C++ support via Irony" single ((:keywords "convenience" "tools" "c") (:url . "https://github.com/Sarcasm/flycheck-irony/"))])

@@ -1,0 +1,2 @@
+
+(shpec-mode . [(20150530 422) nil "Minor mode for shpec specification" single ((:keywords "languages" "tools") (:url . "http://github.com/shpec/shpec-mode"))])

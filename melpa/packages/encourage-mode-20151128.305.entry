@@ -1,0 +1,2 @@
+
+(encourage-mode . [(20151128 305) ((emacs (24 4))) "Encourages you in your work. :D" single ((:keywords "fun") (:url . "https://github.com/halbtuerke/encourage-mode.el"))])

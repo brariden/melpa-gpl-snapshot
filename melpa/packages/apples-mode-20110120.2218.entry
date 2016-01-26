@@ -1,0 +1,2 @@
+
+(apples-mode . [(20110120 2218) nil "Major mode for editing and executing AppleScript code" tar ((:keywords "applescript" "languages"))])

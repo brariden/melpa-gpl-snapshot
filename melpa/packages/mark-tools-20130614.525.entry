@@ -1,0 +1,2 @@
+
+(mark-tools . [(20130614 525) nil "Some simple tools to access the mark-ring in Emacs" single ((:url . "https://github.com/stsquad/emacs-mark-tools"))])

@@ -1,0 +1,2 @@
+
+(flymake-perlcritic . [(20120328 314) ((flymake (0 3))) "Flymake handler for Perl to invoke Perl::Critic" tar ((:url . "https://github.com/illusori/emacs-flymake-perlcritic"))])

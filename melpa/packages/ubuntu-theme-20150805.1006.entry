@@ -1,0 +1,2 @@
+
+(ubuntu-theme . [(20150805 1006) nil "A theme inspired by the default terminal colors in Ubuntu" single ((:url . "http://github.com/rocher/ubuntu-theme"))])

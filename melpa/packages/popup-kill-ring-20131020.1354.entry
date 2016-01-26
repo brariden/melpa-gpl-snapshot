@@ -1,0 +1,2 @@
+
+(popup-kill-ring . [(20131020 1354) ((popup (0 4)) (pos-tip (0 4))) "interactively insert item from kill-ring" single ((:keywords "popup" "kill-ring" "pos-tip") (:url . "https://github.com/waymondo/popup-kill-ring"))])

@@ -1,0 +1,2 @@
+
+(jumplist . [(20151119 2145) ((cl-lib (0 5))) "Jump like vim jumplist or ex jumplist" single ((:keywords "jumplist" "vim") (:url . "https://github.com/ganmacs/jumplist"))])

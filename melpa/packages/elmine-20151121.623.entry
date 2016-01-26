@@ -1,0 +1,2 @@
+
+(elmine . [(20151121 623) ((s (1 10 0))) "Redmine API access via elisp." single ((:keywords "tools") (:url . "http://github.com/leoc/elmine"))])

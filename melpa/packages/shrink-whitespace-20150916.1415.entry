@@ -1,0 +1,2 @@
+
+(shrink-whitespace . [(20150916 1415) nil "Whitespace removal DWIM key" single ((:keywords "editing") (:url . "https://github.com/jcpetkovich/shrink-whitespace.el"))])

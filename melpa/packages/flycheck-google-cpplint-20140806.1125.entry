@@ -1,0 +1,2 @@
+
+(flycheck-google-cpplint . [(20140806 1125) ((flycheck (0 20 -4 1))) "Help to comply with the Google C++ Style Guide" single ((:keywords "flycheck" "c" "c++") (:url . "https://github.com/flycheck/flycheck-google-cpplint/"))])

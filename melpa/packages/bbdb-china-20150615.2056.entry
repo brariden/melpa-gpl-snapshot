@@ -1,0 +1,2 @@
+
+(bbdb-china . [(20150615 2056) ((bbdb-vcard (0 4 1)) (chinese-pyim (0 0 1))) "BBDB utils, which let Chinese BBDB users feel easy" single ((:url . "https://github.com/tumashu/bbdb-china"))])

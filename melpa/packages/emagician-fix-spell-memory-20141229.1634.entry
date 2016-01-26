@@ -1,0 +1,2 @@
+
+(emagician-fix-spell-memory . [(20141229 1634) nil "Simple hack into ispell to fix (muscle) memory problems" single ((:keywords "erc" "bitlbee" "bot"))])

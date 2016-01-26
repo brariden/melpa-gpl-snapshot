@@ -1,0 +1,2 @@
+
+(smart-newline . [(20131207 2140) nil "Provide smart newline for one keybind." single nil])

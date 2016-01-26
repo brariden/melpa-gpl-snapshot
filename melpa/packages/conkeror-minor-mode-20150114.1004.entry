@@ -1,0 +1,2 @@
+
+(conkeror-minor-mode . [(20150114 1004) nil "Mode for editing conkeror javascript files." single ((:keywords "programming" "tools") (:url . "http://github.com/Bruce-Connor/conkeror-minor-mode"))])

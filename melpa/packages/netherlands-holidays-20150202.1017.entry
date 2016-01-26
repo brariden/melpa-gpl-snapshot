@@ -1,0 +1,2 @@
+
+(netherlands-holidays . [(20150202 1017) nil "Netherlands holidays for Emacs calendar." single ((:keywords "calendar") (:url . "https://github.com/abo-abo/netherlands-holidays"))])

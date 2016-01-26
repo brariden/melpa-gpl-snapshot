@@ -1,0 +1,2 @@
+
+(init-loader . [(20141031 133) nil "Loader for configuration files" single ((:url . "https://github.com/emacs-jp/init-loader/"))])

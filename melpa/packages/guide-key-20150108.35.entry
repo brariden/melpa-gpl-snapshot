@@ -1,0 +1,2 @@
+
+(guide-key . [(20150108 35) ((dash (2 10 0)) (popwin (0 3 0)) (s (1 9 0))) "Guide the following key bindings automatically and dynamically" single ((:keywords "help" "convenience") (:url . "https://github.com/kai2nenobu/guide-key"))])

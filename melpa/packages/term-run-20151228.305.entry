@@ -1,0 +1,2 @@
+
+(term-run . [(20151228 305) nil "Run arbitrary command in terminal buffer" single ((:keywords "utility" "shell" "command" "term-mode") (:url . "https://github.com/10sr/term-run-el"))])

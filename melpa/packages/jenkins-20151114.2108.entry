@@ -1,0 +1,2 @@
+
+(jenkins . [(20151114 2108) ((dash (2 12)) (emacs (24 3)) (json (1 4))) "Minimalistic Jenkins client for Emacs" single ((:keywords "jenkins" "convenience"))])

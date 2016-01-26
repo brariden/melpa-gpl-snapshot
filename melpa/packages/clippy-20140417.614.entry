@@ -1,0 +1,2 @@
+
+(clippy . [(20140417 614) ((pos-tip (1 0))) "Show tooltip with function documentation at point" single ((:keywords "docs") (:url . "https://github.com/Fuco1/clippy.el"))])

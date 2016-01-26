@@ -1,0 +1,2 @@
+
+(cryptol-mode . [(20140426 1204) nil "Cryptol major mode for Emacs" single ((:keywords "cryptol" "cryptography") (:url . "http://github.com/thoughtpolice/cryptol-mode"))])

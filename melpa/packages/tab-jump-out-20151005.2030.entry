@@ -1,0 +1,2 @@
+
+(tab-jump-out . [(20151005 2030) ((dash (2 10)) (emacs (24 4))) "Use tab to jump out of delimiter pairs." single ((:keywords "tab" "editing"))])

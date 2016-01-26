@@ -1,0 +1,2 @@
+
+(macro-math . [(20130328 1104) nil "in-buffer mathematical operations" single ((:keywords "convenience") (:url . "http://nschum.de/src/emacs/macro-math/"))])

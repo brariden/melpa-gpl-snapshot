@@ -1,0 +1,2 @@
+
+(flymake-yaml . [(20130423 1048) ((flymake-easy (0 1))) "A flymake handler for YAML" single ((:keywords "yaml") (:url . "https://github.com/yasuyk/flymake-yaml"))])

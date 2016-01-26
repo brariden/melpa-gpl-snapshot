@@ -1,0 +1,2 @@
+
+(ruby-factory . [(20160102 121) ((inflections (1 1))) "Minor mode for Ruby test object generation libraries" tar ((:keywords "ruby" "rails" "convenience") (:url . "http://github.com/sshaw/ruby-factory-mode"))])

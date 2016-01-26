@@ -1,0 +1,2 @@
+
+(xml-rpc . [(20150902 2027) nil "An elisp implementation of clientside XML-RPC" single ((:keywords "xml" "rpc" "network") (:url . "http://github.com/hexmode/xml-rpc-el"))])

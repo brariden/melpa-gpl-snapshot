@@ -1,0 +1,2 @@
+
+(bug-reference-github . [(20131202 1503) nil "Automatically set `bug-reference-url-format' in Github repositories." tar ((:keywords "programming" "tools") (:url . "https://github.com/arnested/bug-reference-github"))])

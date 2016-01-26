@@ -1,0 +1,2 @@
+
+(ox-nikola . [(20151114 516) ((emacs (24 4)) (org (8 2 4)) (ox-rst (0 2))) "Export Nikola articles using org-mode." single ((:keywords "org" "nikola") (:url . "https://github.com/masayuko/ox-nikola"))])

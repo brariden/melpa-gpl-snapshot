@@ -1,0 +1,2 @@
+
+(eyuml . [(20141028 1727) ((request (0 2 0)) (s (1 8 0))) "Write textual uml diagram from emacs using yuml.me" single ((:keywords "uml") (:url . "http://github.com/antham/eyuml"))])

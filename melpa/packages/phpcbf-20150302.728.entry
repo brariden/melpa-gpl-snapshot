@@ -1,0 +1,2 @@
+
+(phpcbf . [(20150302 728) ((s (1 9 0))) "Format PHP code in Emacs using PHP_CodeSniffer's phpcbf" single ((:keywords "tools" "php") (:url . "https://github.com/nishimaki10/emacs-phpcbf"))])

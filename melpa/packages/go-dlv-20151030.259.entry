@@ -1,0 +1,2 @@
+
+(go-dlv . [(20151030 259) ((go-mode (1 3 1))) "Go Delve - Debug Go programs interactively with the GUD." single ((:keywords "go" "debug" "debugger" "delve" "interactive" "gud") (:url . "https://github.com/benma/go-dlv.el/"))])

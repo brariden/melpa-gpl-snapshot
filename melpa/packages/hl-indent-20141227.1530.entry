@@ -1,0 +1,2 @@
+
+(hl-indent . [(20141227 1530) ((emacs (24)) (cl-lib (0 5))) "Highlight irregular indentation." single ((:keywords "convenience" "faces") (:url . "https://github.com/ikirill/hl-indent"))])

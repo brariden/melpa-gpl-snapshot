@@ -1,0 +1,2 @@
+
+(narrowed-page-navigation . [(20150108 2319) ((emacs (24)) (cl-lib (0 5))) "A minor mode for showing one page at a time" single ((:keywords "outlines"))])

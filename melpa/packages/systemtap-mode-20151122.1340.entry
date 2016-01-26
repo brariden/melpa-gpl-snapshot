@@ -1,0 +1,2 @@
+
+(systemtap-mode . [(20151122 1340) nil "A mode for SystemTap" single ((:keywords "tools" "languages") (:url . "https://github.com/ruediger/systemtap-mode"))])

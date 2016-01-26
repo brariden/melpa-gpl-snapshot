@@ -1,0 +1,2 @@
+
+(remark-mode . [(20151004 1155) ((markdown-mode (2 0))) "Major mode for the remark slideshow tool" tar ((:keywords "remark" "slideshow" "markdown"))])

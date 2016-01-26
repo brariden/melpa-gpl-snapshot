@@ -1,0 +1,2 @@
+
+(docbook-snippets . [(20150714 1125) ((yasnippet (0 8 0))) "Yasnippets for DocBook" tar ((:keywords "snippets" "docbook") (:url . "https://github.com/jhradilek/emacs-docbook-snippets"))])

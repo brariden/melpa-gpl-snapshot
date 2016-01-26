@@ -1,0 +1,2 @@
+
+(ert-async . [(20151011 859) nil "Async support for ERT" single ((:keywords "test") (:url . "http://github.com/rejeep/ert-async.el"))])

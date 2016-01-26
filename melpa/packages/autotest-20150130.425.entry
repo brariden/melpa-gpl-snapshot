@@ -1,0 +1,2 @@
+
+(autotest . [(20150130 425) nil "ZenTest's autotest integration with emacs." single ((:keywords "testing" "ruby" "convenience") (:url . "https://github.com/zenspider/elisp/blob/master/autotest.el"))])

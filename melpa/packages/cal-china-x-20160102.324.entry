@@ -1,0 +1,2 @@
+
+(cal-china-x . [(20160102 324) ((cl-lib (0 5))) "Chinese localization, lunar/horoscope/zodiac info and more..." tar ((:url . "https://github.com/xwl/cal-china-x"))])

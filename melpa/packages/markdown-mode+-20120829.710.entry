@@ -1,0 +1,2 @@
+
+(markdown-mode+ . [(20120829 710) ((markdown-mode (20111229))) "extra functions for markdown-mode" tar ((:keywords "markdown" "latex" "osx" "rtf") (:url . "http://github.com/milkypostman/markdown-mode+.el"))])

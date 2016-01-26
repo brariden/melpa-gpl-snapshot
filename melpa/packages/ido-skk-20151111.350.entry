@@ -1,0 +1,2 @@
+
+(ido-skk . [(20151111 350) ((emacs (24 4)) (ddskk (20150912 1820))) "ido interface for skk henkan" single ((:keywords "languages") (:url . "https://github.com/tsukimizake/ido-skk"))])

@@ -1,0 +1,2 @@
+
+(bbdb-ext . [(20151220 1413) ((bbdb (2 36))) "Extra commands for BBDB" single ((:keywords "extensions") (:url . "https://github.com/vapniks/bbdb-ext"))])

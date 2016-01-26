@@ -1,0 +1,2 @@
+
+(oberon . [(20120715 409) nil "Major mode for editing Oberon/Oberon-2 program texts" single ((:keywords "oberon" "oberon-2" "languages" "oop"))])

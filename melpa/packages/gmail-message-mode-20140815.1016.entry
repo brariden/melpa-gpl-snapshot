@@ -1,0 +1,2 @@
+
+(gmail-message-mode . [(20140815 1016) ((ham-mode (1 0))) "A major-mode for editing gmail messages using markdown syntax." single ((:keywords "mail" "convenience" "emulation") (:url . "http://github.com/Bruce-Connor/gmail-message-mode"))])

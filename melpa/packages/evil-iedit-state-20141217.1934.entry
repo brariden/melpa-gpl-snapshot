@@ -1,0 +1,2 @@
+
+(evil-iedit-state . [(20141217 1934) ((evil (1 0 9)) (iedit (0 97))) "Evil states to interface iedit mode." single ((:keywords "convenience" "editing" "evil" "iedit" "mnemonic") (:url . "https://github.com/syl20bnr/evil-iedit-state"))])

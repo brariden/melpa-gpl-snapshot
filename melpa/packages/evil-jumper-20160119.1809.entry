@@ -1,0 +1,2 @@
+
+(evil-jumper . [(20160119 1809) ((evil (0)) (cl-lib (0 5))) "Jump like vimmers do!" single ((:keywords "evil" "vim" "jumplist" "jump" "list") (:url . "https://github.com/bling/evil-jumper"))])

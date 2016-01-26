@@ -1,0 +1,2 @@
+
+(vim-region . [(20140329 1124) ((expand-region (20140127))) "Select region as vim" single ((:url . "https://github.com/ongaeshi/emacs-vim-region"))])

@@ -1,0 +1,2 @@
+
+(poporg . [(20150603 2047) nil "Pop a comment or string to an empty buffer for text editing" single ((:keywords "outlines" "tools") (:url . "https://github.com/QBobWatson/poporg"))])

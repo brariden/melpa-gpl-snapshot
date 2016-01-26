@@ -1,0 +1,2 @@
+
+(ruby-refactor . [(20151208 1207) ((ruby-mode (1 2))) "A minor mode which presents various Ruby refactoring helpers." single ((:keywords "refactor" "ruby") (:url . "https://github.com/ajvargo/ruby-refactor"))])

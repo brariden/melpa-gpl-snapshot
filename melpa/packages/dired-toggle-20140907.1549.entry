@@ -1,0 +1,2 @@
+
+(dired-toggle . [(20140907 1549) nil "provide a simple way to toggle dired buffer for current directory" single ((:keywords "dired" "toggle") (:url . "https://github.com/fasheng/dired-toggle"))])

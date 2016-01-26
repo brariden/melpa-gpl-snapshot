@@ -1,0 +1,2 @@
+
+(dactyl-mode . [(20140906 1225) nil "Major mode for editing Pentadactyl config files" single ((:keywords "languages" "vim") (:url . "https://github.com/luxbock/dactyl-mode"))])

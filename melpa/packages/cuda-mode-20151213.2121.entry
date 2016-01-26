@@ -1,0 +1,2 @@
+
+(cuda-mode . [(20151213 2121) nil "NVIDIA CUDA Major Mode" single ((:keywords "c" "languages"))])

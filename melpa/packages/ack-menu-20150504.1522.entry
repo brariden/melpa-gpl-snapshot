@@ -1,0 +1,2 @@
+
+(ack-menu . [(20150504 1522) ((mag-menu (0 1 0))) "A menu-based front-end for ack" single ((:keywords "tools" "matching" "convenience") (:url . "https://github.com/chumpage/ack-menu"))])

@@ -1,0 +1,2 @@
+
+(framesize . [(20131017 1632) ((key-chord (0 5 20080915))) "change the size of frames in Emacs" single ((:keywords "frames") (:url . "http://github.com/nicferrier/emacs-framesize"))])

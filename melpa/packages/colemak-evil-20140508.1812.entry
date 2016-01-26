@@ -1,0 +1,2 @@
+
+(colemak-evil . [(20140508 1812) ((evil (1 0 8))) "Colemak-friendly keybindings for Evil." single ((:url . "https://github.com/patbl/colemak-evil"))])

@@ -1,0 +1,2 @@
+
+(org-dashboard . [(20150812 502) ((cl-lib (0 5))) "Visually summarize progress in org files" single ((:keywords "outlines" "calendar") (:url . "http://github.com/bard/org-dashboard"))])

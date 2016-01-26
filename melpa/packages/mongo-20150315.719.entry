@@ -1,0 +1,2 @@
+
+(mongo . [(20150315 719) nil "MongoDB driver for Emacs Lisp" tar ((:keywords "convenience"))])

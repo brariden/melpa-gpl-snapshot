@@ -1,0 +1,2 @@
+
+(n4js . [(20150713 2131) ((emacs (24)) (cypher-mode (0))) "Neo4j Shell" single ((:keywords "neo4j" "shell" "comint") (:url . "https://github.com/tmtxt/n4js.el"))])

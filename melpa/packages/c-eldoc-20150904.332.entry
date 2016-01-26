@@ -1,0 +1,2 @@
+
+(c-eldoc . [(20150904 332) nil "helpful description of the arguments to C functions" single ((:url . "http://github.com/nflath/c-eldoc"))])

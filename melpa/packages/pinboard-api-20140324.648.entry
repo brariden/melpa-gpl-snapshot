@@ -1,0 +1,2 @@
+
+(pinboard-api . [(20140324 648) nil "Rudimentary http://pinboard.in integration" single ((:keywords "pinboard" "www") (:url . "https://github.com/danieroux/pinboard-api-el"))])

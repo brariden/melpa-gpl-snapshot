@@ -1,0 +1,2 @@
+
+(bbdb-android . [(20150706 24) ((bbdb-vcard (20150705 341))) "Android phone contacts import/export for BBDB" single ((:url . "https://github.com/tumashu/bbdb-android"))])

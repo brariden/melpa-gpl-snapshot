@@ -1,0 +1,2 @@
+
+(private-diary . [(20151216 1057) ((emacs (24 0))) "maintain a private diary in Emacs" single ((:keywords "diary" "encryption") (:url . "https://github.com/cacology/private-diary"))])

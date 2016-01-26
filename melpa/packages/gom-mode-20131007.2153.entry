@@ -1,0 +1,2 @@
+
+(gom-mode . [(20131007 2153) nil "Major mode for Gomfile" single ((:url . "https://github.com/syohex/emacs-gom-mode"))])

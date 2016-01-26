@@ -1,0 +1,2 @@
+
+(html-to-markdown . [(20151105 240) ((cl-lib (0 5))) "HTML to Markdown converter written in Emacs-lisp." single ((:keywords "tools" "wp" "languages") (:url . "http://github.com/Bruce-Connor/html-to-markdown"))])

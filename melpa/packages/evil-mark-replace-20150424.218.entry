@@ -1,0 +1,2 @@
+
+(evil-mark-replace . [(20150424 218) ((evil (1 0 8))) "replace the thing in marked area" single ((:keywords "mark" "replace" "evil") (:url . "http://github.com/redguardtoo/evil-mark-replace"))])

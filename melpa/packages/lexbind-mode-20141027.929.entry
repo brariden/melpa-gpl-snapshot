@@ -1,0 +1,2 @@
+
+(lexbind-mode . [(20141027 929) nil "Puts the value of lexical-binding in the mode line" single ((:keywords "convenience" "lisp") (:url . "https://github.com/spacebat/lexbind-mode"))])

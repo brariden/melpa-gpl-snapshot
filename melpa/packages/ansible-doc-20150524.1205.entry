@@ -1,0 +1,2 @@
+
+(ansible-doc . [(20150524 1205) ((emacs (24 1))) "Ansible documentation Minor Mode" single ((:keywords "tools" "help") (:url . "https://github.com/lunaryorn/ansible-doc.el"))])

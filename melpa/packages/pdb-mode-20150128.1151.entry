@@ -1,0 +1,2 @@
+
+(pdb-mode . [(20150128 1151) nil "Major mode for editing Protein Data Bank files" single ((:keywords "data" "pdb") (:url . "http://bondxray.org/software/pdb-mode/"))])

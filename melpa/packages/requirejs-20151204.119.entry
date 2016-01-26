@@ -1,0 +1,2 @@
+
+(requirejs . [(20151204 119) ((js2-mode (20150713)) (popup (0 5 3)) (s (1 9 0)) (cl-lib (0 5)) (yasnippet (20151011 1823))) "Requirejs import manipulation and source traversal." tar ((:keywords "javascript" "requirejs") (:url . "https://github.com/joeheyming/requirejs-emacs"))])

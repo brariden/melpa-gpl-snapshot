@@ -1,0 +1,2 @@
+
+(pretty-symbols . [(20140814 459) nil "Draw tokens as Unicode glyphs." single ((:keywords "faces") (:url . "http://github.com/drothlis/pretty-symbols"))])

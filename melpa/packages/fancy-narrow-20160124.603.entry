@@ -1,0 +1,2 @@
+
+(fancy-narrow . [(20160124 603) nil "narrow-to-region with more eye candy." single ((:keywords "faces" "convenience") (:url . "http://github.com/Bruce-Connor/fancy-narrow"))])

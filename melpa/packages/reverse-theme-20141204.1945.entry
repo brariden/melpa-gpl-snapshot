@@ -1,0 +1,2 @@
+
+(reverse-theme . [(20141204 1945) nil "Reverse theme for Emacs" single ((:url . "https://github.com/syohex/emacs-reverse-theme"))])

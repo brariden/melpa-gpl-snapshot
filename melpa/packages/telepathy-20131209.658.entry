@@ -1,0 +1,2 @@
+
+(telepathy . [(20131209 658) nil "Access Telepathy from Emacs" single ((:keywords "telepathy" "tools"))])

@@ -1,0 +1,2 @@
+
+(fvwm-mode . [(20141105 2236) nil "major mode for editing Fvwm configuration files" single ((:keywords "files"))])

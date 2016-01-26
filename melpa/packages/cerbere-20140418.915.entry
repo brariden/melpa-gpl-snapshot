@@ -1,0 +1,2 @@
+
+(cerbere . [(20140418 915) ((s (1 9 0)) (f (0 16 0)) (pkg-info (0 5))) "Unit testing in Emacs for several programming languages" tar ((:keywords "python" "go" "php" "tests" "tdd") (:url . "https://github.com/nlamirault/cerbere"))])

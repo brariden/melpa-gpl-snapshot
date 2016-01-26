@@ -1,0 +1,2 @@
+
+(mode-line-debug . [(20150307 712) nil "show status of `debug-on-error' in the mode-line" single ((:keywords "convenience" "lisp") (:url . "https://github.com/tarsius/mode-line-debug"))])

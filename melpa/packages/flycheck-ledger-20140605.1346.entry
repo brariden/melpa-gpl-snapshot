@@ -1,0 +1,2 @@
+
+(flycheck-ledger . [(20140605 1346) ((flycheck (0 15))) "Flycheck integration for ledger files" single ((:keywords "convenience" "languages" "tools"))])

@@ -1,0 +1,2 @@
+
+(flycheck-css-colorguard . [(20151122 347) ((flycheck (0 22)) (emacs (24))) "Detect similar colors in CSS" single ((:keywords "flycheck" "css" "colorguard") (:url . "https://github.com/Simplify/flycheck-css-colorguard/"))])

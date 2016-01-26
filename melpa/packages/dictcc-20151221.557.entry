@@ -1,0 +1,2 @@
+
+(dictcc . [(20151221 557) ((emacs (24)) (cl-lib (0 5)) (s (1 0)) (dash (2 0)) (helm (1 0))) "Look up translations on dict.cc" single ((:keywords "convenience"))])

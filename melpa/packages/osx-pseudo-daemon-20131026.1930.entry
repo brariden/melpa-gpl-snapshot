@@ -1,0 +1,2 @@
+
+(osx-pseudo-daemon . [(20131026 1930) nil "Daemon mode that plays nice with OSX." single ((:keywords "convenience" "osx") (:url . "https://github.com/DarwinAwardWinner/osx-pseudo-daemon"))])

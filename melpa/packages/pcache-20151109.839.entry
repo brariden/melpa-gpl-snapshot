@@ -1,0 +1,2 @@
+
+(pcache . [(20151109 839) ((eieio (1 3))) "persistent caching for Emacs." single nil])

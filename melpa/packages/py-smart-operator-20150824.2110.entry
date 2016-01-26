@@ -1,0 +1,2 @@
+
+(py-smart-operator . [(20150824 2110) ((s (1 9 0))) "smart-operator for python-mode" single ((:keywords "python" "convenience" "smart-operator"))])

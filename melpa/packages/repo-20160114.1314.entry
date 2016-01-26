@@ -1,0 +1,2 @@
+
+(repo . [(20160114 1314) ((emacs (24 3))) "Running repo from Emacs" single ((:keywords "convenience") (:url . "https://github.com/canatella/repo-el"))])

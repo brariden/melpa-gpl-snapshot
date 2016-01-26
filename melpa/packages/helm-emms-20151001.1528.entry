@@ -1,0 +1,2 @@
+
+(helm-emms . [(20151001 1528) ((helm (1 5)) (emms (0 0)) (cl-lib (0 5)) (emacs (24 1))) "Emms for Helm." single nil])

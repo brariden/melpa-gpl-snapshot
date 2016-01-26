@@ -1,0 +1,2 @@
+
+(multi-compile . [(20151111 1640) ((emacs (24))) "Multi target interface to compile." single ((:keywords "tools" "compile" "build") (:url . "https://github.com/ReanGD/emacs-multi-compile"))])

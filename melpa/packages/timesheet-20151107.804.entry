@@ -1,0 +1,2 @@
+
+(timesheet . [(20151107 804) ((s (1)) (org (7)) (auctex (11))) "Timesheet management add-on for org-mode" tar ((:keywords "org" "timesheet") (:url . "https://github.com/tmarble/timesheet.el"))])

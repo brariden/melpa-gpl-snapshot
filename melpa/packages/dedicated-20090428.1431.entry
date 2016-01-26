@@ -1,0 +1,2 @@
+
+(dedicated . [(20090428 1431) nil "A very simple minor mode for dedicated buffers" single ((:keywords "dedicated" "buffer"))])

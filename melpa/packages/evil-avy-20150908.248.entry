@@ -1,0 +1,2 @@
+
+(evil-avy . [(20150908 248) ((emacs (24 1)) (cl-lib (0 5)) (avy (0 3 0)) (evil (1 2 3))) "set-based completion" single ((:keywords "point" "location" "evil" "vim") (:url . "https://github.com/louy2/evil-avy"))])

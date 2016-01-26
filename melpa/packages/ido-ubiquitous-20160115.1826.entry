@@ -1,0 +1,2 @@
+
+(ido-ubiquitous . [(20160115 1826) ((emacs (24 1)) (ido-completing-read+ (3 10)) (cl-lib (0 5))) "Use ido (nearly) everywhere." single ((:keywords "convenience" "completion" "ido") (:url . "https://github.com/DarwinAwardWinner/ido-ubiquitous"))])

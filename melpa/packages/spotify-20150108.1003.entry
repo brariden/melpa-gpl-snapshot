@@ -1,0 +1,2 @@
+
+(spotify . [(20150108 1003) nil "Control the spotify application from emacs" single ((:keywords "convenience") (:url . "https://github.com/remvee/spotify-el"))])

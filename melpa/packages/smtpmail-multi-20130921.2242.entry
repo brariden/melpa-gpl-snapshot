@@ -1,0 +1,2 @@
+
+(smtpmail-multi . [(20130921 2242) nil "Use different smtp servers for sending mail" single ((:keywords "comm") (:url . "https://github.com/vapniks/smtpmail-multi"))])

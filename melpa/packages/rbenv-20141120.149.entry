@@ -1,0 +1,2 @@
+
+(rbenv . [(20141120 149) nil "Emacs integration for rbenv" single ((:keywords "ruby" "rbenv") (:url . "https://github.com/senny/rbenv.el"))])

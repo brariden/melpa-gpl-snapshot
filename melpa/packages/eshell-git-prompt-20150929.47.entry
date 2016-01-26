@@ -1,0 +1,2 @@
+
+(eshell-git-prompt . [(20150929 47) ((emacs (24 1)) (cl-lib (0 5)) (dash (2 11 0)) (s (1 9 0))) "Some Eshell prompt for Git users" single ((:keywords "eshell" "git") (:url . "https://github.com/xuchunyang/eshell-git-prompt"))])

@@ -1,0 +1,2 @@
+
+(helm-rubygems-org . [(20140826 656) ((emacs (24)) (helm (1 6 3)) (cl-lib (0 5))) "Use helm to search rubygems.org" single ((:keywords "ruby" "rubygems" "gemfile" "helm") (:url . "https://github.com/neomantic/helm-rubygems-org"))])

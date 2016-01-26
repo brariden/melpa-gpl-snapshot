@@ -1,0 +1,2 @@
+
+(evil-org . [(20151203 147) ((evil (0)) (org (0)) (evil-leader (0))) "evil keybindings for org-mode" single ((:keywords "evil" "vim-emulation" "org-mode" "key-bindings" "presets") (:url . "https://github.com/edwtjo/evil-org-mode.git"))])

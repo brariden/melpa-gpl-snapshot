@@ -1,0 +1,2 @@
+
+(omni-tags . [(20150513 1253) ((pcre2el (1 7)) (cl-lib (0 5))) "Highlight and Actions for 'Tags'" tar ((:keywords "convenience") (:url . "http://github.com/AdrieanKhisbe/omni-tags.el"))])

@@ -1,0 +1,2 @@
+
+(buster-mode . [(20140928 713) nil "Minor mode to speed up development when writing tests with Buster.js" single ((:keywords "buster" "testing" "javascript"))])

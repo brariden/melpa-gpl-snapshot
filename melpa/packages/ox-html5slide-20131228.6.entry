@@ -1,0 +1,2 @@
+
+(ox-html5slide . [(20131228 6) ((org (8 0))) "Export org-mode to HTML5 slide." single ((:keywords "html" "presentation") (:url . "http://github.com/coldnew/org-html5slide"))])

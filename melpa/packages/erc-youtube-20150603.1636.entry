@@ -1,0 +1,2 @@
+
+(erc-youtube . [(20150603 1636) nil "Show info about a YouTube URL in an ERC buffer." single ((:keywords "multimedia"))])

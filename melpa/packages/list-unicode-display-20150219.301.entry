@@ -1,0 +1,2 @@
+
+(list-unicode-display . [(20150219 301) ((cl-lib (0 5))) "Search for and list unicode characters by name" single ((:keywords "convenience"))])

@@ -1,0 +1,2 @@
+
+(jabber-otr . [(20150918 644) ((emacs (24)) (jabber (0 8 92))) "Off-The-Record messaging for jabber.el" tar ((:keywords "comm") (:url . "https://github.com/legoscia/emacs-jabber-otr/"))])

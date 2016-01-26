@@ -1,0 +1,2 @@
+
+(powerline-evil . [(20151112 910) ((evil (1 0 8)) (powerline (2 3))) "Utilities for better Evil support for Powerline" tar ((:keywords "evil" "mode-line" "powerline") (:url . "http://github.com/raugturi/powerline-evil/"))])

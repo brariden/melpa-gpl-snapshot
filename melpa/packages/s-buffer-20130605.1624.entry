@@ -1,0 +1,2 @@
+
+(s-buffer . [(20130605 1624) ((s (1 6 0)) (noflet (0 0 3))) "s operations for buffers" single ((:keywords "lisp") (:url . "http://github.com/nicferrier/emacs-s-buffer"))])

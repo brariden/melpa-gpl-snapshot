@@ -1,0 +1,2 @@
+
+(ace-flyspell . [(20150523 1315) ((ace-jump-mode (2 0))) "Jump to and correct spelling errors using `ace-jump-mode' and flyspell" single ((:keywords "extensions") (:url . "https://github.com/cute-jumper/ace-flyspell"))])

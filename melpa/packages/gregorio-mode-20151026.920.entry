@@ -1,0 +1,2 @@
+
+(gregorio-mode . [(20151026 920) nil "Gregorio Mode for .gabc files" single ((:keywords "gregorio" "chant") (:url . "http://chant.fsspx.pl/gregorio-mode/docs/"))])

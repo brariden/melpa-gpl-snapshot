@@ -1,0 +1,2 @@
+
+(ycm . [(20150822 1336) nil "Emacs client for the YouCompleteMe auto-completion server." single ((:keywords "c" "abbrev"))])

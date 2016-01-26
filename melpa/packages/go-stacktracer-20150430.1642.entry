@@ -1,0 +1,2 @@
+
+(go-stacktracer . [(20150430 1642) nil "parse Go stack traces" single ((:keywords "tools") (:url . "https://github.com/samertm/go-stacktracer.el"))])

@@ -1,0 +1,2 @@
+
+(git-blame . [(20110509 1126) nil "Minor mode for incremental blame for Git" single ((:keywords "git" "version control" "release management"))])

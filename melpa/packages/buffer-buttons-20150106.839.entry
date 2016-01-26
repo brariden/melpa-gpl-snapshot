@@ -1,0 +1,2 @@
+
+(buffer-buttons . [(20150106 839) nil "Define, save, and load code-safe buttons in files for emacs" single ((:url . "https://github.com/rpav/buffer-buttons"))])

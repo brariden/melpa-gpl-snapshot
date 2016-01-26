@@ -1,0 +1,2 @@
+
+(cake-inflector . [(20140415 358) ((s (1 9 0))) "Lazy porting CakePHP infrector.php to el" single ((:url . "https://github.com/k1LoW/emacs-cake-inflector"))])

@@ -1,0 +1,2 @@
+
+(urlenc . [(20140116 856) nil "URL encoding/decoding utility for Emacs." single ((:keywords "url") (:url . "https://github.com/buzztaiki/urlenc-el"))])

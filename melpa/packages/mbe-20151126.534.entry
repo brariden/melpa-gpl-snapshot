@@ -1,0 +1,2 @@
+
+(mbe . [(20151126 534) ((emacs (24)) (cl-lib (0 5))) "Macros by Example" single ((:keywords "tools" "macros") (:url . "https://github.com/ijp/mbe.el"))])

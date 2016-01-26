@@ -1,0 +1,2 @@
+
+(flycheck-clojure . [(20150831 831) ((cider (0 8 1)) (flycheck (0 22 -4 1)) (let-alist (1 0 1)) (emacs (24))) "Flycheck: Clojure support" single ((:url . "https://github.com/clojure-emacs/squiggly-clojure"))])

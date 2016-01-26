@@ -1,0 +1,2 @@
+
+(grep-a-lot . [(20131006 847) nil "manages multiple search results buffers for grep.el" single ((:keywords "tools" "convenience" "search") (:url . "https://github.com/ZungBang/emacs-grep-a-lot"))])

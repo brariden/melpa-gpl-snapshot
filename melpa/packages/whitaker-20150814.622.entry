@@ -1,0 +1,2 @@
+
+(whitaker . [(20150814 622) ((dash (2 10 0))) "Comint interface for Whitaker's Words" single ((:keywords "processes"))])

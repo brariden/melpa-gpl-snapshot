@@ -1,0 +1,2 @@
+
+(helm-flymake . [(20130717 44) ((helm (1 0))) "helm interface for flymake" single ((:url . "https://github.com/tam17aki"))])

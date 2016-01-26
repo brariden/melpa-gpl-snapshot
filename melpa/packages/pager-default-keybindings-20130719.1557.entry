@@ -1,0 +1,2 @@
+
+(pager-default-keybindings . [(20130719 1557) ((pager (1 0))) "Add the default keybindings suggested for pager.el" single ((:url . "http://github.com/nflath/pager-default-keybindings"))])

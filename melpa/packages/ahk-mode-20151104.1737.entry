@@ -1,0 +1,2 @@
+
+(ahk-mode . [(20151104 1737) ((emacs (24 3)) (cl-lib (0 5))) "Major mode for editing AHK (AutoHotkey and AutoHotkey_L)" single ((:keywords "ahk" "autohotkey" "hotkey" "keyboard shortcut" "automation") (:url . "https://github.com/ralesi/ahk-mode"))])

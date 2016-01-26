@@ -1,0 +1,2 @@
+
+(pcomplete-extension . [(20140604 1147) ((emacs (24)) (cl-lib (0 5))) "additional completion for pcomplete" single ((:url . "https://github.com/thierryvolpiatto/pcomplete-extension"))])

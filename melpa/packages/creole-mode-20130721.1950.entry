@@ -1,0 +1,2 @@
+
+(creole-mode . [(20130721 1950) nil "a markup mode for creole" single ((:keywords "hypermedia" "wp") (:url . "https://github.com/nicferrier/creole-mode"))])

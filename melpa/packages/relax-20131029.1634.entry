@@ -1,0 +1,2 @@
+
+(relax . [(20131029 1634) ((json (1 2))) "For browsing and interacting with CouchDB" single ((:keywords "database" "http") (:url . "http://github.com/technomancy/relax.el"))])

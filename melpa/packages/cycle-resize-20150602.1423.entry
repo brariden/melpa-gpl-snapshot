@@ -1,0 +1,2 @@
+
+(cycle-resize . [(20150602 1423) nil "Cycle resize the current window horizontally or vertically" single ((:url . "https://github.com/pierre-lecocq/cycle-resize"))])

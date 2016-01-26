@@ -1,0 +1,2 @@
+
+(pyenv-mode . [(20151105 441) ((pythonic (0 1 0))) "Integrate pyenv with python-mode" single ((:url . "https://github.com/proofit404/pyenv-mode"))])

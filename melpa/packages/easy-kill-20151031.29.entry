@@ -1,0 +1,2 @@
+
+(easy-kill . [(20151031 29) ((emacs (24)) (cl-lib (0 5))) "kill & mark things easily" single ((:keywords "killing" "convenience") (:url . "https://github.com/leoliu/easy-kill"))])

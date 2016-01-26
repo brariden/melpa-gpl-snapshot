@@ -1,0 +1,2 @@
+
+(ssh-agency . [(20160101 1635) ((emacs (24 4)) (dash (2 10 0))) "use ssh-agent on win32 from Emacs" single ((:url . "https://github.com/magit/ssh-agency"))])

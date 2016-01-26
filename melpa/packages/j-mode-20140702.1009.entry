@@ -1,0 +1,2 @@
+
+(j-mode . [(20140702 1009) nil "Major mode for editing J programs" tar ((:keywords "j" "langauges") (:url . "http://github.com/zellio/j-mode"))])

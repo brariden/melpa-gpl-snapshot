@@ -1,0 +1,2 @@
+
+(ruby-end . [(20141215 623) nil "Automatic insertion of end blocks for Ruby" single ((:keywords "speed" "convenience" "ruby") (:url . "http://github.com/rejeep/ruby-end"))])

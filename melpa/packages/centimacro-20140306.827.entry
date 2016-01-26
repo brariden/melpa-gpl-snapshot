@@ -1,0 +1,2 @@
+
+(centimacro . [(20140306 827) nil "Assign multiple macros as global key bindings" single ((:keywords "macros") (:url . "https://github.com/abo-abo/centimacro"))])

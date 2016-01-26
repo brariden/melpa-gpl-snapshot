@@ -1,0 +1,2 @@
+
+(highlight-unique-symbol . [(20130612 42) ((deferred (0 3 2))) "highlight symbols which not appear in the repository" single ((:url . "https://github.com/hitode909/emacs-highlight-unique-symbol"))])

@@ -1,0 +1,2 @@
+
+(flycheck-clangcheck . [(20150712 210) ((cl-lib (0 5)) (seq (1 7)) (flycheck (0 17))) "A Flycheck checker difinition for ClangCheck." single ((:url . "https://github.com/kumar8600/flycheck-clangcheck"))])

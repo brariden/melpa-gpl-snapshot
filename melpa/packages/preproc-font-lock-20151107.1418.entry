@@ -1,0 +1,2 @@
+
+(preproc-font-lock . [(20151107 1418) nil "Highlight C-style preprocessor directives." single ((:keywords "c" "languages" "faces") (:url . "https://github.com/Lindydancer/preproc-font-lock"))])

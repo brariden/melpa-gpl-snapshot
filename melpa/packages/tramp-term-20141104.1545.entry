@@ -1,0 +1,2 @@
+
+(tramp-term . [(20141104 1545) nil "Automatic setup of directory tracking in ssh sessions." single ((:keywords "tramp" "ssh") (:url . "https://github.com/randymorris/tramp-term.el"))])

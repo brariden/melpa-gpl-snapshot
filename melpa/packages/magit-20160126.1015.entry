@@ -1,0 +1,2 @@
+
+(magit . [(20160126 1015) ((emacs (24 4)) (async (20150909 2257)) (dash (20151021 113)) (with-editor (20160119)) (git-commit (20160119)) (magit-popup (20160119))) "A Git porcelain inside Emacs" tar ((:keywords "git" "tools" "vc") (:url . "https://github.com/magit/magit"))])

@@ -1,0 +1,2 @@
+
+(flycheck-perl6 . [(20150414 2032) ((emacs (24 3)) (flycheck (0 22))) "Perl 6 support in Flycheck" single ((:keywords "tools" "convenience") (:url . "https://github.com/hinrik/flycheck-perl6"))])

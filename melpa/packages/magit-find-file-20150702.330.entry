@@ -1,0 +1,2 @@
+
+(magit-find-file . [(20150702 330) ((magit (2 1 0)) (dash (2 8 0))) "completing-read over all files in Git" single ((:keywords "git") (:url . "https://github.com/bradleywright/magit-find-file.el"))])

@@ -1,0 +1,2 @@
+
+(gvpr-mode . [(20131208 1118) nil "A major mode offering basic syntax coloring for gvpr scripts." single ((:keywords "graphviz" "gv" "dot" "gvpr" "graph") (:url . "https://raw.github.com/rodw/gvpr-lib/master/extra/gvpr-mode.el"))])

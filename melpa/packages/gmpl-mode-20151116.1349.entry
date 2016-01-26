@@ -1,0 +1,2 @@
+
+(gmpl-mode . [(20151116 1349) ((emacs (24))) "Major mode for editing GMPL(MathProg) files" single ((:keywords "extensions"))])

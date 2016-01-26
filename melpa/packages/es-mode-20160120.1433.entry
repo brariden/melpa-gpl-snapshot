@@ -1,0 +1,2 @@
+
+(es-mode . [(20160120 1433) ((dash (2 11 0))) "A major mode for editing Elasticsearch queries" tar ((:keywords "elasticsearch") (:url . "http://www.github.com/dakrone/es-mode"))])

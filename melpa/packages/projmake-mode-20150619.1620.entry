@@ -1,0 +1,2 @@
+
+(projmake-mode . [(20150619 1620) ((dash (20150611 922)) (indicators (20130217 1405))) "Project oriented automatic builder and error highlighter, flymake for projects" tar nil])

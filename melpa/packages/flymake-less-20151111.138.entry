@@ -1,0 +1,2 @@
+
+(flymake-less . [(20151111 138) ((less-css-mode (0 15)) (flymake-easy (0 1))) "Flymake handler for LESS stylesheets (lesscss.org)" single ((:keywords "languages"))])

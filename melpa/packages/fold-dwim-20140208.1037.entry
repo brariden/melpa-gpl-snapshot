@@ -1,0 +1,2 @@
+
+(fold-dwim . [(20140208 1037) nil "Unified user interface for Emacs folding modes" single ((:url . "http://www.dur.ac.uk/p.j.heslin/Software/Emacs"))])

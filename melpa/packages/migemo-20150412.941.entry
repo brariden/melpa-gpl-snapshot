@@ -1,0 +1,2 @@
+
+(migemo . [(20150412 941) ((cl-lib (0 5))) "Japanese incremental search through dynamic pattern expansion" single ((:url . "https://github.com/emacs-jp/migemo"))])

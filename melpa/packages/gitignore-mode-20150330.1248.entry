@@ -1,0 +1,2 @@
+
+(gitignore-mode . [(20150330 1248) nil "Major mode for editing .gitignore files" single ((:keywords "convenience" "vc" "git") (:url . "https://github.com/magit/git-modes"))])

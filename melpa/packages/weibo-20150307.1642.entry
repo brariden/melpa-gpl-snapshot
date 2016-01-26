@@ -1,0 +1,2 @@
+
+(weibo . [(20150307 1642) ((cl-lib (0 5))) "Weibo client for Emacs" tar ((:keywords "weibo") (:url . "https://github.com/austin-----/weibo.emacs"))])

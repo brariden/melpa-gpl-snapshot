@@ -1,0 +1,2 @@
+
+(julia-shell . [(20151104 1252) ((julia-mode (0 3))) "Major mode for an inferior Julia shell" tar nil])

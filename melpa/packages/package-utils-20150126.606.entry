@@ -1,0 +1,2 @@
+
+(package-utils . [(20150126 606) ((epl (0 7 -4))) "Extensions for package.el" single ((:keywords "package" "convenience") (:url . "https://github.com/Silex/package-utils"))])

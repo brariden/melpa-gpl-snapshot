@@ -1,0 +1,2 @@
+
+(langtool . [(20160116 1854) ((cl-lib (0 3))) "Grammar check utility using LanguageTool" single ((:keywords "docs") (:url . "https://github.com/mhayashi1120/Emacs-langtool"))])

@@ -1,0 +1,2 @@
+
+(debug-print . [(20140125 1819) ((emacs (24))) "A nice printf debugging environment by the way Gauche do" single ((:keywords "extensions" "lisp" "tools" "maint") (:url . "https://github.com/kenoss/debug-print"))])

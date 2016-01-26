@@ -1,0 +1,2 @@
+
+(session . [(20120510 1900) nil "use variables, registers and buffer places across sessions" single ((:keywords "session" "session management" "desktop" "data" "tools") (:url . "http://emacs-session.sourceforge.net/"))])

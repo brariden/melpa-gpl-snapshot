@@ -1,0 +1,2 @@
+
+(handlebars-sgml-mode . [(20130623 1833) nil "Add Handlebars contextual indenting support to sgml-mode" single ((:url . "http://github.com/jacott/handlebars-sgml-mode"))])

@@ -1,0 +1,2 @@
+
+(ac-html-csswatcher . [(20151208 1513) ((web-completion-data (0 1))) "css/less class/id completion with `ac-html' or `company-web'" single ((:keywords "html" "css" "less" "auto-complete") (:url . "https://github.com/osv/ac-html-csswatcher"))])

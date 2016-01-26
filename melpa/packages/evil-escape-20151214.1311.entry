@@ -1,0 +1,2 @@
+
+(evil-escape . [(20151214 1311) ((emacs (24)) (evil (1 0 9)) (cl-lib (0 5))) "Escape from anything with a customizable key sequence" single ((:keywords "convenience" "editing" "evil") (:url . "https://github.com/syl20bnr/evil-escape"))])

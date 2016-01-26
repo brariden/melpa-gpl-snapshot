@@ -1,0 +1,2 @@
+
+(helm-git-grep . [(20140222 2022) ((helm (1 5 9))) "helm for git grep, an incremental git-grep(1)" single ((:keywords "helm" "git") (:url . "https://github.com/yasuyk/helm-git-grep"))])

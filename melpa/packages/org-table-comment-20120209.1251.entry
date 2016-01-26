@@ -1,0 +1,2 @@
+
+(org-table-comment . [(20120209 1251) nil "Org table comment modes." single ((:keywords "org-mode" "orgtbl") (:url . "http://github.com/mlf176f2/org-table-comment.el"))])

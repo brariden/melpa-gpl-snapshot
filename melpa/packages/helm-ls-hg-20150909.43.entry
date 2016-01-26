@@ -1,0 +1,2 @@
+
+(helm-ls-hg . [(20150909 43) ((helm (1 7 8))) "List hg files in hg project." single nil])

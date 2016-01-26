@@ -1,0 +1,2 @@
+
+(delim-kill . [(20100517 120) nil "Kill text between delimiters." single ((:keywords "convenience" "languages") (:url . "http://github.com/thomas11/delim-kill/tree/master"))])

@@ -1,0 +1,2 @@
+
+(php-boris-minor-mode . [(20140209 1235) ((php-boris (0 0 1)) (highlight (0))) "a minor mode to evaluate PHP code in the Boris repl" single ((:keywords "php" "repl" "eval") (:url . "https://github.com/steckerhalter/php-boris-minor-mode"))])

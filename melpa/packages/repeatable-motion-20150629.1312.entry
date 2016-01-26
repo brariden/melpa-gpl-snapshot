@@ -1,0 +1,2 @@
+
+(repeatable-motion . [(20150629 1312) ((emacs (24))) "Make repeatable versions of motions" tar ((:keywords "motion" "repeatable") (:url . "https://github.com/willghatch/emacs-repeatable-motion"))])

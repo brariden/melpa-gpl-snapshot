@@ -1,0 +1,2 @@
+
+(emms-soundcloud . [(20131221 545) ((emms (20131016)) (json (1 2))) "EMMS source for Soundcloud audio sharing platform" single ((:keywords "emms" "soundcloud") (:url . "http://github.com/osener/emms-soundcloud"))])

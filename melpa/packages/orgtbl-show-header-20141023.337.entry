@@ -1,0 +1,2 @@
+
+(orgtbl-show-header . [(20141023 337) nil "Show the header of the current column in the minibuffer" single nil])

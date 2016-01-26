@@ -1,0 +1,2 @@
+
+(auto-complete-nxml . [(20140220 2258) ((auto-complete (1 4))) "do completion by auto-complete.el on nXML-mode" single ((:keywords "completion" "html" "xml") (:url . "https://github.com/aki2o/auto-complete-nxml"))])

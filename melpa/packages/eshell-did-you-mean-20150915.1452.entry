@@ -1,0 +1,2 @@
+
+(eshell-did-you-mean . [(20150915 1452) ((emacs (24 1)) (cl-lib (0 5))) "command not found (\"did you mean…\" feature) in Eshell" single ((:keywords "eshell") (:url . "https://github.com/xuchunyang/eshell-did-you-mean"))])

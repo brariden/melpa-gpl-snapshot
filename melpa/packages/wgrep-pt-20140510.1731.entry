@@ -1,0 +1,2 @@
+
+(wgrep-pt . [(20140510 1731) ((wgrep (2 1 5))) "Writable pt buffer and apply the changes to files" single ((:keywords "grep" "edit" "extensions") (:url . "http://github.com/mhayashi1120/Emacs-wgrep/raw/master/wgrep-pt.el"))])

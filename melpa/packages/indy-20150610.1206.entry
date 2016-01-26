@@ -1,0 +1,2 @@
+
+(indy . [(20150610 1206) nil "A minor mode and EDSL to manage your mode's indentation rules." single ((:keywords "convenience" "matching" "tools"))])

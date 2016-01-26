@@ -1,0 +1,2 @@
+
+(shut-up . [(20150423 722) ((cl-lib (0 3)) (emacs (24))) "Shut up would you!" single ((:url . "http://github.com/rejeep/shut-up.el"))])

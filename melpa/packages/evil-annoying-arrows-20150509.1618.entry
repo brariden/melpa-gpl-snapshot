@@ -1,0 +1,2 @@
+
+(evil-annoying-arrows . [(20150509 1618) ((cl-lib (0 5))) "Ring the bell if using arrows too much" single ((:keywords "learning"))])

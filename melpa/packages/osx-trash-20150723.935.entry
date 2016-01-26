@@ -1,0 +1,2 @@
+
+(osx-trash . [(20150723 935) ((emacs (24 1))) "System trash for OS X" tar ((:keywords "files" "convenience" "tools" "unix") (:url . "https://github.com/lunaryorn/osx-trash.el"))])

@@ -1,0 +1,2 @@
+
+(fancy-battery . [(20150101 604) ((emacs (24 1))) "Fancy battery display" single ((:keywords "convenience" "tools" "hardware") (:url . "https://github.com/lunaryorn/fancy-battery.el"))])

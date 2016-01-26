@@ -1,0 +1,2 @@
+
+(osx-org-clock-menubar . [(20150205 1511) nil "simple menubar integration for org-clock" tar ((:keywords "org" "osx") (:url . "https://github.com/jordonbiondo/osx-org-clock-menubar"))])

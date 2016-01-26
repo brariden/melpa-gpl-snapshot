@@ -1,0 +1,2 @@
+
+(swoop . [(20160120 1115) ((ht (2 0)) (pcre2el (1 5)) (async (1 1)) (emacs (24))) "Peculiar buffer navigation for Emacs" tar ((:keywords "swoop" "inner" "buffer" "search" "navigation") (:url . "https://github.com/ShingoFukuyama/emacs-swoop"))])

@@ -1,0 +1,2 @@
+
+(orgbox . [(20140528 2026) ((org (8 0)) (cl-lib (0 5))) "Mailbox-like task scheduling Org." single ((:keywords "org") (:url . "https://github.com/yasuhito/orgbox"))])

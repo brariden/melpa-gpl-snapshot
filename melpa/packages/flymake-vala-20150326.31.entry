@@ -1,0 +1,2 @@
+
+(flymake-vala . [(20150326 31) ((flymake-easy (0 1))) "A flymake handler for vala-mode files" single ((:keywords "convenience" "vala") (:url . "https://github.com/daniellawrence/flymake-vala"))])

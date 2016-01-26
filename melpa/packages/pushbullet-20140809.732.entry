@@ -1,0 +1,2 @@
+
+(pushbullet . [(20140809 732) ((grapnel (0 5 2)) (json (1 2))) "Emacs client for the PushBullet Android app" single ((:keywords "convenience") (:url . "http://www.github.com/theanalyst/revolver"))])

@@ -1,0 +1,2 @@
+
+(company-flx . [(20160110 1904) ((emacs (24)) (company (0 8 12)) (flx (0 5))) "flx based fuzzy matching for company" single ((:keywords "convenience" "company" "fuzzy" "flx") (:url . "https://github.com/PythonNut/company-flx"))])

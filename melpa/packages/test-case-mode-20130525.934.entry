@@ -1,0 +1,2 @@
+
+(test-case-mode . [(20130525 934) ((fringe-helper (0 1 1))) "unit test front-end" single ((:keywords "tools") (:url . "http://nschum.de/src/emacs/test-case-mode/"))])

@@ -1,0 +1,2 @@
+
+(ox-impress-js . [(20150412 1216) ((org (8))) "impress.js Back-End for Org Export Engine" tar ((:keywords "outlines" "hypermedia" "calendar" "wp") (:url . "https://github.com/kinjo/org-impress-js.el"))])

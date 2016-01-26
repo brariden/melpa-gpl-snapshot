@@ -1,0 +1,2 @@
+
+(symon-lingr . [(20150719 842) ((symon (1 1 2)) (cl-lib (0 5))) "A notification-based Lingr client powered by symon.el" single ((:url . "http://hins11.yu-yake.com/"))])

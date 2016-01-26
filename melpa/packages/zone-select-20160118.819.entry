@@ -1,0 +1,2 @@
+
+(zone-select . [(20160118 819) ((emacs (24 3)) (dash (2 8))) "Select zone programs." single ((:keywords "games") (:url . "https://github.com/kawabata/zone-select"))])

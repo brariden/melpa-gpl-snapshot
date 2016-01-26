@@ -1,0 +1,2 @@
+
+(gh-md . [(20151207 1140) ((emacs (24))) "Render markdown using the Github api" single ((:keywords "convenience") (:url . "https://github.com/emacs-pe/gh-md.el"))])

@@ -1,0 +1,2 @@
+
+(yaxception . [(20150105 852) nil "Provide framework about exception like Java for Elisp" single ((:keywords "exception" "error" "signal") (:url . "https://github.com/aki2o/yaxception"))])

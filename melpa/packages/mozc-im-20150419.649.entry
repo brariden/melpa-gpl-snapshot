@@ -1,0 +1,2 @@
+
+(mozc-im . [(20150419 649) ((mozc (0))) "Mozc with input-method-function interface." single ((:keywords "i18n" "extentions"))])

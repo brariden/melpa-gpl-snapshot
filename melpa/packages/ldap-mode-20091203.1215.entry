@@ -1,0 +1,2 @@
+
+(ldap-mode . [(20091203 1215) nil "major modes for editing LDAP schema and LDIF files" single ((:keywords "data") (:url . "http://www.loveshack.ukfsn.org/emacs"))])

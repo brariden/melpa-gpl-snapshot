@@ -1,0 +1,2 @@
+
+(cryptsy-public-api . [(20141008 728) ((json (1 2))) "Library for working with the Cryptsy public API" single ((:keywords "cryptsy" "bitcoin" "litecoin" "dogecoin"))])

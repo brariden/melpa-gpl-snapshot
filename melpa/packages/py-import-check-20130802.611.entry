@@ -1,0 +1,2 @@
+
+(py-import-check . [(20130802 611) nil "Finds the unused python imports using importchecker" single ((:keywords "python" "import" "check") (:url . "https://github.com/psibi/emacs-py-import-check"))])

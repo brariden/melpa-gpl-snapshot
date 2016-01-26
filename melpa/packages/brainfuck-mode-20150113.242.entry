@@ -1,0 +1,2 @@
+
+(brainfuck-mode . [(20150113 242) ((langdoc (20130601 1450))) "Brainfuck mode for Emacs" single ((:keywords "brainfuck" "langdoc") (:url . "https://github.com/tom-tan/brainfuck-mode/"))])

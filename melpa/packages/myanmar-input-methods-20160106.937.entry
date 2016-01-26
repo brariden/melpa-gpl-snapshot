@@ -1,0 +1,2 @@
+
+(myanmar-input-methods . [(20160106 937) nil "Emacs Input Method for Myanmar" single ((:keywords "myanmar" "unicode" "keyboard") (:url . "http://github.com/yelinkyaw/emacs-myanmar-input-methods"))])

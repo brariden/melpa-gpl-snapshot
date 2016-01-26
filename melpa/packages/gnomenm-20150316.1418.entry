@@ -1,0 +1,2 @@
+
+(gnomenm . [(20150316 1418) ((s (1 9 0)) (dash (2 3 0)) (kv (0 0 19))) "Emacs interface to Gnome nmcli command" single ((:keywords "processes" "hardware") (:url . "http://github.com/nicferrier/emacs-nm"))])

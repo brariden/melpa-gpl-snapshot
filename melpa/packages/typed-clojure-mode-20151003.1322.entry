@@ -1,0 +1,2 @@
+
+(typed-clojure-mode . [(20151003 1322) ((clojure-mode (2 1 1)) (cider (0 10 0 -4))) "Typed Clojure minor mode for Emacs" tar ((:url . "https://github.com/typedclojure/typed-clojure-mode"))])

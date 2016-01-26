@@ -1,0 +1,2 @@
+
+(bbdb-vcard . [(20150713 1550) ((bbdb (3 0))) "vCard import/export for BBDB" tar ((:keywords "data" "calendar" "mail" "news") (:url . "http://github.com/vgeddes/bbdb-vcard"))])

@@ -1,0 +1,2 @@
+
+(closure-lint-mode . [(20101118 1524) nil "minor mode for the Closure Linter" single ((:keywords "tools" "closure" "javascript" "lint" "flymake") (:url . "https://github.com/r0man/closure-lint-mode"))])

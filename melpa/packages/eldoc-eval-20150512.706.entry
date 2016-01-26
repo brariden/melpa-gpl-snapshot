@@ -1,0 +1,2 @@
+
+(eldoc-eval . [(20150512 706) nil "Enable eldoc support when minibuffer is in use." single nil])

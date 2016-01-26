@@ -1,0 +1,2 @@
+
+(look-dired . [(20151115 1956) ((look-mode (1 0))) "Extensions to look-mode for dired buffers" single ((:keywords "convenience") (:url . "https://github.com/vapniks/look-dired"))])

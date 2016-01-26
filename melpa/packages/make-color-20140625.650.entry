@@ -1,0 +1,2 @@
+
+(make-color . [(20140625 650) nil "Alternative to picking color - update fg/bg color by pressing r/g/b/... keys" single ((:keywords "color") (:url . "https://github.com/alezost/make-color.el"))])

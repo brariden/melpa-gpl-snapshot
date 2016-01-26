@@ -1,0 +1,2 @@
+
+(cycbuf . [(20131203 1437) nil "Cycle buffers, inspired by swbuff.el, swbuff-x.el, and bs.el" single ((:keywords "files" "convenience" "buffer switching") (:url . "https://github.com/martinp26/cycbuf"))])

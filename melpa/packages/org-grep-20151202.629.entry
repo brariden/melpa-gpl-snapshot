@@ -1,0 +1,2 @@
+
+(org-grep . [(20151202 629) ((cl-lib (0 5))) "Kind of M-x rgrep adapted for Org mode." single ((:url . "https://github.com/pinard/org-grep"))])

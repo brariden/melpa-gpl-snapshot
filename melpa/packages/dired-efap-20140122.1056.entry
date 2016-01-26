@@ -1,0 +1,2 @@
+
+(dired-efap . [(20140122 1056) nil "Edit Filename At Point in a dired buffer" single ((:keywords "dired" "environment" "files" "renaming") (:url . "https://github.com/juan-leon/dired-efap"))])

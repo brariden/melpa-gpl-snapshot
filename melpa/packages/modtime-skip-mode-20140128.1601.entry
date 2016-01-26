@@ -1,0 +1,2 @@
+
+(modtime-skip-mode . [(20140128 1601) nil "Minor mode for disabling modtime and supersession checks on files." single ((:url . "http://www.github.com/jordonbiondo/modtime-skip-mode"))])

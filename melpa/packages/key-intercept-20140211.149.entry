@@ -1,0 +1,2 @@
+
+(key-intercept . [(20140211 149) nil "Intercept prefix keys" single ((:keywords "keyboard") (:url . "http://github.com/tarao/key-intercept-el"))])

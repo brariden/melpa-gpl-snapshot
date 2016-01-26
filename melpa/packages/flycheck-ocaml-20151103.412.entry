@@ -1,0 +1,2 @@
+
+(flycheck-ocaml . [(20151103 412) ((emacs (24 1)) (flycheck (0 22)) (merlin (2 3)) (let-alist (1 0 3))) "Flycheck: OCaml support" single ((:keywords "convenience" "tools" "languages") (:url . "https://github.com/flycheck/flycheck-ocaml"))])

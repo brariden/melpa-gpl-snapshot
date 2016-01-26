@@ -1,0 +1,2 @@
+
+(org-mobile-sync . [(20131118 1316) ((emacs (24 3 50)) (org (8 0))) "automatically sync org-mobile on changes" single ((:keywords "org-mode" "org" "mobile" "sync" "todo") (:url . "https://github.com/steckerhalter/org-mobile-sync"))])

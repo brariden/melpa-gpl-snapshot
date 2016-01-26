@@ -1,0 +1,2 @@
+
+(company-try-hard . [(20150902 1706) ((emacs (24 3)) (company (0 8 0)) (dash (2 0))) "get all completions from company backends" single ((:keywords "matching"))])

@@ -1,0 +1,2 @@
+
+(ess-smart-equals . [(20150202 1) ((emacs (24)) (ess (5 0))) "better smart-assignment with =-key in R and S" single ((:keywords "r" "s" "ess" "convenience") (:url . "https://github.com/genovese/ess-smart-equals"))])

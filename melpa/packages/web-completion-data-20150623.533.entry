@@ -1,0 +1,2 @@
+
+(web-completion-data . [(20150623 533) nil "Shared completion data for ac-html and company-web" tar ((:keywords "html" "auto-complete" "company") (:url . "https://github.com/osv/web-completion-data"))])

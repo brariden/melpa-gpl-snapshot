@@ -1,0 +1,2 @@
+
+(cypher-mode . [(20151110 542) nil "major mode for editing cypher scripts" single ((:keywords "cypher" "graph") (:url . "http://github.com/fxbois/cypher-mode"))])

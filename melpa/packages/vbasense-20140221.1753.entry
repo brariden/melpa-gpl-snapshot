@@ -1,0 +1,2 @@
+
+(vbasense . [(20140221 1753) ((auto-complete (1 4 0)) (log4e (0 2 0)) (yaxception (0 1))) "provide a environment like Visual Basic Editor." tar ((:keywords "vba" "completion") (:url . "https://github.com/aki2o/emacs-vbasense"))])

@@ -1,0 +1,2 @@
+
+(helm-ctest . [(20150823 608) ((s (1 9 0)) (dash (2 11 0)) (helm-core (1 7 4))) "Run ctest from within emacs" single ((:keywords "helm" "ctest"))])

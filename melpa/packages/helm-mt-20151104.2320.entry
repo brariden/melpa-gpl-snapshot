@@ -1,0 +1,2 @@
+
+(helm-mt . [(20151104 2320) ((emacs (24)) (helm (0 0)) (multi-term (0 0)) (cl-lib (0 5))) "helm multi-term management." single ((:keywords "helm" "multi-term") (:url . "https://github.com/dfdeshom/helm-mt"))])

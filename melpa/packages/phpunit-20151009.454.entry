@@ -1,0 +1,2 @@
+
+(phpunit . [(20151009 454) ((s (1 9 0)) (f (0 16 0)) (pkg-info (0 5))) "Launch PHP unit tests using phpunit" single ((:keywords "php" "tests" "phpunit") (:url . "https://github.com/nlamirault/phpunit.el"))])

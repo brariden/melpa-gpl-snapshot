@@ -1,0 +1,2 @@
+
+(jvm-mode . [(20150422 208) ((dash (2 6 0)) (emacs (24))) "Monitor and manage your JVMs" single ((:keywords "convenience") (:url . "https://github.com/martintrojer/jvm-mode.el"))])

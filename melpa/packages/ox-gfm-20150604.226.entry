@@ -1,0 +1,2 @@
+
+(ox-gfm . [(20150604 226) nil "Github Flavored Markdown Back-End for Org Export Engine" single ((:keywords "org" "wp" "markdown" "github"))])

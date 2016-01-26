@@ -1,0 +1,2 @@
+
+(el-spy . [(20131226 1408) nil "Mocking framework for Emacs lisp. It also support spy, proxy." single ((:keywords "test") (:url . "https://github.com/uk-ar/el-spy"))])

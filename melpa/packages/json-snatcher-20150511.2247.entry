@@ -1,0 +1,2 @@
+
+(json-snatcher . [(20150511 2247) ((emacs (24))) "Grabs the path to JSON values in a JSON file" single ((:url . "http://github.com/sterlingg/json-snatcher"))])

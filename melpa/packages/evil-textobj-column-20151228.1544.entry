@@ -1,0 +1,2 @@
+
+(evil-textobj-column . [(20151228 1544) ((names (0 5)) (emacs (24)) (evil (0))) "Provides column text objects." single ((:keywords "evil" "column" "text-object") (:url . "https://github.com/noctuid/evil-textobj-column"))])

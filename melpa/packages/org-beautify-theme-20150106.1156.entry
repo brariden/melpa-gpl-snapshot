@@ -1,0 +1,2 @@
+
+(org-beautify-theme . [(20150106 1156) nil "A sub-theme to make org-mode more beautiful." single ((:keywords "org" "theme"))])

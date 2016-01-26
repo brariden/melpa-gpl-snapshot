@@ -1,0 +1,2 @@
+
+(ox-tiddly . [(20151206 440) ((org (8)) (cl-lib (0 5))) "org TiddlyWiki exporter" single ((:keywords "org") (:url . "https://github.com/dfeich/org8-wikiexporters"))])

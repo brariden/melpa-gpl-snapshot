@@ -1,0 +1,2 @@
+
+(toggle-window . [(20141207 948) nil "toggle current window size between half and full" single ((:keywords "hide" "window") (:url . "https://github.com/deadghost/toggle-window"))])

@@ -1,0 +1,2 @@
+
+(esup . [(20151227 1150) ((cl-lib (0 5)) (emacs (24))) "the Emacs StartUp Profiler (ESUP)" tar ((:keywords "convenience" "processes") (:url . "http://github.com/jschaf/esup"))])

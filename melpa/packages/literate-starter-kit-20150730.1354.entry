@@ -1,0 +1,2 @@
+
+(literate-starter-kit . [(20150730 1354) ((emacs (24 3))) "A literate starter kit to configure Emacs using Org-mode files." tar nil])

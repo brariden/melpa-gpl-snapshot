@@ -1,0 +1,2 @@
+
+(ox-trac . [(20151102 1155) ((org (8 0))) "Org Export Backend to Trac WikiFormat" single ((:keywords "org-mode" "trac") (:url . "https://github.com/JalapenoGremlin/ox-trac"))])

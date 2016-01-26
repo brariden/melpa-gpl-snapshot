@@ -1,0 +1,2 @@
+
+(evil-easymotion . [(20160105 1418) ((emacs (24)) (avy (0 3 0))) "A port of vim's easymotion to emacs" single ((:keywords "convenience" "evil") (:url . "https://github.com/pythonnut/evil-easymotion.el"))])

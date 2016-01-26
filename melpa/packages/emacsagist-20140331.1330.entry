@@ -1,0 +1,2 @@
+
+(emacsagist . [(20140331 1330) ((cl-lib (0 5))) "Search Packagist.org packages without leaving Emacs" single ((:keywords "tools") (:url . "http://github.com/echosa/emacsagist"))])

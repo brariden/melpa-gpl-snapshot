@@ -1,0 +1,2 @@
+
+(mo-git-blame . [(20160126 204) nil "An interactive, iterative 'git blame' mode for Emacs" single ((:keywords "tools"))])

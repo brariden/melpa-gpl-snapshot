@@ -1,0 +1,2 @@
+
+(redis . [(20150531 1448) ((emacs (24)) (cl-lib (0 5))) "Redis integration" single ((:keywords "convenience") (:url . "https://github.com/emacs-pe/redis.el"))])

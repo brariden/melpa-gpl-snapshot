@@ -1,0 +1,2 @@
+
+(erc-track-score . [(20130328 715) nil "Add score support to tracked channel buffers" single ((:url . "http://julien.danjou.info/erc-track-score.html"))])

@@ -1,0 +1,2 @@
+
+(kixtart-mode . [(20150611 1104) ((emacs (24))) "major mode for Kixtart scripting files" single ((:keywords "languages") (:url . "https://github.com/ryrun/kixtart-mode"))])

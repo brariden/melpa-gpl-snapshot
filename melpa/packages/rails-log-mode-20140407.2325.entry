@@ -1,0 +1,2 @@
+
+(rails-log-mode . [(20140407 2325) nil "Major mode for viewing Rails log files" single ((:keywords "rails" "log"))])

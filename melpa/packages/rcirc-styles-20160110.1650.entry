@@ -1,0 +1,2 @@
+
+(rcirc-styles . [(20160110 1650) ((cl-lib (0 5))) "support mIRC-style color and attribute codes" single nil])

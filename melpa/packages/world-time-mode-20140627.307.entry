@@ -1,0 +1,2 @@
+
+(world-time-mode . [(20140627 307) nil "show whole days of world-time diffs" single ((:keywords "tools" "calendar"))])

@@ -1,0 +1,2 @@
+
+(eproject . [(20151205 2330) ((helm (1 6 4))) "assign files to projects, programatically" tar ((:keywords "programming" "projects"))])

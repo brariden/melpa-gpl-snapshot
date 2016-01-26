@@ -1,0 +1,2 @@
+
+(spacegray-theme . [(20150719 1431) ((emacs (24 1))) "A Hyperminimal UI Theme" single ((:keywords "themes") (:url . "http://github.com/bruce/emacs-spacegray-theme"))])

@@ -1,0 +1,2 @@
+
+(bf-mode . [(20130403 942) nil "Browse file persistently on dired" single ((:keywords "convenience") (:url . "https://github.com/emacs-jp/bf-mode"))])

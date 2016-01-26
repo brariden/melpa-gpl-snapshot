@@ -1,0 +1,2 @@
+
+(show-css . [(20160121 1004) ((doom (1 3))) "Show the css of the html attribute the cursor is on" tar ((:keywords "hypermedia") (:url . "https://github.com/smmcg/showcss-mode"))])

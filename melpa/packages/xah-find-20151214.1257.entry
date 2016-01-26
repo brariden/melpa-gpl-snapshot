@@ -1,0 +1,2 @@
+
+(xah-find . [(20151214 1257) nil "find replace in pure emacs lisp. Purpose similar to unix grep/sed." single ((:keywords "convenience" "extensions" "files" "tools" "unix") (:url . "http://ergoemacs.org/emacs/elisp-xah-find-text.html"))])

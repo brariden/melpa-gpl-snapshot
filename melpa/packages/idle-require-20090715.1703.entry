@@ -1,0 +1,2 @@
+
+(idle-require . [(20090715 1703) nil "load elisp libraries while Emacs is idle" single ((:keywords "internal") (:url . "http://nschum.de/src/emacs/idle-require/"))])

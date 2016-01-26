@@ -1,0 +1,2 @@
+
+(requirejs-mode . [(20130215 1504) nil "Improved AMD module management" single ((:keywords "javascript" "amd" "requirejs"))])

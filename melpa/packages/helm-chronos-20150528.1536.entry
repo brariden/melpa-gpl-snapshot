@@ -1,0 +1,2 @@
+
+(helm-chronos . [(20150528 1536) ((chronos (1 2)) (helm (1 7 1))) "helm interface for chronos timers" tar ((:keywords "calendar") (:url . "http://github.com/dxknight/helm-chronos"))])

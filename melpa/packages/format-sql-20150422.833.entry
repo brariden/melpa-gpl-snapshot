@@ -1,0 +1,2 @@
+
+(format-sql . [(20150422 833) nil "Use format-sql to make your SQL readable in directly Emacs." single ((:url . "https://github.com/paetzke/format-sql.el"))])

@@ -1,0 +1,2 @@
+
+(rand-theme . [(20151219 1735) ((cl-lib (0 5))) "Random Emacs theme at start-up!" single ((:url . "https://github.com/gopar/rand-theme"))])

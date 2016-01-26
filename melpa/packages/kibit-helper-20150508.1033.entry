@@ -1,0 +1,2 @@
+
+(kibit-helper . [(20150508 1033) ((s (0 8)) (emacs (24))) "Conveniently use the Kibit Leiningen plugin from Emacs" single ((:keywords "languages" "clojure" "kibit") (:url . "http://www.github.com/brunchboy/kibit-helper"))])

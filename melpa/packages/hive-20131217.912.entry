@@ -1,0 +1,2 @@
+
+(hive . [(20131217 912) ((sql (3 0))) "Hive SQL mode extension" single ((:keywords "sql" "hive"))])

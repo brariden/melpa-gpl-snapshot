@@ -1,0 +1,2 @@
+
+(ttrss . [(20130409 1249) ((emacs (23 1))) "Tiny Tiny RSS elisp bindings" single ((:keywords "news" "local") (:url . "https://github.com/pedros/ttrss.el"))])

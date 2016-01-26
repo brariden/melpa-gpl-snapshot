@@ -1,0 +1,2 @@
+
+(uncrustify-mode . [(20130707 859) nil "Minor mode to automatically uncrustify." single ((:keywords "uncrustify"))])

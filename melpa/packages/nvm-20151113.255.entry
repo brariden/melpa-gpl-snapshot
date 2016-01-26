@@ -1,0 +1,2 @@
+
+(nvm . [(20151113 255) ((s (1 8 0)) (dash (2 4 0)) (f (0 14 0)) (dash-functional (2 4 0))) "Manage Node versions within Emacs" single ((:keywords "node" "nvm") (:url . "http://github.com/rejeep/nvm.el"))])

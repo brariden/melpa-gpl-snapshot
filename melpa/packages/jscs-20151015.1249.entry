@@ -1,0 +1,2 @@
+
+(jscs . [(20151015 1249) ((emacs (24 1)) (cl-lib (0 5))) "Consistent JavaScript editing using JSCS" single ((:keywords "languages" "convenience") (:url . "https://github.com/papaeye/emacs-jscs"))])

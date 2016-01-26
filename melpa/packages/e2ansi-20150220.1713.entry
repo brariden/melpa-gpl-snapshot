@@ -1,0 +1,2 @@
+
+(e2ansi . [(20150220 1713) nil "Syntax highlighting support for `less', powered by Emacs." tar ((:keywords "faces" "languages") (:url . "https://github.com/Lindydancer/e2ansi"))])

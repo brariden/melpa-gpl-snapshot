@@ -1,0 +1,2 @@
+
+(xml-quotes . [(20151230 1649) nil "read quotations from an XML document" tar ((:keywords "xml" "quotations") (:url . "https://github.com/ndw/xml-quotes"))])

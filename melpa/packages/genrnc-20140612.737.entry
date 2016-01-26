@@ -1,0 +1,2 @@
+
+(genrnc . [(20140612 737) ((deferred (0 3 1)) (concurrent (0 3)) (log4e (0 2 0)) (yaxception (0 1))) "generate RELAX NG Compact Schema from RELAX NG Schema, XML Schema and DTD." tar ((:keywords "xml") (:url . "https://github.com/aki2o/emacs-genrnc"))])

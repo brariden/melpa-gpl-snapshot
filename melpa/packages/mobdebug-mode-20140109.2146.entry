@@ -1,0 +1,2 @@
+
+(mobdebug-mode . [(20140109 2146) ((lua-mode (20130419)) (emacs (24))) "Major mode for MobDebug" single ((:url . "https://github.com/deftsp/mobdebug-mode"))])

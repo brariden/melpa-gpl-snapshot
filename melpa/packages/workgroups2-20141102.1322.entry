@@ -1,0 +1,2 @@
+
+(workgroups2 . [(20141102 1322) ((cl-lib (0 4)) (dash (2 8 0)) (anaphora (1 0 0)) (f (0 17))) "New workspaces for Emacs" single ((:keywords "session" "management" "window-configuration" "persistence") (:url . "https://github.com/pashinin/workgroups2"))])

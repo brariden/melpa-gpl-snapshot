@@ -1,0 +1,2 @@
+
+(launch . [(20130619 1704) nil "launch files with OS-standard associated applications." single ((:keywords "convenience" "processes") (:url . "https://github.com/sfllaw/emacs-launch"))])

@@ -1,0 +1,2 @@
+
+(tinkerer . [(20150220 49) ((s (1 2 0))) "Elisp wrapper for Tinkerer Blogging Engine." single ((:keywords "tinkerer" "blog" "wrapper") (:url . "https://github.com/yyr/tinkerer.el"))])

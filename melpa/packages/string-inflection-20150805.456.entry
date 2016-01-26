@@ -1,0 +1,2 @@
+
+(string-inflection . [(20150805 456) nil "underscore -> UPCASE -> CamelCase -> lowerCamelCase conversion of names" single ((:keywords "elisp"))])

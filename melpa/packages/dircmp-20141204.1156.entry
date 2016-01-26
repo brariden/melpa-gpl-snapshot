@@ -1,0 +1,2 @@
+
+(dircmp . [(20141204 1156) nil "Compare and sync directories." tar ((:keywords "unix" "tools") (:url . "https://github.com/matthewlmcclure/dircmp-mode"))])

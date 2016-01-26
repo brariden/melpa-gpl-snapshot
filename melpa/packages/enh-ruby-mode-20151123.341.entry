@@ -1,0 +1,2 @@
+
+(enh-ruby-mode . [(20151123 341) nil "Major mode for editing Ruby files" tar ((:keywords "languages elisp" "ruby") (:url . "http://github.com/zenspider/Enhanced-Ruby-Mode"))])

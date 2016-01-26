@@ -1,0 +1,2 @@
+
+(with-namespace . [(20130407 1322) ((dash (1 1 0)) (loop (1 1))) "interoperable elisp namespaces" single ((:keywords "namespaces"))])

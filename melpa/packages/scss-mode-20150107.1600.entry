@@ -1,0 +1,2 @@
+
+(scss-mode . [(20150107 1600) nil "Major mode for editing SCSS files" single ((:keywords "scss" "css" "mode") (:url . "https://github.com/antonj/scss-mode"))])

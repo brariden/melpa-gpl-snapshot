@@ -1,0 +1,2 @@
+
+(hl-sexp . [(20101130 643) nil "highlight the current sexp" single ((:keywords "faces" "frames" "emulation"))])

@@ -1,0 +1,2 @@
+
+(find-temp-file . [(20160108 413) nil "Open quickly a temporary file" single ((:keywords "convenience") (:url . "https://github.com/thisirs/find-temp-file.git"))])

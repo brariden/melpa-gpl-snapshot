@@ -1,0 +1,2 @@
+
+(sly-named-readtables . [(20150817 1016) ((sly (1 0 0 -2 2))) "Support named readtables in Common Lisp files" tar ((:keywords "languages" "lisp" "sly") (:url . "https://github.com/capitaomorte/sly-named-readtables"))])

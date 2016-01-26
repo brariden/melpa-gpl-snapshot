@@ -1,0 +1,2 @@
+
+(helm-helm-commands . [(20130902 1248) ((helm (1 5 4))) "List all helm commands with helm" single ((:keywords "convenience") (:url . "https://github.com/vapniks/helm-helm-commands"))])

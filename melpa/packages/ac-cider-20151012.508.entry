@@ -1,0 +1,2 @@
+
+(ac-cider . [(20151012 508) ((cider (0 8 0)) (auto-complete (1 4)) (cl-lib (0 3))) "Clojure auto-complete sources using CIDER" single ((:keywords "languages" "clojure" "nrepl" "cider" "compliment") (:url . "https://github.com/clojure-emacs/ac-cider"))])

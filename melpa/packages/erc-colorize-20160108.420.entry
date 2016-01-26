@@ -1,0 +1,2 @@
+
+(erc-colorize . [(20160108 420) nil "Per user colorization of whole message" single ((:keywords "erc" "convenience") (:url . "https://github.com/thisirs/erc-colorize.git"))])

@@ -1,0 +1,2 @@
+
+(rcirc-alertify . [(20140406 2019) ((alert (20140406 1353))) "Cross platform notifications for rcirc" single ((:keywords "comm" "convenience"))])

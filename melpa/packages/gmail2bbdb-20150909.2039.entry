@@ -1,0 +1,2 @@
+
+(gmail2bbdb . [(20150909 2039) nil "import email and name into bbdb from vcard." single ((:keywords "vcard" "bbdb" "email" "contact" "gmail") (:url . "http://github.com/redguardtoo/gmail2bbdb"))])

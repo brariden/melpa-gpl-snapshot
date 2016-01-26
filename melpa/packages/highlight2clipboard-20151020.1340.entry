@@ -1,0 +1,2 @@
+
+(highlight2clipboard . [(20151020 1340) ((htmlize (1 47))) "Copy text to clipboard with highlighting." tar ((:keywords "tools"))])

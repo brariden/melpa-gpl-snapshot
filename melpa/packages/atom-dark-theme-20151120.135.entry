@@ -1,0 +1,2 @@
+
+(atom-dark-theme . [(20151120 135) nil "An Emacs port of the Atom Dark theme from Atom.io." single ((:keywords "themes" "atom" "dark") (:url . "https://github.com/whitlockjc/atom-dark-theme-emacs"))])

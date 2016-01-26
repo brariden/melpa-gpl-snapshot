@@ -1,0 +1,2 @@
+
+(pillar . [(20141112 1211) ((makey (0 3))) "Major mode for editing Pillar files" tar ((:keywords "markup" "major-mode") (:url . "http://github.com/DamienCassou/pillar-mode"))])

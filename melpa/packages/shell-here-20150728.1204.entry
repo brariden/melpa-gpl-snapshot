@@ -1,0 +1,2 @@
+
+(shell-here . [(20150728 1204) nil "Open a shell relative to the working directory" single ((:keywords "unix" "tools" "processes"))])

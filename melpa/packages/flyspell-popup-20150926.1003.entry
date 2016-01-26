@@ -1,0 +1,2 @@
+
+(flyspell-popup . [(20150926 1003) ((popup (0 5 0))) "Correcting words with Flyspell in popup menus" single ((:keywords "convenience") (:url . "https://github.com/xuchunyang/flyspell-popup"))])

@@ -1,0 +1,2 @@
+
+(evil-textobj-anyblock . [(20151017 1617) ((cl-lib (0 5)) (evil (1 1 0))) "Textobject for the closest user-defined blocks." single ((:keywords "evil") (:url . "https://github.com/noctuid/evil-textobj-anyblock"))])

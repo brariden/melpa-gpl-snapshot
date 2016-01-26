@@ -1,0 +1,2 @@
+
+(bbcode-mode . [(20141103 1541) nil "Major mode for writing BBCode markup" single ((:url . "https://github.com/ejmr/bbcode-mode"))])

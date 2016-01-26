@@ -1,0 +1,2 @@
+
+(orgtbl-join . [(20150121 1646) ((cl-lib (0 5))) "join columns from another table" tar ((:keywords "org" "table" "join" "filtering"))])

@@ -1,0 +1,2 @@
+
+(travis . [(20150825 638) ((s (1 9 0)) (dash (2 9 0)) (pkg-info (0 5 0)) (request (0 1 0))) "Emacs client for Travis" tar ((:keywords "travis") (:url . "https://github.com/nlamirault/emacs-travis"))])

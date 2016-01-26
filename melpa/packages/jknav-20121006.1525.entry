@@ -1,0 +1,2 @@
+
+(jknav . [(20121006 1525) nil "Automatically enable j/k keys for line-based navigation" single ((:keywords "keyboard" "navigation"))])

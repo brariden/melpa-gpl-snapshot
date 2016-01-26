@@ -1,0 +1,2 @@
+
+(helm-xcdoc . [(20160116 418) ((helm (1 5)) (emacs (24 4))) "Search Xcode Document by docsetutil and eww with helm interface" single ((:url . "https://github.com/fujimisakari/emacs-helm-xcdoc"))])

@@ -1,0 +1,2 @@
+
+(bury-successful-compilation . [(20150328 1928) nil "Bury the *compilation* buffer after successful compilation" single ((:keywords "compilation"))])

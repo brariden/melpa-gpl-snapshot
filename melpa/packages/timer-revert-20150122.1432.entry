@@ -1,0 +1,2 @@
+
+(timer-revert . [(20150122 1432) nil "minor mode to revert buffer for a given time interval." tar nil])

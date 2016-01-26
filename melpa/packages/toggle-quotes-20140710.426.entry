@@ -1,0 +1,2 @@
+
+(toggle-quotes . [(20140710 426) nil "Toggle between single and double quoted string" single ((:keywords "convenience" "quotes") (:url . "https://github.com/toctan/toggle-quotes.el"))])

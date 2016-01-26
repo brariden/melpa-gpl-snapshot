@@ -1,0 +1,2 @@
+
+(cljr-helm . [(20150425 1507) ((clj-refactor (0 13 0)) (helm (1 5 6))) "Wraps clojure refactor commands with helm" single ((:keywords "helm" "clojure" "refactor") (:url . "https://github.com/philjackson/cljr-helm"))])

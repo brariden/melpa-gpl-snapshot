@@ -1,0 +1,2 @@
+
+(efire . [(20151009 1531) ((circe (1 2))) "Use campfire from Emacs" single ((:keywords "convenience" "tools") (:url . "https://github.com/capitaomorte/efire"))])

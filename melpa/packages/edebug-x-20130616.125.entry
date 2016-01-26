@@ -1,0 +1,2 @@
+
+(edebug-x . [(20130616 125) nil "Extensions for Edebug" single ((:keywords "extensions") (:url . "https://github.com/ScottyB/edebug-x"))])

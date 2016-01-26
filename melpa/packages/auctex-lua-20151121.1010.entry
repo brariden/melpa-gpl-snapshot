@@ -1,0 +1,2 @@
+
+(auctex-lua . [(20151121 1010) ((auctex (11 86)) (lua-mode (20130419))) "Lua editing support for AUCTeX" single ((:keywords "latex" "lua") (:url . "http://github.com/vermiculus/auctex-lua"))])

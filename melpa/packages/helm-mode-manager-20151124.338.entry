@@ -1,0 +1,2 @@
+
+(helm-mode-manager . [(20151124 338) ((helm (1 5 3))) "Select and toggle major and minor modes with helm" single ((:url . "https://github.com/istib/helm-mode-manager"))])

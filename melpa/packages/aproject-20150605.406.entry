@@ -1,0 +1,2 @@
+
+(aproject . [(20150605 406) nil "Basic project framework for Emacs" tar ((:keywords "environment" "project") (:url . "https://github.com/vietor/aproject"))])

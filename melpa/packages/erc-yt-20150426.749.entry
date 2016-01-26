@@ -1,0 +1,2 @@
+
+(erc-yt . [(20150426 749) ((dash (2 10 0))) "An erc module to display youtube links nicely" single ((:keywords "multimedia"))])

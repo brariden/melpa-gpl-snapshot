@@ -1,0 +1,2 @@
+
+(yaml-mode . [(20160101 1121) ((emacs (24 1))) "Major mode for editing YAML files" single ((:keywords "data" "yaml"))])

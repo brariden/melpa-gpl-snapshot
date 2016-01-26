@@ -1,0 +1,2 @@
+
+(rspec-mode . [(20160124 1607) ((ruby-mode (1 0)) (cl-lib (0 4))) "Enhance ruby-mode for RSpec" tar ((:keywords "rspec" "ruby") (:url . "http://github.com/pezra/rspec-mode"))])

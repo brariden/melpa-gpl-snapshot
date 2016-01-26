@@ -1,0 +1,2 @@
+
+(linphone . [(20130524 609) nil "Emacs interface to Linphone" tar ((:keywords "comm") (:url . "https://github.com/zabbal/emacs-linphone"))])

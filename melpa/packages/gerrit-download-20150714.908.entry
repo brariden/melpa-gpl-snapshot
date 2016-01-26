@@ -1,0 +1,2 @@
+
+(gerrit-download . [(20150714 908) ((emacs (24 0)) (magit (2 1 0))) "Show gerrit reviews in a diff buffer." single ((:keywords "tools" "gerrit" "git") (:url . "https://github.com/chmouel/gerrit-download.el"))])

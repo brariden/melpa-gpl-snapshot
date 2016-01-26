@@ -1,0 +1,2 @@
+
+(vimrc-mode . [(20150607 1113) nil "Major mode for vimrc files" single ((:keywords "languages" "vim") (:url . "https://github.com/mcandre/vimrc-mode"))])

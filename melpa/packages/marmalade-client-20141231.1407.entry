@@ -1,0 +1,2 @@
+
+(marmalade-client . [(20141231 1407) ((web (0 5 2)) (kv (0 0 19)) (gh (0 8 0))) "client for marmalade API from emacs" tar ((:keywords "lisp") (:url . "https://github.com/nicferrier/emacs-marmalade-upload"))])

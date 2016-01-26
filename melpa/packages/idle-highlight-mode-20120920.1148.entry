@@ -1,0 +1,2 @@
+
+(idle-highlight-mode . [(20120920 1148) nil "highlight the word the point is on" single ((:keywords "convenience") (:url . "http://www.emacswiki.org/cgi-bin/wiki/IdleHighlight"))])

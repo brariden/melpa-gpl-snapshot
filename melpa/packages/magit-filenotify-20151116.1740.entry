@@ -1,0 +1,2 @@
+
+(magit-filenotify . [(20151116 1740) ((magit (1 3 0)) (emacs (24 4))) "Refresh status buffer when git tree changes" single ((:keywords "tools"))])

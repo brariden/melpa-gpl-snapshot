@@ -1,0 +1,2 @@
+
+(opam . [(20150719 720) ((emacs (24 1))) "OPAM tools" single ((:keywords "convenience") (:url . "https://github.com/lunaryorn/opam.el"))])

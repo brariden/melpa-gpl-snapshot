@@ -1,0 +1,2 @@
+
+(abc-mode . [(20140225 1144) nil "Major mode for editing abc music files" single ((:keywords "local" "docs"))])

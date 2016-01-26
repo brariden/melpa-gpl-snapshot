@@ -1,0 +1,2 @@
+
+(slideview . [(20150324 1740) ((cl-lib (0 3))) "File slideshow" single ((:keywords "files") (:url . "https://github.com/mhayashi1120/Emacs-slideview"))])

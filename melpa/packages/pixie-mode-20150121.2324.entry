@@ -1,0 +1,2 @@
+
+(pixie-mode . [(20150121 2324) ((clojure-mode (3 0 1)) (inf-clojure (1 0 0))) "Major mode for Pixie-lang" single ((:url . "https://github.com/johnwalker/pixie-mode"))])

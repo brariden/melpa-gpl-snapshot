@@ -1,0 +1,2 @@
+
+(actionscript-mode . [(20140605 1328) nil "A simple mode for editing Actionscript 3 files" single ((:keywords "language" "modes"))])

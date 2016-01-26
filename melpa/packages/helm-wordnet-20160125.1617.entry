@@ -1,0 +1,2 @@
+
+(helm-wordnet . [(20160125 1617) ((emacs (24)) (helm (1 7 0)) (cl-lib (0 5))) "Helm interface to local wordnet dictionary" single ((:keywords "dictionary" "wordnet" "emacs" "elisp" "helm") (:url . "https://github.com/raghavgautam/helm-wordnet"))])

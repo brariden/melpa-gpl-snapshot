@@ -1,0 +1,2 @@
+
+(ipretty . [(20140407 20) nil "Interactive Emacs Lisp pretty-printing" single ((:keywords "pretty-print" "elisp" "buffer") (:url . "https://github.com/steckerhalter/ipretty"))])

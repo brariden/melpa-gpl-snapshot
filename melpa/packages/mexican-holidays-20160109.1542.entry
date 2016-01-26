@@ -1,0 +1,2 @@
+
+(mexican-holidays . [(20160109 1542) nil "Mexico holidays for Emacs calendar." single ((:keywords "calendar") (:url . "https://github.com/shopClerk/mexican-holidays"))])

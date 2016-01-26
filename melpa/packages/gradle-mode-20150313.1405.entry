@@ -1,0 +1,2 @@
+
+(gradle-mode . [(20150313 1405) ((s (1 8 0))) "Gradle integration with Emacs' compile" single ((:keywords "gradle") (:url . "http://github.com/jacobono/emacs-gradle-mode"))])

@@ -1,0 +1,2 @@
+
+(gnu-apl-mode . [(20151224 1059) ((emacs (24))) "Integrate GNU APL with Emacs" tar ((:keywords "languages" "apl") (:url . "https://github.com/lokedhs/gnu-apl-mode"))])

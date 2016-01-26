@@ -1,0 +1,2 @@
+
+(flycheck-pyflakes . [(20140630 1721) ((flycheck (0 18))) "Support pyflakes in flycheck" single nil])

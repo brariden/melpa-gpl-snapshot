@@ -1,0 +1,2 @@
+
+(maxframe . [(20140916 954) nil "maximize the emacs frame based on display size" single ((:keywords "display" "frame" "window" "maximize"))])

@@ -1,0 +1,2 @@
+
+(pylint . [(20160114 341) nil "minor mode for running `pylint'" single ((:keywords "languages" "python"))])

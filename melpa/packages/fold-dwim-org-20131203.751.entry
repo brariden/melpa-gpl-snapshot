@@ -1,0 +1,2 @@
+
+(fold-dwim-org . [(20131203 751) ((fold-dwim (1 2))) "Fold DWIM bound to org key-strokes." single ((:keywords "folding" "emacs" "org-mode") (:url . "https://github.com/mlf176f2/fold-dwim-org"))])

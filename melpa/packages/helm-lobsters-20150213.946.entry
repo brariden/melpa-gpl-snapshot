@@ -1,0 +1,2 @@
+
+(helm-lobsters . [(20150213 946) ((helm (1 0)) (cl-lib (0 5))) "helm front-end for lobste.rs" single ((:url . "https://github.com/julienXX/helm-lobste.rs"))])

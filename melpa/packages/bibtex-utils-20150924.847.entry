@@ -1,0 +1,2 @@
+
+(bibtex-utils . [(20150924 847) nil "Provides utilities for extending BibTeX mode" single ((:keywords "bibtex") (:url . "https://github.com/plantarum/bibtex-utils"))])

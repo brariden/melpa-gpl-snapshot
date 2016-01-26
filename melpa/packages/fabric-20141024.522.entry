@@ -1,0 +1,2 @@
+
+(fabric . [(20141024 522) nil "Launch Fabric using Emacs" tar ((:keywords "python" "fabric") (:url . "https://github.com/nlamirault/fabric.el"))])

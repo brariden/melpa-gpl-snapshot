@@ -1,0 +1,2 @@
+
+(ace-jump-mode . [(20140616 315) nil "a quick cursor location minor mode for emacs" single ((:keywords "motion" "location" "cursor") (:url . "https://github.com/winterTTr/ace-jump-mode/"))])

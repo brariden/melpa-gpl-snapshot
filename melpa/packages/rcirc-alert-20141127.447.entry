@@ -1,0 +1,2 @@
+
+(rcirc-alert . [(20141127 447) nil "Configurable alert messages on top of RCIRC" tar ((:keywords "lisp" "rcirc" "irc" "alert" "awesome"))])

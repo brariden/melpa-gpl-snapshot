@@ -1,0 +1,2 @@
+
+(el-spice . [(20140805 1338) ((thingatpt+ (0))) "Extra spice for emacs lisp programming" tar ((:keywords "languages" "extensions") (:url . "https://github.com/vedang/el-spice"))])

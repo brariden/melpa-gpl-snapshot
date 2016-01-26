@@ -1,0 +1,2 @@
+
+(ido-gnus . [(20140216 1046) ((gnus (5 13))) "Access gnus groups or servers using ido" single ((:keywords "comm") (:url . "https://github.com/vapniks/ido-gnus"))])

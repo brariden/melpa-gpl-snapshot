@@ -1,0 +1,2 @@
+
+(lolcode-mode . [(20111002 347) nil "Major mode for editing LOLCODE" single ((:keywords "lolcode" "major" "mode") (:url . "http://github.com/bodil/lolcode-mode"))])

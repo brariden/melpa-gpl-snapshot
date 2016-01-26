@@ -1,0 +1,2 @@
+
+(org-autolist . [(20150922 905) nil "Improved list management in org-mode" single ((:keywords "lists" "checklists" "org-mode") (:url . "https://github.com/calvinwyoung/org-autolist"))])

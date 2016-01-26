@@ -1,0 +1,2 @@
+
+(vertica . [(20131217 911) ((sql (3 0))) "Vertica SQL mode extension" single ((:keywords "sql" "vertica"))])

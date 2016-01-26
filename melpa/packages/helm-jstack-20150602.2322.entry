@@ -1,0 +1,2 @@
+
+(helm-jstack . [(20150602 2322) ((emacs (24)) (helm (1 7 0)) (cl-lib (0 5))) "Helm interface to Jps & Jstack for Java/JVM processes" single ((:keywords "java" "jps" "jstack" "jvm" "emacs" "elisp" "helm"))])

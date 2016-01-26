@@ -1,0 +1,2 @@
+
+(ob-http . [(20151128 430) ((s (1 9 0)) (cl-lib (0 5))) "http request in org-mode babel" tar ((:url . "http://github.com/zweifisch/ob-http"))])

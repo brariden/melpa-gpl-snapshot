@@ -1,0 +1,2 @@
+
+(pkg-info . [(20150517 643) ((epl (0 8))) "Information about packages" single ((:keywords "convenience") (:url . "https://github.com/lunaryorn/pkg-info.el"))])

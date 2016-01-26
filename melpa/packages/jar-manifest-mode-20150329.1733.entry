@@ -1,0 +1,2 @@
+
+(jar-manifest-mode . [(20150329 1733) nil "Major mode to edit JAR manifest files" single ((:keywords "convenience" "languages") (:url . "http://github.com/omajid/jar-manifest-mode"))])

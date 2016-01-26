@@ -1,0 +1,2 @@
+
+(ac-cake . [(20140315 1129) ((cake (1 4 2)) (auto-complete (1 4 0))) "CakePHP Minor Mode auto-complete.el source" single ((:url . "http://code.101000lab.org"))])

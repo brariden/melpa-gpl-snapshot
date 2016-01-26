@@ -1,0 +1,2 @@
+
+(date-at-point . [(20150108 618) nil "Add `date' to `thing-at-point' function" single ((:keywords "convenience") (:url . "https://gitorious.org/alezost-emacs/date-at-point"))])

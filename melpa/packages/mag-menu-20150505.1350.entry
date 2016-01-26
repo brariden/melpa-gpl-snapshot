@@ -1,0 +1,2 @@
+
+(mag-menu . [(20150505 1350) ((splitter (0 1 0))) "Intuitive keyboard-centric menu system" single ((:keywords "convenience") (:url . "https://github.com/chumpage/mag-menu"))])

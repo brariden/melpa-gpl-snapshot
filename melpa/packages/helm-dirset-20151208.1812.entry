@@ -1,0 +1,2 @@
+
+(helm-dirset . [(20151208 1812) ((f (0 16 2)) (helm (1 6 1)) (s (1 9 0)) (cl-lib (0 5))) "helm sources for multi directories" single ((:keywords "files" "directories") (:url . "http://101000lab.org"))])

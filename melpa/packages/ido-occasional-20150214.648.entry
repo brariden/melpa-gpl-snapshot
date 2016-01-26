@@ -1,0 +1,2 @@
+
+(ido-occasional . [(20150214 648) ((emacs (24 1))) "Use ido where you choose." single ((:keywords "completion") (:url . "https://github.com/abo-abo/ido-occasional"))])

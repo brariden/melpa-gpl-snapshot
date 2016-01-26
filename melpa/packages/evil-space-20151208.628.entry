@@ -1,0 +1,2 @@
+
+(evil-space . [(20151208 628) ((evil (1 0 0))) "Repeat motion in Evil. Correct the behaviour of what SPC should do." single ((:keywords "space" "repeat" "motion") (:url . "http://github.com/linktohack/evil-space"))])

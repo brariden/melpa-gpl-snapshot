@@ -1,0 +1,2 @@
+
+(ruby-hash-syntax . [(20141010 1039) nil "Toggle ruby hash syntax between classic and 1.9 styles" single ((:keywords "languages") (:url . "https://github.com/purcell/ruby-hash-syntax"))])

@@ -1,0 +1,2 @@
+
+(jss . [(20130508 923) ((emacs (24 1)) (websocket (0)) (js2-mode (0))) "An emacs interface to webkit and mozilla debuggers" tar ((:keywords "languages"))])

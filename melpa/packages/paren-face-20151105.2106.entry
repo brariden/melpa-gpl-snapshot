@@ -1,0 +1,2 @@
+
+(paren-face . [(20151105 2106) nil "a face for parentheses in lisp modes" single ((:url . "http://github.com/tarsius/paren-face"))])

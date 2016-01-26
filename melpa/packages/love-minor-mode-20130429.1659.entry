@@ -1,0 +1,2 @@
+
+(love-minor-mode . [(20130429 1659) ((lua-mode (20130419))) "Minor mode for working on LÖVE projects" single ((:url . "https://github.com/ejmr/love-minor-mode"))])

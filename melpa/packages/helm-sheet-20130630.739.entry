@@ -1,0 +1,2 @@
+
+(helm-sheet . [(20130630 739) ((helm (1 0))) "helm sources for sheet" single ((:keywords "helm" "sheet") (:url . "https://github.com/yasuyk/helm-sheet"))])

@@ -1,0 +1,2 @@
+
+(flycheck-mercury . [(20151123 134) ((flycheck (0 22)) (s (1 9 0)) (dash (2 4 0))) "Mercury support in Flycheck" single ((:keywords "convenience" "languages" "tools") (:url . "https://github.com/flycheck/flycheck-mercury"))])

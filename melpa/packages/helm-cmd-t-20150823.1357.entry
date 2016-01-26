@@ -1,0 +1,2 @@
+
+(helm-cmd-t . [(20150823 1357) nil "cmd-t style completion" tar ((:keywords "helm" "project-management" "completion" "convenience" "cmd-t" "textmate") (:url . "https://github.com/lewang/helm-cmd-t"))])

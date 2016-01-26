@@ -1,0 +1,2 @@
+
+(wgrep . [(20141016 1856) nil "Writable grep buffer and apply the changes to files" single ((:keywords "grep" "edit" "extensions") (:url . "http://github.com/mhayashi1120/Emacs-wgrep/raw/master/wgrep.el"))])

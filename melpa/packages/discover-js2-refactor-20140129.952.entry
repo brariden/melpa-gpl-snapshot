@@ -1,0 +1,2 @@
+
+(discover-js2-refactor . [(20140129 952) ((js2-refactor (20131221 501)) (discover (20140103 1339))) "Adds discover context menu for js2-refactor" single ((:keywords "js2-refactor" "discover"))])

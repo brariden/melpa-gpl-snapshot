@@ -1,0 +1,2 @@
+
+(insfactor . [(20141116 1802) nil "Client for a Clojure project with insfactor in it" single ((:keywords "clojure") (:url . "http://github.com/duelinmarkers/insfactor.el"))])

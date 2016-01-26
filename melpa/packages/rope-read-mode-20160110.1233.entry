@@ -1,0 +1,2 @@
+
+(rope-read-mode . [(20160110 1233) nil "Rearrange lines to read text smoothly" single ((:keywords "reading" "convenience" "chill") (:url . "https://github.com/marcowahl/rope-read-mode"))])

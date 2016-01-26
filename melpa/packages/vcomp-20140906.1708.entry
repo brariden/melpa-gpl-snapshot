@@ -1,0 +1,2 @@
+
+(vcomp . [(20140906 1708) nil "compare version strings" single ((:keywords "versions") (:url . "https://github.com/tarsius/vcomp"))])

@@ -1,0 +1,2 @@
+
+(dictionary . [(20140717 2229) ((connection (1 10)) (link (1 10))) "Client for rfc2229 dictionary servers" single ((:keywords "interface" "dictionary"))])

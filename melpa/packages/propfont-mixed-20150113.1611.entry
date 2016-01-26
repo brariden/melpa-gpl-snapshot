@@ -1,0 +1,2 @@
+
+(propfont-mixed . [(20150113 1611) ((emacs (24)) (cl-lib (0 5))) "Use proportional fonts with space-based indentation." single ((:keywords "faces") (:url . "https://github.com/ikirill/propfont-mixed"))])

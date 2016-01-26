@@ -1,0 +1,2 @@
+
+(pcmpl-pip . [(20141024 348) nil "pcomplete for pip" single ((:keywords "pcomplete" "pip" "python" "tools"))])

@@ -1,0 +1,2 @@
+
+(project-explorer . [(20150503 1914) ((cl-lib (0 3)) (es-lib (0 3)) (es-windows (0 1)) (emacs (24))) "A project explorer sidebar" single ((:url . "https://github.com/sabof/project-explorer"))])

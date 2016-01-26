@@ -1,0 +1,2 @@
+
+(relative-buffers . [(20150115 1301) ((cl-lib (0 5)) (dash (2 6 0)) (s (1 9 0)) (f (0 16 2))) "Emacs buffers naming convention" single ((:url . "https://github.com/proofit404/relative-buffers"))])

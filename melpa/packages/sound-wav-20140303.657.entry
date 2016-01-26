@@ -1,0 +1,2 @@
+
+(sound-wav . [(20140303 657) ((deferred (0 3 1)) (cl-lib (0 5))) "Play wav file" single ((:url . "https://github.com/syohex/emacs-sound-wav"))])

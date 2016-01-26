@@ -1,0 +1,2 @@
+
+(ox-mediawiki . [(20150923 1102) ((cl-lib (0 5)) (s (1 9 0))) "Mediawiki Back-End for Org Export Engine" single ((:keywords "org" "wp" "mediawiki") (:url . "https://github.com/tomalexander/orgmode-mediawiki"))])

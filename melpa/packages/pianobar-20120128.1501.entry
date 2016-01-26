@@ -1,0 +1,2 @@
+
+(pianobar . [(20120128 1501) nil "thin wrapper for Pianobar, a Pandora Radio client" single ((:url . "http://github.com/agrif/pianobar.el"))])

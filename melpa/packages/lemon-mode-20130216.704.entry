@@ -1,0 +1,2 @@
+
+(lemon-mode . [(20130216 704) nil "A major mode for editing lemon grammar files" single ((:keywords "lemon"))])

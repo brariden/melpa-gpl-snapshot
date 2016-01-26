@@ -1,0 +1,2 @@
+
+(chinese-remote-input . [(20150110 2303) nil "Input Chinese with a remote input method (e.g. Android Voice Input Method)" single ((:keywords "convenience" "chinese") (:url . "https://github.com/tumashu/chinese-remote-input"))])

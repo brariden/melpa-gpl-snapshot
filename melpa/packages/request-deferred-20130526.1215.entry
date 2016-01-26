@@ -1,0 +1,2 @@
+
+(request-deferred . [(20130526 1215) ((deferred (0 3 1)) (request (0 2 0))) "Wrap request.el by deferred" single nil])

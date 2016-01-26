@@ -1,0 +1,2 @@
+
+(runtests . [(20150807 331) nil "Run unit tests from Emacs" single ((:keywords "test") (:url . "https://github.com/sunesimonsen/emacs-runtests"))])

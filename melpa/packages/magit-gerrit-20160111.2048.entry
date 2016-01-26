@@ -1,0 +1,2 @@
+
+(magit-gerrit . [(20160111 2048) ((magit (2 3 1))) "Magit plugin for Gerrit Code Review" single ((:url . "https://github.com/terranpro/magit-gerrit"))])

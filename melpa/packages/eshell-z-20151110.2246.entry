@@ -1,0 +1,2 @@
+
+(eshell-z . [(20151110 2246) ((cl-lib (0 5))) "cd to frequent directory in eshell" single ((:keywords "convenience") (:url . "https://github.com/xuchunyang/eshell-z"))])

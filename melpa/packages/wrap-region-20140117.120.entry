@@ -1,0 +1,2 @@
+
+(wrap-region . [(20140117 120) ((dash (1 0 3))) "Wrap text with punctation or tag" single ((:keywords "speed" "convenience") (:url . "http://github.com/rejeep/wrap-region"))])

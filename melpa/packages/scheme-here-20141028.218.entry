@@ -1,0 +1,2 @@
+
+(scheme-here . [(20141028 218) nil "cmuscheme extension for multiple inferior processes" single ((:keywords "scheme") (:url . "https://github.com/kaihaosw/scheme-here"))])

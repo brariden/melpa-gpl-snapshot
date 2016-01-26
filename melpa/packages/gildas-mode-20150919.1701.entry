@@ -1,0 +1,2 @@
+
+(gildas-mode . [(20150919 1701) ((polymode (0)) (emacs (24 3))) "Major mode for Gildas" single ((:keywords "languages" "gildas") (:url . "https://github.com/smaret/gildas-mode"))])

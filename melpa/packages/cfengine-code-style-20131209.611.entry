@@ -1,0 +1,2 @@
+
+(cfengine-code-style . [(20131209 611) nil "C code style for CFEngine project." single ((:url . "https://github.com/cfengine/core"))])

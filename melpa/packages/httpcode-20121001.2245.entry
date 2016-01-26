@@ -1,0 +1,2 @@
+
+(httpcode . [(20121001 2245) nil "explains the meaning of an HTTP status code" single ((:url . "http://github.com/rspivak/httpcode.el"))])

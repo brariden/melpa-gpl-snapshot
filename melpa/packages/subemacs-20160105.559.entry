@@ -1,0 +1,2 @@
+
+(subemacs . [(20160105 559) nil "Evaluating expressions in a fresh Emacs subprocess" single ((:keywords "extensions" "lisp" "multiprocessing") (:url . "https://github.com/kbauer/subemacs"))])

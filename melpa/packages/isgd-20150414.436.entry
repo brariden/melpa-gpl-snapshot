@@ -1,0 +1,2 @@
+
+(isgd . [(20150414 436) nil "Shorten URLs using the isgd.com shortener service" single ((:url . "https://github.com/chmouel/isgd.el"))])

@@ -1,0 +1,2 @@
+
+(helm-img . [(20151224 1721) ((helm (1 7 7)) (cl-lib (0 5))) "Utilities for making image sources for helm." tar ((:keywords "convenience") (:url . "https://github.com/l3msh0/helm-img"))])

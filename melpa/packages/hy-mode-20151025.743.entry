@@ -1,0 +1,2 @@
+
+(hy-mode . [(20151025 743) nil "Major mode for Hy code" single ((:keywords "languages" "lisp") (:url . "http://github.com/hylang/hy-mode"))])

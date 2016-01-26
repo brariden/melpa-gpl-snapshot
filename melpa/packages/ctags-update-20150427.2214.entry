@@ -1,0 +1,2 @@
+
+(ctags-update . [(20150427 2214) nil "(auto) update TAGS in parent directory using exuberant-ctags" single ((:keywords "exuberant-ctags" "etags") (:url . "https://github.com/jixiuf/helm-etags-plus"))])

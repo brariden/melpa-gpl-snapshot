@@ -1,0 +1,2 @@
+
+(test-simple . [(20151110 2143) nil "Simple Unit Test Framework for Emacs Lisp" single ((:keywords "unit-test") (:url . "http://github.com/rocky/emacs-test-simple"))])

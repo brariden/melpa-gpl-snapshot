@@ -1,0 +1,2 @@
+
+(diredful . [(20151118 1500) nil "colorful file names in dired buffers" single ((:keywords "dired" "colors" "extension" "widget") (:url . "https://github.com/thamer/diredful"))])

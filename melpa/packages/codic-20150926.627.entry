@@ -1,0 +1,2 @@
+
+(codic . [(20150926 627) ((emacs (24)) (cl-lib (0 5))) "Search Codic (codic.jp) naming dictionaries" tar ((:url . "https://github.com/syohex/emacs-codic"))])

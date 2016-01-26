@@ -1,0 +1,2 @@
+
+(ido-complete-space-or-hyphen . [(20130228 408) nil "Complete SPACE or HYPHEN when type SPACE in ido" single ((:keywords "ido" "completion") (:url . "https://github.com/doitian/ido-complete-space-or-hyphen"))])

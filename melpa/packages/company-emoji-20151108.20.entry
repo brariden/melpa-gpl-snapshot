@@ -1,0 +1,2 @@
+
+(company-emoji . [(20151108 20) ((cl-lib (0 5)) (company (0 8 0))) "company-mode backend for emoji" single ((:keywords "emoji" "company" "honk") (:url . "https://github.com/dunn/company-emoji.git"))])

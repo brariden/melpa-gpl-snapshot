@@ -1,0 +1,2 @@
+
+(nand2tetris . [(20151027 1651) ((names (0 3 0))) "Major mode for HDL files in the nand2tetris course" tar ((:keywords "nand2tetris" "hdl") (:url . "http://www.github.com/CestDiego/nand2tetris.el/"))])

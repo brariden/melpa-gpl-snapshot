@@ -1,0 +1,2 @@
+
+(find-by-pinyin-dired . [(20150202 416) nil "Find file by first Pinyin characters of Chinese Hanzi" tar nil])

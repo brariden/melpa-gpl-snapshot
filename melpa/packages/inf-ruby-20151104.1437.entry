@@ -1,0 +1,2 @@
+
+(inf-ruby . [(20151104 1437) nil "Run a Ruby process in a buffer" single ((:keywords "languages" "ruby") (:url . "http://github.com/nonsequitur/inf-ruby"))])

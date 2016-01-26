@@ -1,0 +1,2 @@
+
+(narrow-reindent . [(20150722 1406) ((emacs (24 4))) "Defines a minor mode to left-align narrowed regions." single ((:url . "https://github.com/emallson/narrow-reindent.el"))])

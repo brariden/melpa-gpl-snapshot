@@ -1,0 +1,2 @@
+
+(professional-theme . [(20150315 600) nil "Emacs port of Vim's professional theme" single ((:keywords "theme" "light" "professional") (:url . "https://github.com/juanjux/emacs-professional-theme"))])

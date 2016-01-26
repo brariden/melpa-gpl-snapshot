@@ -1,0 +1,2 @@
+
+(magit-topgit . [(20151018 1231) ((emacs (24 4)) (magit (2 1 0))) "TopGit extension for Magit" single ((:keywords "vc" "tools"))])

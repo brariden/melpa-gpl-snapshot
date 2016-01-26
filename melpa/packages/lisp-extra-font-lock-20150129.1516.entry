@@ -1,0 +1,2 @@
+
+(lisp-extra-font-lock . [(20150129 1516) nil "Highlight bound variables and quoted exprs." single ((:keywords "languages" "faces") (:url . "https://github.com/Lindydancer/lisp-extra-font-lock"))])

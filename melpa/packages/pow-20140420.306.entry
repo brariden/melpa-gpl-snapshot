@@ -1,0 +1,2 @@
+
+(pow . [(20140420 306) ((emacs (24)) (cl-lib (0 5))) "pow (http://pow.cx/) manager for emacs" tar ((:keywords "develop" "web" "pow") (:url . "http://github.com/yukihr/emacs-pow"))])

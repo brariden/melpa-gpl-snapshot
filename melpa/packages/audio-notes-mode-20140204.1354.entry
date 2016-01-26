@@ -1,0 +1,2 @@
+
+(audio-notes-mode . [(20140204 1354) nil "Play audio notes synced from somewhere else." single ((:keywords "hypermedia" "convenience") (:url . "http://github.com/Bruce-Connor/audio-notes-mode"))])

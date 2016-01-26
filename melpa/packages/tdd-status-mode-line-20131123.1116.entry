@@ -1,0 +1,2 @@
+
+(tdd-status-mode-line . [(20131123 1116) nil "TDD status on the mode-line" single ((:keywords "faces" "tdd") (:url . "https://github.com/algernon/tdd-status-mode-line"))])

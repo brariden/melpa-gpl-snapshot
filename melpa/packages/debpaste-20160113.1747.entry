@@ -1,0 +1,2 @@
+
+(debpaste . [(20160113 1747) ((xml-rpc (1 6 7))) "Interface for getting/posting/deleting pastes from paste.debian.net" single ((:keywords "paste") (:url . "http://github.com/alezost/debpaste.el"))])

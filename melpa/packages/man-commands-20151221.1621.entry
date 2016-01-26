@@ -1,0 +1,2 @@
+
+(man-commands . [(20151221 1621) ((cl-lib (0 5))) "Add interactive commands for every manpages installed in your computer." single ((:url . "http://github.com/nflath/man-commands"))])

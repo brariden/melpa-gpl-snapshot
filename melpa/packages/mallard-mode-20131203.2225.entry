@@ -1,0 +1,2 @@
+
+(mallard-mode . [(20131203 2225) nil "Major mode for editing Mallard files" tar ((:keywords "xml" "mallard") (:url . "https://github.com/jhradilek/emacs-mallard-mode"))])

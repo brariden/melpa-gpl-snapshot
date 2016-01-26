@@ -1,0 +1,2 @@
+
+(pretty-sha-path . [(20141105 1226) nil "Prettify Guix/Nix store paths" single ((:keywords "faces" "convenience") (:url . "https://gitorious.org/alezost-emacs/pretty-sha-path"))])

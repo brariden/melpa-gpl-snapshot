@@ -1,0 +1,2 @@
+
+(org-drill-table . [(20140117 337) ((s (1 7 0)) (dash (2 2 0)) (cl-lib (0 3)) (org-plus-contrib (8 2)) (emacs (24 1))) "Generate drill cards from org tables" single nil])

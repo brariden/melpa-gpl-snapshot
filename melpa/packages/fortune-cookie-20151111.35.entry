@@ -1,0 +1,2 @@
+
+(fortune-cookie . [(20151111 35) nil "Print a fortune in your scratch buffer." single ((:keywords "fortune" "cowsay" "scratch" "startup") (:url . "https://github.com/andschwa/fortune-cookie"))])

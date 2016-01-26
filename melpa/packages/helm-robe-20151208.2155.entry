@@ -1,0 +1,2 @@
+
+(helm-robe . [(20151208 2155) ((helm (1 7 7))) "completing read function for robe" single ((:url . "https://github.com/syohex/emacs-helm-robe"))])

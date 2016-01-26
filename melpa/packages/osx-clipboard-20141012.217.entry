@@ -1,0 +1,2 @@
+
+(osx-clipboard . [(20141012 217) nil "Use the OS X clipboard from terminal Emacs" single ((:url . "https://github.com/joddie/osx-clipboard-mode"))])

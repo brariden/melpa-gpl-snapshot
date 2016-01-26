@@ -1,0 +1,2 @@
+
+(sift . [(20160107 415) nil "Front-end for sift, a fast and powerful grep alternative" single ((:keywords "sift" "ack" "pt" "ag" "grep" "search") (:url . "https://github.com/nlamirault/sift.el"))])

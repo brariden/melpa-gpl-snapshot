@@ -1,0 +1,2 @@
+
+(defproject . [(20151201 1619) ((emacs (24))) "Manager dir-locals and project specific variables" single ((:keywords "convenience") (:url . "https://github.com/kotfic/defproject"))])

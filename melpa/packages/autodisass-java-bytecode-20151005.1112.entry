@@ -1,0 +1,2 @@
+
+(autodisass-java-bytecode . [(20151005 1112) nil "Automatically disassemble Java bytecode" tar nil])

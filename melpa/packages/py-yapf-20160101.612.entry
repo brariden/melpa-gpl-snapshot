@@ -1,0 +1,2 @@
+
+(py-yapf . [(20160101 612) nil "Use yapf to beautify a Python buffer" single ((:url . "https://github.com/paetzke/py-yapf.el"))])

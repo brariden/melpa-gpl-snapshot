@@ -1,0 +1,2 @@
+
+(define-word . [(20150709 1423) ((emacs (24 1))) "display the definition of word at point." single ((:keywords "dictionary" "convenience") (:url . "https://github.com/abo-abo/define-word"))])

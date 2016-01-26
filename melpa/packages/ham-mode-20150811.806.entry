@@ -1,0 +1,2 @@
+
+(ham-mode . [(20150811 806) ((html-to-markdown (1 2)) (markdown-mode (2 0))) "Html As Markdown. Transparently edit an html file using markdown" single ((:keywords "convenience" "emulation" "wp") (:url . "http://github.com/Bruce-Connor/ham-mode"))])

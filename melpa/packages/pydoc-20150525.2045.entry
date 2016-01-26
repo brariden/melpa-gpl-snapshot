@@ -1,0 +1,2 @@
+
+(pydoc . [(20150525 2045) nil "functional, syntax highlighted pydoc navigation" single ((:keywords "pydoc" "python") (:url . "https://github.com/statmobile/pydoc"))])

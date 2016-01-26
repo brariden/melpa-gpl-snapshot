@@ -1,0 +1,2 @@
+
+(esh-help . [(20140107 422) ((dash (1 4 0))) "Add some help functions and support for Eshell" single ((:keywords "eshell" "extensions") (:url . "https://github.com/tom-tan/esh-help/"))])

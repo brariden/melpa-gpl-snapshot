@@ -1,0 +1,2 @@
+
+(beeminder . [(20150104 1634) ((org (7))) "Emacs interface for Beeminder" single ((:keywords "beeminder") (:url . "http://www.philnewton.net/code/beeminder-el/"))])

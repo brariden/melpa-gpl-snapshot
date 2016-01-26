@@ -1,0 +1,2 @@
+
+(stash . [(20151117 827) nil "lightweight persistent caching" single ((:keywords "extensions" "data" "internal" "lisp") (:url . "https://www.github.com/vermiculus/stash.el/"))])

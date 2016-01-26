@@ -1,0 +1,2 @@
+
+(ac-math . [(20141116 1527) ((auto-complete (1 4)) (math-symbol-lists (1 0))) "Auto-complete sources for input of mathematical symbols and latex tags" single ((:keywords "latex" "auto-complete" "unicode" "symbols") (:url . "https://github.com/vitoshka/ac-math"))])

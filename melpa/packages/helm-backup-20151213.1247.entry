@@ -1,0 +1,2 @@
+
+(helm-backup . [(20151213 1247) ((helm (1 5 5)) (s (1 8 0)) (cl-lib (0))) "Backup each file change using git" single ((:keywords "backup" "convenience" "files" "tools" "vc") (:url . "http://github.com/antham/helm-backup"))])

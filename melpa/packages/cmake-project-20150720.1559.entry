@@ -1,0 +1,2 @@
+
+(cmake-project . [(20150720 1559) nil "Integrates CMake build process with Emacs" single ((:keywords "c" "cmake" "languages" "tools") (:url . "http://github.com/alamaison/emacs-cmake-project"))])

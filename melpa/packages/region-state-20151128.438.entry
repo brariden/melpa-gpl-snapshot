@@ -1,0 +1,2 @@
+
+(region-state . [(20151128 438) nil "Show the number of chars/lines or rows/columns in the region" single ((:keywords "convenience") (:url . "https://github.com/xuchunyang/region-state.el"))])

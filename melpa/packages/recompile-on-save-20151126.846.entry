@@ -1,0 +1,2 @@
+
+(recompile-on-save . [(20151126 846) ((dash (1 1 0)) (cl-lib (0 5))) "Trigger recompilation on file save." single ((:keywords "convenience" "files" "processes" "tools") (:url . "https://github.com/maio/recompile-on-save.el"))])

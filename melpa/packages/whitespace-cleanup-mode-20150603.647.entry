@@ -1,0 +1,2 @@
+
+(whitespace-cleanup-mode . [(20150603 647) nil "Intelligently call whitespace-cleanup on save" single ((:keywords "convenience") (:url . "https://github.com/purcell/whitespace-cleanup-mode"))])

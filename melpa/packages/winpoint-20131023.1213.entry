@@ -1,0 +1,2 @@
+
+(winpoint . [(20131023 1213) nil "Remember buffer positions per-window, not per buffer" single ((:keywords "convenience") (:url . "https://github.com/jorgenschaefer/winpoint"))])

@@ -1,0 +1,2 @@
+
+(scala-mode . [(20141205 1451) nil "Major mode for editing Scala code." tar ((:keywords "scala" "languages" "oop"))])

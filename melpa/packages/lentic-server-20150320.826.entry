@@ -1,0 +1,2 @@
+
+(lentic-server . [(20150320 826) ((lentic (0 8)) (web-server (0 1 1))) "Web Server for Emacs Literate Source" single nil])

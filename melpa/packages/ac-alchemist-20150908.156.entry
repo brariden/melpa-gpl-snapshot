@@ -1,0 +1,2 @@
+
+(ac-alchemist . [(20150908 156) ((auto-complete (1 5 0)) (alchemist (1 5 0)) (cl-lib (0 5))) "auto-complete source for alchemist" single ((:url . "https://github.com/syohex/emacs-ac-alchemist"))])

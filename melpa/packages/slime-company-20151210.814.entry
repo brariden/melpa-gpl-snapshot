@@ -1,0 +1,2 @@
+
+(slime-company . [(20151210 814) ((slime (2 13)) (company (0 9 0))) "slime completion backend for company mode" single ((:keywords "convenience" "lisp" "abbrev"))])

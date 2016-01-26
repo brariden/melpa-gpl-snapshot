@@ -1,0 +1,2 @@
+
+(autodisass-llvm-bitcode . [(20150410 2025) nil "Automatically disassemble LLVM bitcode" tar nil])

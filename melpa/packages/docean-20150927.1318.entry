@@ -1,0 +1,2 @@
+
+(docean . [(20150927 1318) ((emacs (24)) (cl-lib (0 5)) (request (0 2 0))) "Interact with DigitalOcean from Emacs." single ((:keywords "convenience") (:url . "https://github.com/emacs-pe/docean.el"))])

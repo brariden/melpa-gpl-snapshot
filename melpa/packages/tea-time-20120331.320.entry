@@ -1,0 +1,2 @@
+
+(tea-time . [(20120331 320) nil "Simple timer package, useful to make perfect tea." single ((:keywords "timer" "tea-time"))])

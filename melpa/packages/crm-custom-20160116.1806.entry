@@ -1,0 +1,2 @@
+
+(crm-custom . [(20160116 1806) ((cl-lib (0 5))) "Alternate `completing-read-multiple' that uses `completing-read'" single ((:keywords "completion" "minibuffer" "multiple elements") (:url . "https://github.com/DarwinAwardWinner/crm-custom"))])

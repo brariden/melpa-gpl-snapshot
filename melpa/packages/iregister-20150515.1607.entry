@@ -1,0 +1,2 @@
+
+(iregister . [(20150515 1607) nil "Interactive register commands for Emacs." tar ((:keywords "convenience") (:url . "https://github.com/atykhonov/iregister.el"))])

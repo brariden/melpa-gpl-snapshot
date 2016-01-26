@@ -1,0 +1,2 @@
+
+(pointback . [(20100210 952) nil "Restore window points when returning to buffers" single ((:keywords "convenience"))])

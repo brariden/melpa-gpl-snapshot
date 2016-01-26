@@ -1,0 +1,2 @@
+
+(jape-mode . [(20140903 1006) nil "An Emacs editing mode mode for GATE's JAPE files" single ((:keywords "languages" "jape" "gate") (:url . "http://github.com/tanzoniteblack/jape-mode"))])

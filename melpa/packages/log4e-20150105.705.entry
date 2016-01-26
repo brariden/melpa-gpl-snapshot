@@ -1,0 +1,2 @@
+
+(log4e . [(20150105 705) nil "provide logging framework for elisp" single ((:keywords "log") (:url . "https://github.com/aki2o/log4e"))])

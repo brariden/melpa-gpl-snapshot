@@ -1,0 +1,2 @@
+
+(auto-package-update . [(20151026 111) ((emacs (24 4)) (dash (2 1 0))) "Automatically update Emacs packages." single ((:keywords "package" "update") (:url . "http://github.com/rranelli/auto-package-update.el"))])

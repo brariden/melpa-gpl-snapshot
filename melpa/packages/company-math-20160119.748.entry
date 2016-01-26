@@ -1,0 +1,2 @@
+
+(company-math . [(20160119 748) ((company (0 8 0)) (math-symbol-lists (1 0))) "Completion backends for unicode math symbols and latex tags" single ((:keywords "unicode" "symbols" "completion") (:url . "https://github.com/vspinu/company-math"))])

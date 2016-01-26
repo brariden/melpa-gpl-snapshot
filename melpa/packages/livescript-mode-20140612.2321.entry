@@ -1,0 +1,2 @@
+
+(livescript-mode . [(20140612 2321) nil "Major mode for editing LiveScript files" single ((:keywords "languages" "livescript") (:url . "https://github.com/yhisamatsu/livescript-mode"))])

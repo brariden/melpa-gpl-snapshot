@@ -1,0 +1,2 @@
+
+(zlc . [(20151010 2057) nil "Provides zsh like completion system to Emacs" single ((:keywords "matching" "convenience"))])

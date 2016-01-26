@@ -1,0 +1,2 @@
+
+(ido-migemo . [(20150921 1744) ((migemo (1 9 1))) "Migemo plug-in for Ido" single ((:keywords "files") (:url . "https://github.com/myuhe/ido-migemo.el"))])

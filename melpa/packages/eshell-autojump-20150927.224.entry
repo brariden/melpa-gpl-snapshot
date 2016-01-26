@@ -1,0 +1,2 @@
+
+(eshell-autojump . [(20150927 224) nil "autojump command for Eshell" single ((:url . "http://github.com/coldnew/eshell-autojump"))])

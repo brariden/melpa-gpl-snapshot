@@ -1,0 +1,2 @@
+
+(scf-mode . [(20151121 2048) nil "shorten file-names in compilation type buffers" single ((:keywords "compilation") (:url . "https://github.com/lewang/scf-mode"))])

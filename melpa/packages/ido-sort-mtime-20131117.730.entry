@@ -1,0 +1,2 @@
+
+(ido-sort-mtime . [(20131117 730) nil "Sort Ido's file list by modification time" single ((:keywords "convenience" "files"))])

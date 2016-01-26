@@ -1,0 +1,2 @@
+
+(multi-web-mode . [(20130823 2254) nil "multiple major mode support for web editing" tar ((:keywords "convenience" "languages" "wp") (:url . "https://github.com/fgallina/multi-web-mode"))])
