@@ -1,0 +1,2 @@
+
+(dummy-h-mode . [(20140816 733) nil "switch major mode to c-/c++-/objc-mode on .h file" single ((:keywords "c-mode" "c++-mode" "objc-mode"))])

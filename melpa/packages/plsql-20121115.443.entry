@@ -1,0 +1,2 @@
+
+(plsql . [(20121115 443) nil "Programming support for PL/SQL code" single ((:keywords "languages") (:url . "http://www.emacswiki.org/elisp/plsql.el"))])

@@ -1,0 +1,2 @@
+
+(htmlize . [(20130207 1402) nil "Convert buffer text and decorations to HTML." single ((:keywords "hypermedia" "extensions"))])

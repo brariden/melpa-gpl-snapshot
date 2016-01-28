@@ -1,0 +1,2 @@
+
+(dired-sort-menu . [(20130824 707) nil "provide menu/dialogue for dired sort options" single ((:keywords "dired" "sort" "menu" "dialogue") (:url . "http://centaur.maths.qmw.ac.uk/Emacs/"))])

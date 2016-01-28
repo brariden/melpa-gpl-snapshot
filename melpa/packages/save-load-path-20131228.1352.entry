@@ -1,0 +1,2 @@
+
+(save-load-path . [(20131228 1352) nil "save load-path and reuse it to test" single ((:keywords "lisp") (:url . "http://www.emacswiki.org/cgi-bin/wiki/download/save-load-path.el"))])

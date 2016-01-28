@@ -1,0 +1,2 @@
+
+(wide-column . [(20120814 312) nil "Calls functions dependant on column position." single ((:keywords "minor mode" "cursor colour" "column width"))])

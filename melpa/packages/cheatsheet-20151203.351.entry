@@ -1,0 +1,2 @@
+
+(cheatsheet . [(20151203 351) ((emacs (24)) (cl-lib (0 5))) "create your own cheatsheet" single ((:keywords "convenience" "usability") (:url . "http://github.com/darksmile/cheatsheet/"))])

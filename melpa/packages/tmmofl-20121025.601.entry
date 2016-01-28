@@ -1,0 +1,2 @@
+
+(tmmofl . [(20121025 601) nil "Calls functions dependant on font lock highlighting at point" single ((:keywords "minor mode" "font lock" "toggling."))])

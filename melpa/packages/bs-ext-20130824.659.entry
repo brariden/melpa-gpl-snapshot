@@ -1,0 +1,2 @@
+
+(bs-ext . [(20130824 659) nil "Extensions to emacs buffer-selection library (bs.el)" single ((:keywords "convenience" "files") (:url . "http://www.emacswiki.org/emacs/download/bs-ext.el"))])

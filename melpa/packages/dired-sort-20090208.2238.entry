@@ -1,0 +1,2 @@
+
+(dired-sort . [(20090208 2238) nil "Sort files in dired." single ((:keywords "dired" "sort") (:url . "http://www.emacswiki.org/emacs/download/dired-sort.el"))])

@@ -1,0 +1,2 @@
+
+(levenshtein . [(20051013 1256) nil "Edit distance between two strings." single ((:keywords "lisp"))])

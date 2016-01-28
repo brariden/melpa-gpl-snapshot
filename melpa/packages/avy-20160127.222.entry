@@ -1,0 +1,2 @@
+
+(avy . [(20160127 222) ((emacs (24 1)) (cl-lib (0 5))) "tree-based completion" single ((:keywords "point" "location") (:url . "https://github.com/abo-abo/avy"))])

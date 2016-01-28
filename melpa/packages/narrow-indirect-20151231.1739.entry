@@ -1,0 +1,2 @@
+
+(narrow-indirect . [(20151231 1739) nil "Narrow using an indirect buffer that is a clone" single ((:keywords "narrow" "indirect" "buffer" "clone" "view" "multiple-modes") (:url . "http://www.emacswiki.org/narrow-indirect.el"))])

@@ -1,2 +1,0 @@
-
-(magit-stgit . [(20151228 1001) ((emacs (24 4)) (magit (2 1 0))) "StGit extension for Magit" single ((:keywords "vc" "tools"))])

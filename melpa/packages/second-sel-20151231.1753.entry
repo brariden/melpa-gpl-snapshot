@@ -1,0 +1,2 @@
+
+(second-sel . [(20151231 1753) nil "Secondary selection commands" single ((:keywords "region" "selection" "yank" "paste" "edit") (:url . "http://www.emacswiki.org/second-sel.el"))])

@@ -1,0 +1,2 @@
+
+(paredit . [(20150217 913) nil "minor mode for editing parentheses" single ((:keywords "lisp"))])

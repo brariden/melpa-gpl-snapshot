@@ -1,2 +1,0 @@
-
-(magit-svn . [(20151219 747) ((emacs (24 4)) (magit (2 1 0))) "Git-Svn extension for Magit" single ((:keywords "vc" "tools"))])

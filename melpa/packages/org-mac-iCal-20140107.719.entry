@@ -1,0 +1,2 @@
+
+(org-mac-iCal . [(20140107 719) nil "Imports events from iCal.app to the Emacs diary" single ((:keywords "outlines" "calendar"))])

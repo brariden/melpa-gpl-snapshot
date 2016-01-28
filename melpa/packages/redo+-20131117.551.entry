@@ -1,0 +1,2 @@
+
+(redo+ . [(20131117 551) nil "Redo/undo system for Emacs" single ((:keywords "lisp" "extensions"))])

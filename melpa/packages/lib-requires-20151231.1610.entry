@@ -1,0 +1,2 @@
+
+(lib-requires . [(20151231 1610) nil "Commands to list Emacs Lisp library dependencies." single ((:keywords "libraries" "files") (:url . "http://www.emacswiki.org/lib-requires.el"))])

@@ -1,0 +1,2 @@
+
+(multi-eshell . [(20120608 1335) nil "Create and manage multiple shells within Emacs" single ((:url . "http://cims.nyu.edu/~stucchio"))])

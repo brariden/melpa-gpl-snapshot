@@ -1,2 +1,0 @@
-
-(xah-math-input . [(20151225 1358) nil "a minor mode for inputting math and Unicode symbols." single ((:keywords "abbrev" "convenience" "unicode" "math" "latex") (:url . "http://ergoemacs.org/emacs/xmsi-math-symbols-input.html"))])

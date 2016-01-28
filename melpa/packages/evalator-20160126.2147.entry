@@ -1,0 +1,2 @@
+
+(evalator . [(20160126 2147) ((helm-core (1 9 1))) "Package for interactive transformation of data with helm" tar ((:keywords "languages" "elisp" "helm") (:url . "http://www.github.com/seanirby/evalator"))])

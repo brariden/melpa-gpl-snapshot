@@ -1,0 +1,2 @@
+
+(jack-connect . [(20141207 607) nil "Manage jack connections within Emacs" single nil])

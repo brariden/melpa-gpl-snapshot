@@ -1,0 +1,2 @@
+
+(highlight-current-line . [(20051013 1256) nil "highlight line where the cursor is." single ((:keywords "faces"))])

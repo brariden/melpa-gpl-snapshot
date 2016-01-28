@@ -1,0 +1,2 @@
+
+(log4j-mode . [(20160108 1318) nil "major mode for viewing log files" single ((:keywords "tools") (:url . "http://log4j-mode.sourceforge.net"))])

@@ -1,0 +1,2 @@
+
+(tern . [(20151228 711) ((json (1 2)) (cl-lib (0 5)) (emacs (24))) "Tern-powered JavaScript integration" single ((:url . "http://ternjs.net/"))])

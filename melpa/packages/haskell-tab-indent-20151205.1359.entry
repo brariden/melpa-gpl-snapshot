@@ -1,0 +1,2 @@
+
+(haskell-tab-indent . [(20151205 1359) nil "tab-based indentation for haskell-mode" single ((:keywords "indentation" "haskell") (:url . "https://spwhitton.name/tech/code/haskell-tab-indent/"))])

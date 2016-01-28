@@ -1,0 +1,2 @@
+
+(doom . [(20160121 922) ((cl-lib (0 5))) "DOM implementation and manipulation library" single ((:keywords "xml" "doom") (:url . "http://www.github.com/toroidal-code/doom.el/"))])

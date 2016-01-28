@@ -1,0 +1,2 @@
+
+(ob-axiom . [(20150804 1700) ((emacs (24 2)) (axiom-environment (20150801))) "org-babel for the axiom-environment system" single ((:keywords "axiom" "openaxiom" "fricas"))])

@@ -1,0 +1,2 @@
+
+(naked . [(20151231 1727) nil "Provide for naked key descriptions: no angle brackets." single ((:keywords "lisp" "key" "print" "format" "help") (:url . "http://www.emacswiki.org/naked.el"))])

@@ -1,0 +1,2 @@
+
+(sqlplus . [(20141009 939) nil "User friendly interface to SQL*Plus and support for PL/SQL compilation" single ((:keywords "sql" "sqlplus" "oracle" "plsql"))])

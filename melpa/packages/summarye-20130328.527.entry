@@ -1,0 +1,2 @@
+
+(summarye . [(20130328 527) nil "list up matched strings from a buffer, and display them in summary buffer" single nil])

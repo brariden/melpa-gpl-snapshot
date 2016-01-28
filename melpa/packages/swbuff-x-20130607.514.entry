@@ -1,0 +1,2 @@
+
+(swbuff-x . [(20130607 514) ((swbuff (19991231 1800))) "Modifications to David Ponce's swbuff" single ((:keywords "files" "convenience") (:url . "http://www.emacswiki.org/elisp/swbuff-x.el"))])

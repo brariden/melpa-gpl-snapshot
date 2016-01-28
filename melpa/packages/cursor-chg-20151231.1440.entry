@@ -1,0 +1,2 @@
+
+(cursor-chg . [(20151231 1440) nil "Change cursor dynamically, depending on the context." single ((:keywords "cursor" "accessibility") (:url . "http://www.emacswiki.org/cursor-chg.el"))])

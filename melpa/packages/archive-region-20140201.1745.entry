@@ -1,0 +1,2 @@
+
+(archive-region . [(20140201 1745) nil "Move region to archive file instead of killing" single ((:keywords "languages") (:url . "http://www.emacswiki.org/cgi-bin/wiki/download/archive-region.el"))])

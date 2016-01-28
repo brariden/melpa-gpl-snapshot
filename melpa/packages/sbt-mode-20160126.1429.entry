@@ -1,0 +1,2 @@
+
+(sbt-mode . [(20160126 1429) ((scala-mode2 (0 22))) "Major mode for sbt >= 0.12 with scala >= 2.9" tar nil])

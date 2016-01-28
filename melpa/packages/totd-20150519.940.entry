@@ -1,0 +1,2 @@
+
+(totd . [(20150519 940) ((s (1 9 0)) (cl-lib (0 5))) "Display a random daily emacs command." single ((:keywords "help"))])

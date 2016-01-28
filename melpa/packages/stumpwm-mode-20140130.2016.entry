@@ -1,0 +1,2 @@
+
+(stumpwm-mode . [(20140130 2016) nil "special lisp mode for evaluating code into running stumpwm" single ((:keywords "comm" "lisp" "tools"))])

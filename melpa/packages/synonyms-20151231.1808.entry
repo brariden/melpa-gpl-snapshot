@@ -1,0 +1,2 @@
+
+(synonyms . [(20151231 1808) nil "Look up synonyms for a word or phrase in a thesaurus." single ((:keywords "text" "dictionary" "thesaurus" "spelling" "apropos" "help") (:url . "http://www.emacswiki.org/synonyms.el"))])

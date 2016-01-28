@@ -1,0 +1,2 @@
+
+(savekill . [(20140417 2134) nil "Save kill ring to disk" single ((:keywords "tools") (:url . "http://www.emacswiki.org/cgi-bin/wiki/download/savekill.el"))])

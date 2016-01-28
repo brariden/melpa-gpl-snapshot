@@ -1,0 +1,2 @@
+
+(anchored-transpose . [(20080905 54) nil "Transposes a phrase around an anchor phrase" single ((:keywords "tools" "convenience"))])

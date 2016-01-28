@@ -1,0 +1,2 @@
+
+(org-themis . [(20160121 2204) ((cl-lib (0 4))) "Experimental project management mode for org-mode" single ((:keywords "org-mode" "elisp" "project") (:url . "http://github.com/zellio/org-themis"))])

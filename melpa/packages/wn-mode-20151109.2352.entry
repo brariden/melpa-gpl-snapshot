@@ -1,0 +1,2 @@
+
+(wn-mode . [(20151109 2352) ((emacs (24))) "numeric window switching shortcuts" single ((:keywords "buffers" "windows" "switching-windows") (:url . "https://github.com/luismbo/wn-mode"))])

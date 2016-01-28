@@ -1,0 +1,2 @@
+
+(auto-install . [(20150418 1902) nil "Auto install elisp file" single ((:keywords "auto-install") (:url . "http://www.emacswiki.org/emacs/download/auto-install.el"))])

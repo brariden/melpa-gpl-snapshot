@@ -1,0 +1,2 @@
+
+(cssh . [(20150810 1209) nil "clusterssh implementation for emacs" single ((:keywords "clusterssh" "ssh" "cssh") (:url . "http://tapoueh.org/emacs/cssh.html"))])

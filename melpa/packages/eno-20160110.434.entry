@@ -1,0 +1,2 @@
+
+(eno . [(20160110 434) ((dash (2 12 1)) (edit-at-point (1 0))) "Goto/copy/cut any word/symbol/line in view, similar to ace-jump/easymotion" single ((:url . "http://github.com/enoson/eno.el"))])

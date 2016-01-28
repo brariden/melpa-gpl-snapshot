@@ -1,0 +1,2 @@
+
+(2048-game . [(20151026 1433) nil "play 2048 in Emacs" single ((:url . "https://bitbucket.org/zck/2048.el"))])

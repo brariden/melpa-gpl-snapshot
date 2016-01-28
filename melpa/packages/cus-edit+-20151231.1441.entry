@@ -1,0 +1,2 @@
+
+(cus-edit+ . [(20151231 1441) nil "Enhancements to `cus-edit.el'." single ((:keywords "help" "customize" "help" "faces") (:url . "http://www.emacswiki.org/cus-edit+.el"))])

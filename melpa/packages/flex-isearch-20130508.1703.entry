@@ -1,0 +1,2 @@
+
+(flex-isearch . [(20130508 1703) nil "Flex matching (like ido) in isearch." single ((:keywords "convenience" "search") (:url . "https://bitbucket.org/jpkotta/flex-isearch"))])

@@ -1,0 +1,2 @@
+
+(hide-region . [(20140201 514) nil "hide regions of text using overlays" single ((:keywords "hide" "region") (:url . "http://mathias.dahl.net/pgm/emacs/elisp/hide-region.el"))])

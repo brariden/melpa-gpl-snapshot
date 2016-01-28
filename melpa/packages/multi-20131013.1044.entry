@@ -1,0 +1,2 @@
+
+(multi . [(20131013 1044) ((emacs (24))) "Clojure-style multi-methods for emacs lisp" single ((:keywords "multimethod" "generic" "predicate" "dispatch") (:url . "http://github.com/kurisuwhyte/emacs-multi"))])

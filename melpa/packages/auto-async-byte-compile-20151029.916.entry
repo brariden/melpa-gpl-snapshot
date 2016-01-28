@@ -1,0 +1,2 @@
+
+(auto-async-byte-compile . [(20151029 916) nil "Automatically byte-compile when saved" single ((:keywords "lisp" "convenience") (:url . "http://www.emacswiki.org/cgi-bin/wiki/download/auto-async-byte-compile.el"))])

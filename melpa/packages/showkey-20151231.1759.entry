@@ -1,0 +1,2 @@
+
+(showkey . [(20151231 1759) nil "Show keys as you use them." single ((:keywords "help" "keys" "mouse") (:url . "http://www.emacswiki.org/showkey.el"))])

@@ -1,0 +1,2 @@
+
+(disk . [(20081128 906) nil "simplified find-file, revert-file, save-buffer interface" single ((:keywords "convenience") (:url . "http://www.emacswiki.org/emacs/DiskKey"))])

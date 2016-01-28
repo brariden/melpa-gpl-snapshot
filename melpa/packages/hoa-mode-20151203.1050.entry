@@ -1,0 +1,2 @@
+
+(hoa-mode . [(20151203 1050) nil "Major mode for the Hanoi Omega Automata format" single ((:keywords "major-mode" "automata" "convenience") (:url . "https://gitlab.lrde.epita.fr/spot/emacs-modes"))])

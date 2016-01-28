@@ -1,0 +1,2 @@
+
+(irfc . [(20130824 707) nil "Interface for IETF RFC document." single ((:keywords "rfc" "ietf") (:url . "http://www.emacswiki.org/emacs/download/irfc.el"))])

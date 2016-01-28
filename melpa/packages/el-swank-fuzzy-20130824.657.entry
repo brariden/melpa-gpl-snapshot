@@ -1,0 +1,2 @@
+
+(el-swank-fuzzy . [(20130824 657) nil "fuzzy symbol completion." single ((:keywords "matching" "completion" "string"))])

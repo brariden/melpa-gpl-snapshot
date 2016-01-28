@@ -1,2 +1,0 @@
-
-(magit-gitflow . [(20150905 239) ((magit (2 1 0)) (magit-popup (2 2 0))) "gitflow extension for magit" single ((:keywords "vc" "tools") (:url . "https://github.com/jtatarik/magit-gitflow"))])

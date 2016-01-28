@@ -1,0 +1,2 @@
+
+(faust-mode . [(20160119 1120) nil "Basic faust syntax colorizer for emacs." single ((:keywords "languages") (:url . "https://github.com/magnetophon/emacs-faust-mode"))])

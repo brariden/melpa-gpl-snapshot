@@ -1,0 +1,2 @@
+
+(pyenv-mode-auto . [(20160123 141) ((pyenv-mode (0 1 0)) (s (1 11 0)) (f (0 17 0))) "Automatically activates pyenv version if .python-version file exists." single ((:keywords "python" "pyenv") (:url . "https://github.com/ssbb/pyenv-mode-auto"))])

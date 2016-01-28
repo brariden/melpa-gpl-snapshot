@@ -1,0 +1,2 @@
+
+(hideshowvis . [(20130824 700) nil "Add markers to the fringe for regions foldable by hideshow.el" single nil])

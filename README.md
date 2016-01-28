@@ -15,68 +15,49 @@ The intermediate files are stored in the repo if you want to check the names of 
 
 ```
 # clone melpa
-mkdir ~/git-test
-cd git-test
 git clone git@github.com:milkypostman/melpa.git
+cd melpa
+make
 
-# extract from the recipe the repo: "reponame" part and put all of those in a "gitrepos" file:
-cd melpa/recipes
-mkdir ~/git-test/all-repos
-grep -l "github" *  | xargs grep ":repo" | sed "s/.*:repo\s*\"\(.*\)/\1/" | sed "s/\".*//" > ~/git-test/all-repos/gitrepos
- 
-# clone each of the github repos in gitrepos:
-cd ~/git-test/all-repos
-cat gitrepos | xargs -I '{}' git clone --depth=1 https://github.com/'{}'.git
+# Find which packages are GPLed:
+# (using pcregrep instead of grep for searching across newlines... sometimes developers cite the GPL as part of comments in source code which span lines)
+pcregrep -i -r -l --buffer-size=1000000 --exclude-dir=.git -M "general[\s|;]+public[\s|;]license" * | xargs grep -l -r -i -P "Version\s+[2|3]" | sed "s|/.*||" | sort | uniq > ../GPLed-projects.txt
 
-# remove git tracking
-find . | grep /.git$ | xargs rm -rf
-
-# Find all directories with GPL text:
-grep -l -r -i -P "General.*Public.*License" * | xargs grep -l -r -i -P "Version\s+[2|3]" | sed "s|/.*||" | uniq > GPLed.txt
-
-# Remove anything with AGPL:
-pcregrep -r -l --buffer-size=1000000 --exclude-dir=.git -M "under[\s|;]+the[\s|;]+terms[\s|;]+of[\s|;]+the[\s|;]+GNU[\s|;]+Affero" * | sed "s|/.*||" | uniq > Affero.txt
-cat Affero.txt  | xargs -L 1 rm -rf 
+# Remove any Affero licensed packages
+pcregrep -r -i -l --buffer-size=1000000 --exclude-dir=.git -M "under[\s|;]+the[\s|;]+terms[\s|;]+of[\s|;]+the[\s|;]+GNU[\s|;]+Affero" * | sed "s|/.*||" | uniq > ../Affero.txt
+cat ../Affero.txt | xargs -L 1 -I @ sh -c "ls -1 @*" |  xargs -L 1 echo rm 
 
 # BTW, I found the following in Affero.txt and doublechecked that they were removed correctly
 cat Affero.txt
->artbollocks-mode
->ghc-mod
->lice-el
->mediawiki-el
->ocp-indent
-
-# now add all directories referenced in GPLed.txt that weren't removed
-mkdir ../melpa-gpl-packages
-cat GPLed.txt | xargs -I '{}' mv '{}' ../melpa-gpl-packages
-
-```
+> artbollocks-mode
+> ghc
+> lice
+> mediawiki
+> ocp-indent
+> stack-mode
 
 
-# EDIT - Take 2 - I want to build this to get it into the MELPA structure
-# The earlier stuff gave me all of the code that we needed but I wanted to build it into packages
-# I recloned melpa then ran the following script to only keep the good recipes (Only keeps the ones in GPLed.txt):
-
+# Keep ONLY the GPLed packages!
 #!/bin/bash
-for filename in recipes/*; do
+for filename in packages/*; do
 
-   result=`grep -l "github" $filename | xargs grep ":repo" | sed "s/.*:repo\s*\"\(.*\)/\1/" | sed "s/\".*//" | sed "s/.*\///" `
-   if [ ! -z "$result" ]; then # not empty
-
-        gpled=`grep -Fx $result GPLed.txt`
-        if [ -z "$gpled" ]; then
-                echo $filename >> recipes-deleted.txt
-                rm $filename 
-        else
-                echo $filename >> recipes-kept.txt
-
-        fi
-    else
-                echo $filename >> recipes-deleted.txt
-                rm $filename
-   fi 
+ prefix=`echo $(basename $filename) | sed "s/\(.*\)-.*/\1/"`
+ gpled=`grep $prefix GPLed-projects.txt`
+ echo "gpled:" $gpled "prefix:" $prefix
+ if [ ! -z "$gpled" ]; then
+      echo "keeping" $filename >> package-status.txt
+ else
+      echo "deleting" $filename >> package-status.txt
+      rm $filename
+ fi
 done
 
+# So now you can see what happened in the package-status file based on if it was GPLed or not.
+
+# Finally generate the json for the MEPLA website:
+make json
+
+```
 
 
 

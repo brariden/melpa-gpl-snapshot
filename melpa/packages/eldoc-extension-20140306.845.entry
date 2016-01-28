@@ -1,0 +1,2 @@
+
+(eldoc-extension . [(20140306 845) nil "Some extension for eldoc" single ((:keywords "eldoc"))])

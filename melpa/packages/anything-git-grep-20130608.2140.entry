@@ -1,2 +1,0 @@
-
-(anything-git-grep . [(20130608 2140) ((anything (1 3 9))) "anything for git grep" tar ((:keywords "anything" "git") (:url . "https://github.com/mechairoi/anything-git-grep"))])

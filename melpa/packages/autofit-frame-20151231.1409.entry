@@ -1,0 +1,2 @@
+
+(autofit-frame . [(20151231 1409) ((fit-frame (0))) "Automatically resize one-window frames to fit" single ((:keywords "internal" "extensions" "convenience" "local") (:url . "http://www.emacswiki.org/autofit-frame.el"))])

@@ -1,0 +1,2 @@
+
+(etags-select . [(20130824 700) nil "Select from multiple tags" single ((:keywords "etags" "tags" "tag" "select"))])

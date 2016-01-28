@@ -1,0 +1,2 @@
+
+(golden-ratio . [(20150819 620) nil "Automatic resizing of Emacs windows to the golden ratio" single ((:keywords "window" "resizing"))])

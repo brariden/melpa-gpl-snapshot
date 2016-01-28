@@ -1,0 +1,2 @@
+
+(org-fstree . [(20090723 1019) nil "include a filesystem subtree into an org file" single ((:keywords "org-mode" "filesystem" "tree") (:url . "http://www.burtzlaff.de/org-fstree/org-fstree.el"))])

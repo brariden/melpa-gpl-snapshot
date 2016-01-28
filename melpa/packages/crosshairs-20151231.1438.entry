@@ -1,0 +1,2 @@
+
+(crosshairs . [(20151231 1438) ((hl-line+ (0)) (col-highlight (0)) (vline (0))) "Highlight the current line and column." single ((:keywords "faces" "frames" "emulation" "highlight" "cursor" "accessibility") (:url . "http://www.emacswiki.org/crosshairs.el"))])

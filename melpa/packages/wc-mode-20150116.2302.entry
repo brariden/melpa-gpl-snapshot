@@ -1,0 +1,2 @@
+
+(wc-mode . [(20150116 2302) nil "show wc-like information in status bar" single ((:keywords "length" "characters" "words" "lines" "mode line") (:url . "http://www.dr-qubit.org/emacs.php"))])

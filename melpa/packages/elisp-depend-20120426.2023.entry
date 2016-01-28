@@ -1,0 +1,2 @@
+
+(elisp-depend . [(20120426 2023) nil "Parse depend libraries of elisp file." single ((:keywords "elisp-depend") (:url . "http://www.emacswiki.org/emacs/download/elisp-depend.el"))])

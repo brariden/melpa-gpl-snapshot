@@ -1,0 +1,2 @@
+
+(ucs-cmds . [(20151231 1816) nil "Macro to create commands that insert Unicode chars." single ((:keywords "unicode" "characters" "encoding" "commands" "ucs-names") (:url . "http://www.emacswiki.org/ucs-cmds.el"))])

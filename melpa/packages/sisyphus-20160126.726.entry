@@ -1,2 +1,0 @@
-
-(sisyphus . [(20160126 726) ((emacs (24 4)) (m-buffer (0 14)) (dash (2 12 0))) "Test support functions" single nil])

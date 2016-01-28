@@ -1,0 +1,2 @@
+
+(cygwin-mount . [(20131111 1546) nil "Teach EMACS about cygwin styles and mount points." single ((:keywords "files" "mount" "cygwin"))])

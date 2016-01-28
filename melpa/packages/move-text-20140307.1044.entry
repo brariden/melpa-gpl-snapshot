@@ -1,0 +1,2 @@
+
+(move-text . [(20140307 1044) nil "Move current line or region with M-up or M-down." single ((:keywords "edit"))])

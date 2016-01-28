@@ -1,0 +1,2 @@
+
+(macros+ . [(20151231 1619) nil "Extensions to `macros.el'." single ((:keywords "abbrev" "local") (:url . "http://www.emacswiki.org/macros+.el"))])

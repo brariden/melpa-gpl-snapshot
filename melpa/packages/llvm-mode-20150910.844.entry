@@ -1,0 +1,2 @@
+
+(llvm-mode . [(20150910 844) nil "Major mode for the LLVM assembler language." tar nil])

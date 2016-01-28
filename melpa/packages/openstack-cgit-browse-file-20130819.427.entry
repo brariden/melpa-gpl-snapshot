@@ -1,2 +1,0 @@
-
-(openstack-cgit-browse-file . [(20130819 427) nil "Browse the current file in OpenStack cgit" single ((:keywords "convenience" "vc" "git" "cgit" "gerrit" "openstack") (:url . "https://github.com/chmouel/openstack-cgit-browse-file"))])

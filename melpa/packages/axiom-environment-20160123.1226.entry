@@ -1,0 +1,2 @@
+
+(axiom-environment . [(20160123 1226) ((emacs (24 2))) "An environment for using Axiom/OpenAxiom/FriCAS" tar ((:keywords "axiom" "openaxiom" "fricas"))])

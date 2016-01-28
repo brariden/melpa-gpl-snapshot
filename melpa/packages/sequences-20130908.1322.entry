@@ -1,0 +1,2 @@
+
+(sequences . [(20130908 1322) ((emacs (24))) "Ports of some Clojure sequence functions." single ((:keywords "convenience"))])

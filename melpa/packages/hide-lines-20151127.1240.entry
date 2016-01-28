@@ -1,0 +1,2 @@
+
+(hide-lines . [(20151127 1240) nil "Commands for hiding lines based on a regexp" single ((:keywords "convenience") (:url . "https://github.com/vapniks/hide-lines"))])

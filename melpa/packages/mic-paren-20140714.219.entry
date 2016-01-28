@@ -1,0 +1,2 @@
+
+(mic-paren . [(20140714 219) nil "advanced highlighting of matching parentheses" single ((:keywords "languages" "faces" "parenthesis" "matching"))])

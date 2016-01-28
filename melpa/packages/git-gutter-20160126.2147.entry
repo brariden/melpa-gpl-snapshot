@@ -1,0 +1,2 @@
+
+(git-gutter . [(20160126 2147) ((cl-lib (0 5)) (emacs (24))) "Port of Sublime Text plugin GitGutter" single ((:url . "https://github.com/syohex/emacs-git-gutter"))])

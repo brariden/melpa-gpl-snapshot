@@ -1,0 +1,2 @@
+
+(git-dwim . [(20130130 1550) nil "Context-aware git commands such as branch handling" single ((:keywords "git" "tools" "convenience") (:url . "http://www.emacswiki.org/cgi-bin/wiki/download/git-dwim.el"))])

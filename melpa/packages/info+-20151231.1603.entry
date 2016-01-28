@@ -1,0 +1,2 @@
+
+(info+ . [(20151231 1603) nil "Extensions to `info.el'." single ((:keywords "help" "docs" "internal") (:url . "http://www.emacswiki.org/info+.el"))])
