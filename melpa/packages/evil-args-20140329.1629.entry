@@ -1,0 +1,2 @@
+
+(evil-args . [(20140329 1629) ((evil (1 0 8))) "Motions and text objects for delimited arguments in Evil." single ((:keywords "evil" "vim-emulation") (:url . "http://github.com/wcsmith/evil-args"))])

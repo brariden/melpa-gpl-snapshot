@@ -1,0 +1,2 @@
+
+(parent-mode . [(20150824 1800) nil "get major mode's parent modes" single ((:url . "https://github.com/Fanael/parent-mode"))])

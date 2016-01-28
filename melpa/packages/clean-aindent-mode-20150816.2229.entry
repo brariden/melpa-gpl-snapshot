@@ -1,0 +1,2 @@
+
+(clean-aindent-mode . [(20150816 2229) nil "Simple indent and unindent, trims indent white-space" single ((:keywords "indentation" "whitespace" "backspace") (:url . "https://github.com/pmarinov/clean-aindent-mode"))])

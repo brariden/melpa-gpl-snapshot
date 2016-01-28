@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+  <title>GNU ELPA - queue</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<h1 align="center">GNU ELPA - queue</h1>
+<p>Description: Queue data structure</p>
+<p>Latest: <a href="queue-0.1.1.el">queue-0.1.1.el</a>, 2014-May-15, 5.00kB</p>
+<p>Maintainer: Toby Cubitt &lt;toby-predictive@dr-qubit.org></p>
+<p>Home page: <a href="http://www.dr-qubit.org/emacs.php">http://www.dr-qubit.org/emacs.php</a></p>
+<p>Browse ELPA's repository: <a href="http://git.savannah.gnu.org/cgit/emacs/elpa.git/tree/packages/queue">CGit</a> or <a href="http://git.savannah.gnu.org/gitweb/?p=emacs/elpa.git;a=tree;f=packages/queue">Gitweb</a></p>
+<h2>Full description</h2><pre>
+These queues can be used both as a first-in last-out (FILO) and as a
+first-in first-out (FIFO) stack, i.e. elements can be added to the front or
+back of the queue, and can be removed from the front. (This type of data
+structure is sometimes called an "output-restricted deque".)
+
+You create a queue using `make-queue', add an element to the end of the
+queue using `queue-enqueue', and push an element onto the front of the
+queue using `queue-prepend'. To remove the first element from a queue, use
+`queue-dequeue'. A number of other queue convenience functions are also
+provided, all starting with the prefix `queue-'.  Functions with prefix
+`queue--' are for internal use only, and should never be used outside this
+package.
+</pre>
+<h2>Old versions</h2><table cellpadding="3" border="1">
+<tr><td><a href="queue-0.1.el">queue-0.1.el</a></td><td>2012-Nov-29</td><td>4.96kB</td>
+</table>
+</body>

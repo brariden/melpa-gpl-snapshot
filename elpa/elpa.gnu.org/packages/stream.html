@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+  <title>GNU ELPA - stream</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<h1 align="center">GNU ELPA - stream</h1>
+<p>Description: Implementation of streams</p>
+<p>Latest: <a href="stream-2.1.0.el">stream-2.1.0.el</a>, 2015-Nov-12, 10.5kB</p>
+<p>Maintainer: nicolas@petton.fr</p>
+<p>Home page: <a href="stream.html">http://elpa.gnu.org/packages/stream.html</a></p>
+<p>Browse repository: <a href="http://git.savannah.gnu.org/cgit/emacs/elpa.git/tree/packages/stream">CGit</a> or <a href="http://git.savannah.gnu.org/gitweb/?p=emacs/elpa.git;a=tree;f=packages/stream">Gitweb</a></p>
+<h2>Full description</h2><pre>
+This library provides an implementation of streams. Streams are
+implemented as delayed evaluation of cons cells.
+
+Functions defined in `seq.el' can also take a stream as input.
+
+streams could be created from any sequential input data:
+- sequences, making operation on them lazy
+- a set of 2 forms (first and rest), making it easy to represent infinite sequences
+- buffers (by character)
+- buffers (by line)
+- buffers (by page)
+- IO streams
+- orgmode table cells
+- ...
+
+All functions are prefixed with "stream-".
+All functions are tested in test/automated/stream-tests.el
+
+Here is an example implementation of the Fibonacci numbers
+implemented as in infinite stream:
+
+(defun fib (a b)
+ (stream-cons a (fib b (+ a b))))
+(fib 0 1)
+</pre>
+<h2>Old versions</h2><table cellpadding="3" border="1">
+<tr><td><a href="stream-2.0.5.el">stream-2.0.5.el</a></td><td>2015-Nov-05</td><td>10.2kB</td>
+<tr><td><a href="stream-2.0.2.el">stream-2.0.2.el</a></td><td>2015-Oct-31</td><td>9.53kB</td>
+<tr><td><a href="stream-2.0.1.el">stream-2.0.1.el</a></td><td>2015-Oct-27</td><td>9.43kB</td>
+<tr><td><a href="stream-1.0.el">stream-1.0.el</a></td><td>2015-Oct-15</td><td>9.02kB</td>
+<tr><td><a href="stream-1.0.1.el">stream-1.0.1.el</a></td><td>2015-Oct-26</td><td>9.23kB</td>
+</table>
+</body>

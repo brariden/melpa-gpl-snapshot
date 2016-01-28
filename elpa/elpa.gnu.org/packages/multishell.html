@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+  <title>GNU ELPA - multishell</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<h1 align="center">GNU ELPA - multishell</h1>
+<p>Description: facilitate multiple local and remote shell buffers</p>
+<p>Latest: <a href="multishell-1.0.8.el">multishell-1.0.8.el</a>, 2016-Jan-25, 32.9kB</p>
+<p>Home page: <a href="https://github.com/kenmanheimer/EmacsMultishell">https://github.com/kenmanheimer/EmacsMultishell</a></p>
+<p>Browse ELPA's repository: <a href="http://git.savannah.gnu.org/cgit/emacs/elpa.git/tree/packages/multishell">CGit</a> or <a href="http://git.savannah.gnu.org/gitweb/?p=emacs/elpa.git;a=tree;f=packages/multishell">Gitweb</a></p>
+<h2>Full description</h2><pre>
+Easily use and navigate multiple shell buffers, including remote shells.
+Fundamentally, multishell is the function `multishell-pop-to-shell' -
+a la `pop-to-buffer' - plus a keybinding. Together, they enable you to:
+
+* Get to the input point from wherever you are in a shell buffer,
+  ... or to any of your shell buffers, from anywhere inside emacs.
+
+* Use universal arguments to launch and choose among alternate shell buffers,
+  ... and change which is the current default.
+
+* Easily restart disconnected shells, or shells from prior sessions
+  ... the latter from Emacs builtin savehist minibuf history persistence
+
+* Append a path to a new shell name to launch a shell in that directory,
+  ... and use a path with Emacs tramp syntax to launch a remote shell -
+  for example:
+
+  * `#root/sudo:root@localhost:/etc` for a buffer named "*#root*" with a
+    root shell starting in /etc.
+
+  * `/ssh:example.net:` for a shell buffer in your homedir on example.net.
+    The buffer will be named "*example.net*".
+
+  * `#ex/ssh:example.net|sudo:root@example.net:/var/log` for a root shell
+    starting in /var/log on example.net named "*#ex*".
+
+  * 'interior/ssh:gateway.corp.com|ssh:interior.corp.com:' to go via
+    gateway.corp.com to your homedir on interior.corp.com.  The buffer
+    will be named "*interior*". You could append a sudo hop, and so on.
+
+* Thanks to tramp, file visits from the shell will seamlessly be in
+  the auspices of the target account, and relative to the current
+  directory, on the host where the shell is running.
+
+See the `multishell-pop-to-shell` docstring for details.
+
+Customize-group `multishell' to select and activate a keybinding and set
+various behaviors. Customize-group `savehist' to preserve buffer
+names/paths across emacs restarts.
+
+Please use
+[the multishell repository](https://github.com/kenmanheimer/EmacsMultishell)
+issue tracker to report problems, suggestions, etc, and see that
+repository for a bit more documentation.
+
+Change Log:
+
+* 2016-01-24 1.0.8 Ken Manheimer:
+  - Work around the shell/tramp mishandling of remote+sudo+homedir problem!
+    The work around is clean and simple, basically using high-level `cd'
+    API and not messing with the low-level default-directory setting.
+    (Turns out the problem was not in my local config. Good riddance to the
+    awkward failure handler!)
+  - Clean up code resolving the destination shell, starting to document the
+    decision tree in the process. See getting-to-a-shell.md in the
+    multishell repository, https://github.com/kenmanheimer/EmacsMultishell
+  - There may be some shake-out on resolving the destination shell, but
+    this release gets the fundamental functionality soundly in place.
+* 2016-01-23 1.0.7 Ken Manheimer:
+  - Remove notes about tramp remote+sudo+homedir problem. Apparently it's
+    due to something in my local site configuration (happens with -q but
+    not -Q).
+* 2016-01-22 1.0.6 Ken Manheimer:
+  - Add multishell-version function.
+  - Tweak commentary/comments/docstrings.
+  - Null old multishell-buffer-name-history var, if present.
+* 2016-01-16 1.0.5 Ken Manheimer:
+  - History now includes paths, when designated.
+  - Actively track current directory in history entries that have a path.
+    Custom control: multishell-history-entry-tracks-current-directory
+  - Offer to remove shell's history entry when buffer is killed.
+    (Currently the only UI mechanism to remove history entries.)
+  - Fix - prevent duplicate entries for same name but different paths
+  - Fix - recognize and respect tramp path syntax to start in home dir
+  - Simplify history var name, migrate existing history if any from old name
+* 2016-01-04 1.0.4 Ken Manheimer - Released to ELPA
+* 2016-01-02 Ken Manheimer - working on this in public, but not yet released.
+
+TODO:
+
+* Find suitable, internally consistent ways to tidy completions, eg:
+  - first list completions for active shells, then present but inactive,
+    then historical
+  - some way for user to toggle between presenting just buffer names vs
+    full buffer/path
+    - without cutting user off from easy editing of path
+    - maybe use keybindings that wrap minibuffer completion keys
+      - minibuffer-local-completion-map, minibuffer-local-must-match-map
+        - setup minibuffer with these vars just before doing completions
+        - minibuffer exit reverts these vars, if necessary
+      - toggles between name and name/path if last command was one of them
+      - and an instruction in the completion buffer
+      - "complete again immediately to toggle name vs name/path completions"
+* Add custom shell launch prep actions
+  - shell commands to execute when shell name or path matches a regexp
+  - list of [regexp, which (name, path, or both), command]
+  - for, eg, knock commands or interface activations, whatever
+* Try minibuffer field boundary at beginning of tramp path, to see whether
+  the field boundary magically enables tramp path completion.
+* Assess whether deletion of history entry via kill-buffer is sufficient.
+</pre>
+<h2>Old versions</h2><table cellpadding="3" border="1">
+<tr><td><a href="multishell-1.0.7.el">multishell-1.0.7.el</a></td><td>2016-Jan-24</td><td>32.6kB</td>
+<tr><td><a href="multishell-1.0.6.el">multishell-1.0.6.el</a></td><td>2016-Jan-23</td><td>33.5kB</td>
+<tr><td><a href="multishell-1.0.5.el">multishell-1.0.5.el</a></td><td>2016-Jan-22</td><td>30.5kB</td>
+<tr><td><a href="multishell-1.0.4.el">multishell-1.0.4.el</a></td><td>2016-Jan-06</td><td>20.1kB</td>
+</table>
+</body>
