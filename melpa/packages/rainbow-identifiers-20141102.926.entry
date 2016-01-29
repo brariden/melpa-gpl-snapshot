@@ -1,0 +1,2 @@
+
+(rainbow-identifiers . [(20141102 926) ((emacs (24))) "Highlight identifiers according to their names" single ((:url . "https://github.com/Fanael/rainbow-identifiers"))])

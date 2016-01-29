@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+  <title>GNU ELPA - shell-quasiquote</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<h1 align="center">GNU ELPA - shell-quasiquote</h1>
+<p>Description: </p>
+<p>This package has not been released yet.</p>
+<p>Browse repository: <a href="http://git.savannah.gnu.org/cgit/emacs/elpa.git/tree/packages/shell-quasiquote">CGit</a> or <a href="http://git.savannah.gnu.org/gitweb/?p=emacs/elpa.git;a=tree;f=packages/shell-quasiquote">Gitweb</a></p>
+<h2>Full description</h2><pre>
+"Shell quasiquote" -- turn s-expressions into POSIX shell command strings.
+
+Shells other than POSIX sh are not supported.
+
+Quoting is automatic and safe against injection.
+
+  (let ((file1 "file one")
+        (file2 "file two"))
+    (shqq (cp -r ,file1 ,file2 "My Files")))
+      => "cp -r 'file one' 'file two' 'My Files'"
+
+You can splice many arguments into place with ,@foo.
+
+  (let ((files (list "file one" "file two")))
+    (shqq (cp -r ,@files "My Files")))
+      => "cp -r 'file one' 'file two' 'My Files'"
+
+Note that the quoting disables a variety of shell expansions like ~/foo,
+$ENV_VAR, and e.g. {x..y} in GNU Bash.
+
+You can use ,,foo to escape the quoting.
+
+  (let ((files "file1 file2"))
+    (shqq (cp -r ,,files "My Files")))
+      => "cp -r file1 file2 'My Files'"
+
+And ,,@foo to splice and escape quoting.
+
+  (let* ((arglist '("-x 'foo bar' -y baz"))
+         (arglist (append arglist '("-z 'qux fux'"))))
+    (shqq (command ,,@arglist)))
+      => "command -x 'foo bar' -y baz -z 'qux fux'"
+
+Neat, eh?
+</pre>
+</body>
