@@ -26,6 +26,7 @@ This is just a point in time snapshot of the ELPA packages that meet the followi
  * xterm-color - BSD - https://github.com/atomontage/xterm-color
  * rainbow-identifiers - BSD - https://github.com/Fanael/rainbow-identifiers/blob/master/rainbow-identifiers.el
  * orgmode's packages - GPLv3 http://orgmode.org/cgit.cgi/org-mode.git/tree/COPYING
+ * evil-mc - MIT - https://github.com/gabesoft/evil-mc/blob/master/LICENSE
 
 Obviously I'm not claiming ownership of this code; the original licensing information for each package applies.  Look to MELPA.org for current versions of each package.
 
