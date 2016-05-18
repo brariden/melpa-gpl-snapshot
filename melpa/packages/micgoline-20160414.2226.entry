@@ -1,0 +1,2 @@
+
+(micgoline . [(20160414 2226) ((emacs (24 3)) (powerline (2 3))) "powerline mode, color schemes from microsoft and google's logo." single ((:keywords "mode-line" "powerline" "theme") (:url . "https://github.com/yzprofile/micgoline"))])

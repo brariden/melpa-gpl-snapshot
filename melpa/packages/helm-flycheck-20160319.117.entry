@@ -1,0 +1,2 @@
+
+(helm-flycheck . [(20160319 117) ((dash (2 12 1)) (flycheck (0 25 1)) (helm (1 9 3))) "Show flycheck errors with helm" single ((:keywords "helm" "flycheck") (:url . "https://github.com/yasuyk/helm-flycheck"))])

@@ -30,11 +30,8 @@ The debuggers we currently support are:
   kshdb          kshdb          Korn Shell 93u+
   nodejs         nodejs         node.js javascript debugger
   pdb            realgud:pdb    stock C Python debugger
+  ipdb           realgud:ipdb   iPython debugger
   perldb         realgud:perldb stock Perl5 debugger
-  pydb           pydb           slighly enhanced pdb for Python 2.x
-  pydbgr         pydbgr         obsolete trepanning debugger for Python 2.x
-  rb8-trepanning trepan8        MRI Ruby 1.8 and an unpatched YARV 1.9
-  rbx-trepanning trepanx        trepanning debugger for Rubinius Ruby
   remake         remake         GNU Make
   ruby-debug     rdebug         Ruby
   trepanning     trepan         trepanning debugger for a patched Ruby 1.9
@@ -42,6 +39,21 @@ The debuggers we currently support are:
   trepan2        trepan2        trepanning debugger for Python 2.x
   trepan3k       trepan3k       trepanning debugger for Python 3.x
   zshdb          zshdb          Zsh
+
+The following older packages can be found in the realgud-older-debuggers
+package:
+
+  pydb           pydb           slighly enhanced pdb for Python 2.x
+  pydbgr         pydbgr         obsolete trepanning debugger for Python 2.x
+  rb8-trepanning trepan8        MRI Ruby 1.8 and an unpatched YARV 1.9
+  rbx-trepanning trepanx        trepanning debugger for Rubinius Ruby
+
+The following debuggers are found in separate individual packages:
+
+  byebug         realgud:byebug Ruby debugger byebug
+  pry            realgud:pry    Ruby debugger pry
+
+
 
 
 **gdb, jdb, perldb, pdb invocations require the realgud: preface to

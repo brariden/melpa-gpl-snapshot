@@ -1,0 +1,49 @@
+* What is gregorio-mode.el ?
+  This is a major mode derived from the tex-mode in order to edit
+  .gabc files for use with Gregorio. Gregorio is Free Software that is
+  used to typeset Gregorian chant. You can find more about gregorio
+  at its [[http://home.gna.org/gregorio/][home page]].
+* Installation
+** Using GIT
+   If you are on this page, you probably know how to use git. To
+   install this major mode, just do the following:
+
+*** 1. From the terminal, move into the ~/.emacs.d directory:
+   #+BEGIN_SRC bash
+   cd ~/.emacs.d
+   #+END_SRC
+*** 2. Then clone this repository into that directory   
+   #+BEGIN_SRC git
+   git clone https://github.com/cajetanus/gregorio-mode.el.git
+   #+END_SRC
+*** 3. Finally, add the following line to your .emacs file:
+   #+BEGIN_SRC elisp
+   (load "~/.emacs.d/gregorio-mode.el/gregorio-mode")
+   #+END_SRC
+   You can then do C-x C-e at the end of this line, or simply restart
+   Emacs. The major mode will activate when you visit an .gabc file.
+** Using el-get
+   Gregorio-mode is now available in the master branch of the [[https://github.com/dimitri/el-get][el-get
+   package system.]] Simply install el-get using the instructions for
+   the master branch at the above link, and then install the
+   'gregorio-mode' package using this system. You can just type M-x and then
+   #+BEGIN_SRC 
+   el-get-install
+   #+END_SRC
+   Followed by 'gregorio-mode'. Then all should be automatic.
+
+   You can also install the gregorio mode recipe in your own
+   'el-get-user/recipes' folder by copying [[https://raw.github.com/cajetanus/gregorio-mode.el/master/gregorio-mode.rcp][this file]] into
+   #+BEGIN_SRC 
+      ~/.emacs.d/el-get-user/recipes
+   #+END_SRC
+   Note you might have to create this directory if you don't have it yet.
+* Documentation
+** Local html documentation
+   The folder that you obtained via git contains some documentation
+   in html format. Simply visit open this folder with your webbrowser:
+   #+BEGIN_SRC bash
+   ~/.emacs.d/gregorio-mode.el/docs/
+   #+END_SRC
+** Online html documentation
+   The documentation can also be viewed [[http://chant.fsspx.pl/gregorio-mode/docs/][HERE]] online. 

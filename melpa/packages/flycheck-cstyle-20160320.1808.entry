@@ -1,0 +1,2 @@
+
+(flycheck-cstyle . [(20160320 1808) ((flycheck (0 24)) (emacs (24 4))) "Integrate cstyle with flycheck" single ((:url . "https://github.com/alexmurray/flycheck-cstyle"))])

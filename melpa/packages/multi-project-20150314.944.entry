@@ -1,2 +1,0 @@
-
-(multi-project . [(20150314 944) nil "Easily work with multiple projects." single ((:keywords "project" "management") (:url . "https://bitbucket.org/ellisvelo/multi-project/overview"))])

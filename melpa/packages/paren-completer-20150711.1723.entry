@@ -1,2 +1,0 @@
-
-(paren-completer . [(20150711 1723) ((emacs (24 3))) "Automatically, language agnostically, fill in delimiters." single ((:keywords "convenience") (:url . "https://github.com/MatthewBregg/paren-completer"))])

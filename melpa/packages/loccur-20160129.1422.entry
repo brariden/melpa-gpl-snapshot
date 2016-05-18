@@ -1,0 +1,2 @@
+
+(loccur . [(20160129 1422) ((cl-lib (0))) "Perform an occur-like folding in current buffer" single ((:keywords "matching") (:url . "https://github.com/fourier/loccur"))])

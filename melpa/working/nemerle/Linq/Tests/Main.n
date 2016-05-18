@@ -1,0 +1,44 @@
+﻿using System;
+using System.Console;
+using Nemerle.Utility;
+
+using System.Linq;
+using System.Linq.Expressions;
+using Nemerle.Linq;
+
+module Program
+{
+		[Record]
+		class User
+		{
+			[Accessor] _firstName : string;
+			[Accessor] _lastName  : string;
+			[Accessor] _age       : int;
+			
+			[Nemerle.OverrideObjectEquals]
+			public Equals(other : User) : bool
+			{
+				     _firstName == other.FirstName
+					&& _lastName  == other.LastName
+					&& _age       == other.Age;
+			}
+			
+			public override ToString() : string
+			{
+				$"User info: Name - '$_firstName $_lastName' Age - $_age"
+			}
+		}
+
+
+  Main() : void
+  {
+    def res = NUnit.ConsoleRunner.Runner.Main(array[typeof(Program).Assembly.Location]);
+      
+    when (res != 0)
+    {
+      Console.BackgroundColor = ConsoleColor.Red;
+      Console.WriteLine("Error!");
+      _ = Console.ReadLine();
+    }
+  }
+}

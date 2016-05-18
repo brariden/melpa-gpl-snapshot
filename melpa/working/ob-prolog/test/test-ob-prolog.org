@@ -1,0 +1,49 @@
+#+PROPERTY: results silent scalar
+#+TITLE: Tests for ob-prolog
+
+* Basic prolog source block
+  #+NAME: basic-test
+  #+BEGIN_SRC prolog
+    :- format('Hello, ~a.', org_mode).
+  #+END_SRC
+
+* Source block with goal
+  #+NAME: goal-test
+  #+BEGIN_SRC prolog :goal main
+    main :-
+        write('Hello, world!').
+  #+END_SRC
+
+* Simple running session
+  #+NAME: session-test
+  #+HEADER: :session *prolog-1*
+  #+HEADER: :goal fourtyone(A)
+  #+BEGIN_SRC prolog
+    fourtyone(A) :- A is 41.
+  #+END_SRC
+
+* Calling predicate from session
+  #+NAME: other-predicate-test
+  #+HEADER: :goal answer(A)
+  #+HEADER: :session *prolog-1*
+  #+BEGIN_SRC prolog
+    answer(C) :-
+        fourtyone(B),
+        C is B+1.
+  #+END_SRC
+
+
+* Test interaction with other blocks
+  #+NAME: f
+  #+BEGIN_SRC elisp :results vector
+    '(1 2 3)
+  #+END_SRC
+
+  #+NAME: interaction-test
+  #+HEADER: :var a=f()
+  #+HEADER: :var b=0
+  #+HEADER: :goal main(A)
+  #+HEADER: :session *prolog-1*
+  #+BEGIN_SRC prolog
+    main(B) :- recorded(a, A), recorded(b, C), append([C], A, B).
+  #+END_SRC

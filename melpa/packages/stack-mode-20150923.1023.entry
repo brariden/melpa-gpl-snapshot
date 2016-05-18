@@ -1,2 +1,0 @@
-
-(stack-mode . [(20150923 1023) ((haskell-mode (13 14)) (cl-lib (0 5)) (flycheck (0 23))) "A minor mode enabling various features based on stack-ide." tar ((:keywords "haskell" "stack") (:url . "https://github.com/commercialhaskell/stack-ide"))])

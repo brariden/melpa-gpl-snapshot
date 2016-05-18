@@ -1,0 +1,17 @@
+* My Address Book
+** Inbox
+   | name           | pn-title | mail                | organization | timestamp           | snippet          |
+   |----------------+----------+---------------------+--------------+---------------------+------------------|
+   | Alice Stoodley |          | alice@example.edu   | A Univ.      | 2016-02-22 15:52:22 | Hi, Alice        |
+   | Bob Marconi    | san      | bob@example.com     | B & Co.      | 2016-02-22 16:02:32 | Dear Marconi-san |
+   | Charlie Tobias | sama     | charlie@example.com | C & Co.      | 2016-02-22 16:06:35 |                  |
+
+** Business
+   | name           | mail               |    phone | organization |
+   |----------------+--------------------+----------+--------------|
+   | Donald Stanger | donald@example.com | 000-0000 | Donald & Co. |
+
+** Social
+   | name            | mail                 |          |               |
+   |-----------------+----------------------+----------+---------------|
+   | Eryn Dickey     | eryn@example.com     | 000-0002 | Dickey & Co.  |

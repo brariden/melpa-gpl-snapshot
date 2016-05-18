@@ -1,2 +1,0 @@
-
-(grails-projectile-mode . [(20141229 1329) ((projectile (0 10 0)) (emacs (24)) (cl-lib (0 5))) "Grails mode with Projectile for projects management." tar ((:keywords "grails" "projectile") (:url . "https://github.com/yveszoundi/grails-projectile-mode"))])

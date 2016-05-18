@@ -1,2 +1,0 @@
-
-(vagrant . [(20141125 2159) nil "Manage a vagrant box from emacs" single ((:keywords "vagrant" "chef") (:url . "https://github.com/ottbot/vagrant.el"))])

@@ -1,0 +1,31 @@
+language: emacs-lisp
+sudo: false
+before_install:
+  # install evm
+  - curl -fsSL https://raw.githubusercontent.com/rejeep/evm/master/go | bash
+  - export PATH="$HOME/.evm/bin:$PATH"
+  - evm config path /tmp
+
+  # install emacs 24
+  - evm install emacs-24.5-travis --use --skip
+
+  # install cask
+  - curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python
+  - export PATH="$HOME/.cask/bin:$PATH"
+
+  # install emacs
+  - evm install $EVM_EMACS --use --skip
+
+  # setup cask
+  - cask
+  - cask clean-elc
+  - cask build
+script:
+  - emacs --version
+  - cask exec ert-runner test/keyset-test.el
+env:
+  - EVM_EMACS=emacs-24.1-travis
+  - EVM_EMACS=emacs-24.2-travis
+  - EVM_EMACS=emacs-24.3-travis
+  - EVM_EMACS=emacs-24.4-travis
+  - EVM_EMACS=emacs-24.5-travis

@@ -1,9 +1,9 @@
 ;;; helm-ls-hg.el --- List hg files in hg project. -*- lexical-binding: t -*-
-;; Package-Version: 20150909.43
 
 ;; Copyright (C) 2012 ~ 2015 Thierry Volpiatto <thierry.volpiatto@gmail.com>
 
 ;; Package-Requires: ((helm "1.7.8"))
+;; Package-Version: 20150909.43
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by

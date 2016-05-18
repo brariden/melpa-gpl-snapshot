@@ -1,0 +1,20 @@
+;; history archived.
+
+;; 2015-05-20 changes won't be logged here anymore, unless incompatible change.
+;; version 2.0.0, 2015-05-20 • major rewrite and rename. prepare for MELPA
+;; version 1.6.9, 2014-05-29 • turned on undo in output buffer
+;; version 1.6.8, 2013-07-05 • More options added to “xah-find-text”, “xah-find-text-regex”, “xah-find-replace-text”. Output format improved. Much code refactoring.
+;; version 1.6.7, 2013-06-17 • WARNING the argument for case search is reversed for xah-find-replace-text-regex. • added a case search option for xah-find-text-regex
+;; version 1.6.6, 2012-12-16 Now, the backup file's suffix is same for all backup files created during one command call. Before, each backup file has timestamp when the backup file is created, that is, their seconds will differ.
+;; version 1.6.5, 2012-12-08 improved the prompt for “xah-find-count” and also its output.
+;; version 1.6.4, 2012-12-06 Backup file name now has this format: 「~‹x›~‹datetimestamp›~」 where ‹x› is 「t」 for plain text replace and 「r」 for regex replace. e.g. 「x.html~r~20121206_095642~」 Also, modified the prompt for 「xah-find-replace-text-regex」 so it is consistent with the function's argument.
+;; version 1.6.3, 2012-11-30 fixed a bug: when one of the find or find/replace is called, and the temp output buffer already exits, the highlighting doesn't work. Now it does work.
+;; version 1.6.2, 2012-11-29 trival change. Changed output file names to consistently start with “•” instead of some “◆”
+;; version 1.6.1, 2012-11-20 improved the highlighting for xah-find-replace-text. It now highlighting the replaced text, instead of the find text.
+;; version 1.6, 2012-08-12 added xah-find-count.
+;; version 1.5, 2012-07-24 minor modification to the output format, made more consistent, added a utf-8 header.
+;; version 1.4, 2012-07-21 added prompt for a dir on “xah-find-text” and all others.
+;; version 1.3, 2012-07-19 added “xah-find-replace-text-regex”
+;; version 1.2, 2012-07-14 added “xah-find-replace-text”
+;; version 1.1, 2012-05-11 modified xah-find-text so that same line are not printed.
+;; version 1.0, 2012-04-02 First version.

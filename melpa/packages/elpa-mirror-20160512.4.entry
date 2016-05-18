@@ -1,0 +1,2 @@
+
+(elpa-mirror . [(20160512 4) nil "Create local package repository" single ((:keywords "cloud" "mirror" "elpa") (:url . "http://github.com/redguardtoo/elpa-mirror"))])

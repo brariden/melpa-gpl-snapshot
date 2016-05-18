@@ -1,0 +1,2 @@
+
+(contextual . [(20160131 1237) ((emacs (24)) (dash (2 12 1)) (cl-lib (0 5))) "Contextual profile management system" single ((:keywords "convenience" "tools") (:url . "https://github.com/lshift-de/contextual"))])

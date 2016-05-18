@@ -1,0 +1,13 @@
+{
+  "name": "Zeitgeist Plugin",
+  "description": "Sends events to Zeitgeist about sites you visit",
+  "version": "2.0",
+  "minimum_chrome_version": "7",
+  "background_page": "background.html",
+  "permissions": [
+    "bookmarks", "tabs", "http://*/*", "https://*/*"
+  ],
+  "plugins": [
+    { "path": "plugin/libzeitgeist-npapi-plugin.so" }
+  ]
+}

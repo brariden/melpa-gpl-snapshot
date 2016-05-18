@@ -1,0 +1,2 @@
+
+(foreign-regexp . [(20160318 1107) nil "search and replace by foreign regexp." tar ((:keywords "convenience" "emulations" "matching" "tools" "unix" "wp"))])

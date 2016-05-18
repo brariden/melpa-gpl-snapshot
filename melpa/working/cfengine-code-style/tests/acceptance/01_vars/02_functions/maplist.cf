@@ -1,0 +1,35 @@
+#######################################################
+#
+# Test maplist()
+#
+#######################################################
+
+body common control
+{
+      inputs => { "../../default.cf.sub" };
+      bundlesequence  => { default("$(this.promise_filename)") };
+      version => "1.0";
+}
+
+#######################################################
+
+bundle agent test
+{
+  vars:
+      "testlist" slist => { "zero", "two", "three's", "four-fore:quatre", "last" };
+      "empty" slist => { };
+
+      "mapped_testlist" slist => maplist("value=$(this)", "testlist");
+      "mapped_empty" slist => maplist("value=$(this)", empty);
+      "mapped_inline" slist => maplist("value=$(this)", '["a", "b", "c"]');
+}
+
+#######################################################
+
+bundle agent check
+{
+  methods:
+      "check"  usebundle => dcs_check_state(test,
+                                           "$(this.promise_filename).expected.json",
+                                           $(this.promise_filename));
+}

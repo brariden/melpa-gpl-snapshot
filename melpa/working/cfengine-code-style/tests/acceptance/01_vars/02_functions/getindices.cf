@@ -1,0 +1,40 @@
+#######################################################
+#
+# Test that getindices on an array variable will resolve to 2 levels
+#
+#######################################################
+
+body common control
+{
+      inputs => { "../../default.cf.sub" };
+      bundlesequence  => { default("$(this.promise_filename)") };
+      version => "1.0";
+}
+
+#######################################################
+
+bundle agent test
+{
+  vars:
+      "user[name]"              string => "zamboni";
+      "user[fullname][first]"   string => "Diego";
+      "user[fullname][last]"    string => "Zamboni";
+      "user[dirs]"              slist => { "/home/zamboni",
+                                           "/tmp/zamboni",
+                                           "/export/home/zamboni" };
+
+      "fields"     slist => getindices("user");
+      "userfields" slist => getindices("user[fullname]");
+      "inline_fields" slist => getindices('{ "foo": 1, "bar": 2 }');
+      "inline_numfields" slist => getindices('[ "foo", 1, "bar", 2 ]');
+}
+
+#######################################################
+
+bundle agent check
+{
+  methods:
+      "check"  usebundle => dcs_check_state(test,
+                                           "$(this.promise_filename).expected.json",
+                                           $(this.promise_filename));
+}

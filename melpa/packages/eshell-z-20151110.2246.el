@@ -4,8 +4,8 @@
 
 ;; Author: Chunyang Xu <xuchunyang56@gmail.com>
 ;; Package-Requires: ((cl-lib "0.5"))
-;; Keywords: convenience
 ;; Package-Version: 20151110.2246
+;; Keywords: convenience
 ;; Version: 0.2.1
 ;; Homepage: https://github.com/xuchunyang/eshell-z
 

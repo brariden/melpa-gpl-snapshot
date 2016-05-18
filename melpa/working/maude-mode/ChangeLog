@@ -1,0 +1,50 @@
+2010-06-08  Rudolf Schlatte  <rudi@constantly.at>
+
+	* Release v0.2
+
+	* Also realize that ChangeLog hasn't been kept up-to-date for the
+	last 2 years :(
+
+2008-04-23  Rudi Schlatte  <rudi@constantly.at>
+
+	* maude-mode.el (maude-current-line): Function added.
+	(maude-indent-line): Use it.
+
+2007-07-11  Rudi Schlatte  <rudi@constantly.at>
+
+	* maude-mode.el (maude-start-of-comment): renamed from
+	maude-in-comment-p, return start of comment position instead of
+	t/nil.
+	(maude-indent-line): Support for Maude object-based notation.
+
+2007-07-06  Rudi Schlatte  <rudi@constantly.at>
+
+	* maude-mode.el: initial xemacs support, lightly tested
+
+2007-07-05  Rudi Schlatte  <rudi@constantly.at>
+
+	* maude-mode.el (maude-font-lock-keywords, maude-warnings): fth,
+	endfth are in core maude.
+
+2007-06-27  Rudi Schlatte  <rudi@constantly.at>
+
+	* maude-mode.el (maude-font-lock-keywords): more permissive
+	variable names.
+	(maude-indent-line): use whitespace instead of word boundaries for
+	indentation of keywords, so e.g. "in-buffer" at beginning of line
+	is not indented like the command "in".
+
+2007-06-26  Rudi Schlatte  <rudi@constantly.at>
+
+	* maude-mode.el (maude-mode-menu, maude-mode): Add "Maude"
+	pull-down menu.
+
+2007-06-25  Rudi Schlatte  <rudi@constantly.at>
+
+	* maude-mode.el: change fontification so that equations and
+	rewrite rules across multiple lines are colored.  Support views in
+	core maude.
+	(maude-flk-label, maude-font-lock-keywords): support typenames
+	like Map{Nat,Qid} etc.
+	(maude-font-lock-keywords): Support --- comments
+

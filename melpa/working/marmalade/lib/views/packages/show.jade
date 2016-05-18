@@ -1,0 +1,58 @@
+// Marmalade: an Emacs Lisp package server.
+// Copyright (C) 2010 Google Inc.
+
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+h2
+  span.name= pkg.name
+  - if (version)
+    = " "
+    span.version= version.version.join('.')
+
+- if (version)
+  h3.description= version.description
+
+.metadata
+  .label Install:
+  pre M-x package-install #{pkg.name}
+  - if (version && version.headers['author'])
+    .label Author:
+    .author= authorName(version.headers['author'])
+  - else
+    .label
+    .author
+  - if (version && version.headers['url'])
+    a(href=h(version.headers['url'])) Homepage
+  - else
+    a <!-- Homepage Placeholder -->
+  - if (version)
+    a(href=h(packageDownloadPath(version))) Download
+  - else
+    a <!-- Download Placeholder -->
+  .label.owners Owner#{_.keys(pkg.owners).length == 1 ? "" : "s"}:
+  ul.owners
+    - each email, owner in pkg.owners
+      li
+        a(href=h("/profiles/" + owner))
+          img(src=gravatar(pkg.owners[owner]), alt=owner)
+    - if (ownsPackage)
+      li.add
+        a(href=currentUrl + '/owners/new') Add Owner
+  - if (ownsPackage)
+    form(accept-charset="utf-8", action="/packages/" + pkg._name + "/" + (version ? version.version.join('.') : ''), method="post").delete.normal
+      input(type="hidden", name="_method", value="delete")
+      input(type="submit", value=(version ? "Delete Version" : "Delete Package"))
+
+- if (version && version.commentary)
+  .commentary!= formatText(version.commentary)

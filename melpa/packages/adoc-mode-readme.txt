@@ -80,7 +80,7 @@ Each of the following is optional
 
 - sophisticated highlighting
 
-- promote / denote title
+- promote / demote title
 
 - toggle title type between one line title and two line title
 
@@ -95,7 +95,7 @@ Each of the following is optional
 
 The next features I plan to implement
 
-- Denote / promote for list items
+- Demote / promote for list items
 - Outline support also for two line titles
 - Correctly highlighting backslash escapes
 

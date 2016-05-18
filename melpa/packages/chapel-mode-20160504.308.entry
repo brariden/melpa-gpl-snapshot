@@ -1,0 +1,2 @@
+
+(chapel-mode . [(20160504 308) nil "a CC Mode for Chapel derived from derived-mode-ex.el" single ((:keywords "chapel" "languages" "oop"))])

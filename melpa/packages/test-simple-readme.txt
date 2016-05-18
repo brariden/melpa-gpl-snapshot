@@ -1,6 +1,6 @@
 test-simple.el is:
 
-* Simple. No need for
+* Simple.  No need for
   - context macros,
   - enclosing specifications,
   - required test tags.
@@ -11,7 +11,7 @@ test-simple.el is:
 
 * Accommodates both interactive and non-interactive use.
    - For interactive use, one can use `eval-last-sexp', `eval-region',
-     and `eval-buffer'. One can `edebug' the code.
+     and `eval-buffer'.  One can `edebug' the code.
    -  For non-interactive use, run:
        emacs --batch --no-site-file --no-splash --load <test-lisp-code.el>
 

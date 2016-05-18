@@ -1,0 +1,95 @@
+* emacs-fasd
+
+An Emacs extension to integrate [[https://github.com/clvv/fasd][Fasd]]:
+
+#+BEGIN_QUOTE
+Fasd (pronounced similar to "fast") is a command-line productivity booster. Fasd offers quick access to files and directories for POSIX shells. It is inspired by tools like autojump, z and v. Fasd keeps track of files and directories you have accessed, so that you can quickly reference them in the command line.
+#+END_QUOTE
+
+*** Prerequisites
+
+- fasd
+
+  https://github.com/clvv/fasd
+
+
+*** Installation
+
+**** quelpa
+
+=quelpa= is at https://github.com/quelpa/quelpa
+
+#+BEGIN_SRC emacs-lisp
+(quelpa '(fasd :repo "steckerhalter/emacs-fasd" :fetcher github))
+#+END_SRC
+
+Since the recipe is stored in melpa this also works:
+
+#+BEGIN_SRC emacs-lisp
+(quelpa 'fasd)
+#+END_SRC
+
+Interactively: =M-x quelpa fasd RET=.
+
+**** MELPA
+
+You can install =fasd.el= using the packages on [[http://melpa.milkbox.net/][Melpa]].
+
+Make sure you have something like the following in your Emacs startup file (=~/.emacs.d/init.el=, or =~/.emacs=):
+
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/"))
+#+END_SRC
+
+To make that take effect, either evaluate that elisp expression or restart Emacs.
+
+Then use M-x package-list-packages, select =fasd= from the list by pressing i, then press x to execute the changes. At that point, the package will be installed.
+
+**** El-Get
+
+Example recipe for el-get:
+
+#+BEGIN_SRC emacs-lisp
+(:name fasd
+       :type github
+       :url "https://github.com/steckerhalter/emacs-fasd"
+       :depends (grizzl)
+       :postinit (progn
+                   (global-set-key (kbd "C-h C-/") 'fasd-find-file)
+                   (global-fasd-mode 1)))
+#+END_SRC
+
+*** Usage
+
+Add a shortcut key for =fasd-find-file= and enable the =global-fasd-mode= which makes sure that opening files or directories in Emacs updates the fasd database.
+
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "C-h C-/") 'fasd-find-file)
+  (global-fasd-mode 1)
+#+END_SRC
+
+Calling =fasd-find-file= with a prefix argument of
+
+- =C-u= lists only directories
+- =M--= lists only files
+
+With no prefix it shows files and directories.
+
+**** Options
+
+Use the customize interface:
+
+=M-x customize-group RET fasd RET=
+
+***** Initial Prompt
+
+Usually =fasd= will prompt for a initial query. To turn that off and get all results directly, set =fasd-enable-initial-prompt= to =nil=.
+
+***** Completion Function
+
+The default completion uses =grizzl=. If you want to use =ido=, =helm= or something else, customize =fasd-completing-read-function=.
+
+***** Standard search
+
+By default the =fasd= search parameter is =-a= which searches files and directories, you can customize this with the =fasd-standard-search= option.

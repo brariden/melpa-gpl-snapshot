@@ -1,0 +1,2 @@
+
+(ranger . [(20160516 933) ((emacs (24 4))) "Make dired more like ranger" single ((:keywords "files" "convenience") (:url . "https://github.com/ralesi/ranger"))])

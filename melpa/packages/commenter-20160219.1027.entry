@@ -1,0 +1,2 @@
+
+(commenter . [(20160219 1027) ((emacs (24 4)) (let-alist (1 0 4))) "multiline-comment support package" single ((:keywords "comment") (:url . "https://github.com/yuutayamada/commenter"))])

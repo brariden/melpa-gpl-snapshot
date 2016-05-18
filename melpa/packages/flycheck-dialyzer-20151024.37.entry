@@ -1,2 +1,0 @@
-
-(flycheck-dialyzer . [(20151024 37) ((flycheck (0 18))) "Support dialyzer in flycheck" single nil])

@@ -1,2 +1,0 @@
-
-(monroe . [(20141111 307) nil "Yet another client for nREPL" single ((:keywords "languages" "clojure" "nrepl" "lisp") (:url . "http://www.github.com/sanel/monroe"))])

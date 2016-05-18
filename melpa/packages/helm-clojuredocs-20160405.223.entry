@@ -1,0 +1,2 @@
+
+(helm-clojuredocs . [(20160405 223) ((edn (1 1 2)) (helm (1 5 7))) "search for help in clojuredocs.org" single ((:keywords "helm" "clojure") (:url . "https://github.com/mbuczko/helm-clojuredocs"))])

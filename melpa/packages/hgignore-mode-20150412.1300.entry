@@ -1,2 +1,0 @@
-
-(hgignore-mode . [(20150412 1300) nil "a major mode for editing hgignore files" single ((:keywords "convenience" "vc" "hg") (:url . "http://github.com/omajid/hgignore-mode"))])

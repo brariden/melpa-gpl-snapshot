@@ -34,7 +34,11 @@ for example, add a make compilation (with a template "make-dir"):
 
 You can use filename pattern:
 (setq multi-compile-alist '(
-    ("\\.txt\\'" . (("text-filename" . "echo %file-name")))
+    ("\\.txt\\'" . (("text-filename" . "echo %file-name")))))
+
+Or add a pattern for all files:
+(setq multi-compile-alist '(
+    ("\\.*" . (("any-file-command" . "echo %file-name")))))
 
 You can use different backends for the menu:
 (setq multi-compile-completion-system 'ido)

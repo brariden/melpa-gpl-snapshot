@@ -1,0 +1,99 @@
+#+TITLE: ergoemacs-status
+This is a modernized mode-line (outside emacs this is called a status
+bar). This status bar changes its contents based on window size:
+
+#+ATTR_HTML: title="screenshot "
+[[./img/small-status.png]]
+
+With a large window, a large amount of information is displayed:
+
+#+ATTR_HTML: title="screenshot"
+[[./img/large-status.png]]
+
+* Getting It
+** Requirements
+   | package    | version  |
+   |------------+----------|
+   | emacs      | >= 23    |
+   | [[https://github.com/milkypostman/powerline][powerline]]  | >= 2.3   |
+   | [[https://github.com/ryuslash/mode-icons][mode-icons]] | >= 0.10  |
+
+
+** Starting status-bar
+To use  library in your load path and use
+
+#+BEGIN_SRC emacs-lisp
+ (require 'ergoemacs-status)
+ (ergoemacs-status-mode)    
+#+END_SRC
+* Features
+The main features include:
+- Iconic display of text properties
+- Easy to Hide or highlight minor modes
+- Very easy to configure
+
+* Customizing status-bar
+** Changing what elements are displayed
+You can change what elements are displayed by right-clicking on a
+blank area in the status bar. This brings up a list of information that is displayed on the status-bar:
+
+[[./img/status-popup.png]]
+
+You can select or deselect what is shown in the menu-bar.
+
+This configuration is saved for the next emacs session.
+
+** Changing the order of the status bar elements
+You can change the display order of any element by Alt+clicking and
+then dragging the element around.
+
+The element you select will be displayed and changed as you move your mouse.
+
+For example Alt+clicking on the linux icon, highlights the encoding
+section of the mode-line or status bar:
+
+[[./img/status-select.png]]
+
+By dragging, you can then move the element:
+
+[[./img/status-select-move.png]]
+
+This configuration is saved for the next emacs session.
+
+** Hiding/displaying minor-modes
+
+By default, the ergoemacs-status hides minor modes based on the size
+of your window.  However, you can permanently hide by clicking on the
+mode. In minor modes without specific menus, the hide button will be in
+the center:
+
+[[./img/hide-1.png]]
+
+If the minor mode has it's own menus, like =flycheck-mode=, the hide
+button will be on the bottom of the menus:
+
+[[./img/hide-2.png]]
+
+If you change your mind and want to show the minor mode, you can click
+on the up-arrow, then the hidden minor mode and, and then "Show this
+minor mode":
+
+[[./img/show.png]]
+
+This configuration in saved for the next emacs session.
+
+You can also suppress a mode from being in the hidden modes popup or
+in the status-bar / mode-line: This is done by adding the mode symbol
+to the variable =ergoemacs-status--suppressed-minor-modes=.  For
+example, to hide =flyspell-mode=, you can add the following
+
+#+BEGIN_SRC emacs-lisp
+  (push 'flyspell-mode ergoemacs-status--suppressed-minor-modes)
+#+END_SRC
+
+after loading =ergoemacs-status=.  This is saved in your
+initialization settings like =~/.emacs=
+
+By default =isearch-mode= is suppressed in =ergoemacs-status=.
+
+* Hacking status-bar

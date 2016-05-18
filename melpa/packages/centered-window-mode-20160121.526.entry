@@ -1,2 +1,0 @@
-
-(centered-window-mode . [(20160121 526) nil "Center the text when there's only one window" single ((:keywords "faces" "windows") (:url . "https://github.com/ikame/centered-window-mode"))])

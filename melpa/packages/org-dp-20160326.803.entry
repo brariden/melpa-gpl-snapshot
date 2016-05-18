@@ -1,0 +1,2 @@
+
+(org-dp . [(20160326 803) ((cl-lib (0 5))) "Declarative Local Programming with Org Elements" tar ((:url . "https://github.com/tj64/org-dp"))])

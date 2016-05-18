@@ -1,0 +1,89 @@
+\documentclass[11pt]{article}
+\usepackage[latin2]{inputenc}
+\usepackage{a4wide}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue}
+\title{ {{- title|el }} Documentation}
+\author{ThingDoc}
+
+\begin{document}
+
+\maketitle
+\begin{center}
+{%- if titleimage -%}
+\includegraphics[width=8cm]{ {{- imagedir|el }}/{{ titleimage|el }}}
+{%- else %}
+\includegraphics[width=8cm]{logo.png}
+{%- endif %}
+\end{center}
+{% if titledesc -%}
+{{ titledesc|join(' ')|el }}
+{%- endif %}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Bill of Materials}
+List of things you need to build the machine divided by categories.
+{% for category in bom %}
+\subsection{ {{- category|el }}}
+\begin{itemize}
+{% for id, cnt in bom[category].iteritems() %}
+{%- if tree[id].common -%}
+\item {{ cnt|el }}x {{ tree[id].name|el }}
+{% else -%}
+\item {{ cnt|el }}x \hyperlink{thing_{{ id|el }}}{ {{- tree[id].name|el }}}
+{% endif %}
+{%- endfor -%}
+\end{itemize}
+{% endfor %}
+\newpage
+
+\section{Things Overview}
+List of things and their descriptions.
+{% for thing in tree.itervalues() %}
+{%- if thing.id != 1 and thing.common == False %}
+\hypertarget{thing_{{ thing.id|el }}}{\subsection{ {{- thing.name|el }}}}
+{%- if thing.desc %}
+{{ thing.desc|join('\n')|el }}
+{%- endif %}
+{%- if thing.image %}
+\includegraphics[width=4cm]{ {{- imagedir|el }}/{{ thing.image|el }}}
+{%- endif %}
+{% endif -%}
+{% endfor %}
+\newpage
+
+\section{Assembly Instructions}
+{% for i in instr %}
+\subsection{Assemble {{ tree[i[0]].name|el }}}
+{%- if tree[i[0]].using %}
+Things needed:
+\begin{itemize}
+{%- for id, cnt in tree[i[0]].using.iteritems() %}
+{%- if tree[id].common %}
+\item {{ cnt|el }}x {{ tree[id].name|el }}
+{%- else %}
+\item {{ cnt|el }}x \hyperlink{thing_{{ id|el }}}{ {{- tree[id].name|el }}}
+{%- endif %}
+{%- endfor %}
+\end{itemize}
+{% endif -%}
+Steps:
+\begin{enumerate}
+{% for j in i[1:] -%}
+{%- if j.img -%}
+\item {{ j.text|el }}\\ \includegraphics[width=4cm]{ {{- imagedir|el }}/{{ j.img|el }}}
+{%- else -%}
+\item {{ j.text|el }}
+{%- endif %}
+{% endfor -%}
+\end{enumerate}
+{% endfor %}
+\newpage
+
+\end{document}

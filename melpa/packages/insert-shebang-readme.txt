@@ -10,10 +10,6 @@ Unless installed from a `package', add the directory containing
 this file to `load-path', and then:
 (require 'insert-shebang)
 
-Then enable it globally using:
-
-(add-hook 'find-file-hook 'insert-shebang)
-
 Customize
 M-x customize-group RET insert-shebang RET
 

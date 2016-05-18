@@ -1,2 +1,0 @@
-
-(drawille . [(20160114 607) ((cl-lib (0 5))) "Drawille implementation in elisp" single ((:keywords "graphics") (:url . "https://github.com/sshbio/elisp-drawille"))])

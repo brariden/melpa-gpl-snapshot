@@ -1,0 +1,2 @@
+
+(rectangle-utils . [(20160427 1224) ((emacs (24)) (cl-lib (0 5))) "Some useful rectangle functions." single ((:url . "https://github.com/thierryvolpiatto/rectangle-utils"))])

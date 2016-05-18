@@ -1,0 +1,343 @@
+#!/usr/bin/env python
+
+# Copyright (C) 2012 Collabora Ltd
+# Copyright (C) 2012 Intel Corporation
+#
+# This library is free software; you can redistribute it and/or
+# modify it under the terms of the GNU Lesser General Public
+# License as published by the Free Software Foundation; either
+# version 2 of the License, or (at your option) any later version.
+#
+# This library is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU# Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public
+# License along with this library; if not, write to the
+# Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+# Boston, MA 02111-1307, USA.
+#
+# Written by: Seif Lotfy <seif.lotfy@collabora.co.uk>
+
+from gi.repository import TelepathyGLib as Tp
+from gi.repository import GObject, Gio
+from zeitgeist.client import ZeitgeistClient
+from zeitgeist.datamodel import Event, Subject, Interpretation, Manifestation
+from zeitgeist.mimetypes import get_interpretation_for_mimetype
+
+import json
+
+GObject.threads_init ()
+
+ZG_ACTOR = "dbus://org.freedesktop.Telepathy.Logger.service"
+TP_ACCOUNT_PATH = "x-telepathy-account-path:%s"
+TP_IDENTIFIER = "x-telepathy-identifier:%s"
+
+dbus = Tp.DBusDaemon.dup ()
+zg_client = ZeitgeistClient ()
+
+def callback (ids):
+    print ids
+  
+def error_handler (error):
+    print error
+
+def create_event (account, channel):
+    target = channel.get_target_contact ()
+    event_template = Event.new_for_values (
+        actor = ZG_ACTOR,
+        interpretation = Interpretation.ACCESS_EVENT,
+        manifestation = Manifestation.USER_ACTIVITY \
+            if channel.get_properties ("requested") else Manifestation.WORLD_ACTIVITY,
+        origin = TP_ACCOUNT_PATH % account.get_object_path ()[len (Tp.ACCOUNT_OBJECT_PATH_BASE):])
+    event_template.subjects.append (
+        Subject.new_for_values (
+            uri = "",
+            interpretation = Interpretation.IMMESSAGE,
+            manifestation = Manifestation.SOFTWARE_SERVICE,
+            mimetype = "plain/text",
+            origin = TP_IDENTIFIER % target.get_identifier (),
+            text = target.get_alias (),
+            storage = "net"))
+    event_template.subjects.append (
+        Subject.new_for_values (
+            uri = TP_IDENTIFIER % target.get_identifier (),
+            interpretation = Interpretation.CONTACT,
+            manifestation = Manifestation.CONTACT_LIST_DATA_OBJECT,
+            origin = TP_IDENTIFIER % target.get_identifier (),
+            text = target.get_alias (),
+            storage = "net"))
+    return event_template
+
+def print_channel (event):
+    print "Event:"
+    print "    - timestamp:", event.timestamp
+    print "    - actor", event.actor
+    print "    - interpretation:", event.interpretation
+    print "    - manifestation:", event.manifestation
+    print "    - origin:", event.origin
+    print "    - subjects:", len (event.subjects)
+    for i, subject in enumerate (event.subjects):
+        print "            - subject %i:" % (i+1)
+        print "                 - uri:", subject.uri
+        print "                 - interpretation:", subject.interpretation
+        print "                 - manifestation:", subject.manifestation
+        print "                 - mimetype:", subject.mimetype
+        print "                 - origin:", subject.origin
+        print "                 - text:", subject.text
+        print "                 - storage:", subject.storage
+    print "    -payload:", event.payload
+    zg_client.insert_events ([event], callback, error_handler)
+
+"""
+Handling of text based events
+"""
+
+def msg_recv_callback (channel, message, account):
+    if message.is_delivery_report ():
+        return
+    print "=== RECEIVED MSG ==="
+    event_template = create_event (account, channel)
+    event_template.interpretation = Interpretation.RECEIVE_EVENT
+    event_template.manifestation = Manifestation.WORLD_ACTIVITY
+    print_channel (event_template)
+
+def msg_sent_callback (channel, message, flags, token, account):
+    print "=== SENT MSG ==="
+    event_template = create_event (account, channel)
+    event_template.interpretation = Interpretation.SEND_EVENT
+    event_template.manifestation = Manifestation.USER_ACTIVITY
+    print_channel (event_template)
+
+def channel_closed_callback (channel, domain, code, message, account):
+    print "=== CLOSED CHANNEL ==="
+    event_template = create_event (account, channel)
+    event_template.interpretation = Interpretation.LEAVE_EVENT
+    print_channel (event_template)
+
+def observe_textchannel (observer, account, connection, channel,
+                         dispatch_op, requests, context, user_data):
+    target = channel.get_target_contact ()
+    if target:
+      event_template = create_event (account, channel)
+      print "=== CREATED CHANNEL ==="
+      print_channel (event_template)
+      for message in channel.get_pending_messages ():
+          msg_recv_callback (channel, message, account)
+          event_template = create_event (account, channel)
+      channel.connect ('invalidated', channel_closed_callback, account)
+      channel.connect ('message-received', msg_recv_callback, account)
+      channel.connect ('message-sent', msg_sent_callback, account)
+
+
+"""
+Handling of call based events
+"""
+
+call_timers = {}
+
+def create_call_event (account, channel):
+    targets = channel.get_members ()
+    if not targets:
+        return
+    event_template = Event.new_for_values (
+        actor = ZG_ACTOR,
+        interpretation = Interpretation.ACCESS_EVENT,
+        manifestation = Manifestation.USER_ACTIVITY \
+            if channel.get_property ("requested") else Manifestation.WORLD_ACTIVITY,
+        origin = TP_ACCOUNT_PATH % account.get_object_path ()[len (Tp.ACCOUNT_OBJECT_PATH_BASE):])
+    for i, target in enumerate (targets):
+        if i == 0:
+            event_template.subjects.append (
+                Subject.new_for_values (
+                    uri = "",
+                    interpretation = Interpretation.MEDIA.AUDIO,
+                    manifestation = Manifestation.MEDIA_STREAM,
+                    mimetype = "x-telepathy/call",
+                    origin = TP_IDENTIFIER % target.get_identifier (),
+                    text = target.get_alias (),
+                    storage = "net"))
+            event_template.subjects.append (
+                Subject.new_for_values (
+                    uri = TP_IDENTIFIER % target.get_identifier (),
+                    interpretation = Interpretation.CONTACT,
+                    manifestation = Manifestation.CONTACT_LIST_DATA_OBJECT,
+                    origin = TP_IDENTIFIER % target.get_identifier (),
+                    text = target.get_alias (),
+                    storage = "net"))
+    return event_template
+
+
+def call_state_changed (channel, state, flags, reason, details, account):
+    #FIXME: Something breaks this
+    made_by_user = False
+    if reason.actor == channel.get_property ("connection").get_self_handle ():
+        made_by_user = True
+    #print "User Data:", user_data
+    #print "Event Template: ", event_template
+    if state in (3, 5, 6):
+        event_template = create_call_event (account, channel)
+        event_template.manifestation = Manifestation.USER_ACTIVITY if made_by_user \
+            else Manifestation.WORLD_ACTIVITY
+
+        if state == Tp.CallState.INITIALISED:
+            event_template.interpretation = Interpretation.CREATE_EVENT
+            call_timers[channel] = 0
+            print_channel (event_template)
+
+        elif state == Tp.CallState.ACTIVE:
+            event_template.interpretation = Interpretation.ACCESS_EVENT
+            call_timers[channel] = int (event_template.timestamp)
+            print_channel (event_template)
+
+        elif state == Tp.CallState.ENDED:
+            if call_timers.has_key (channel):
+                event_template.interpretation = Interpretation.LEAVE_EVENT
+                if reason.reason.numerator == Tp.CallStateChangeReason.REJECTED:
+                    event_template.interpretation = Interpretation.DENY_EVENT 
+                elif reason.reason.numerator == Tp.CallStateChangeReason.NO_ANSWER:
+                    event_template.interpretation = Interpretation.EXPIRE_EVENT 
+                    
+                duration = 0 if not call_timers.has_key (channel) \
+                    else int (event_template.timestamp) - call_timers[channel]
+                details = {"http://zeitgeist-project.com/1.0/telepathy/call": {
+                    "state": channel.get_state ()[0].numerator,
+                    "reason": channel.get_state ()[1].numerator,
+                    "requested": channel.get_property ("requested"),
+                    "host": TP_ACCOUNT_PATH % account.get_object_path ()[len (Tp.ACCOUNT_OBJECT_PATH_BASE):] \
+                        if channel.get_property ("requested") else event_template.subjects[1].uri,
+                    "receiver": TP_IDENTIFIER % event_template.subjects[1].uri \
+                        if channel.get_property ("requested") \
+                        else TP_ACCOUNT_PATH % account.get_object_path ()[len (Tp.ACCOUNT_OBJECT_PATH_BASE):],
+                    "duration": duration
+                    }}
+                details = json.dumps (details)
+                event_template.payload = details.encode ("utf-8")
+                del call_timers[channel]
+                print_channel (event_template)
+
+def observe_callchannel (observer, account, connection, channel,
+                         dispatch_op, requests, context, user_data):
+    if channel.get_state () == Tp.CallState.INITIALISED:
+        event_template.interpretation = Interpretation.CREATE_EVENT
+        call_timers[channel] = 0
+        print_channel (event_template)
+    channel.connect ("state-changed", call_state_changed, account)
+
+
+"""
+Handling of file transfer based events
+"""
+
+def ft_state_changed (channel, state, account):
+    state = channel.get_state ()[0]
+    target = channel.get_target_contact ()
+    print state, ZG_ACTOR
+    if state in (4,5):
+        # get attributes of the file being sent or received
+        attr = (Gio.FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME,
+            Gio.FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE,
+            Gio.FILE_ATTRIBUTE_STANDARD_SIZE )
+        info = channel.get_property ("file").query_info (",".join (attr),
+        Gio.FileQueryInfoFlags.NONE, None)
+    # setup new event to be sent to zeitgeist
+    event = Event.new_for_values (
+        interpretation = Interpretation.SEND_EVENT \
+            if channel.get_property ("requested") else Interpretation.RECEIVE_EVENT,
+        manifestation = Manifestation.USER_ACTIVITY \
+            if channel.get_property ("requested") else Manifestation.WORLD_ACTIVITY,
+        actor = ZG_ACTOR,
+        origin = TP_ACCOUNT_PATH % account.get_object_path ()[35:])
+    subject = Subject.new_for_values (
+        uri = channel.get_property ("file").get_uri (),
+        interpretation =  get_interpretation_for_mimetype (info.get_content_type ()),
+        manifestation = Manifestation.FILE_DATA_OBJECT \
+            if channel.get_property ("requested") else Manifestation.FILE_DATA_OBJECT.REMOTE_DATA_OBJECT,
+        text = info.get_display_name (),
+        mimetype = info.get_content_type (),
+        origin = "/".join (channel.get_property ("file").get_uri ().split ("/")[:-1])+"/" \
+            if channel.get_property ("requested") else TP_IDENTIFIER % target.get_identifier ())
+    event.subjects.append (subject)
+    subject = Subject.new_for_values (
+        uri = TP_IDENTIFIER % target.get_identifier (),
+        interpretation = Interpretation.CONTACT.PERSON_CONTACT,
+        manifestation = Manifestation.CONTACT_LIST_DATA_OBJECT,
+        origin = TP_IDENTIFIER % target.get_identifier (),
+        text = target.get_alias (),
+        storage = "net")
+    event.subjects.append (subject)
+    details = {"http://zeitgeist-project.com/1.0/telepathy/filetransfer": {
+        "state": channel.get_state ()[0].numerator,
+        "reason": channel.get_state ()[1].numerator,
+        "requested": channel.get_property ("requested"),
+        "sender": TP_ACCOUNT_PATH % account.get_object_path ()[35:] \
+            if channel.get_property ("requested") else TP_IDENTIFIER % target.get_identifier (),
+        "receiver": TP_IDENTIFIER % target.get_identifier () \
+            if channel.get_property ("requested") else TP_ACCOUNT_PATH % account.get_object_path ()[35:],
+        "mimetype": info.get_content_type (),
+        "date": channel.get_date ().to_unix (),
+        "description": channel.get_description (),
+        "size": channel.get_size (),
+        "service": channel.get_service_name (),
+        "uri": channel.get_property ("file").get_uri ()
+        }}
+    details = json.dumps (details)
+    event.payload = details.encode ("utf-8")
+    print_channel (event)
+
+def observe_ftchannel (observer, account, connection, channel,
+                     dispatch_op, requests, context, user_data):
+    channel.connect ("notify::state", ft_state_changed, account)
+
+"""
+Set up observer
+"""
+
+def observe_channels (observer, account, connection, channels,
+                     dispatch_op, requests, context, user_data):
+    try:
+      for channel in channels:
+        args = (observer, account, connection, channel,
+            dispatch_op, requests, context, user_data)
+        if isinstance(channel, Tp.TextChannel):
+          observe_textchannel (*args)
+        elif isinstance(channel, Tp.CallChannel):
+          observe_callchannel (*args)
+        elif isinstance(channel, Tp.FTChannel):
+          observe_ftchannel (*args)
+    finally:
+        context.accept ()
+
+
+factory = Tp.AutomaticClientFactory.new (dbus)
+factory.add_channel_features ([Tp.Channel.get_feature_quark_contacts ()])
+factory.add_contact_features ([Tp.ContactFeature.ALIAS])
+
+observer = Tp.SimpleObserver.new_with_factory (factory, True,
+    'Zeitgeist', False, observe_channels, None)
+
+# Add call observer properties
+observer.add_observer_filter ({
+    Tp.PROP_CHANNEL_CHANNEL_TYPE: Tp.IFACE_CHANNEL_TYPE_CALL,
+    Tp.PROP_CHANNEL_TARGET_HANDLE_TYPE: int (Tp.HandleType.CONTACT),
+})
+
+# Add text observer properties
+observer.add_observer_filter ({
+    Tp.PROP_CHANNEL_CHANNEL_TYPE: Tp.IFACE_CHANNEL_TYPE_TEXT,
+    Tp.PROP_CHANNEL_TARGET_HANDLE_TYPE: int (Tp.HandleType.CONTACT),
+})
+
+# Add filetransfer observer properties
+observer.add_observer_filter ({
+    Tp.PROP_CHANNEL_CHANNEL_TYPE: Tp.IFACE_CHANNEL_TYPE_FILE_TRANSFER,
+})
+
+observer.register ()
+
+"""
+Start the mainloop
+"""
+
+main_loop = GObject.MainLoop ()
+main_loop.run ()

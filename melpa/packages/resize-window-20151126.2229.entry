@@ -1,2 +1,0 @@
-
-(resize-window . [(20151126 2229) ((emacs (24))) "easily resize windows" single ((:keywords "window" "resize") (:url . "https://github.com/dpsutton/resize-mode"))])

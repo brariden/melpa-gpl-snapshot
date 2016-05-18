@@ -1,2 +1,0 @@
-
-(cmake-ide . [(20160127 1859) ((emacs (24 1)) (cl-lib (0 5)) (seq (1 11)) (levenshtein (0))) "Calls CMake to find out include paths and other compiler flags" single ((:keywords "languages") (:url . "http://github.com/atilaneves/cmake-ide"))])

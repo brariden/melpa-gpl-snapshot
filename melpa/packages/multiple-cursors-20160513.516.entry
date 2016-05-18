@@ -1,0 +1,2 @@
+
+(multiple-cursors . [(20160513 516) ((cl-lib (0 5))) "Multiple cursors for Emacs." tar nil])

@@ -1,2 +1,0 @@
-
-(amd-mode . [(20151214 318) ((projectile (0 10 0)) (s (1 9 0)) (f (0 16 2)) (dash (2 5 0)) (makey (0 3)) (js2-mode (20140114)) (js2-refactor (0 6 1))) "Minor mode for handling JavaScript AMD module requirements." single ((:keywords "javascript" "amd" "projectile"))])

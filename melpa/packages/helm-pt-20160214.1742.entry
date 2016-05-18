@@ -1,0 +1,2 @@
+
+(helm-pt . [(20160214 1742) ((helm (1 5 6))) "Helm interface to the platinum searcher" tar ((:keywords "helm" "platinum searcher"))])

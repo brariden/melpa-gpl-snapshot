@@ -1,0 +1,197 @@
+[[https://melpa.org/#/avy-migemo][file:https://melpa.org/packages/avy-migemo-badge.svg]]
+[[https://stable.melpa.org/#/avy-migemo][file:https://stable.melpa.org/packages/avy-migemo-badge.svg]]
+
+* avy-migemo
+
+  This package is a minor mode of avy for using [[https://github.com/emacs-jp/migemo][migemo]].
+
+  The following functions are provided:
+
+    + =avy-migemo-goto-char=
+    + =avy-migemo-goto-char-2=
+    + =avy-migemo-goto-char-in-line=
+    + =avy-migemo-goto-char-timer=
+    + =avy-migemo-goto-subword-1=
+    + =avy-migemo-goto-word-1=
+    + =avy-migemo-isearch=
+    + =avy-migemo--overlay-at=
+    + =avy-migemo--overlay-at-full=
+    + =avy-migemo--read-candidates=
+
+  These are the same as [[https://github.com/abo-abo/avy][avy]]'s predefined functions
+  except for adding candidates via [[https://github.com/emacs-jp/migemo][migemo]] (simply using migemo instead of =regexp-quote=).
+
+  The following extensions are available:
+
+    + avy-migemo-e.g.zzz-to-char.el
+    + avy-migemo-e.g.ivy.el
+    + avy-migemo-e.g.swiper.el
+    + avy-migemo-e.g.counsel.el
+
+    [[file:image/image.gif]]
+
+** Table of contents
+
+  + [[#requirements][Requirements]]
+  + [[#setup][Setup]]
+  + [[#customization][Customization]]
+    + [[#user-option-avy-migemo-get-function][User Option: =avy-migemo-get-function= ]]
+    + [[#user-option-avy-migemo-function-names][User Option: =avy-migemo-function-names= ]]
+    + [[#function-avy-migemo-remove-names-rest-names][Function: =avy-migemo-remove-names= /&rest/ /names/ ]]
+    + [[#function-avy-migemo-add-names-rest-names][Function: =avy-migemo-add-names= /&rest/ /names/ ]]
+    + [[#user-option-avy-migemo-use-isearch-search-fun][User Option: =avy-migemo-use-isearch-search-fun= ]]
+    + [[#user-option-avy-migemo-at-full-max][User Option: =avy-migemo-at-full-max= ]]
+    + [[#user-option-avy-migemo-regex-cache-clear-hook][User Option: =avy-migemo-regex-cache-clear-hook= ]]
+    + [[#an-example-config-for-zzz-to-char--zzz-to-char--base-][An example config for zzz-to-char ( =zzz-to-char--base= )]]
+    + [[#an-example-config-for-ivy][An example config for ivy]]
+    + [[#an-example-config-for-swiper][An example config for swiper]]
+    + [[#an-example-config-for-counsel][An example config for counsel]]
+
+** Requirements
+
+   + GNU Emacs 24.4 or later
+   + [[https://github.com/abo-abo/avy][avy]] 0.4 or later
+   + [[https://github.com/emacs-jp/migemo][migemo]] 1.9 or later
+
+** Setup
+
+   #+BEGIN_SRC emacs-lisp
+     (add-to-list 'load-path "/path/to/avy-migemo")
+     (require 'avy-migemo)
+     ;; `avy-migemo-mode' overrides avy's predefined functions using `advice-add'.
+     (avy-migemo-mode 1)
+     (global-set-key (kbd "M-g m") 'avy-migemo-mode)
+   #+END_SRC
+
+** Customization
+
+***** User Option: =avy-migemo-get-function=
+
+      Its type is function. Default value is =migemo-get-pattern=.
+
+      It takes a string and returns a regular expression.
+
+***** User Option: =avy-migemo-function-names=
+
+      Its value is a list of avy-migemo's function names.
+      Default value has all avy-migemo's function names.
+      Instead of using =setq=, =custom-set-variables= is recommended for changing its value.
+
+      If you want to override only =avy-goto-char-timer=, you can use =custom-set-variables= as below.
+
+      #+BEGIN_SRC emacs-lisp
+        ;; Override only `avy-goto-char-timer' when `avy-migemo-mode' is enabled.
+        (custom-set-variables
+         '(avy-migemo-function-names
+           '(avy-migemo-goto-char-timer)))
+
+      #+END_SRC
+
+***** Function: =avy-migemo-remove-names= /&rest/ /names/
+
+      This function removes /names/ from =avy-migemo-function-names=.
+
+      #+BEGIN_SRC emacs-lisp
+        ;; Remove only `avy-migemo-goto-char' from `avy-migemo-function-names'.
+        (avy-migemo-remove-names 'avy-migemo-goto-char)
+      #+END_SRC
+
+***** Function: =avy-migemo-add-names= /&rest/ /names/
+
+      This function adds /names/ to =avy-migemo-function-names=.
+
+***** User Option: =avy-migemo-use-isearch-search-fun=
+
+      If non-nil, =avy-migemo-isearch= uses =isearch-search-fun= for collecting candidates.
+      Default value is =nil=.
+
+***** User Option: =avy-migemo-at-full-max=
+
+      If its value is an integer, the length of displayed keys will be restricted to the maximum number.
+      Default value is =nil=.
+
+      This feature depends on =avy-migemo--overlay-at-full=.
+
+      #+BEGIN_SRC emacs-lisp
+        (custom-set-variables '(avy-migemo-at-full-max 2))
+      #+END_SRC
+
+***** User Option: =avy-migemo-regex-cache-clear-hook=
+
+      This normal hook is run at the end of =avy-migemo-regex-cache-clear=.
+
+***** An example config for zzz-to-char ( =zzz-to-char--base= )
+
+      You can add a function which uses avy by adapting it for migemo.
+
+      avy-migemo-e.g.zzz-to-char.el provides the example.
+
+      #+BEGIN_SRC emacs-lisp
+        ;; If you use zzz-to-char (which can be installed from MELPA or El-Get),
+        ;; you can adapt it for migemo.
+        (require 'zzz-to-char)
+
+        ;; You need to add "-migemo" to the original name.
+        (defun zzz-to-char--base-migemo (char n-shift)
+          "The same as `zzz-to-char--base' except for using migemo."
+          (let ((p (point))
+                (avy-all-windows nil))
+            (avy-with zzz-to-char
+              (avy--generic-jump
+               (if (= 13 char)
+                   "\n"
+                 ;; Adapt for migemo
+                 (avy-migemo-regex-quote-concat (string char)))
+               nil
+               avy-style
+               (- p zzz-to-char-reach)
+               (+ p zzz-to-char-reach)))
+            (let ((n (point)))
+              (when (/= n p)
+                (cl-destructuring-bind (beg . end)
+                    (if (> n p)
+                        (cons p (- (1+ n) n-shift))
+                      (cons (+ n n-shift) p))
+                  (goto-char end)
+                  (kill-region beg end))))))
+
+        (avy-migemo-add-names 'zzz-to-char--base-migemo)
+      #+END_SRC
+
+***** An example config for ivy
+
+      avy-migemo-e.g.ivy.el is a config file for ivy.el.
+
+      #+BEGIN_SRC elisp
+        (require 'avy-migemo-e.g.ivy)
+      #+END_SRC
+
+      + =ivy--regex-migemo=
+      + =ivy--format-minibuffer-line-migemo=
+
+***** An example config for swiper
+
+      avy-migemo-e.g.swiper.el is a config file for swiper.el.
+
+      #+BEGIN_SRC elisp
+        (require 'avy-migemo-e.g.swiper)
+      #+END_SRC
+
+      + =swiper--add-overlays-migemo=
+
+***** An example config for counsel
+
+      avy-migemo-e.g.counsel.el is a config file for counsel.el.
+
+      #+BEGIN_SRC elisp
+        (require 'avy-migemo-e.g.counsel)
+      #+END_SRC
+
+      + =counsel-grep-function-migemo=
+      + =counsel-grep-base-command-migemo= (Default value: =counsel-grep-base-command= )
+      + =counsel-grep-occur-migemo=
+      + =counsel-pt-migemo= (which depends on [[https://github.com/monochromegane/the_platinum_searcher][pt(The Platinum Searcher)]] )
+      + =counsel-pt-migemo-base-command= (Default value: =counsel-pt-base-command= )
+      + =counsel-pt-migemo-occur=
+      + Turning off avy-migemo-mode while =counsel-ag= is running.
+      + Turning off avy-migemo-mode while =counsel-locate= is running.

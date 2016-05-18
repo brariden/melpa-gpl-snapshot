@@ -1,0 +1,36 @@
+Authors of Nemerle
+------------------
+
+Project maintainer, lead developer:
+   Michal Moskal, <michal.moskal@nemerle.org>
+
+Developers:
+   Pawel Olszta, <pawel.olszta@nemerle.org>
+   Kamil Skalski, <nazgul@nemerle.org>
+
+Standard library:
+   Dawid Duda
+
+Technical writer:
+   Ewa Dacko
+
+cs2n, sioux:
+   Bartosz Podlejski
+
+Emacs mode:
+   Jacek Sliwerski
+
+nemerlish:
+   Wojtek Knapik
+
+Contributors:
+   Lukasz Kaiser
+   Aleksander Madry
+   Grzegorz Stelmaszek
+   Krystian Walec
+   Andrzej Wasylkowski
+   Ricardo Fernandez Pascual
+   Alejandro Serrano (Code Completion Engine)
+
+
+See also the ChangeLog.

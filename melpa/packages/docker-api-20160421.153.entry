@@ -1,0 +1,2 @@
+
+(docker-api . [(20160421 153) ((dash (2 12 1)) (s (1 11 0))) "Emacs interface to the Docker API" tar ((:url . "https://github.com/Silex/docker-api.el"))])

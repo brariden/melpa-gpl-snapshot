@@ -4,8 +4,8 @@
 
 ;; Author           : Remy Honig <remyhonig@gmail.com>
 ;; Package-Requires : ((elfeed "1.1.1") (org "8.2.7") (dash "2.10.0") (s "1.9.0"))
-;; URL              : https://github.com/remyhonig/elfeed-org
 ;; Package-Version: 20151003.531
+;; URL              : https://github.com/remyhonig/elfeed-org
 ;; Version          : 20150412.1
 ;; Keywords         : news
 

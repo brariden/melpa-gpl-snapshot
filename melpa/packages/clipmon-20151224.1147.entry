@@ -1,2 +1,0 @@
-
-(clipmon . [(20151224 1147) nil "Clipboard monitor - watch system clipboard, add changes to kill ring/autoinsert" tar ((:keywords "convenience") (:url . "https://github.com/bburns/clipmon"))])

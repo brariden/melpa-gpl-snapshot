@@ -1,0 +1,2 @@
+
+(pinyin-search . [(20160514 2258) ((pinyinlib (0 1 0))) "Search Chinese by Pinyin" single ((:keywords "chinese" "search") (:url . "https://github.com/xuchunyang/pinyin-search.el"))])

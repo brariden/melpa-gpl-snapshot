@@ -1,0 +1,27 @@
+#+TITLE: epresent.el
+
+[[https://melpa.org/#/epresent][file:https://melpa.org/packages/epresent-badge.svg]] (badge not currently up to date)
+
+/Simple presentation mode for Emacs Org-mode/
+
+* Install
+
+Just install =epresent= from [[http://melpa.org][MELPA repository]].
+
+* Usage
+
+- Call =epresent-run= on an org-buffer.
+- press =t= / =1= to view the top level of the presentation
+- navigate the presentation with =n/f=, =p/b=
+- go to a specific page with =v <num> RET=
+- scroll with =k= and =l=
+- use =c= and =C= to navigate between code blocks,
+  =e= to edit them, =x= to make it run,
+  and =s= / =S= to toggle their visibility
+- quit with =q=
+
+* Screenshot
+
+Here is a screenshot of Epresent:
+
+[[http://i.imgur.com/y2nQIZV.png][file:http://i.imgur.com/y2nQIZV.png]]

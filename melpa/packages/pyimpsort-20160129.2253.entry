@@ -1,0 +1,2 @@
+
+(pyimpsort . [(20160129 2253) ((emacs (24 3))) "Sort python imports." tar ((:keywords "convenience") (:url . "https://github.com/emacs-pe/pyimpsort.el"))])

@@ -1,2 +1,0 @@
-
-(window-purpose . [(20151114 440) ((emacs (24)) (cl-lib (0 5)) (let-alist (1 0 3)) (imenu-list (0 1))) "Purpose-based window management for Emacs" tar ((:keywords "frames") (:url . "https://github.com/bmag/emacs-purpose"))])

@@ -1,0 +1,2 @@
+
+(cljsbuild-mode . [(20160402 1200) nil "A minor mode for the ClojureScript 'lein cljsbuild' command" single ((:keywords "clojure" "clojurescript" "leiningen" "compilation") (:url . "http://github.com/kototama/cljsbuild-mode"))])

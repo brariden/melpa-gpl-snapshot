@@ -1,0 +1,2 @@
+
+(quelpa . [(20160325 829) ((package-build (0)) (emacs (24 3))) "Emacs Lisp packages built directly from source" tar ((:keywords "package" "management" "build" "source" "elpa") (:url . "https://github.com/quelpa/quelpa"))])

@@ -1,0 +1,22 @@
+OTR support for emacs-jabber; work in progress.
+
+How to use it:
+
+1. Install python-potr.  Run:
+
+   sudo pip install python-potr
+
+   or see https://github.com/python-otr/pure-python-otr .
+
+2. Load jabber-otr.el.
+
+3. Open a chat buffer (either by an incoming message, or by C-x C-j C-j).
+
+4a. If the other contact activates OTR, the chat buffer should switch
+    to encrypted mode automatically.
+
+4b. To request OTR, type M-x jabber-otr-encrypt.
+
+5. Send and receive messages as usual, more or less.
+
+TODO: verify signatures, improve UI, handle HTML.

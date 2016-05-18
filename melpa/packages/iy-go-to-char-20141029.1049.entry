@@ -1,2 +1,0 @@
-
-(iy-go-to-char . [(20141029 1049) nil "Go to next CHAR which is similar to \"f\" and \"t\" in vim" single ((:keywords "navigation" "search") (:url . "https://github.com/doitian/iy-go-to-char"))])

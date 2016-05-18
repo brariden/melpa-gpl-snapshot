@@ -38,6 +38,8 @@ What is highlighted:
   Also, the backquote and the comma operators themselves are
   highlighted using a bright color as a warning.
 
+* Hash-quoted symbols.
+
 Installation:
 
 Place this package in a directory in the load-path. To activate it,

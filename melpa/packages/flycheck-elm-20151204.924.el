@@ -4,8 +4,8 @@
 
 ;; Author: Brian Sermons
 ;; Package-Requires: ((flycheck "0.24") (emacs "24.4"))
-;; URL: https://github.com/bsermons/flycheck-elm
 ;; Package-Version: 20151204.924
+;; URL: https://github.com/bsermons/flycheck-elm
 
 ;; This file is not part of GNU Emacs.
 

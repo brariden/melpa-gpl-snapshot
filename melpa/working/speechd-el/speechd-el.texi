@@ -1,0 +1,2079 @@
+\input texinfo    @c -*-texinfo-*-
+@comment %**start of header
+@setfilename speechd-el.info
+@set VERSION 2.7
+@settitle speechd-el @value{VERSION}
+@syncodeindex fn cp
+@syncodeindex ky cp
+@syncodeindex vr cp
+@comment %**end of header
+@copying
+This manual is for speechd-el, @value{VERSION}.
+
+Copyright @copyright{} 2003, 2004, 2005, 2006, 2007, 2008, 2010 Brailcom, o.p.s.
+Copyright @copyright{} 2012, 2013 Milan Zamazal
+
+@quotation
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts and no Back-Cover Texts.
+A copy of the license is included in the section entitled ``GNU Free
+Documentation License.''
+@end quotation
+
+You can also (at your option) distribute this manual under the GNU
+General Public License:
+
+@quotation
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU General Public License as published by the
+Free Software Foundation; either version 3 of the License, or (at your
+option) any later version.
+
+A copy of the license is included in the section entitled ``GNU
+General Public License''.
+@end quotation
+
+@end copying
+
+@dircategory Emacs
+@direntry
+* speechd-el: (speechd-el).	Emacs interface to Speech Dispatcher and BRLTTY.
+@end direntry
+
+@titlepage
+@title speechd-el
+@subtitle for version @value{VERSION}
+@author Milan Zamazal
+@author Brailcom, o.p.s.
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+@end titlepage
+
+@contents
+
+@ifnottex
+@node Top, Introduction, (dir), (dir)
+@top speechd-el
+
+@insertcopying
+@end ifnottex
+
+@menu
+* Introduction::                What is speechd-el and this manual about?
+* speechd-el User Manual::      Using Emacs speech output.
+* speechd-el Elisp Library::    Using speechd-el in Elisp programs.
+* Contact Information::         Bug reporting etc.
+
+* Copying This Manual::         GNU Free Documentation License.
+* Index::                       Concept, function, variable and key index.
+@end menu
+
+@c ****************************************************************************
+
+@node Introduction, speechd-el User Manual, Top, Top
+@chapter Introduction
+
+speechd-el is an Emacs client to speech synthesizers, Braille displays
+and other alternative output interfaces. It provides full speech and
+Braille output environment for Emacs.
+
+It is aimed primarily at visually impaired users who need non-visual
+communication with Emacs, but it can be used by anybody who needs
+sophisticated speech or other kind of alternative output from Emacs.
+speechd-el can make Emacs a completely speech and BRLTTY enabled
+application suitable for visually impaired users or, depending on its
+configuration, it can only speak in certain situations or when asked,
+to serve needs of any Emacs user.
+
+Programming interfaces are available both to the user interface and
+for communication with the output devices.
+
+This manual describes the speech/Braille output user interface, how to
+customize and extend the interface, and the Emacs Lisp libraries.
+Some degree of familiarity with Speech Dispatcher or BRLTTY on the
+user level is recommended, although not absolutely necessary.
+
+@menu
+* Design Goals::                
+* Feature List::                
+* Components::                  
+@end menu
+
+@node Design Goals, Feature List, Introduction, Introduction
+@section Design Goals
+
+speechd-el was designed considering our experience with other free
+accessibility technologies.  We sometimes meet problems such as lack
+of maintenance power, duplicated efforts, making technology specific
+solutions instead of generally useful tools, important bugs.  As other
+@uref{http://www.freebsoft.org/projects,Free(b)soft projects}
+speechd-el attempts to fill in an empty space in the accessibility
+area, in a way oriented towards future.  speechd-el tries to offer
+technology that is useful, simple, supporting general accessibility
+architecture models and that effectively utilizes the limited
+accessibility development resources.
+
+The particular speechd-el design goals are:
+
+@itemize @bullet
+@item
+Providing advanced accessible user environment that works out of the
+box and utilizes standard Emacs features wherever possible.  Emacs
+accessibility should work as much as possible on the general level
+without necessity to implement direct support for particular Emacs
+packages.  speechd-el should also preferrably use standard Emacs
+features if possible instead of implementing its own solutions.
+
+@item
+Implementing just the necessary functionality, without duplicating
+features presented in other components such as Speech Dispatcher,
+speech synthesizers or Braille APIs.  Emacs accessibility solutions
+should share features, configuration, code, etc. with other
+applications to the highest possible extent in order to make life of
+both users and developers easier.
+
+@item
+Simple and clean source code that requires only minimum maintenance
+and allows future extensions.
+
+@item
+As little modifications to standard Emacs environment as possible,
+with the possibility to make additional customizations if needed,
+either shared or private.  Emacs should work the same way whether it
+speaks or not.  Of course optional customizations can be made and the
+generally useful ones should be included as optional parts of the
+distribution.
+
+@item
+Ability to work well in a multilingual environment.
+
+@item
+Completely Free Software architecture, without requiring any
+proprietary component.
+@end itemize
+
+@node Feature List, Components, Design Goals, Introduction
+@section Feature List
+
+Major speechd-el features are:
+@cindex features
+
+@itemize @bullet
+@item
+Speech output.
+
+@item
+Braille display output and input, mostly identical to the speech
+output.
+
+@item
+Both automated and explicit reading.  You can let Emacs read
+everything and/or you can ask it to read some parts of the text (such
+as current line, current buffer, last message, etc.).
+
+@item
+Message priorities ensuring you don't miss important messages while
+you needn't listen to or view unimportant messages.
+
+@item
+``Intelligent'' and customizable selection of text to be read based on
+lines, text properties, buffer contents changes and other criteria.
+
+@item
+Support for changing speech parameters (such as language, voice, rate,
+pitch, volume, speech synthesizer).  Different speech parameters can
+be used in different buffers, major modes, faces, etc.
+
+@item
+Support for events (such as sound icons).
+
+@item
+Emacs status changes reporting (such as mode, keyboard, process
+changes, etc.).
+
+@item
+Multilingual environment support.  speechd-el works well with
+languages other than English and offers support for current language
+selection based on the kind of texts, selected keyboard, etc.
+
+@item
+Reasonable immediate speech and Braille output in most Emacs packages.
+
+@item
+No significant changes of the standard Emacs behavior.
+
+@item
+Speech and Braille output can be enabled/disabled independently to
+each other and they can be enabled/disabled for the whole Emacs
+session or just for particular buffers.
+
+@item
+Speech synthesizer independence, you can use all speech synthesizers
+supported by Speech Dispatcher (such as Festival, Flite, eSpeak, Epos,
+Dectalk, IBM TTS, Cicero, etc.) and you can use multiple speech
+synthesizers inside a single Emacs session.
+
+@item
+Braille displays are handled through BRLTTY drivers and APIs.
+
+@item
+Programming libraries for those who want to extend speechd-el
+facilities or who just want to talk to speech synthesizers, Braille
+display or other output/input devices.
+
+@item
+Special features for speechd-el developers such as silence in
+debugger, debugging variables, possibility to disable speechd-el
+hooks, etc.
+
+@item
+Small code size.
+@end itemize
+
+See @uref{http://www.freebsoft.org/speechd-el,speechd-el web page} if
+you are interested in comparison with Emacspeak.
+
+@node Components,  , Feature List, Introduction
+@section Components
+
+speechd-el design is strictly modular.  It contains several components
+layered each on top of other.  Lower layer functions can be used
+independently of higher level features.
+
+@cindex SSIP
+@cindex BrlAPI
+The lowest level components are access libraries to output devices,
+especially to SSIP (the Speech Dispatcher TCP communication protocol
+for speech output) and BrlAPI (interface to BRLTTY drivers for
+communication with Braille displays).  They can be used to talk to the
+output devices directly from Elisp programs.
+
+The next level implements common access to all the devices.  Instead
+of talking to each device independently one can use this layer to
+output device independent messages that are processed and sent to the
+output devices as defined in the user configuration.  This is the
+preferred way of communication with the output devices.
+
+On the highest level there is the user interface frontend that makes
+Emacs read texts and events automatically, defines the corresponding
+minor modes, key bindings and most of the interactive commands.
+
+There are some other auxiliary components, look into speechd-el source
+code if interested.
+
+@c ****************************************************************************
+
+@node speechd-el User Manual, speechd-el Elisp Library, Introduction, Top
+@chapter speechd-el User Manual
+
+speechd-el allows you to use Emacs without looking at screen, with
+speech or Braille output only.  The main usage area is by blind and
+visually impaired people, but generally you can use at least the
+speech output for many purposes, according to your wishes and needs.
+
+You can download the latest released version of speechd-el from
+@url{http://www.freebsoft.org/pub/projects/speechd-el/}.
+
+speechd-el uses Speech Dispatcher for the speech output, so working
+Speech Dispatcher installation is necessary to produce any speech
+output.  Please look at @url{http://www.freebsoft.org/speechd} for
+more information about Speech Dispatcher.
+
+@cindex BRLTTY
+For the Braille output BRLTTY is used through its BrlAPI interface.
+To make the Braille output work, BRLTTY must be running and properly
+configured.  Please look at @url{http://www.mielke.cc/brltty/} for
+more information about BRLTTY.
+
+@menu
+* Installation::                Installing speechd-el.
+* Starting Alternative Output:: Making it speak etc.
+* Commands::                    Usage.
+* Customization::               Basic customization.
+* Advanced Customization::      Writing your own command feedbacks.
+* Problems::                    Strange behavior.
+* Tips::                        Useful Emacs tips.
+* Bug Reporting::               speechd-el and Speech Dispatcher bugs.
+@end menu
+
+@node Installation, Starting Alternative Output, speechd-el User Manual, speechd-el User Manual
+@section Installation
+
+speechd-el installation consists of the following steps:
+
+@enumerate
+@item
+If you use Emacs older than 23.2 then install the @samp{eieio} Elisp
+library, available from @url{http://cedet.sourceforge.net/eieio.shtml}
+or perhaps your favorite operating system distribution.
+
+@item
+Copy the speechd-el @file{*.el} files contained in the distribution
+package somewhere to your Emacs load path.
+
+@item
+If you like, byte compile the @file{*.el} files.  Byte compilation is
+recommended, because it speeds up speechd-el significantly.  You can
+byte compile the @file{*.el} files using the command
+
+@example
+make compile
+@end example
+
+Then install the compiled files to an Emacs load path location as
+well.
+
+@item
+Install the @file{speechd-log-extractor} somewhere to your shell PATH,
+e.g. @file{/usr/local/bin/}.  Installing this script is optional, it
+is used only for bug reporting.
+
+@item
+Add the following line to your @file{~/.emacs}:
+
+@lisp
+(autoload 'speechd-speak "speechd-speak" nil t)
+@end lisp
+@end enumerate
+
+@cindex Speech Dispatcher
+To receive speech output, Speech Dispatcher must be installed and
+running.  Speech Dispatcher version 0.5 or higher is recommended.
+
+@cindex BRLTTY
+To receive Braille output, BRLTTY must be installed and running.
+BRLTTY version 3.7 or higher is required.
+
+@node Starting Alternative Output, Commands, Installation, speechd-el User Manual
+@section Starting Speech and Braille Output
+
+After installation of the @file{*.el} files and restarting Emacs, you
+can set up speechd-speak using the @kbd{M-x speechd-speak} command.
+If you want to happen it automatically each time Emacs is started, put
+the following line to your @file{~/.emacs} after the autoload line:
+
+@lisp
+(speechd-speak)
+@end lisp
+
+@table @kbd
+@item M-x speechd-speak
+@findex speechd-speak
+@kindex C-e C-s
+Set up Emacs for alternative output and start speaking or
+communicating with the Braille display.
+
+Please don't forget Speech Dispatcher must be running in order to get
+any speech output and BRLTTY must be running in order to get Braille
+output!
+
+After the initial setup, the command can be used again to restart the
+speech or Braille output when needed.  Especially, you must run it
+again if Speech Dispatcher or BRLTTY gets restarted.
+
+After the first invocation, the command is available under the
+@kbd{C-e C-s} key.
+@end table
+
+@cindex minor modes
+Once the setup is done, enabling and disabling the alternative output
+is controlled by the speechd-speak and global-speechd-speak minor
+modes.  Usually the mode commands are not used directly, you use the
+@code{speechd-speak-toggle-speaking} command (@pxref{Control
+Commands}), but if you need them, they are available.
+
+@table @kbd
+@item M-x speechd-speak-mode
+@findex speechd-speak-mode
+Enable or disable speaking and Braille output in the current buffer.
+With no argument, this command toggles the mode.  Non-null prefix
+argument turns on the mode.  Null prefix argument turns off the mode.
+
+@item M-x global-speechd-speak-mode
+@findex global-speechd-speak-mode
+Enable or disable alternative output globally.  With no argument, this
+command toggles the mode.  With prefix argument, turn alternative
+output on if and only if the argument is positive.
+@end table
+
+@node Commands, Customization, Starting Alternative Output, speechd-el User Manual
+@section Commands
+
+The basic speechd-el commands are all accessible through a common
+special prefix key, which is @kbd{C-e} by default (you can change it,
+@pxref{Customization}).  If this prefix conflicts with a global Emacs
+command, the original command is available by double pressing the
+prefix key.  For instance, with the default prefix, the
+@code{end-of-line} command, normally available under the @kbd{C-e}
+key, can be invoked as @kbd{C-e C-e}.
+
+In the following subsections we use the term @emph{reading} to
+indicate any kind of output enabled in speechd-el (such as speaking or
+Braille output).
+
+@menu
+* Reading Commands::            Reading pieces of text.
+* Informatory Commands::        Information about buffer, modes, etc.
+* Control Commands::            Stopping, setting speech rate, etc.
+* Parameter Setting Commands::  Modifying speech output.
+* Spelling::                    How to spell a piece of text.
+* Other Commands::              Auxiliary commands.
+@end menu
+
+@node Reading Commands, Informatory Commands, Commands, Commands
+@subsection Reading Commands
+
+@table @kbd
+@item C-e l
+@kindex C-e l
+@findex speechd-speak-read-line
+Read current line (@code{speechd-speak-read-line}).  With the prefix
+argument, read the line only from the current cursor position to the
+end of line.
+
+@item C-e b
+@kindex C-e b
+@findex speechd-speak-read-buffer
+Read current buffer (@code{speechd-speak-read-buffer}).
+
+@item C-e >
+@kindex C-e >
+@findex speechd-speak-read-rest-of-buffer
+Read current buffer from the cursor to the buffer end
+(@code{speechd-speak-read-rest-of-buffer}).
+
+@item C-e o
+@kindex C-e o
+@findex speechd-speak-read-other-window
+Read buffer of the other window, if any is present
+(@code{speechd-speak-read-other-window}).
+
+@item C-e r
+@kindex C-e r
+@findex speechd-speak-read-region
+Read current region (@code{speechd-speak-read-region}).
+
+@item C-e C-r
+@kindex C-e C-r
+@findex speechd-speak-read-rectangle
+Read text in the rectangle-region (@code{speechd-speak-read-rectangle}).
+
+@item C-e w
+@kindex C-e w
+@findex speechd-speak-read-word
+Read the next word after cursor (@code{speechd-speak-read-word}).
+
+@item C-e .
+@kindex C-e .
+@findex speechd-speak-read-sentence
+Read current sentence (@code{speechd-speak-read-sentence}).
+
+@item C-e @{
+@kindex C-e @{
+@findex speechd-speak-read-paragraph
+Read the next paragraph after cursor (@code{speechd-speak-read-paragraph}).
+
+@item C-e [
+@kindex C-e [
+@findex speechd-speak-read-page
+Read the next page after cursor (@code{speechd-speak-read-page}).
+
+@item C-e '
+@kindex C-e '
+@findex speechd-speak-read-sexp
+Read the next symbolic expression after cursor
+(@code{speechd-speak-read-sexp}).
+
+@item C-e c
+@kindex C-e c
+@findex speechd-speak-read-char
+Read the character at the cursor position (@code{speechd-speak-read-char}).
+
+@item C-e C-n
+@kindex C-e C-n
+@findex speechd-speak-read-next-line
+Read the next line (@code{speechd-speak-read-next-line}).
+
+@item C-e C-p
+@kindex C-e C-p
+@findex speechd-speak-read-previous-line
+Read the previous line (@code{speechd-speak-read-previous-line}).
+
+@item C-e m
+@kindex C-e m
+@findex speechd-speak-last-message
+Read last seen Emacs message (@code{speechd-speak-last-message}).
+
+@item C-e RET
+@cindex mode line
+@kindex C-e RET
+@findex speechd-speak-read-mode-line
+Read the mode line (@code{speechd-speak-read-mode-line}).  Note: This
+command works only in Emacs@tie{}22 or higher.
+
+@item C-e i
+@kindex C-e i
+@findex speechd-speak-last-insertions
+Read last output buffer insertions
+(@code{speechd-speak-last-insertions}).  That is the text read in
+auto-reading buffers, see @xref{Auto-Reading Buffers}.
+@end table
+
+@cindex character reading prompts
+@cindex read-char
+A few Emacs commands get you stuck in a character reading prompt, a
+typical example is @code{ispell-word}.  If you miss what was read
+before you are prompted for action, you can use the following
+keystrokes at the prompt to repeat the output texts:
+
+@table @kbd
+@item C-e
+@findex speechd-speak-last-message
+The same as the @kbd{C-e m} command above
+(@code{speechd-speak-last-message}).
+
+@item C-a
+@findex speechd-speak-last-insertions
+The same as the @kbd{C-e i} command above
+(@code{speechd-speak-last-insertions}).
+@end table
+
+If you don't like such character reading prompt behavior, you can
+disable it using the following variable:
+
+@vtable @code
+@item speechd-speak-allow-prompt-commands
+If non-@code{nil}, allow the speechd-speak commands mentioned above in
+read-char prompts.
+@end vtable
+
+@node Informatory Commands, Control Commands, Reading Commands, Commands
+@subsection Informatory Commands
+
+@table @kbd
+@item C-e C-i b
+@findex speechd-speak-buffer-info
+@cindex buffer
+Read information about current buffer
+(@code{speechd-speak-buffer-info}).
+
+@item C-e C-i f
+@findex speechd-speak-frame-info
+@cindex frame
+Read information about current frame (@code{speechd-speak-frame-info}).
+
+@item C-e C-i h
+@findex speechd-speak-header-line-info
+@cindex header line
+Read contents of the header line
+(@code{speechd-speak-header-line-info}).  Note: This command works
+only in Emacs@tie{}22 or higher.
+
+@item C-e C-i m
+@findex speechd-speak-mode-info
+@cindex modes
+Read information about current major and minor modes
+(@code{speechd-speak-mode-info}).
+
+@item C-e C-i c
+@findex speechd-speak-coding-info
+@cindex coding systems
+Read information about current coding systems
+(@code{speechd-speak-coding-info}).
+
+@item C-e C-i i
+@findex speechd-speak-input-method-info
+@cindex input method
+Read information about current input method
+(@code{speechd-speak-input-method-info}).
+
+@item C-e C-i p
+@findex speechd-speak-process-info
+@cindex process
+Read status of the process associated with the current buffer
+(@code{speechd-speak-process-info}).
+@end table
+
+@node Control Commands, Parameter Setting Commands, Informatory Commands, Commands
+@subsection Control Commands
+
+@table @kbd
+@item C-e q
+@kindex C-e q
+@findex speechd-speak-toggle-speaking
+@cindex shutting up
+Toggle reading globally (@code{speechd-speak-toggle-speaking}).  With
+a prefix argument, toggle it in the current buffer only.
+
+@item C-e s
+@kindex C-e s
+@findex speechd-stop
+@cindex stop
+Stop reading current message (@code{speechd-stop}).  Other queued
+messages will still be read.  If the prefix argument is given, stop
+reading the current message of any client, not just of the current
+connection.
+
+@item C-e x
+@kindex C-e x
+@findex speechd-cancel
+@cindex stop
+Stop reading all the queued messages of the current connection and of
+the connections listed in @var{speechd-cancelable-connections}.  If
+the universal prefix argument is given, stop reading all the messages
+of all connections.  If a numeric prefix argument is given, stop all
+the messages of the current Emacs session.
+
+@item C-e p
+@kindex C-e p
+@findex speechd-pause
+@cindex pause
+Pause reading --- just be quiet for now and postpone current reading
+until the resume command is invoked (@code{speechd-pause}).  If the
+prefix argument is given, pause reading of all clients.
+
+@item C-e SPC
+@kindex C-e SPC
+@findex speechd-resume
+@cindex resume
+Resume paused reading (@code{speechd-resume}).  If the
+prefix argument is given, resume reading of all clients.
+
+@item C-e 1
+@itemx C-e 2
+@itemx C-e 3
+@itemx C-e 4
+@itemx C-e 5
+@itemx C-e 6
+@itemx C-e 7
+@itemx C-e 8
+@itemx C-e 9
+@kindex C-e 1
+@kindex C-e 2
+@kindex C-e 3
+@kindex C-e 4
+@kindex C-e 5
+@kindex C-e 6
+@kindex C-e 7
+@kindex C-e 8
+@kindex C-e 9
+@findex speechd-speak-key-set-predefined-rate
+@cindex rate
+Set one of the predefined speech rates
+(@code{speechd-speak-key-set-predefined-rate}).  @kbd{C-e 1} sets the
+slowest rate, @kbd{C-e 5} sets the medium rate, and @kbd{C-e 9} sets
+the fastest rate.
+@end table
+
+@node Parameter Setting Commands, Spelling, Control Commands, Commands
+@subsection Parameter Setting Commands
+@cindex parameters
+
+These commands set various properties of the speech output.  They all
+apply on the current Speech Dispatcher connection (for more
+information about Speech Dispatcher connections, @pxref{Connection
+Voices}), unless there are invoked with a prefix argument.  With a
+numeric prefix argument they apply on all speechd-el connections, with
+a universal prefix argument they apply on all Speech Dispatcher
+connections.
+
+Commands affecting basic parameters of the text-to-speech process:
+
+@table @kbd
+@item C-e d l
+@kindex C-e d l
+@findex speechd-speak-set-language
+@cindex language
+Set default language of the connection.  Specify it as an RFC 1766
+language code (e.g. @code{en}, @code{cs}, etc.).
+
+@item C-e d .
+@kindex C-e d .
+@findex speechd-set-punctuation-mode
+@cindex punctuation mode
+Specify how to handle punctuation, whether to read it or ignore it.
+@code{all} mode reads all punctuation characters, @code{none} mode
+skips them all quietly, and @code{some} mode reads a selected subset
+of punctuation characters specified in the Speech Dispatcher
+configuration.
+
+@item C-e d c
+@kindex C-e d c
+@findex speechd-set-capital-character-mode
+@cindex capital character mode
+Set capital letter indication mode.  @code{icon} means signal them
+with a sound icon, @code{spell} means spell them using a special
+spelling table, and @code{none} means no indication.
+@end table
+
+Commands affecting speech output properties:
+
+@table @kbd
+@item C-e d v
+@kindex C-e d v
+@findex speechd-set-voice
+@cindex voice
+Set default voice to be used by the synthesizer
+(@code{speechd-set-voice}).  You may select one from the voice set
+offered by your Speech Dispatcher installation.
+
+@item C-e d C-v
+@kindex C-e d C-v
+@findex speechd-set-synthesizer-voice
+@cindex voice
+Set default voice to be used by the synthesizer directly by its
+synthesizer dependent name (@code{speechd-set-synthesizer-voice}).
+You may select one from the voice set offered by the currently
+selected Speech Dispatcher output module.  This works only with Speech
+Dispatcher 0.6.3 or higher and not all Speech Dispatcher output
+modules support this function.
+
+@item C-e d r
+@kindex C-e d r
+@findex speechd-set-rate
+@cindex rate
+Set exact speech rate, ranging from -100 (slowest) to 100 (fastest)
+(@code{speechd-set-rate}).  Most often you will probably want to
+use the @code{speechd-speak-key-set-predefined-rate} command bound to
+@kbd{C-e @var{number}} instead, see @ref{Control Commands}.
+
+@item C-e d p
+@kindex C-e d p
+@findex speechd-set-pitch
+@cindex pitch
+Set voice pitch, ranging from -100 (lowest) to 100 (highest)
+(@code{speechd-set-pitch}).
+
+@item C-e d V
+@kindex C-e d V
+@findex speechd-set-volume
+@cindex volume
+Set voice volume, ranging from -100 (lowest) to 100 (highest)
+(@code{speechd-set-volume}).
+@end table
+
+Commands affecting the speech synthesizer:
+
+@table @kbd
+@item C-e d o
+@kindex C-e d o
+@findex speechd-set-output-module
+@cindex output module
+Switch Speech Dispatcher to the given output module
+(@code{speechd-set-output-module}).  Give the module name when
+you are prompted for the argument.
+@end table
+
+@node Spelling, Other Commands, Parameter Setting Commands, Commands
+@subsection Spelling
+@cindex spelling
+
+@cindex speechd-speak-spell-mode
+There are two ways to use spelling in speechd-el.  The first one is
+the @code{speechd-speak-spell-mode}, which is a minor mode that you
+can enable for a buffer.  The mode is useful if you want to spell more
+of the buffer contents.
+
+The second spelling method is using the following command:
+
+@table @kbd
+@item C-e C-l
+@kindex C-e C-l
+@findex speechd-speak-spell
+Cause the following command to spell the text it reads
+(@code{speechd-speak-spell}).  For instance, if you want to spell the
+word after the cursor, you can type @kbd{C-e C-l C-e w}.
+@end table
+ 
+@node Other Commands,  , Spelling, Commands
+@subsection Other Commands
+
+@kindex C-x C-c
+In case Emacs gets completely crazy and refuses to run commands
+including @kbd{C-x C-c} because of a bug in speechd-el or in an
+alternative output related custom definition, you can try to invoke
+the following command as the last resort:
+
+@table @kbd
+@item C-e C-x
+@kindex C-e C-x
+@findex speechd-unspeak
+@cindex recovery
+Try to disable all modes, hooks and wrappers installed by
+@code{speechd-speak} (@code{speechd-unspeak}).
+@end table
+
+The following commands are rarely used, mostly for diagnosing
+purposes:
+
+@table @kbd
+@item C-e z
+@kindex C-e z
+@findex speechd-repeat
+Repeat the last output text
+(@code{speechd-repeat}).
+
+@item M-x speechd-say-text
+@findex speechd-say-text
+Prompt for a text and read it.
+@end table
+
+@node Customization, Advanced Customization, Commands, speechd-el User Manual
+@section Customization
+
+All the customization options described below are accessible in the
+customization group @samp{speechd-el} and its subgroups.
+
+@menu
+* Driver Selection::            Choosing output devices.
+* Connection Setup::            Where to connect to.
+* Default Priorities::          Priorities of various kinds of messages.
+* Basic Speaking::              Simple options.
+* Auto-Reading Buffers::        Making certain buffers speak automatically.
+* Reading State::               Speaking Emacs state changes.
+* Signalling::                  Signalling empty lines, etc.
+* Text Properties::             Handling faces and special pieces of text.
+* Languages::                   Using multiple languages.
+* Voices::                      Defining different voices.
+* Connection Voices::           Setting connection parameters.
+* Multiple Connections::        Different parameters for some modes & buffers.
+* Keys::                        Customizing command keys.
+* Braille Display Keys::        Binding actions to Braille display keys.
+* Modes::                       Minor mode hooks.
+* Debugging::                   Make debugger quiet.
+@end menu
+
+@node Driver Selection, Connection Setup, Customization, Customization
+@subsection Selecting Drivers
+
+By default speechd-el speaks to @code{ssip} and @code{brltty}
+drivers.  You can change the set of active drivers by customizing the
+following variable:
+
+@vtable @code
+@item speechd-out-active-drivers
+List of names of active output drivers.
+@end vtable
+
+If a driver that does not work is present in the variable (e.g. the
+list contains the @code{brltty} symbol while BRLTTY is not actually
+running), you receive an error message.  To prevent the error message,
+remove the driver from this variable.
+
+When you want to enable or disable some driver temporarily, you can
+use the following commands:
+
+@ftable @kbd
+@item M-x speechd-out-enable-driver
+@findex speechd-out-enable-driver
+Enable the given output driver.
+
+@item M-x speechd-out-disable-driver
+@findex speechd-out-disable-driver
+Disable the given output driver.
+@end ftable
+
+@node Connection Setup, Default Priorities, Driver Selection, Customization
+@subsection Speech Dispatcher Connection Configuration
+
+Connection configuration variables allow you connect to Speech
+Dispatcher or BRLTTY running on a remote host or a non-default port
+and to specify other TCP connection parameters.
+
+Speech Dispatcher connection options:
+
+@vtable @code
+@item speechd-connection-method
+Connection method to Speech Dispatcher.  Possible values are symbols
+@code{unix-socket} for Unix domain sockets and @code{inet-socket} for
+Internet sockets on a given host and port.
+
+@item speechd-host
+@cindex host
+Name of the host running Speech Dispatcher to connect to, given as a
+string.  Default is either the contents of the shell variable
+@code{SPEECHD_HOST} variable if set, or @code{"localhost"}.  Value of
+this variable matters only when Internet sockets are used for
+communication with Speech Dispatcher.
+
+@item speechd-port
+@cindex port
+Port number to connect to.  Default is either the contents of the
+shell variable @code{SPEECHD_PORT} if set, or the default Speech
+Dispatcher port.  Value of this variable matters only when Internet
+sockets are used for communication with Speech Dispatcher.
+
+@item speechd-autospawn
+If non-@code{nil}, Emacs will attempt to automatically start Speech
+Dispatcher.  This means that if speechd-el gets a speech request and
+the Speech Dispatcher server is not running already, speechd-el will
+launch it.
+
+@item speechd-timeout
+@cindex timeout
+Maximum number of seconds to wait for a Speech Dispatcher answer.  If
+it is exceeded, speechd-el closes the connection.  Normally, Speech
+Dispatcher should answer protocol commands immediately, but if you
+talk to a Speech Dispatcher in a strange way through a lagging
+network, you may want to increase the limit.
+
+@item speechd-spdsend
+@cindex spdsend
+If non-@code{nil}, it is a string naming the @emph{spdsend} binary
+(normally @code{"spdsend"}) to use for communication with Speech
+Dispatcher.  If @code{nil} or if you use Emacs@tie{}22 or higher,
+spdsend is not used.
+
+Usually you shouldn't care about this variable.
+@end vtable
+
+BRLTTY connection options:
+
+@vtable @code
+@item brltty-default-host
+Name of the host running BRLTTY to connect to, given as a string.
+Default is @code{"localhost"}.
+
+@item brltty-default-port
+Port number to connect to.  It can be either a single number or a list
+of numbers; in the latter case the given port numbers are attempted in
+the order they are given until Emacs connects to something.  Default
+is the list of the standard BrlAPI ports.
+
+@item brltty-authentication-file
+File containing the BrlAPI authentication key.  It is important to set
+the variable properly, otherwise the connection to BRLTTY gets
+rejected.  Default is @code{"/etc/brlapi.key"}.
+
+@item brltty-coding
+Coding in which texts should be sent to BRLTTY.  Default is
+@code{iso-8859-1}; if you use non-Western language, you may need to
+change it to display its characters correctly on the Braille display.
+
+@item brltty-tty
+Number of the Linux console on which speechd-el runs.  If this value
+is not set correctly, speechd-el may not interact well with other
+applications communicating with BRLTTY.  speechd-el tries to find the
+correct value itself, if this doesn't work, set this variable properly
+or set the @code{CONTROLVT} environment variable.
+
+@item brltty-timeout
+Maximum number of seconds to wait for a BRLTTY answer.  If it is
+exceeded, speechd-el closes the connection.  Normally, BRLTTY should
+answer protocol commands immediately, but if you talk to BrlAPI in a
+strange way through a lagging network, you may want to increase the
+limit.
+@end vtable
+
+@node Default Priorities, Basic Speaking, Connection Setup, Customization
+@subsection Default Priorities
+@cindex priorities
+
+If a speechd-el function sends a message to the output device without
+an explicitly specified priority, the priorities defined by the
+following variables are used.  By changing the values, you can achieve
+interesting effects.  For instance, changing the value of
+@code{speechd-default-key-priority} from @code{notification} to
+@code{message} makes all typed characters to be echoed and makes them
+to interrupt common text reading.
+
+The valid values of all the variables here are: @code{important},
+@code{message}, @code{text}, @code{notification}, @code{progress}.
+They correspond to Speech Dispatcher priorities, see the Speech
+Dispatcher manual for more details.
+
+@vtable @code
+@item speechd-default-text-priority
+Default priority of most text messages.
+
+@item speechd-default-sound-priority
+Default priority of sound icons.
+
+@item speechd-default-char-priority
+Default priority of spelled characters.
+
+@item speechd-default-key-priority
+Default priority of typed keys.
+@end vtable
+
+@node Basic Speaking, Auto-Reading Buffers, Default Priorities, Customization
+@subsection Basic Customization of Speaking
+
+@vtable @code
+@item speechd-speak-echo
+@cindex echoing
+Symbol determining how to read typed characters.  It can have one of
+the following values:
+
+@table @code
+@item character
+Read characters when they are typed.
+@item word
+Read only whole words once they are written.
+@item nil
+Don't echo anything on typing.
+@end table
+
+@item speechd-speak-deleted-char
+@cindex deletions
+Defines which character to speak when deleting a character.  If
+non-@code{nil}, speak the deleted character, otherwise speak the
+adjacent character.
+
+@item speechd-speak-buffer-name
+@cindex buffer names
+When you switch to another buffer and this variable is non-@code{nil},
+read the new buffer name.  If the variable value is the symbol
+@code{text}, read the text from the cursor position to the end of
+line in the new buffer as well.  If the variable is @code{nil}, read
+the text without speaking the buffer name.
+
+@item speechd-speak-whole-line
+@cindex line reading
+If non-@code{nil}, read whole line on movement by default.  Otherwise
+read from the point to the end of line on movement by default.
+
+@item speechd-speak-on-minibuffer-exit
+@cindex minibuffer
+When this variable is non-@code{nil}, speechd-el reads the text around
+cursor after exiting from minibuffer or its recursive level if there
+is nothing else to read.
+
+@item speechd-speak-read-command-keys
+@cindex command keys
+@cindex keys
+This variable defines in which situations command keys should be read
+when their command is performed.  If @code{t}, the command keys are
+always read.  If @code{nil}, they are never read.  If list, it may
+contain one or more of the following symbols describing the situations
+in which the keys should be read:
+
+@table @code
+@item movement
+Read the command keys if the cursor has moved, no buffer modification
+happened.
+
+@item modification
+Buffer was modified, the cursor hasn't moved.
+
+@item movement-modification
+Buffer was modified and the cursor was moved.
+@end table
+
+If the variable value is @code{t}, the command keys are read before
+the command is performed.  Otherwise, their reading is delayed after
+the command is executed, since the buffer changes and cursor movement
+must be detected first.
+
+@item speechd-speak-ignore-command-keys
+@cindex command keys
+@cindex keys
+List of commands that should never echo their command keys.
+
+@item speechd-speak-read-command-name
+@cindex command name
+If non-@code{nil}, read the command name instead of the command keys
+in the situations defined by the variable
+@code{speechd-speak-read-command-keys}.
+
+@item speechd-speak-message-time-interval
+@cindex messages
+@cindex repeating
+Minimum time in seconds, after which the same message may be repeated.
+If the message is the same as the last one, it is not spoken unless the number
+of seconds defined here has passed from the last spoken message.
+@end vtable
+
+@node Auto-Reading Buffers, Reading State, Basic Speaking, Customization
+@subsection Auto-Reading Buffers
+@cindex buffers
+@cindex inserted text
+
+It sometimes useful to start reading some buffers without user's
+explicit request.  For instance, if a help command is invoked, the
+user usually wants to read the help text immediately.  The following
+variables contain lists of names of the buffers that may be read
+automatically if they get changed by the last command and are visible
+in some window of the current frame.
+
+@vtable @code
+@item speechd-speak-auto-speak-buffers
+Content of these buffers is read after the command on the above
+conditions if nothing else (e.g. text around a new cursor position) is
+to be read.
+
+@item speechd-speak-force-auto-speak-buffers
+Like @code{speechd-speak-auto-speak-buffers} except that the buffer
+content is read forcibly, even when something else could be read.
+@end vtable
+
+The following variables define how to handle texts inserted during
+performing user commands.  Only newly inserted text is read, the
+options don't affect processing of deleted text.  Also, the options
+don't affect insertions within commands processed in a special way by
+speechd-el or user definitions, like @code{self-insert-command}.
+
+@vtable @code
+@item speechd-speak-buffer-insertions
+Defines whether insertions in the current buffer should be read
+automatically.  The value may be one of the following symbols:
+
+@table @code
+@item nil
+Don't read the inserted texts.
+
+@item t
+Read all the inserted texts.
+
+@item one-line
+Read only the first lines of inserted texts.
+
+@item whole-buffer
+Read whole buffer if it was modified in any way.
+@end table
+
+@item speechd-speak-insertions-in-buffers
+List of names of buffers, in which insertions are automatically
+read, whether the buffer is current or not and regardless the
+@code{speechd-speak-buffer-insertions} variable.
+
+@item speechd-speak-priority-insertions-in-buffers
+List of names of buffers, in which insertions are automatically read
+immediately as they appear, not only after a command is evaluated as
+with @code{speechd-speak-insertions-in-buffers}.  This is typically
+useful in comint buffers.
+
+@item speechd-speak-align-buffer-insertions
+If non-@code{nil}, the insertion text to be read is extended to the
+beginning of the first word affected by the insertion.  This is
+particularly useful in completion functions.
+@end vtable
+
+If the last command modified the current buffer and moved its cursor
+to a completely different position, the new cursor position is not
+indicated in the alternative output.  You can change it through the
+following variable:
+
+@vtable @code
+@item speechd-speak-movement-on-insertions
+If @code{t}, read the text around new cursor position even when the
+current buffer was modified.  If @code{read-only}, read it only in
+read-only buffers.  If @code{nil}, don't read it.
+@end vtable
+
+@node Reading State, Signalling, Auto-Reading Buffers, Customization
+@subsection Reading State Changes
+
+speechd-el can read information about current Emacs state, like
+current buffer name, major and minor modes or other buffer attributes,
+see @xref{Informatory Commands}.  Changes in the Emacs state
+information can be reported automatically, according to the user
+configuration:
+
+@vtable @code
+@item speechd-speak-state-changes
+List of identifiers of the Emacs state changes to be automatically
+reported.  The following symbols are recognized as state change
+identifiers:
+
+@table @code
+@item buffer-name
+@item buffer-identification
+(only in Emacs@tie{}22 or higher)
+@item buffer-modified
+@item buffer-read-only
+@item frame-name
+@item frame-identification
+(only in Emacs@tie{}22 or higher)
+@item header-line
+(only in Emacs@tie{}22 or higher)
+@item major-mode
+@item minor-modes
+@item buffer-file-coding
+@item terminal-coding
+@item input-method
+@item process
+@end table
+
+@item speechd-speak-display-modes
+List of minor modes to be read by their display string rather than
+name.  To use the display form of a mode identification may be useful
+in cases when the display form is more concise than the mode name or
+when the display form changes without actual change of the mode.
+@end vtable
+
+@node Signalling, Text Properties, Reading State, Customization
+@subsection Signalling
+
+@cindex icons
+Certain situations may be signalled by icons.  @dfn{Icon} is typically
+a short sound or a special indication on a Braille
+display@footnote{Icons are not yet implemented this way in the Braille
+library, plain texts are displayed instead.} signalling some event
+(such as displaying a message, entering prompt, or reaching an empty
+line).  The following variable enables or disables the predefined
+indications.  To learn how to define your own indications,
+@xref{Advanced Customization}.
+
+@vtable @code
+@item speechd-speak-signal-events
+List of symbols, containing names of events to signal with an icon.
+The following event names are supported:
+
+@table @code
+@item start
+Start or restart of speechd-el.
+
+@item empty
+@cindex empty text
+Empty text in various situations.
+
+@item beginning-of-line
+@cindex line
+@cindex beginning of line
+Reaching beginning of line after the
+@code{forward-char} and @code{backward-char} commands.
+
+@item end-of-line
+@cindex end of line
+Reaching end of line after the
+@code{forward-char} and @code{backward-char} commands.
+
+@item minibuffer
+Entering minibuffer.
+
+@item message
+Messages in echo area follow.
+@end table
+@end vtable
+
+@node Text Properties, Languages, Signalling, Customization
+@subsection Text Properties
+@cindex text properties
+@cindex faces
+@cindex cursor
+@cindex movement
+
+By default, after a movement command speechd-el reads the current
+line.  But if the cursor position is surrounded by a text having text
+properties (typically faces, but any text properties count),
+speechd-el may read just the piece of the text around the cursor
+having uniform properties.
+
+Also, if font lock mode is enabled, faces may be mapped to different
+voices.
+
+@vtable @code
+@item speechd-speak-by-properties-on-movement
+Method of selection of the piece of text to be read on movement.
+The variable may take one of the following values.
+
+@table @asis
+@item @code{nil}
+Text properties are not considered at all.
+
+@item @code{t}
+All text properties are considered.
+
+@item list of faces
+Only the named faces are considered.
+@end table
+
+@item speechd-speak-by-properties-always
+List of commands that always consider text properties, even when the
+@code{speechd-speak-by-properties-on-movement} variable is @code{nil}.
+
+@item speechd-speak-by-properties-never
+List of commands that never consider text properties, even when the
+@code{speechd-speak-by-properties-on-movement} variable is
+non-@code{nil}.
+
+@item speechd-speak-faces
+This variable allows you to invoke actions when the cursor ends up on
+a certain face after a user command is performed.  The variable value
+is an alist with elements of the form @code{(@var{face}
+. @var{action})}.
+
+If a movement command leaves the cursor on a @var{face} and there is
+no explicit reading bound to the command, @var{action} is invoked.
+If @var{action} is a string, that string is read.  If @var{action}
+is a function, it is invoked, with no arguments.
+
+@item speechd-face-voices
+Mapping of faces to voices.  The variable value is an alist with
+elements of the form @code{(@var{face} . @var{voice})} where
+@var{face} is a face and @var{voice} is a voice identifier defined in
+@code{speechd-voices}, see @ref{Voices}.  Each face is spoken in the
+corresponding voice.  If there's no item for a given face in this
+variable, the face is spoken in the current voice.
+
+Note that the mapping takes the effect only if font lock mode is
+enabled.
+@end vtable
+
+@node Languages, Voices, Text Properties, Customization
+@subsection Using multiple languages
+@cindex languages
+
+You can use speechd-el with multiple languages.  However, the process
+can't be easily automated, since ordinary text does not contain any
+information about its language.  So if you want to use speechd-el with
+the output being spoken in multiple languages, you must provide
+speechd-el some hints.
+
+The language settings described below currently apply only to the
+spoken output, to select the proper voice.  They don't affect the
+Braille output; but you may want to set language coding for Braille,
+@xref{Connection Setup}.
+
+@vindex speechd-language
+@cindex RFC 1766
+The basic means for providing language information to speechd-el is
+the variable @code{speechd-language}.  Each time speechd-el is about
+to speak a piece of text, it checks the variable for the language code
+and if it is non-@code{nil}, it speaks the text in the corresponding
+language.  The non-@code{nil} value must be a string of the RFC 1766
+language code (e.g. @code{en}, @code{cs}, etc.).
+
+Most often you will probably want to set the variable in a particular
+file, see @ref{File Variables,,,emacs,GNU Emacs Manual}, or as a
+buffer local variable, see @ref{Locals,,,emacs,GNU Emacs
+Manual}, in mode hooks, see @ref{Hooks,,,emacs,GNU Emacs Manual}.
+
+@findex speechd-language
+@cindex @code{language} text property
+If a piece of the text has the @code{language} property containing the
+RFC 1766 language code, it is spoken in the corresponding language,
+regardless of other settings.  You can use the @code{speechd-language}
+function to put the property on a string in your Elisp programs.
+
+Another good way of using multiple languages is to use multiple
+connections for separating language dependent buffers or modes, see
+@ref{Multiple Connections}, and to set the @code{language} parameter
+for each such a connection, see @ref{Connection Voices}.
+
+If nothing helps better, you can select languages according to the
+current input method:
+
+@vtable @code
+@item speechd-speak-input-method-languages
+Alist mapping input methods to languages.  Each of the alist elements
+is of the form @code{(@var{input-method-name} . @var{language})},
+where @var{input-method-name} is a string naming the input method and
+@var{language} is an RFC 1766 language code accepted by SSIP
+(e.g. @code{en}, @code{cs}, etc.).  If the current input method is
+present in the alist, the corresponding language is selected unless
+overridden by another setting.
+@end vtable
+
+@node Voices, Connection Voices, Languages, Customization
+@subsection Defining voices
+@cindex voices
+@cindex parameters
+
+You can define special voices in speechd-el that can be used in
+different situations, e.g. to speak different faces in different
+voices (@pxref{Text Properties}) or to set different punctuation modes
+for different kinds of buffers (@pxref{Multiple Connections}).
+speechd-el voices define not only basic voice characteristics, but
+also speech characteristics like pitch or rate and special properties
+like punctuation reading or capital character signalization.
+
+Voice definition is contained in the following variable:
+
+@vtable @code
+@item speechd-voices
+Alist of voice identifiers and their parameters.
+
+Each element of the list is of the form @code{(@var{voice-id}
+. @var{parameters})}, where @var{voice-id} is a symbol under which the
+voice will be accessed and @var{parameters} is an alist of parameter
+identifiers and parameter values.  Valid parameter names are the
+following symbols: @code{language}, @code{gender}, @code{age},
+@code{style}, @code{name}, @code{rate}, @code{pitch}, @code{volume},
+@code{punctuation-mode}, @code{capital-character-mode},
+@code{message-priority}, @code{output-module}.  Please note that any
+parameter entry present will change the corresponding parameter, even
+if the parameter value is @code{nil} or empty; if you don't want to
+change the parameter in any way by the voice, don't put it to the list
+(and don't enable its entry in customize).
+
+@code{name} value is a string identifying Speech Dispatcher voice
+name.  If it is not given, the parameters @code{gender}, @code{age},
+and @code{style} are considered to select a Speech Dispatcher voice.
+@code{gender} value can be one of the symbols @code{male},
+@code{female}, @code{neutral}.  @code{age} can be one of the symbols
+@code{middle-adult}, @code{child}. @code{neutral}.  @code{style} can
+be one of the numbers @code{1}, @code{2}, @code{3} (@code{style}
+values are likely to be changed in future).
+
+The @code{message-priority} parameter sets priority of any message of
+the voice.  Its value is any of the message priority symbols.
+
+See the corresponding @code{speechd-set-*} functions for valid values
+of other parameters.
+
+The voice named @code{nil} is special, it defines a default voice.
+Explicit definition of its parameters is optional.
+@end vtable
+
+@node Connection Voices, Multiple Connections, Voices, Customization
+@subsection Connection Voices
+@cindex voices
+
+With the help of the following variable you can let set various
+connection parameters, like speech rate, language, etc.,
+automatically.  speechd-el can open multiple connections according to
+various criteria (@pxref{Multiple Connections}), you can set different
+parameters to different connections, based on their names.
+
+@vtable @code
+@item speechd-connection-voices
+Alist of connection names and corresponding voices.  Each list element
+is of the form @code{(@var{connection-name} . @var{voice})}, where
+@var{connection-name} is a connection name given as a string and
+@var{voice} is a voice identifier defined in the variable
+@code{speechd-voices}.
+
+The default voice (named @code{nil}) is used for connections that are
+not present in this variable.
+@end vtable
+
+So that changing the value of the variable could take the full effect,
+the open connections must be reopened.  Unless you use the
+customization interface, you must invoke the @kbd{C-u M-x
+speechd-speak} command to ensure this.
+
+There is a command to help you with setting connection voice and its
+parameters:
+
+@table @kbd
+@item C-e C-a
+@kindex C-e C-a
+@findex speechd-add-connection-settings
+Store the current connection parameters to a specified voice in the
+@code{speechd-voices} variable and set that voice for the current
+connection in the @code{speechd-connection-voices} variable.
+
+Please note you are still responsible to save the variables if you
+want to use them in future sessions.
+@end table
+
+@node Multiple Connections, Keys, Connection Voices, Customization
+@subsection Multiple Connections
+@cindex connections
+
+You can arrange speechd-el to use separate connections to Speech
+Dispatcher for certain buffers or major modes.  This is basically
+useful to allow independent parameter setting for those buffers and
+major modes, both by hand and through the configuration
+(@pxref{Connection Voices}).
+
+Each Speech Dispatcher connection has its unique name.  By default,
+speechd-el uses a connection named @code{"default"}.  All you need to
+create a separate connection is to let speechd-el choose a different
+connection name in certain situations.  The process of connection name
+selection is driven by the @code{speechd-speak-connections} variable.
+
+@vtable @code
+@item speechd-speak-connections
+Alist mapping major modes and buffers to Speech Dispatcher
+connections.  Each element of the alist is of the form
+@code{(@var{mode-or-buffer} . @var{connection-name})}.
+
+When speechd-el wants to send a message, it tests the current
+environment against the @var{mode-or-buffer} entries.
+@var{mode-or-buffer} may be one of the following objects, in the order
+of priority from the highest to the lowest:
+
+@itemize @bullet
+@item
+a list, representing a function call that should return a
+non-@code{nil} value if and only if the element should be applied
+
+@item
+regular expression matching desired buffer names
+
+@item
+the symbol @code{:minibuffer}, representing minibuffers
+
+@item
+major mode symbol
+
+@item
+@code{nil}, representing non-buffer areas, e.g. echo area
+
+@item
+@code{t}, representing the default value if nothing else matches
+@end itemize
+
+If more entries match in some situation, the entry with the highest
+priority is used.
+
+@var{connection-name} is an arbitrary non-empty string naming the
+corresponding connection.  If no connection with such a name is open
+in the running speechd-el, it is automatically created when there's
+something to send to it.
+
+@item speechd-cancelable-connections
+@cindex stop
+List of names of connections that are cancelled by default when a
+cancel function is called.
+@end vtable
+
+@node Keys, Braille Display Keys, Multiple Connections, Customization
+@subsection Keys
+@cindex keys
+@cindex prefix key
+@cindex key map
+
+The command keys of speechd-el are defined by the
+@code{speechd-speak-prefix} variable and the
+@code{speechd-speak-mode-map} key map.
+
+@vtable @code
+@item speechd-speak-prefix
+This variable defines the prefix key of the speechd-el commands, which
+is @kbd{C-e} by default.  If you change the variable value after
+speaking has already been started through the @code{speechd-speak}
+command and you do not set it through the customization interface, you
+must rerun the @code{speechd-speak} so that the change took any
+effect.
+
+@item speechd-speak-mode-map
+This key map holds the mapping of the keys following the prefix key.
+You can set keys here in the usual way, e.g.
+
+@lisp
+(define-key speechd-speak-mode-map "t" 'speechd-say-text)
+@end lisp
+
+to get the @code{speechd-say-text} command bound to the @code{C-e t}
+key (assuming @code{C-e} is the prefix key).
+@end vtable
+
+@node Braille Display Keys, Modes, Keys, Customization
+@subsection Braille Display Keys
+@cindex Braille keys
+
+When using Braille display output, speechd-el can bind actions to the
+Braille display keys.  The Braille key bindings are defined in the
+following variables:
+
+@vtable @code
+@item speechd-braille-key-functions
+Alist of Braille display key codes and corresponding Emacs functions.
+If the given key is pressed, the corresponding function is called with
+a @code{speechd-brltty-driver} instance as its single argument (read
+the source code for information about speechd-el output drivers).
+
+The key codes are either integers (for BRLTTY 3.7 and older) or lists
+containing three integers (for BRLTTY 3.8 and newer).  See the default
+variable value for examples of possible key codes.
+
+The assigned functions needn't be interactive.  Actually as the
+functions may be invoked by asynchronous events any time at any place,
+they shouldn't modify current environment in any inappropriate way.
+For this reason it is recommended @emph{not} to assign user commands
+to the keys here.
+
+@file{speechd-brltty.el} contains some predefined functions that can
+be assigned to the Braille display keys here:
+
+@cindex Braille functions
+@ftable @code
+@item speechd-brltty-scroll-left
+Scroll towards the beginning of the currently displayed message.
+@item speechd-brltty-scroll-right
+Scroll towards the end of the currently displayed message.
+@item speechd-brltty-scroll-to-bol
+Scroll to the beginning of the currently displayed message.
+@item speechd-brltty-scroll-to-eol
+Scroll to the end of the currently displayed message.
+@item speechd-brltty-scroll-to-cursor
+Scroll to the cursor position (if any) in the displayed message.
+@item speechd-brltty-finish-message
+Stop displaying the current message and display the next one.
+@item speechd-brltty-cancel
+Stop displaying the current message and discard all messages waiting
+in the queue.
+@item speechd-brltty-previous-message
+Display the previous message from the history.
+@item speechd-brltty-next-message
+Display the next message from the history.
+@item speechd-brltty-first-message
+Display the first message in the history.
+@item speechd-brltty-last-message
+Display the last message in the history.
+@end ftable
+
+Additionally, the following macro is provided:
+
+@ftable @code
+@item speechd-brltty-command-key-function @var{key}
+Insert function for handling @var{key} as a general input key.  This
+is useful for handling Braille keys acting as general character input
+keys.
+@end ftable
+
+The @code{speechd-braille-key-functions} variable contains some
+default bindings initially, but as the keys and their codes differ a
+lot for various Braille displays, you probably need to adjust it for
+your particular device.  You can figure out the display key codes by
+setting the @code{speechd-braille-show-unknown-keys} variable to
+@code{t} and pressing the display keys.
+
+@item speechd-braille-show-unknown-keys
+If non-@code{nil}, show codes of the pressed Braille keys that have no
+function assigned in @code{speechd-braille-key-functions}.  This is
+useful to figure out the Braille key codes.
+@end vtable
+
+With BrlTTY 3.8 and higher BrlTTY can handle many braille keys itself
+in X environment.  So speechd-el doesn't try to handle most keys
+itself by default.  Instead it handles only keys assigned in
+@code{speechd-braille-key-functions}.  If this is a problem, typically
+when looking for braille key codes, the following command can be
+useful:
+
+@table @kbd
+@item C-e C-b k
+@kindex C-e C-b k
+@findex speechd-speak-toggle-braille-keys
+Toggle handling braille keys by speechd-el.  If BrlTTY handles the
+keys (this is the default behavior), speechd-el receives only keys
+which are assigned to commands in
+@code{speechd-braille-key-functions}.  If speechd-el handles the keys,
+then BrlTTY sends all the pressed keys to speechd-el without
+processing them itself.
+@end table
+
+@node Modes, Debugging, Braille Display Keys, Customization
+@subsection Minor mode hooks
+@cindex minor modes
+@cindex hooks
+
+speechd-el provides a minor mode that enables and disables the
+reading, @xref{Starting Alternative Output}.  You can let perform custom
+actions on entering it through the following hook.
+
+@vtable @code
+@item speechd-speak-mode-hook
+Hook run when speechd-speak minor mode is enabled.
+@end vtable
+
+@node Debugging,  , Modes, Customization
+@subsection Debugging speechd-el
+@cindex debugging
+
+When you try to debug speechd-speak functions, you can experience the
+problem of recursive reading in the Elisp debugger.  To avoid it, you
+can instruct speechd-el to be quiet in Elisp debuggers:
+
+@vtable @code
+@item speechd-speak-in-debugger
+If @code{nil}, speechd-speak functions won't be reading in Elisp debuggers.
+@end vtable
+
+@node Advanced Customization, Problems, Customization, speechd-el User Manual
+@section Defining Your Own Command Feedbacks
+@cindex extensions
+
+Writing your own feedback definitions generally requires knowledge of
+Elisp programming.  But don't be afraid, you can set basic things
+without it, just following instructions here.
+
+speechd-el allows you to say a text, output an icon, or call any Elisp
+expression before or after a command or a function is invoked.  There
+are two macros that allow you to do it, while ensuring everything is
+set up properly:
+
+@ftable @code
+@item speechd-speak-command-feedback @var{command} @var{position} @var{feedback}
+Install feedback invocation on @var{command}.  @code{command} is a
+name of an interactive function (use @kbd{C-h C-c} to get a name of
+the command bound to a given key).
+
+@var{position} may be one of the symbols @code{before} and
+@code{after} to call the feedback before or after the command is
+invoked.
+
+@code{feedback} may be a string or any Elisp expression.  If it is a
+string (a text enclosed in double quotes), it defines a text to be
+spoken or a sound icon to be played.  If the string starts with an
+asterisk (@code{*}), it names a sound icon (the asterisk is not a part
+of the name), otherwise it is a normal text.
+
+Example:
+@cindex @code{suspend-emacs}
+
+@lisp
+(speechd-speak-command-feedback suspend-emacs before "Suspending Emacs!")
+@end lisp
+
+You can put this line of Elisp code to your @file{~/.emacs} to ensure
+you are informed when you invoke the @code{suspend-emacs} command
+(usually bound to @kbd{C-z}).
+
+@item speechd-speak-function-feedback @var{function} @var{position} @var{feedback}
+This is the same as @code{speechd-speak-command-feedback}, except it
+is called anytime the given function is invoked, whether interactively
+or not.  Also, @var{function} may be any function, not only an
+interactive command.
+@end ftable
+
+@emph{Please note:}
+
+@itemize @bullet
+@item
+Due to Emacs deficiency, the feedback mechanism may not work on
+built-in functions.
+
+@item
+Be careful if you want to install function feedbacks without help of
+the macros above.  The macros install code ensuring nothing is spoken
+if @code{speechd-speak-mode} is disabled and other similar
+precautions.  If you do not use them, you should make those
+precautions yourself.
+@end itemize
+
+@node Problems, Tips, Advanced Customization, speechd-el User Manual
+@section Problems You May Encounter
+@cindex problems
+
+@itemize @bullet
+@cindex Info
+@item
+@emph{Why are some menu items in Info not read?}
+
+This is due the way how Emacs fontifies the menu items.  Try to set
+the @code{Info-fontify-maximum-menu-size} variable to @code{0} to
+avoid the problem.
+
+@cindex appointments
+@cindex diary
+@item
+@emph{How to make appointments read their notifications?}
+
+Set the variable @code{appt-msg-window} to @code{nil}.  Also, adding
+@code{"diary"} to the @code{speechd-speak-auto-speak-buffer} variable
+may be useful.
+
+@cindex w3m-el
+@cindex URL speaking
+@item
+@emph{How to avoid printing URL when moving through links in w3m-el?}
+
+Add the following code to your @file{~/.emacs}:
+
+@lisp
+(defadvice w3m-print-this-url (around my-w3m-print-this-url activate)
+  (when (eq this-command 'w3m-print-this-url)
+    ad-do-it))
+@end lisp
+
+@cindex TAB characters
+@item
+@emph{How to avoid excessive occurrences of TAB (C-i) and NL (C-j)
+characters on a Braille display in some buffers
+(e.g. @code{*Completion*} buffer)?}
+
+Braille displays generally display exact content, which is usually
+what you want.  But sometimes TAB characters are inserted to Emacs
+buffers for the sole purpose of visual formatting.  You can tell Emacs
+to suppress this behavior when possible by adding the following code
+to your @file{~/.emacs}:
+
+@lisp
+(setq-default indent-tabs-mode nil)
+@end lisp
+
+@cindex repeated reading
+@item
+@emph{In some situations, when a modified text is read after
+performing a command, the text is read in separate pieces and some of
+the pieces are repeated.}
+
+Buffer modifications can be performed by many different ways in Elisp
+programs.  speechd-el is unable to track them always satisfactory.  If
+you have a reasonable idea how to improve buffer modification reading,
+please tell us.
+
+As a workaround, if you encounter this problem when performing some
+often used commands, you might want to define your own speaking
+feedbacks of those commands.  @xref{Advanced Customization}, for more
+details.
+
+@cindex delays
+@cindex garbage collection
+@cindex @code{gc-cons-threshold}
+@item
+@emph{There are sometimes small delays (about 1 second) before
+something is read after a command.}
+
+Maybe Emacs is garbage collecting in the meantime.  Try to increase
+the value of the @code{gc-cons-threshold} variable, e.g. to 4000000.
+It may increase or reduce the performance, depending on your
+environment and particular requirements.
+
+If you didn't byte compile the source @file{*.el} files, do so.
+
+If you are an experienced Elisp hacker and you can find out why
+speechd-el produces significant amount of data increasing the
+frequency of garbage collection and how to make the things better,
+your help is welcome!
+
+@item
+@emph{During holding down the @kbd{C-n} key, the screen gets frozen
+and the cursor doesn't move for a while.}
+
+Emacs redisplay routines are generally not invoked when Emacs is busy.
+speechd-el combined with your autorepeat may achieve such a state
+quite easily.  If that's a real problem to you, you can reduce your
+autorepeat rate or buy a faster computer.
+
+Also, if you didn't byte compile the source @file{*.el} files, do so.
+
+Certainly, any tips increasing speechd-el performance are welcome.
+@end itemize
+
+@node Tips, Bug Reporting, Problems, speechd-el User Manual
+@section Useful Emacs tips
+
+Don't forget that Elisp allows you to define many useful functions.
+Typically, you may want to define commands reporting some information,
+which can be easily identified on the Emacs screen, but which is not
+so easily provided in the standard speech output interface.
+
+Some examples:
+
+@itemize @bullet
+@item
+@emph{Reporting current date in calendar:}
+
+@cindex day in calendar
+@lisp
+(defun report-day ()
+  (interactive)
+  (message "%s" (calendar-date-string (calendar-cursor-to-date t))))
+@end lisp
+
+@item
+@emph{Reporting current diary appointments:}
+
+@cindex appointments
+@lisp
+(defun report-current-appointments ()
+  (interactive)
+  (let ((appt-now-displayed nil))
+    (appt-check)))
+@end lisp
+
+@item
+@emph{Reviewing ispell choices}
+
+@cindex ispell
+When you invoke the @code{ispell-word} command and the checked word is
+mispelled, ispell offers you the list of alternative spellings.  You
+can let speechd-el repeat the list by pressing @kbd{C-a} in the ispell
+prompt.  When you want to review the choices closely, press @kbd{C-r}
+to enter recursive edit and then switch to the @code{*Choices*} window
+with @kbd{C-x o}.  After you review the choices, you can return back
+to the ispell prompt by pressing @kbd{C-M-c}.
+@end itemize
+
+@node Bug Reporting,  , Tips, speechd-el User Manual
+@section How to Report speechd-el or Speech Dispatcher Bugs
+@cindex bug reporting
+
+When you encounter a speechd-el bug, you can report it to us using the
+following command.  Before doing it, please read the whole text of
+this section to allow handling your bug report in a more efficient way.
+
+@ftable @kbd
+@item M-x speechd-bug
+@findex speechd-bug
+Report a speechd-el or Speech Dispatcher bug.  The command asks you
+for some information and then asks you whether you can reproduce the
+bug.  If you can, answer @kbd{y} and start reproducing the bug
+immediately.  As soon as the bug is reproduced, type @kbd{C-e C-f}.
+Then you can (and should) further edit the generated mail and send it
+in the usual way.
+
+@item M-x speechd-bug-reproduce
+@findex speechd-bug-reproduce
+@kindex C-e C-f
+Start reproducing a speechd-el or Speech Dispatcher bug.  All user and
+Speech Dispatcher actions are watched from this moment.
+
+Bug reproduction is finished by pressing the @kbd{C-e C-f} keys.
+After the bug reproduction is finished, information about it is
+inserted into the buffer where the @code{speechd-bug-reproduce}
+command was invoked.
+
+This command is useful when you want to provide information about a
+bug without generating new bug report.
+@end ftable
+
+When reporting the bugs, please always remember the following
+instructions:
+
+@itemize @bullet
+@item
+Write as much information about the problem as possible.  Describe
+what doesn't work, what's the expected behavior, what actions have
+triggered the bug, what's special about your Emacs environment or
+Speech Dispatcher configuration, etc.  Don't try to analyze too much
+which information is important and which is not --- everything may be
+important to the developers, so try not to forget to mention anything
+that might be important, better more than less.  Missing information
+may cause the developers won't be able to handle the bug at all.
+
+@item
+Be as much precise as possible.  Don't expect the developers to know
+the context or to know the way you typically use Emacs and speechd-el.
+Write in exact terms --- instead of just writing ``when I invoke foo''
+write better ``when I press the keys `M-x foo RET', thus invoking the
+`foo' command''; or instead of writing ``doesn't speak what I expect''
+write like ``speaks `blah blah' instead of `bleh bleh bleh' what is I
+expect, since `bleh bleh bleh' is the text of the whole line''.
+
+@item
+When reproducing the bug, try to have the Speech Dispatcher logging
+enabled to the highest level --- set the @code{LogLevel} option to
+@code{5} in your @file{speechd.conf} configuration file.
+
+@item
+When reproducing the bug, don't do any extra actions and invoke
+@kbd{C-e C-f} as soon as the bug is reproduce.  Thus you avoid losing
+the relevant information of the automatically extracted log files in
+an unnecessary garbage.
+
+@item
+You can also look at the Speech Dispatcher bug reporting instructions,
+see @ref{Reporting Bugs,,,speechd,Speech Dispatcher}.
+@end itemize
+
+@c ****************************************************************************
+
+@node speechd-el Elisp Library, Contact Information, speechd-el User Manual, Top
+@chapter speechd-el Emacs Lisp Library
+
+The speechd-el code can be classified into several parts:
+
+@itemize @bullet
+@item
+Low-level libraries for Speech Dispatcher and BrlAPI access
+implemented in the files @file{speechd.el} and @file{brltty.el}.
+
+@item
+General device independent output mechanism defined in the
+@file{speechd-out.el} file.  Its particular device implementations are
+in the files @file{speechd-ssip.el} and @file{speechd-brltty.el}.
+
+@item
+User interface implemented in @file{speechd-speak.el}.
+@end itemize
+
+You can use the libraries to communicate with Speech Dispatcher,
+BRLTTY or other devices in your own programs.
+
+Right now, there's no real programmer's manual to the libraries.
+Please read docstrings of available variables, functions and macros.
+
+Nevertheless, here are some instructions you can and should follow:
+
+@itemize @bullet
+@item
+Don't use any functions, variables or other Lisp objects, names of
+which start with prefixes separated by double dashes (such as
+@code{speechd--} or @code{speechd-speak--}).  These objects are
+considered private and may change incompatibly or disappear at any
+time without notice.
+
+@item
+@vindex speechd-client-name
+If you want to select or create a particular SSIP connection, do so by
+binding the @code{speechd-client-name} variable:
+
+@lisp
+(let ((speechd-client-name "something"))
+  ... the code using the connection "something" ... )
+@end lisp
+
+Please note it's usually bad idea to open two concurrent Speech
+Dispatcher connections sharing the same client name.
+
+@item
+Otherwise there should be no special pitfalls and you should be safe
+to do anything what makes sense.
+@end itemize
+
+You can also look at @ref{Advanced Customization}.
+
+@c ****************************************************************************
+
+@node Contact Information, Copying This Manual, speechd-el Elisp Library, Top
+@chapter Contact Information
+@cindex authors
+@cindex bugs
+@cindex contact
+
+If you want to report a bug on speechd-el, send complete information
+regarding the bug to the bug tracking address
+@email{speechd-el@@bugs.freebsoft.org}.  If you have a patch to
+speechd-el, you can send it to the same address.
+
+@emph{Please}, before sending us any bug report, read the bug
+reporting instructions, see @ref{Bug Reporting}.  Thus you allow us to
+process your bug report more efficiently, resulting in a better
+response to the report and faster resolving of the issue.
+
+If you have any questions, suggestions, or anything else to tell us,
+feel free to contact us at the e-mail address
+@email{speechd@@freebsoft.org}.
+
+@c ****************************************************************************
+
+@node Copying This Manual, Index, Contact Information, Top
+@appendix Copying Conditions of This Manual
+
+@menu
+* GNU Free Documentation License::  
+* GNU General Public License::  
+@end menu
+
+@node GNU Free Documentation License, GNU General Public License, Copying This Manual, Copying This Manual
+@section GNU Free Documentation License
+
+@cindex FDL, GNU Free Documentation License
+@center Version 1.2, November 2002
+
+@include fdl.texi
+
+@node GNU General Public License,  , GNU Free Documentation License, Copying This Manual
+@section GNU General Public License
+
+@cindex GPL, GNU General Public License
+@center Version 3, 29 June 2007
+
+@include gpl.texi
+
+@c ****************************************************************************
+
+@node Index,  , Copying This Manual, Top
+@unnumbered Index
+
+@printindex cp
+
+@bye
+
+@c  LocalWords:  texinfo setfilename speechd settitle syncodeindex fn cp ky vr
+@c  LocalWords:  Brailcom dircategory direntry titlepage vskip pt filll dir url
+@c  LocalWords:  insertcopying ifnottex cindex Elib autoload kbd findex kindex
+@c  LocalWords:  pxref sexp SPC itemx var unspeak vtable xref asis alist ftable
+@c  LocalWords:  docstrings minibuffers emph vindex fdl texi printindex gc foo
+@c  LocalWords:  RET bleh LogLevel conf comint localhost

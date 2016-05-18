@@ -1,0 +1,2 @@
+
+(grep+ . [(20160212 825) nil "Extensions to standard library `grep.el'." single ((:keywords "tools" "processes" "compile") (:url . "http://www.emacswiki.org/grep+.el"))])

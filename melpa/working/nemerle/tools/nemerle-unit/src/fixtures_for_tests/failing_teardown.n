@@ -1,0 +1,7 @@
+using NemerleUnit
+
+teardown
+    assert false
+
+test "empty"
+    ()

@@ -1,2 +1,0 @@
-
-(edbi-database-url . [(20150126 603) ((emacs (24)) (edbi (0 1 3))) "Run edbi with database url" single ((:url . "https://github.com/proofit404/edbi-database-url"))])

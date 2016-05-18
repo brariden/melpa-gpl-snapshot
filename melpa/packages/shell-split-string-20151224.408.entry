@@ -1,0 +1,2 @@
+
+(shell-split-string . [(20151224 408) nil "Split strings using shell-like syntax" single ((:keywords "utility" "library" "shell" "string") (:url . "https://github.com/10sr/shell-split-string-el"))])

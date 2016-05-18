@@ -1,2 +1,0 @@
-
-(smartwin . [(20151230 311) ((emacs (24 4))) "A minor mode shows shell like buffers." single ((:keywords "convenience") (:url . "https://github.com/jerryxgh/smartwin"))])

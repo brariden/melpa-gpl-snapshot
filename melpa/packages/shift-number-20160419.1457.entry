@@ -1,0 +1,2 @@
+
+(shift-number . [(20160419 1457) nil "Increase/decrease the number at point" single ((:keywords "convenience") (:url . "https://github.com/alezost/shift-number.el"))])

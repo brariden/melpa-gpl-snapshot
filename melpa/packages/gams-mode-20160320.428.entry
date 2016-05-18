@@ -1,0 +1,2 @@
+
+(gams-mode . [(20160320 428) nil "Major mode for editing GAMS (General Algebraic Modeling System) files." single ((:keywords "gams") (:url . "http://shirotakeda.org/en/gams/gams-mode/"))])

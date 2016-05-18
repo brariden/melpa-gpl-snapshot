@@ -1,0 +1,2 @@
+
+(baidu-life . [(20160426 719) ((cl-lib (0 5))) "Use baidu api to do some interesting things" single ((:keywords "lisp" "baidu"))])

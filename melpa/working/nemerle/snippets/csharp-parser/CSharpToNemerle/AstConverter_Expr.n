@@ -1,0 +1,314 @@
+﻿using System;
+using System.Globalization;
+using SCG = System.Collections.Generic;
+using SG  = System.Globalization;
+
+using Nemerle.Assertions;
+using Nemerle.Utility;
+using Nemerle.Compiler;
+
+using PT = Nemerle.Compiler.Parsetree;
+using PEG = Nemerle.Peg;
+using CS = CSharpParser;
+
+namespace CSharpToNemerle
+{
+  public partial class AstConverter
+  {
+    ConvertExpr(x : CS.Expr) : PT.PExpr
+    {
+      def loc = x |> NLocation;
+      match(x) {
+        // handle experssions that actualy return `void' value in Nemerle
+        //
+        | Assign(to, value, op) =>
+          def toExpr = ConvertExpr(to);
+          def valueExpr = WithIntoExpression(true).ConvertExpr(value);
+          def assignExpr = 
+            if(op.Id == "=")
+              PT.PExpr.Assign(loc, toExpr, valueExpr)
+            else
+              PT.PExpr.Call(loc, ConvertExpr(op), [toExpr, valueExpr]);
+          if(isIntoExpression)
+            PT.PExpr.Sequence(loc, [assignExpr, toExpr])
+          else
+            assignExpr
+
+        | UnaryOperator(expr, op, is_prefix) =>
+          def sourceExpr = WithIntoExpression(true).ConvertExpr(expr);
+          def resultExpr = PT.PExpr.Call(loc, ConvertExpr(op), [sourceExpr]);
+          match(op.Id) {
+            | "++" when isIntoExpression
+            | "--" when isIntoExpression =>
+              if(is_prefix)
+                Util.locate(loc, <[ $resultExpr; $sourceExpr ]>)
+              else
+                Util.locate(loc,  {
+                  def tmp = Macros.NewSymbol("tmp");
+                  <[ def $(tmp : name) = $sourceExpr; $resultExpr; $(tmp : name) ]>
+                })
+
+            | _ => resultExpr
+          }
+
+        // cutting point: other expressions are converted in 'into expression' context
+        //
+        | _ when !isIntoExpression =>
+          WithIntoExpression(true).ConvertExpr(x)
+
+        | Alias(id)
+        | Ref(id) =>
+          ConvertExpr(id)
+
+        | Member(Alias(alias), Ref(id)) when alias.Id == "global" =>
+          ConvertExpr(id)
+
+        | Member(expr, Ref(id)) =>
+          PT.PExpr.Member(loc, ConvertExpr(expr), MakeSplicableName(id))
+
+        | PointerMember =>
+          Message.Error(loc, "pointer member access is not supported");
+          PT.PExpr.Error(loc)
+
+        | TypeArguments(expr, args) =>
+          PT.PExpr.GenericSpecifier(loc, ConvertExpr(expr), args.Map(fun(_)
+          {
+            | null => PT.PExpr.Wildcard(loc)
+            | x => ConvertExpr(x)
+          }))
+
+        | Literal(lit) =>
+          PT.PExpr.Literal(loc, ConvertLiteral(lit))
+
+        | This =>
+          PT.PExpr.This(loc)
+
+        | Base =>
+          PT.PExpr.Base(loc)
+
+        | BuiltInType("void") =>
+          PT.PExpr.Void(loc)
+
+        | BuiltInType("dynamic") =>
+          Message.Error(loc, "`dynamic' type is not supported");
+          PT.PExpr.Error(loc)
+
+        | BuiltInType(name) =>
+          PT.PExpr.Ref(MakeName(name, loc))
+
+        | ArrayType(expr, rank) =>
+          def rank = PT.PExpr.Literal(loc, Literal.Integer(unchecked(rank :> ulong), false, manager.InternalType.Int32));
+          def args = PT.PExpr.ListLiteral(loc, [ConvertExpr(expr)]);
+          PT.PExpr.Array(loc, rank, args)
+
+        | NullableType(expr) =>
+          Util.locate(loc, <[ System.Nullable.[$(ConvertExpr(expr))] ]>)
+
+        | PointerType =>
+          Message.Error(loc, "pointers are not supported");
+          PT.PExpr.Error(loc)
+
+        | TypeOf(typeRef) =>
+          PT.PExpr.Typeof(loc, ConvertExpr(typeRef))
+
+        | Checked(expr, true)   with macroName = "checked"
+        | Checked(expr, false)  with macroName = "unchecked" =>
+          MakeSpecialMacroCall(loc, macroName, ConvertExpr(expr))
+
+        | DefaultValue(typeRef) =>
+          Util.locate(loc, <[ Nemerle.Extensions.DefaultValue($(ConvertExpr(typeRef))) ]>)
+
+        | SizeOf(typeRef) => Util.locate(loc, <[ sizeof($(ConvertExpr(typeRef))) ]>)
+
+        | Function([], true, _, body) => // delegate {} -> fun(_) {}
+
+          def newScope = LabelScope(manager, locationConverter);
+          def body = WithNewLabelScope(newScope).WithLastStatement(true).ConvertExpr(body);
+          newScope.CheckLabels();
+
+          Util.locate(loc, <[ fun(_) {$body} ]>)
+          
+        | Function(parms, false, _, body) =>
+          def parms = parms.Map(ConvertParam);
+          def newScope = LabelScope(manager, locationConverter);
+          def body = WithNewLabelScope(newScope).WithLastStatement(true).ConvertExpr(body);
+          newScope.CheckLabels();
+          
+          Util.locate(loc, <[ fun (..$parms) {$body} ]>)
+          
+        | Call(expr, args) =>
+          PT.PExpr.Call(loc, ConvertExpr(expr), args.Map(ConvertExpr))
+
+        | Indexer(expr, args) =>
+          PT.PExpr.Indexer(loc, ConvertExpr(expr), args.Map(ConvertExpr))
+
+        | BinaryOperator(left, right, CS.Identifier where (Id = "is")) =>
+          Util.locate(loc, <[ 
+            match($(ConvertExpr(left)))
+            {
+              | _ is $(ConvertExpr(right)) => true
+              | _ => false
+            }
+          ]>)
+
+        | BinaryOperator(left, right, CS.Identifier where (Id = "as")) =>
+          Util.locate(loc, <[ 
+            match($(ConvertExpr(left)))
+            {
+              | x is $(ConvertExpr(right)) => x
+              | _ => null
+            }
+          ]>)
+
+        | BinaryOperator(left, right, op) =>
+          PT.PExpr.Call(loc, ConvertExpr(op), [ConvertExpr(left), ConvertExpr(right)])
+
+        | ConditionalOperator(CS.Expr.BinaryOperator(left, right, CS.Identifier where (Id = "is")), trueExpr, falseExpr) =>
+          Util.locate(loc, <[
+              match($(ConvertExpr(left)))
+              {
+                | _ is $(ConvertExpr(right)) => $(ConvertExpr(trueExpr))
+                | _ => $(ConvertExpr(falseExpr))
+              }
+            ]>
+          )
+
+        | ConditionalOperator(cond, trueExpr, falseExpr) =>
+          Util.locate(loc, <[ Nemerle.Core.@if($(ConvertExpr(cond)), $(ConvertExpr(trueExpr)), $(ConvertExpr(falseExpr))) ]>)
+
+        | CastOperator(CS.Expr.Literal(CS.Literal.Null), typeRef) =>
+          PT.PExpr.TypeEnforcement(loc, PT.PExpr.Literal(loc, Literal.Null()), ConvertExpr(typeRef))
+
+        | CastOperator(expr, typeRef) =>
+          PT.PExpr.TypeConversion(loc, ConvertExpr(expr), ConvertExpr(typeRef))
+
+        | NewObject(objType, args, init) =>
+          def ctor = PT.PExpr.Call(loc, ConvertExpr(objType), args.Map(ConvertExpr));
+          ConvertObjectInitializer(ctor, init)
+
+        | NewArray(elementType, args, rank, init) =>
+          ConvertArrayInitializer(elementType, args, rank, init)
+
+        | NewAnonymous(CS.VariableInitializer.Complex(seq)) =>
+          def seq = seq.FoldLeft([], (expr : CS.VariableInitializer, acc) =>
+            match(expr) {
+              | Property(id, Expr(value)) =>
+                PT.PExpr.Assign(expr |> NLocation, ConvertExpr(id), ConvertExpr(value)) :: acc
+              | Expr(expr) =>
+                ConvertExpr(expr) :: acc
+              | _ =>
+                Message.Error(expr |> NLocation, "expression expected in anonymous type constructor");
+                acc
+            }).Rev();
+          Util.locate(loc, <[ Nemerle.Extensions.AnonymousClassNormalCtor( ..$seq ) ]>)
+
+        | Query as query =>
+          ConvertQuery(query)
+
+        | _ =>
+          assert2(false);
+          Message.Error(loc, "invalid expression");
+          PT.PExpr.Error(loc)
+      }
+    }
+
+    ConvertExpr(id : CS.Identifier) : PT.PExpr
+    {
+      PT.PExpr.Ref(id |> NLocation, MakeName(id))
+    }
+
+    ConvertExpr(arg : CS.FunctionArgument) : PT.PExpr
+    {
+      def argValue = ConvertExpr(arg.Value);
+
+      def expr =
+        if(null != arg.Name)
+          PT.PExpr.Assign(arg |> NLocation, PT.PExpr.Ref(MakeName(arg.Name)), argValue)
+        else
+          argValue;
+
+      match(arg.Modifier) {
+        | Normal => expr
+        | Ref => PT.PExpr.ParmByRef(expr)
+        | Out => PT.PExpr.ParmOut(expr)
+      }
+    }
+
+    ConvertLiteral(x : CS.Literal) : Literal
+    {
+      | Null            => Literal.Null()
+      | Boolean(val)    => Literal.Bool(val)
+      | Char(val)       => Literal.Char(val)
+      | ErrorChar       =>
+        Message.Error(x |> NLocation, "too many characters in character literal");
+        Literal.Char('\0')
+
+      | String(val, _)  => Literal.String(val, val)
+      | ErrorUnicode(is_char, errorLocations) =>
+        foreach(loc in errorLocations)
+          Message.Error(loc |> NLocation, "unrecognized unicode escape sequence");
+        if(is_char)
+          Literal.Char('\0')
+        else
+          Literal.String("")
+
+      | Integer(val, _, suffix) =>
+        match(suffix.ToUpperInvariant()) {
+          | "UL" | "LU" => Literal.Integer(val, false, manager.InternalType.UInt64)
+          | "L"         => Literal.Integer(val, false, manager.InternalType.Int64)
+          | "U"         => Literal.Integer(val, false, manager.InternalType.UInt32)
+          | ""          => Literal.Integer(val, false, manager.InternalType.Int32)
+          | _           =>
+            Message.Error(x |> NLocation, $"invalid literal suffix `$suffix'");
+            Literal.Integer(val, false, manager.InternalType.Int32)
+        }
+      | ErrorOverflow   =>
+        Message.Error(x |> NLocation, "integral constant is too large");
+        Literal.Integer(0, false, manager.InternalType.Int32)
+
+      | Real(mantissa, exponent, suffix) =>
+        def rawVal = if (string.IsNullOrEmpty(exponent)) mantissa else mantissa + "e" + exponent;
+        match(suffix.ToUpperInvariant()) {
+          | "M" =>
+            mutable val;
+            if(decimal.TryParse(rawVal, NumberStyles.Float, NumberFormatInfo.InvariantInfo, out val))
+              Literal.Decimal(val)
+            else {
+              Message.Error(x |> NLocation, $"invalid decimal literal `$rawVal'");
+              Literal.Decimal(0.0M)
+            }
+          | "D" =>
+            mutable val;
+            if(double.TryParse(rawVal, NumberStyles.Float, NumberFormatInfo.InvariantInfo, out val))
+              Literal.Double(val)
+            else {
+              Message.Error(x |> NLocation, $"invalid double literal `$rawVal'");
+              Literal.Double(0.0D)
+            }
+          | "F" =>
+            mutable val;
+            if(float.TryParse(rawVal, NumberStyles.Float, NumberFormatInfo.InvariantInfo, out val))
+              Literal.Float(val)
+            else {
+              Message.Error(x |> NLocation, $"invalid float literal `$rawVal'");
+              Literal.Float(0.0F)
+            }
+          | _ =>
+            mutable valF;
+            mutable valD;
+            mutable valM;
+            if(float.TryParse(rawVal, NumberStyles.Float, NumberFormatInfo.InvariantInfo, out valF))
+              Literal.Float(valF)
+            else if(double.TryParse(rawVal, NumberStyles.Float, NumberFormatInfo.InvariantInfo, out valD))
+              Literal.Double(valD)
+            else if(decimal.TryParse(rawVal, NumberStyles.Float, NumberFormatInfo.InvariantInfo, out valM))
+              Literal.Decimal(valM)
+            else
+            {
+              Message.Error(x |> NLocation, $"invalid floating point literal `$rawVal'");
+              Literal.Float(0.0F)
+            }
+        }
+    }
+  }
+}

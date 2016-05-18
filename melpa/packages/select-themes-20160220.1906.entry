@@ -1,0 +1,2 @@
+
+(select-themes . [(20160220 1906) nil "Color theme selection with completing-read" single ((:url . "https://github.com/jasonm23/emacs-select-themes"))])

@@ -1,0 +1,79 @@
+#+Options: ^:nil                                      -*- mode:org -*-
+
+* Development [5/7]
+** TODO retain comments
+[[file:back-ends/igs.el::%3B%3B%20TODO:%20keep%20a%20message%20buffer%20for%20each%20user%20in%20which%20conversations][file:back-ends/igs.el::;; TODO: keep a message buffer for each user in which conversations]]
+
+Should save user comments both in a buffer associated with the board
+buffer and s.t. they may be collected in the SGF file associated with
+the game.
+
+** TODO scale image sizes
+See the TODO and note in file:go-board-faces.el.
+
+We'll need to have =go-board-image= return a function rather than a
+list, and then somehow hook in with the =face-remap-add-relative=
+function.
+
+** ability to call back-end functions through the board
+e.g., it would be nice to be able to call gnugo commands and display
+the output.  This should be extensible however...
+
+** support for calculating scores
+This could be built right into the board but would require
+- ability to assign contiguous open spaces
+- ability to mark stones as captured
+
+** track and display captured stones on board
+** DONE better looking board
+See [[info:elisp#Image%20Descriptors][info:elisp#Image Descriptors]], can just use the text svg data
+directly, no need for files.  Also look at [[info:elisp#Pointer%20Shape][info:elisp#Pointer Shape]]
+for controlling the shape of the map.
+
+: '(image :type 'svg :data )
+
+*** For images look at these images (go with wikipedia svg images).
+- http://en.wikipedia.org/wiki/File:Go_b.svg
+- http://en.wikipedia.org/wiki/File:Go_w.svg
+- or at ruby go http://rubygo.rubyforge.org/
+- see the go image source at
+  http://en.wikipedia.org/wiki/Blood-vomiting_game
+
+** DONE igs probably needs to periodically ping the server
+** DONE make a board back-end so it can receive commands
+** DONE allow an IGS process to send commands to a board
+** IGS Support
+- use information in [[file:data/igs.c][igs.c]] and in the cgoban source.
+- [[file:data/igs-session][tcpick output]] collected with while talking with IGS servers
+  #+begin_src sh
+    sudo tcpick -i wlan0 -yP
+  #+end_src
+
+** DONE Asynchronous Process Interaction
+Use process filters (see [[info:elisp#Filter%20Functions][info:elisp#Filter Functions]]) to act only on
+whole completed commands.
+
+Don't need to use a sentinel, just using the existing process filters,
+and added another case to the filter which will perform long-term
+actions in response to the "prompt" command from IGS.
+
+** Potential in-browser implementation
+- direct browser to browser communication https://github.com/js-platform/p2p
+  see also https://hacks.mozilla.org/2013/03/webrtc-data-channels-for-great-multiplayer/
+
+* Issues [0/4]
+** TODO when playing gnugo, ending game may kill Emacs
+After two passes to end a large game, the Emacs process terminated.
+
+** TODO gtp-num-to-char is being called but is undefined
+: mapcar: Symbol's function definition is void: gtp-num-to-char
+: Invalid face reference: go-board-filler
+
+** TODO bug in painting the board
+: Invalid face reference: go-board-filler
+
+Noticed when observing a game from IGS.
+
+** TODO the black/white turn underlining can get off
+Probably better to explicitly set this every turn, rather than just
+alternating.

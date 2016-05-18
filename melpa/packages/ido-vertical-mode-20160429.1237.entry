@@ -1,0 +1,2 @@
+
+(ido-vertical-mode . [(20160429 1237) nil "Makes ido-mode display vertically." single ((:keywords "convenience") (:url . "https://github.com/creichert/ido-vertical-mode.el"))])

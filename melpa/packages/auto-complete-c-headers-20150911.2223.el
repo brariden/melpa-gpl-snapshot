@@ -4,8 +4,8 @@
 
 ;; Author: Masafumi Oyamada <stillpedant@gmail.com>
 ;; Package-Requires: ((auto-complete "1.4"))
-;; Keywords: c
 ;; Package-Version: 20150911.2223
+;; Keywords: c
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by

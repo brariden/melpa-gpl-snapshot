@@ -1,2 +1,0 @@
-
-(github-browse-file . [(20151112 1825) ((cl-lib (0 5))) "View the file you're editing on GitHub" single ((:keywords "convenience" "vc" "git" "github") (:url . "https://github.com/osener/github-browse-file"))])

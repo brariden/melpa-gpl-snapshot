@@ -1,0 +1,2 @@
+
+(eredis . [(20120808 2207) nil "eredis, a Redis client in emacs lisp" single ((:url . "http://code.google.com/p/eredis/"))])

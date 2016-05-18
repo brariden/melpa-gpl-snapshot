@@ -1,0 +1,2 @@
+
+(erc-hl-nicks . [(20160202 1350) nil "ERC nick highlighter that ignores uniquifying chars when colorizing" single ((:url . "http://www.github.com/leathekd/erc-hl-nicks"))])

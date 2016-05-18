@@ -1,0 +1,19 @@
+(defun
+    function
+         (arglist elt1
+                  elt2
+                     elt3)
+  "docstring"
+    (something something
+                      something
+           something)
+  (another
+      thing
+               again))
+
+;; Local Variables:
+;; mode: emacs-lisp
+;; eval: (when (fboundp 'hl-indent-mode) (hl-indent-mode))
+;; electric-indent-mode: nil
+;; eval: (when (fboundp (quote flycheck-mode)) (flycheck-mode -1))
+;; End:

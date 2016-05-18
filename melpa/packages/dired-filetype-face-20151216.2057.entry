@@ -1,2 +1,0 @@
-
-(dired-filetype-face . [(20151216 2057) nil "Set different faces for different filetypes in dired" single ((:keywords "dired" "filetype" "face") (:url . "https://github.com/jixiuf/dired-filetype-face"))])

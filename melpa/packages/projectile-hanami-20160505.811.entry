@@ -1,0 +1,2 @@
+
+(projectile-hanami . [(20160505 811) ((emacs (24 3)) (projectile (0 12 0)) (rake (0 3 2)) (inf-ruby (2 2 6))) "Minor mode for Hanami projects based on projectile" single ((:keywords "hanami" "ruby" "projectile") (:url . "https://github.com/avdgaag/projectile-hanami"))])

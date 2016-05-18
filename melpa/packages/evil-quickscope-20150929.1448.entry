@@ -1,2 +1,0 @@
-
-(evil-quickscope . [(20150929 1448) ((evil (0))) "Highlight unique characters in words for f,F,t,T navigation" single ((:keywords "faces" "emulation" "vim" "evil") (:url . "http://github.com/blorbx/evil-quickscope"))])

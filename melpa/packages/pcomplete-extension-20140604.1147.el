@@ -1,5 +1,4 @@
 ;;; pcomplete-extension.el --- additional completion for pcomplete -*- lexical-binding: t -*-
-;; Package-Version: 20140604.1147
 
 ;; Author: Thierry Volpiatto <thierry.volpiatto@gmail.com>
 ;; Copyright (C) 2010~2014 Thierry Volpiatto, all rights reserved.
@@ -7,6 +6,7 @@
 
 ;; Compatibility: GNU Emacs 24.1+
 ;; Package-Requires: ((emacs "24") (cl-lib "0.5"))
+;; Package-Version: 20140604.1147
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by

@@ -1,0 +1,2 @@
+
+(counsel-projectile . [(20160507 1222) ((counsel (0 7 0)) (projectile (0 13 0))) "Ivy integration for Projectile" single ((:keywords "project" "convenience") (:url . "https://github.com/ericdanan/counsel-projectile"))])

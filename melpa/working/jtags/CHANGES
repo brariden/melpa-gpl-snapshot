@@ -1,0 +1,209 @@
+
+
+JTAGS
+
+
+Changes between versions 0.97 and 0.98.0 (2016-02-13)
+-----------------------------------------------------
+
+- Added support for Java 8 constructs: default methods, method references, and
+  lambdas.
+
+- Added support for static imports.
+
+- Added hook to be run after updating tags table files.
+
+- Using etags-goto-tag-location to improve precision in locating tags.
+
+- Removed deprecated variables and methods.
+
+- Droppped support for GNU Emacs 21.
+
+
+Changes between versions 0.96 and 0.97 (2016-01-18)
+---------------------------------------------------
+
+- Added support for http URLs in jtags-browse-url. Configure a Javadoc URL to
+  use for each group of packages, e.g. java or org.jdom.
+
+- Only the Javadoc for the class found is displayed, not the entire Javadoc
+  frame set with all packages and classes.
+
+- Added support for Java enums.
+
+- Improved Java code parsing.
+
+- Made jtags more package-aware.
+
+- Binding case-fold-search with let instead of setting it with setq.
+
+- Using internal jtags-in-literal instead of c-in-literal.
+
+- Changes to make jtags work with Emacs 24.5 and Java 8 source code.
+
+- Changed license to GNU GPL version 3.
+
+
+Changes between versions 0.95 and 0.96 (2008-10-03)
+---------------------------------------------------
+
+- Improved member completion: Members that are not visible in the current scope
+  are now excluded from the list of matching members. Members in super classes
+  are now included in the list, but are displayed using a different face (GNU
+  Emacs). When completing a member in a class (and not an object), only static
+  members are included in the list of matching members.
+
+- Function jtags-show-declaration now stores a tag mark so it can be retrieved
+  by etags function pop-tag-mark (M-*).
+
+- Changed jtags to be an autoloadable minor mode - jtags-mode. Moved key
+  bindings and menu to jtags-mode-map.
+
+- Added support for Java 5 for loops.
+
+- Added function jtags-buffer-tag-table-list to parse and return the tags table
+  list.
+
+- Added customization of the etags command run when updating tags tables files.
+
+- Changed to jtags-save-buffer-state instead of c-save-buffer-state.
+
+- Improved Java code parsing: packages.
+
+- Improved tags table file parsing.
+
+
+Changes between versions 0.94 and 0.95 (2008-02-01)
+---------------------------------------------------
+
+- Fixed "Unbalanced parentheses" bug. jtags-filter-class-list assumes that the
+  point is in the class in case of scan error.
+
+- When a local declaration shadows a class member, jtags now finds the local
+  declaration instead of the class member.
+
+- Split function jtags-lookup-member in two - jtags-lookup-identifier looks up
+  the definition of an identifier, and jtags-lookup-class-members looks up all
+  members in a class. This improves performance, and makes the code more
+  readable.
+
+- Added function jtags-update-this-tags-file that updates the tags table file
+  in which the class in the current buffer is tagged. This makes it easy to
+  update the outdated tags table file for the current project. The key sequence
+  "C-c ," is bound to this function.
+
+- Final and static members are displayed using a different face when doing
+  member completion (GNU Emacs).
+
+- Basic support for Java generics.
+
+- Support for customization.
+
+- Variable jtags-javadoc-root has been renamed to jtags-javadoc-root-list, and
+  must be a list; a string value is not accepted.
+
+- Update due to changes in the tags table file format in GNU Emacs 22.
+
+- Improved Java code parsing: comments, packages, and generics.
+
+- Generated frameset file now works in Mozilla Firefox.
+
+
+Changes between versions 0.93 and 0.94 (2006-10-03)
+---------------------------------------------------
+
+- Ported to XEmacs (21.4.19).
+
+- Added optional menu support using package easymenu.
+
+- Added function jtags-update-tags-files that automatically rebuilds all tags
+  table files in tags-table-list.
+
+- Created two new functions for showing the declaration, and the Javadoc for a
+  tag. Both of them use the old function jtags-find-tag, which now returns the
+  definition of the tag.
+
+- Member completion suggests only members that _start_ with the typed text.
+  When undoing a member completion, the point is placed after the typed text.
+
+- Possible to complete members in current class without specifying class name,
+  e.g. "toStr" can be completed if class has a member "toString".
+
+- Improved Java code parsing: arrays, package names, local variables, method
+  arguments, class, super, this.
+
+- Improved tags table file parsing: classes and interfaces, class members,
+  member types.
+
+- Removed run-time dependency to package cl to comply with the Emacs Lisp
+  Coding Conventions.
+
+- The Javadoc frameset file is created in a temporary directory instead of
+  where the file jtags.el is.
+
+- Moved all test code to file jtags-test.el.
+
+- The function jtags-message prints to buffer *jtags* instead of *tmp*.
+
+
+Changes between versions 0.92 and 0.93 (2002-02-27)
+---------------------------------------------------
+
+- The function tags-lookup-method now looks up interfaces as well as classes.
+
+
+Changes between versions 0.91 and 0.92 (2001-09-10)
+---------------------------------------------------
+
+- The function jtags-message can now print debug messages to a buffer named
+  *tmp*, as well as to the *Messages* buffer. Messages in the *Messages* buffer
+  sometimes disappeared.
+
+- The point is now placed after the inserted text after a completion. This is
+  where you are most likely to continue typing after completing an identifier.
+
+- Trying to complete a non-existing method now generates the message "No
+  completion!" instead of an error message. jtags-find-member-completions now
+  returns nil in this case.
+
+- Completing methods in objects defined as local variables now works.
+
+
+-------------------------------------------------------------------------------
+
+
+JTAGS-EXTRAS
+
+
+Changes between versions 0.3.0 and 0.98.0 (2016-02-13)
+------------------------------------------------------
+
+- Using internal jtags-in-literal instead of c-in-literal.
+
+
+Changes between versions 0.2.0 and 0.3.0 (2018-01-18)
+-----------------------------------------------------
+
+- Changed license to GNU GPL version 3.
+
+
+Changes between versions 0.1.1 and 0.2.0 (2009-05-25)
+-----------------------------------------------------
+
+- Added function jtags-extras-organize-imports, which orders and formats the
+  import statements in the current source code file.
+
+- Added support for Java enums.
+
+
+Changes between versions 0.1.0 and 0.1.1 (2008-10-03)
+-----------------------------------------------------
+
+- Changed load method to autoload.
+
+
+Initial revision 0.1.0 (2008-02-01)
+-----------------------------------
+
+- Added function jtags-extras-add-import, which adds an import statement for
+  the identifier at point.

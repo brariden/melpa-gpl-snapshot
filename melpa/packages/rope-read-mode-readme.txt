@@ -1,57 +1,82 @@
-** What rope-read-mode is
+** About rope-read
+
+*** What
 
 =rope-read-mode= can reverse every other line of a buffer or in a part
-of a buffer.  With every other line reversed reading is like following
-a rope.
+of a buffer.
+
+With every other line reversed reading can be like following a rope.
 
 *** Illustration
 
 [[file:rope-read-illustration.png][file:./rope-read-illustration.png]]
 
-*** Benefits
+*** Ad
 
-- Chill.  =rope-read-mode= often allows fluent reading by finding the
-  start of the next line easily.
+- Are you tired moving the look from one end of a line to the other
+  end just because of a line break?
+
+- Are you too lazy moving the look from one end of a line to the
+  other end just because of a line break?
+
+- Do you think about the line break coercing the brutal change of the
+  look from one side to the other as humiliating?
+
+- Do you want to read three or four lines more of a text before you
+  fall asleep?
+
+More than zero yes answers?
+
+Then rope read might help!
+
+*** Why
+
+- Chill.  =rope-read-mode= allows fluent reading.
+
+  - Find the start of the next line easily.
+
+  - Avoid stressful eye movement.
+
 - Have an alternative view on text.
 
-*** Price
+*** Learn
 
-Typically you need to invest some time to learn to read upside-down
-lines easily.
+Typically you need to practice for some time to be able to read
+upside-down lines effortlessly.
 
 ** Usage
 
 *** Turning it on and off
 
-Type =M-x rope-read-mode= in a buffer to activate rope-read.  No
-visible change is to be expected.
+=M-x rope-read-mode= in a buffer activates rope-read.  No visible
+change in the buffer is to be expected.  The buffer is set read-only.
 
-Type =M-x rope-read-mode= or press 'q' to quit rope-read.
-
-Isn't this amazing?
+Type =M-x rope-read-mode= or press 'q' to quit rope-read.  The buffer
+writability gets restored.
 
 *** Action
 
 When =rope-read-mode= is on you can press
-- =C-g= to interrupt any =rope-read-mode= performance,
-- =g= to get a view of the window (which is the currently
-  visible part of the buffer) with every other line reversed,
-- =r= to go back to the representation of the buffer without
-  reversed line,
-- =d= to reverse every other line starting with the line below
-  the current cursor position,
+- =C-g= to interrupt =rope-read-mode= anytime,
+- =g= to trigger reversing every other line for the currently visible
+  part of the buffer,
+- =r= to go back to the representation of the buffer without reversed
+  lines (keeping =rope-read-mode=),
+- =d= to reverse every other line starting with the line below the
+  cursor,
 - =p= to reverse every other line starting with the line below the
-  current cursor position up to the end of the paragraph if possible
-  and move point there.
-- =SPC= to scroll a screen down,
-- =<backspace>= or =S-SPC= to scroll a screen up,
-- =v= or =<return>= to scroll one line down,
-- =V= or =y= to scroll one line up,
+  cursor up to the end of the paragraph (if visible) and move point
+  there.
+- The next four commands are followed by reversing every other line:
+  - =SPC= to scroll a screen down,
+  - =<backspace>= or =S-SPC= to scroll a screen up,
+  - =v= or =<return>= to scroll one line down,
+  - =V= or =y= to scroll one line up,
 - =?= to open the help buffer,
-- =q= to quit.
+- =q= to quit =rope-read-mode=.
 
 For convenience you can bind command =rope-read-mode= to a key.  For
-example to activate or deactivate rope-read-mode by pressing scroll
+example to activate or deactivate =rope-read-mode= by pressing scroll
 lock two times use the line
 
 #+BEGIN_EXAMPLE
@@ -61,16 +86,17 @@ lock two times use the line
 *** Image files
 
 The reverse representation of lines is realized with images.  They get
-collected in directory =rope-read-image-overlay-path=.  You can delete
-this directory any time.
+collected in directory =rope-read-image-overlay-path= which defaults
+to =~/.emacs.d/rope-reading=.  You can delete this directory any time.
 
 *** Security
 
-=rope-read-mode= does not change the content of a buffer.  In the
-sense of data loss =rope-read-mode= looks save.
+=rope-read-mode= does not change the content of a buffer.  Data loss
+has not been reported yet.
 
-Note that the overlay-image files get stored on disk.  This could be a
-security issue.
+Since the overlay-image files get stored on disk this could be a
+security issue.  E.g. when you use =rope-read-mode= to look at your
+super secret password file.
 
 *** Beep
 
@@ -80,16 +106,16 @@ The system beep can be annoying.  The line
 amixer set Beep off
 #+END_SRC
 
-silences the beep.  Precondition is that you have the ~amixer~ program
-ready.
+silences the beep on some systems.  Precondition is that you have the
+~amixer~ program ready.
 
 ** Install
 
 *** Emacs Package
 
-When installed as Emacs package
-[[http://melpa.org/#/rope-read-mode][file:http://melpa.org/packages/rope-read-mode-badge.svg]] then there is
-no need of a special configuration.
+=rope-read-mode= is available as MELPA package
+[[http://melpa.org/#/rope-read-mode][file:http://melpa.org/packages/rope-read-mode-badge.svg]] and ready
+immediately after the install.
 
 *** Install from el file
 
@@ -125,9 +151,8 @@ them.
 
 *** Vision
 
-rope-read-mode gets rope-mode which allows also editing.  rope-mode
-would provide a further possibility for the user to use Emacs, just as
-changing the default font.
+=rope-read-mode= gets =rope-mode= which allows also editing.
+=rope-mode= would provide a further editing feeling maybe.
 
 *** Lentic Literate Style
 
@@ -163,7 +188,7 @@ Contributions in any respect are welcome, e.g. ideas and improvements.
 | Syohei YOSHIDA |
 | Marco WAHL     |
 
-** Links
+** Related
 
 - rope-read for firefox at
   https://greasyfork.org/en/scripts/10634-rope-read
@@ -184,3 +209,4 @@ Contributions in any respect are welcome, e.g. ideas and improvements.
 | 201508081255 | v0.3.1 rope-read-mode starts line reversing at point    |
 | 201510202326 | v0.3.2 rope-read-mode does nothing at start             |
 | 201511182342 | Paragraph wise rope-read is useful.                     |
+| 201602082358 | One scan through the documentation                      |

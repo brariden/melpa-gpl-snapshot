@@ -1,0 +1,2 @@
+Change the exec path in the service file to where ever you put
+zeitgeist-telepathy-observer.py, and copy the service file to /usr/share/dbus-1/services/

@@ -1,2 +1,0 @@
-
-(js2-mode . [(20160124 1332) ((emacs (24 1)) (cl-lib (0 5))) "Improved JavaScript editing mode" tar ((:keywords "languages" "javascript") (:url . "https://github.com/mooz/js2-mode/"))])

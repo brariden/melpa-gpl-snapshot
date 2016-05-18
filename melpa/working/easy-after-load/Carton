@@ -1,0 +1,8 @@
+;; -*- mode: emacs-lisp -*-
+(source "melpa" "http://melpa.milkbox.net/packages/")
+
+(package "easy-after-load" "0.1" "Add eval-after-load statements for features based on a directory's contents.")
+
+(development
+ (depends-on "ecukes")
+ (depends-on "espuds"))

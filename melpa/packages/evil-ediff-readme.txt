@@ -6,7 +6,7 @@ Here's a table describing the bindings
 | Command                     | Original Binding | Evil-ediff  |
 |-----------------------------+------------------+-------------|
 | ediff-jump-to-difference    | j                | d           |
-| ediff-previous-difference   | p,DEL            | C-k,p,DEL   |
+| ediff-previous-difference   | p,DEL            | C-k,N,p,DEL |
 | ediff-next-difference       | n,SPC            | C-j,n,SPC   |
 | jump to first difference    | 1j               | gg (or 1d)  |
 | jump to last difference     | N/A              | G           |
@@ -18,3 +18,8 @@ Here's a table describing the bindings
 | ediff-suspend               | z                | C-z         |
 | scroll left                 | >                | zh          |
 | scroll right                | <                | zl          |
+| copy B region to A's region | b                | h           |
+| copy A region to B's region | a                | l           |
+
+Not implemented yet
+| restore old diff            | rarb             | u           |

@@ -1,2 +1,0 @@
-
-(highlight-numbers . [(20150531 807) ((emacs (24)) (parent-mode (2 0))) "Highlight numbers in source code" single ((:url . "https://github.com/Fanael/highlight-numbers"))])

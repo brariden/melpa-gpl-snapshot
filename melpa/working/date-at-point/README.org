@@ -1,0 +1,39 @@
+[[http://www.gnu.org/licenses/gpl-3.0.txt][file:https://img.shields.io/badge/license-GPL_3-orange.svg]]
+[[http://melpa.org/#/date-at-point][file:http://melpa.org/packages/date-at-point-badge.svg]]
+[[http://stable.melpa.org/#/date-at-point][file:http://stable.melpa.org/packages/date-at-point-badge.svg]]
+
+** About
+
+This micro-package provides an additional =date= thing for
+=thing-at-point= function.
+
+** Installation
+
+*** Automatic
+
+This package can be installed from [[http://melpa.org/][MELPA]] (with =M-x package-install= or
+=M-x list-packages=).
+
+*** Manual
+
+1. Add a directory with =date-at-point.el= to the =load-path=:
+
+   #+BEGIN_SRC emacs-lisp
+   (add-to-list 'load-path "/path/to/date-at-point")
+   #+END_SRC
+
+2. Require the package:
+
+   #+BEGIN_SRC emacs-lisp
+   (require 'date-at-point)
+   #+END_SRC
+
+   Now you can use =(thing-at-point 'date)= or =(date-at-point)= in your
+   elisp code.
+
+   Alternatively (if you don't want to require it), use an autoload for
+   =date-at-point= function:
+
+   #+BEGIN_SRC emacs-lisp
+   (autoload 'date-at-point "date-at-point")
+   #+END_SRC

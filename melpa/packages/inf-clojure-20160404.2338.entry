@@ -1,0 +1,2 @@
+
+(inf-clojure . [(20160404 2338) ((emacs (24 3)) (clojure-mode (5 3))) "Run an external Clojure process in an Emacs buffer" single ((:keywords "processes" "clojure") (:url . "http://github.com/clojure-emacs/inf-clojure"))])

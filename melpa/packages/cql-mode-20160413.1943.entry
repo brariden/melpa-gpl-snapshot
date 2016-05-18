@@ -1,0 +1,2 @@
+
+(cql-mode . [(20160413 1943) ((emacs (24))) "Major mode for editting CQLs" single ((:keywords "cql" "cassandra") (:url . "https://github.com/Yuki-Inoue/cql-mode"))])

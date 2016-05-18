@@ -1,2 +1,0 @@
-
-(java-imports . [(20160127 929) ((emacs (24 4)) (s (1 10 0)) (pcache (0 3 2))) "Code for dealing with Java imports" single ((:keywords "java") (:url . "http://www.github.com/dakrone/emacs-java-imports"))])

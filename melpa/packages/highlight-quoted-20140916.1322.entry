@@ -1,2 +1,0 @@
-
-(highlight-quoted . [(20140916 1322) ((emacs (24))) "Highlight Lisp quotes and quoted symbols" single ((:url . "https://github.com/Fanael/highlight-quoted"))])

@@ -1,0 +1,2 @@
+
+(helm-purpose . [(20160218 1209) ((emacs (24)) (helm (1 9 2)) (window-purpose (1 4))) "Helm Interface for Purpose" single ((:url . "https://github.com/bmag/helm-purpose"))])

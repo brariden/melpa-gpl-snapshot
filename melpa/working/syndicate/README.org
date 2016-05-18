@@ -1,0 +1,70 @@
+[[https://img.shields.io/badge/License-GPL-blue.svg]]
+[[http://melpa.org/#/syndicate][file:http://melpa.org/packages/syndicate-badge.svg]]
+* Syndicate
+This is a package for evil organization; it establishes evil-mode bindings for org-mode.
+As it is, this borrows heavily from [[https://github.com/edwtjo][edwtjo's]] [[https://github.com/edwtjo/evil-org-mode][evil-org-mode]].
+Having used it, I had a love-hate relationship with it.
+The keybindings were convenient, however, there were issues:
+- leader commands would override my own
+- hitting =O= on a heading would insert another heading above it
+The leader part was what got me to make a separate package, because I imagine that some users will want some predefined maps of that sort, but having conflicting bindings and looking to migrate to [[https://github.com/noctuid/general.el][general.el]], I decided that pull requests would not cut it.
+* Demonstration
+[[file:assets/demo.gif]]
+- Theme: [[https://github.com/oneKelvinSmith/monokai-emacs][monokai-theme]]
+- Beautified Bullets: [[https://github.com/sabof/org-bullets][org-bullets]]
+- Mode-Line: [[https://github.com/raugturi/powerline-evil][powerline-evil]]
+* Dependencies
+- [[https://bitbucket.org/lyro/evil/wiki/Home][Evil]] :: for compatibility with the bindings
+* Installation
+1. Install from melpa: =M-x package-install RET syndicate=
+   - M-x means =alt + x=, RET means hit =Enter=.
+   - if that doesn't work , you have not added the melpa repository.
+     Add this to the top of your =~/.emacs= or =~/.emacs.d/init.el= (depending on which one you use, I recommend the later):
+     #+begin_src emacs-lisp
+       (require 'package) ;; You might already have this line
+       (add-to-list 'package-archives
+                    '("melpa" . "https://melpa.org/packages/"))
+       (when (< emacs-major-version 24)
+         ;; For important compatibility libraries like cl-lib
+         (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+       (package-initialize) ;; You might already have this line
+     #+end_src
+2. Add this to your =~/.emacs= or =~/.emacs.d/init.el=:
+   #+begin_src emacs-lisp
+     (require 'syndicate)
+   #+end_src
+* Key Bindings
+| Key   | Command                               |
+|-------+---------------------------------------|
+| gh    | outline-up-heading                    |
+| gj    | org-forward-heading-same-level        |
+| gk    | org-backward-heading-same-level       |
+| gl    | outline-next-visible-heading          |
+| <     | org-metaleft                          |
+| >     | org-metaright                         |
+| t     | org-todo                              |
+| <tab> | org-cycle                             |
+| o     | syndicate-eol-then 'insert-item-below |
+- If anyone has objections to the =o= binding (It is really a hit-or-miss for me), open an issue and I will make a switch for it.
+* Commands
+- =syndicate-open-links= :: Open a link from a visual selection
+- =syndicate-open-links-incognito= :: Open a link in incognito from a visual selection
+- =syndicate-recompute-clocks= :: recompute clocks from a visual selection
+* Tips
+- In terminal mode, =<tab>= for =org-cycle= does not work by default (at least for me). To fix this, put this before =(require 'evil)=:
+  #+begin_src emacs-lisp
+    (setq evil-want-C-i-jump nil)
+  #+end_src
+- I use [[https://github.com/noctuid/general.el][general.el]] for extra bindings.
+  Personally, I use this for some org-mode bindings:
+  #+begin_src emacs-lisp
+    (general-define-key "oa" 'org-agenda ;; o<rg>a<genda>
+                        "oc" 'org-capture) ;; o<rg>c<apture>
+  #+end_src
+  with these as some defaults:
+  #+begin_src emacs-lisp
+    (setq general-default-prefix "SPC")
+    (setq general-default-states '(normal motion visual))
+  #+end_src
+  - =<leader>= bindings are great for declaring a wealth of convenient keybindings.
+    Because of the diversity in people's =<leader>= bindings, I made the above behavior the choice of the user.

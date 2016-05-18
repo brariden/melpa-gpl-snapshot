@@ -1,0 +1,2 @@
+
+(impatient-mode . [(20150501 447) ((cl-lib (0 3)) (simple-httpd (1 4 0)) (htmlize (1 40))) "Serve buffers live over HTTP" tar ((:url . "https://github.com/netguy204/imp.el"))])

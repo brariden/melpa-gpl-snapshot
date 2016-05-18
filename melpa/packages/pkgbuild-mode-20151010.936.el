@@ -1,4 +1,5 @@
 ;;; pkgbuild-mode.el --- Interface to the ArchLinux package manager
+;; Package-Version: 20151010.936
 
 ;; Copyright (C) 2005-2015 Juergen Hoetzel
 
@@ -141,7 +142,6 @@ epoch=
 pkgdesc=\"\"
 arch=('i686' 'x86_64')
 url=\"\"
-;; Package-Version: 20151010.936
 license=('GPL')
 groups=()
 depends=()

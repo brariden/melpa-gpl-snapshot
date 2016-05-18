@@ -1,0 +1,2 @@
+
+(evil-nerd-commenter . [(20160209 249) nil "Comment/uncomment lines efficiently. Like Nerd Commenter in Vim" tar nil])

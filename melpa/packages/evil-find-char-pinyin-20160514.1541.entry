@@ -1,0 +1,2 @@
+
+(evil-find-char-pinyin . [(20160514 1541) ((evil (1 2 12)) (pinyinlib (0 1 0))) "Evil's f/F/t/T/evil-snipe commands with Pinyin support" single ((:keywords "extensions"))])

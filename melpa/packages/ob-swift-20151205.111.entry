@@ -1,0 +1,2 @@
+
+(ob-swift . [(20151205 111) ((org (8))) "org-babel functions for swift evaluation" single ((:keywords "org" "babel" "swift") (:url . "http://github.com/zweifisch/ob-swift"))])

@@ -59,14 +59,14 @@
 
    `doremi-bookmarks+', `doremi-buffers+', `doremi-color-themes+',
    `doremi-custom-themes+' (Emacs 24+), `doremi-global-marks+',
-   `doremi-marks+', `doremi-window-height+',
-   `doremi-window-width+'.
+   `doremi-marks+', `doremi-window-height+', `doremi-windows+'
+   (Emacs 22+), `doremi-window-width+'.
 
  Non-interactive functions defined here:
 
    `doremi-buffers-1', `doremi-color-themes-1',
    `doremi-custom-themes-1' (Emacs 24+), `doremi-global-marks-1',
-   `doremi-marks-1'.
+   `doremi-marks-1', `doremi-windows-1'.
 
 
  Add this to your initialization file (~/.emacs or ~/_emacs):
@@ -105,17 +105,21 @@
       :help "Successively cycle among custom themes: `up'/`down'"))
   (define-key menu-bar-doremi-menu [doremi-global-marks]
     '(menu-item "Global Marks" . doremi-global-marks+
-      :help "Successively cycle among global marks: `up'/`down'")))
+      :help "Successively cycle among global marks: `up'/`down'"))
   (define-key menu-bar-doremi-menu [doremi-marks]
     '(menu-item "Marks in Buffer" . doremi-marks+
-      :help "Successively cycle among marks in this buffer: `up'/`down'")))
+      :help "Successively cycle among marks in this buffer: `up'/`down'"))
   (define-key menu-bar-doremi-menu [doremi-bookmarks]
     '(menu-item "Bookmarks" . doremi-bookmarks+
-      :help "Successively cycle among bookmarks: `up'/`down'")))
+      :help "Successively cycle among bookmarks: `up'/`down'"))
   (define-key menu-bar-doremi-menu [doremi-buffers]
     '(menu-item "Buffers" . doremi-buffers+
       :help "Successively cycle among buffers: `up'/`down'"))
+  (define-key menu-bar-doremi-menu [doremi-windows]
+    '(menu-item "Windows" doremi-windows+
+      :help "Successively cycle among windows: `up'/`down'"
+      :enable (not (one-window-p))))
   (define-key menu-bar-doremi-menu [doremi-window-height]
     '(menu-item "Window Size" doremi-window-height+
       :help "Resize window incrementally: `up'/`down'/`left'/`right'"
-      :enable (not (one-window-p)))))
+      :enable (not (one-window-p))))

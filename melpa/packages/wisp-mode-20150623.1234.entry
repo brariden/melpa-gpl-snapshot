@@ -1,2 +1,0 @@
-
-(wisp-mode . [(20150623 1234) nil "Tools for wisp: the Whitespace-to-Lisp preprocessor" single ((:keywords "languages" "lisp"))])

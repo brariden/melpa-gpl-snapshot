@@ -1,2 +1,0 @@
-
-(git-annex . [(20131119 1645) nil "Mode for easy editing of git-annex'd files" single ((:keywords "files" "data" "git" "annex") (:url . "https://github.com/jwiegley/git-annex-el"))])

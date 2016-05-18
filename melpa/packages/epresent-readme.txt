@@ -1,5 +1,5 @@
 This is a simple presentation mode for Emacs. It works best in
-Emacs >= 23, which has a nice font rendering engine.
+Emacs >= 24, which has a nice font rendering engine.
 
 To use, invoke `epresent-run' in an `org-mode' buffer. This will
 make a full-screen frame. Use n/p to navigate, or q to quit. Read

@@ -1,0 +1,2 @@
+
+(evalator-clojure . [(20160208 1548) ((cider (0 10 0)) (evalator (1 0 0))) "Clojure evaluation context for evalator via CIDER." tar ((:keywords "languages" "clojure" "cider" "helm") (:url . "http://www.github.com/seanirby/evalator-clojure"))])

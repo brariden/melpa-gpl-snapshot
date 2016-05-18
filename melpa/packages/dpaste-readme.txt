@@ -24,7 +24,3 @@ add the follow instructions in your .emacs.el:
 
 Then with C-c p you can run `dpaste-region-or-buffer'. With a prefix
 argument (C-u C-c p), your paste will use the hold option.
-
-Todo:
-
-- Use emacs lisp code to post paste instead curl (version 0.3)

@@ -1,0 +1,106 @@
+[[./img/EvilLogo.png]] [[./img/lispy-logo.png]]
+
+[[https://travis-ci.org/sp3ctum/evil-lispy.svg?branch=master]]
+[[http://melpa.org/#/evil-lispy][file:http://melpa.org/packages/evil-lispy-badge.svg]]
+
+This package integrates the excellent [[https://github.com/abo-abo/lispy][lispy]] lisp editing package to Evil.
+Lispy works with different lisp modes, like Emacs Lisp and Clojure (and others!).
+
+* Goals and design philosophy
+
+The goal is to encourage a workflow where you use the standard ~evil-mode~ for
+general editing, and enter ~evil-lispy-mode~ to make structural edits using
+lispy bindings.
+
+Here is a sales pitch of what this mode thinks is best for you:
+
+- Lisp has a natural structure
+  - Natural to edit structurally
+  - Natural to navigate structurally
+- You will want to use structural editing when possible, and fallback to
+  familiar Evil commands.
+  - With evil-lispy, use ~hjkl~ for moving, ~mv~ to select, ~e~ to eval.
+    Intuitive for Evil / vim users. You now know the basics!
+- Natural and easy fallback to vanilla Evil editing
+  - If you panic, just hit ~ESC~ to return to normal mode
+  - You can still use e.g. Evil ~()~ text objects just fine.
+    When you learn more of lispy, your productivity will only increase.
+- Modal editing is good for your health
+  - Lispy commands only apply when explicitly activated
+  - Less chance of munging your code unexpectedly
+
+* Installation
+Available from MELPA.
+
+#+BEGIN_SRC emacs-lisp
+  ;; M-x package-install evil-lispy
+
+  ;; in your config, load the code with e.g. require
+  (require 'evil-lispy)
+
+  ;; make evil-lispy start in the modes you want
+  (add-hook 'emacs-lisp-mode-hook #'evil-lispy-mode)
+  (add-hook 'clojure-mode-hook #'evil-lispy-mode)
+#+END_SRC
+
+* Key Bindings
+To learn lispy, I suggest you see these things in order:
+- first read the [[https://github.com/abo-abo/lispy][lispy introduction]] to get an overview of what lispy offers to you
+- delve into the [[http://oremacs.com/lispy/#lispy-different][lispy function reference]] to get new ideas and learn new things
+
+All lispy structural editing commands are available when evil-lispy-mode is activated.
+So to use these commands, you must first enter evil-lispy-mode.
+
+** Normal mode
+Enter ~evil-lispy-mode~ mode *from normal mode* with the following commands:
+| Key Binding | Description                                                |
+|-------------+------------------------------------------------------------|
+| ~(~         | jump to the previous parenthesis and enter evil-lispy-mode |
+| ~)~         | same, but jump to the next parenthesis instead             |
+| ~mv~        | select current symbol/expression and enter evil-lispy-mode |
+| ~<i~        | insert at the start, inside, like so: ~($ foo)~            |
+| ~>A~        | insert at the end, inside, like so: ~(foo $)~              |
+
+Other special functionality only available in normal mode:
+| Key Binding | Description                                                |
+|-------------+------------------------------------------------------------|
+| ~K~         | Describe function inline (not available in all lisp modes) |
+| ~Control-1~ | Same thing                                                 |
+| ~Control-2~ | Display argument list (not available in all lisp modes)    |
+
+** Visual mode
+You can select anything in ~evil-visual-mode~ and use these commands:
+
+| Key Binding | Description                              |
+|-------------+------------------------------------------|
+| ~RET~       | Manipulate the selection with lispy-mode |
+
+
+** Insert mode
+Reminder:
+In standard insert-mode, you can write any characters normally. Only when you
+explicitly activate evil-lispy-mode, lispy commands become available.
+
+These special bindings are active in *insert mode*:
+| Key Binding | Description                                                                   |
+|-------------+-------------------------------------------------------------------------------|
+| ~}~         | Insert [ ] brackets                                                           |
+| ~)~         | Jump out of the current sexp (to the right), enter lispy-mode                 |
+| ~[ and ]~   | Jump out of the current sexp (to the left / right), enter lispy-mode          |
+| ~;~         | Comment entire line, or end of line. Toggles autoload comments for elisp too. |
+
+** Lispy rebinds
+These bindings are changed from their lispy defaults. Notice how most have a useful mnemonic.
+| [[http://oremacs.com/lispy/#lispy-flow][i]] | Go ~in~ the current expression, or move past it if not possible   |
+| [[http://oremacs.com/lispy/#lispy-tab][f]] | ~fix~ indentation of the current expression                       |
+| [[http://oremacs.com/lispy/#lispy-different][o]] | Switch to the ~other~ side of the current expression or selection |
+| [[http://oremacs.com/lispy/#lispy-other-mode][d]] | Next ~hjkl~ will move the current expression                      |
+
+** Miscellaneous
+In lispy, using ~C-u 2j~ will go down two sexps. To get the same thing in
+evil-lispy, you can use 2j (think evil/vim).
+
+
+* Credits
+Forked from [[https://github.com/bcarrell/evil-lispy][bcarrell/evil-lispy]].
+Many, many thanks to ~bcarrell~ for his awesome work on this.

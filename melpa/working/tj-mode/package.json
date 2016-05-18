@@ -1,0 +1,31 @@
+{
+  "name": "tern-highlight",
+  "version": "0.0.18",
+  "description": "Highlight JavaScript syntax with Tern",
+  "main": "highlight.js",
+  "scripts": {
+    "test": "node ./test/all.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katspaugh/tj-mode.git"
+  },
+  "keywords": [
+    "JavaScript",
+    "Tern"
+  ],
+  "author": "katspaugh@gmail.com",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/katspaugh/tj-mode/issues"
+  },
+  "homepage": "https://github.com/katspaugh/tj-mode#readme",
+  "dependencies": {
+    "acorn": ">=2.4.0",
+    "tern": ">=0.15.0"
+  },
+  "devDependencies": {
+    "codemirror": ">=5.6.0",
+    "test": ">=0.0.5"
+  }
+}

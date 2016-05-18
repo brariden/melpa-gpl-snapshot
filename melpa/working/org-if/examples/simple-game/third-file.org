@@ -1,0 +1,13 @@
+
+  This is the third page.
+
+* Code
+
+#+begin_src org-if
+(set inventory "Empty")
+(set goal "Reached")
+(set wait 1)
+(print "This is even more of the third page.")
+(choice "second-file" "Go back and get stuff" inventory "Half-Full")
+(choice "third-file" "Wait around" wait 2)
+#+end_src

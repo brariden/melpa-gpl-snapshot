@@ -1,0 +1,19 @@
+Major mode for twolc and lexc files.
+
+HFST is Helsinki Finite State Tools, which uses OpenFST/foma/SFST/… to
+create an free and open source alternative to Xerox Finite State
+Tools.
+
+hfst-mode provides syntax highlighting for the twolc and lexc formats.
+There is so far just one keyboard shortcut, `C-c G`, or
+`hfst-mode-goto-lexicon`, which moves you to the definition of the
+continuation lexicon referenced by the current entry.
+
+Usage:
+
+    (autoload 'hfst-mode "~/path/to/hfst-mode/hfst-mode.el")
+    ; Change these lines if you name your files something other
+    ; than .twol and .lexc:
+    (add-to-list 'auto-mode-alist '("\\.twol\\'" . hfst-mode))
+    (add-to-list 'auto-mode-alist '("\\.xfst\\'" . hfst-mode))
+    (add-to-list 'auto-mode-alist '("\\.lexc\\'" . hfst-mode))

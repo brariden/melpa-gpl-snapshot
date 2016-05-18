@@ -1,0 +1,2 @@
+
+(sql-impala . [(20160427 1858) nil "comint support for Cloudera Impala" single ((:keywords "sql" "impala") (:url . "https://github.com/jterk/sql-impala"))])

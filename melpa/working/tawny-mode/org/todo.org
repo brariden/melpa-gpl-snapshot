@@ -1,0 +1,129 @@
+
+
+* Issues
+  
+  :PROPERTIES:
+  :status_ALL: open closed assigned inprogress stalled
+  :type_ALL: bug feature performance refactor
+  :severity_ALL: mild medium high critical
+  :scheduled_release_ALL: 0.12 1.0 1.1
+  :END:
+
+** snorocket
+   :PROPERTIES:
+   :type:     feature
+   :status:   stalled
+   :END:
+
+*** Stalled
+
+This is trivial to add, but snorocket isn't in central at the moment. I have
+added https://github.com/aehrc/snorocket/issues/1
+
+*** Description
+It would be good to add support for snorocket
+https://github.com/aehrc/snorocket
+
+
+
+
+** Default ontology support in tawny.memorise, tawny.obo
+
+
+** as-named-object
+
+tawny.owl/as-named-object isn't really so necessary now, because it's type
+hinted. The original reason for using it was to get a better message when 
+(.getIRI obj) was called on something not a named object. Currently this is...
+
+(.getIRI (as-named-object 1)) throws...
+(IllegalArgumentException. "Expecting a named entity")
+
+while
+(.getIRI 1)
+IllegalArgumentException No matching field found: getIRI for class java.lang.Long  clojure.lang.Reflector.getInstanceField (Reflector.java:271)
+
+However, now that as-named-object is type hinted we could remove the
+isntance? check whcih is going to happen anyway.
+
+(defn ^OWLNamedObject test-named[entity]
+                entity)
+
+(.getIRI (test-named 1))
+ClassCastException java.lang.Long cannot be cast to org.semanticweb.owlapi.model.OWLNamedObject  tawny.render/eval7556 (form-init2934790513889728050.clj:1)
+
+Now, the crash is slightly later -- when we call .getIRI, so the semantics
+are different. But if we don't call .getIRI then we don't need the
+as-named-object cal.
+
+
+
+** Relative paths
+
+Second notes -- this actually fails. The problem is that the :file metadata
+is, itself, often relative -- for example within leiningen.
+
+I think that I need to move to loading via resources (this will work cleanly
+with protege). Writing is harder -- we have the ability to specify a relative
+location, but only to save if a) it exists and b) it's writable. Otherwise,
+OBO style ontologies will try and write the jar packaged. Not good.
+
+
+Tawny uses relative paths at several places -- obo-restore-iri for example. 
+This is a pain in the ass because it fails when using protege-nrepl, which
+has a root dir defined by protege. It would also fail if I loaded two
+projects into Protege at once.
+
+Solution -- use paths relative to the source directory.
+
+So:
+
+(tawny.obo/obo-restore-iri "./src/tawny/obo/pizza/pizza_iri.edn")
+
+would become 
+
+(tawny.obo/obo-restore-iri (path-dir pizzaontology) "pizza.edn")
+
+like wise
+
+(tawny.obo/obo-store-iri (path-dir pizzaontology) "pizza_iri.edn")
+
+
+path-dir is a macro which gets the location of the file in which
+pizzaontology is defined -- any symbol would actually work here. We could
+even be disasterous and do 
+
+(path-dir)
+
+and have path-dir define it's own symbol, but that's too evil.
+
+
+** Write OBO generator docs
+
+Ah, yes, stuff about how to do OBO style IDs
+
+
+** Interpolation for comments
+   :PROPERTIES:
+   :type:     feature
+   :severity: medium
+   :status:   open
+   :scheduled_release:  1.1
+   :END:
+
+Would like to be able to interpolate comments and labels. Currently, we
+have no default label (not ideal), although this could be created
+automatically. 
+
+However, would be good to be able to support interpolation in comments and
+labels. So, in rdfs:comment, would be nice to be able to do
+
+"{rdfs:label} is a class which is cool" 
+
+and have {rdfs:label} interpolate. No idea how to get this to work --
+problem is that we might not have set the label yet on the object, because we
+go through a map stage (guess it's an array map).
+
+Could hook into the owlclass-explicit function and add stuff at the end. 
+
+

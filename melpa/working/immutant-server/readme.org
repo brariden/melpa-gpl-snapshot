@@ -1,0 +1,61 @@
+* immutant-server.el
+immutant-server.el provides a way to run Immutant from within Emacs.
+It captures the console output, colorizes it, and offers some tools to
+help navigate through it.
+
+** Installation
+*** Via Marmalade/Melpa
+#+BEGIN_SRC elisp
+(require 'package)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
+#+END_SRC
+
+Then you can install it:
+
+#+BEGIN_EXAMPLE
+M-x package-refresh-contents
+M-x package-install RET immutant-server RET
+#+END_EXAMPLE
+
+*** Manually (via git)
+Download the source or clone the repo and add the following 
+to ~/.emacs.d/init.el:
+
+#+BEGIN_SRC elisp
+(add-to-list 'load-path "path/to/immutant-server.el")
+(require 'immutant-server)
+#+END_SRC
+
+** Usage Example
+
+#+BEGIN_EXAMPLE
+M-x immutant-server-start
+#+END_EXAMPLE
+
+You will find the output in the =*immutant-server*= buffer.
+
+All currently available key bindings:
+#+BEGIN_EXAMPLE
+n        Move to the next log line
+p        Move to the previous log line
+M-n      Move to the next error
+M-p      Move to the previous error
+t        Toggle line truncation
+q        Quit (kill or bury) the Immutant output buffer
+C-c C-c  Stop the Immutant process
+C-c C-s  Start the Immutant process
+C-u C-c C-s Prompt for the server command before starting Immutant
+#+END_EXAMPLE
+
+** License
+Copyright © 2013 David Leatherman.
+
+Files are licensed under the same license as Emacs unless otherwise
+specified. See the file LICENSE for details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.

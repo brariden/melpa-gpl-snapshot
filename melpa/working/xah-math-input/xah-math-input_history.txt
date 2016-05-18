@@ -1,0 +1,51 @@
+Version history up to 2014-05-25
+
+;; v1.6.1, 2014-05-25 • modified the inline doc to contain info about how to change activation key and how to add a abbrev. (call “describe-function” on “xmsi-mode”)
+;; v1.6.0, 2014-03-10 • added wink.   「;-)」 and 「;)」 and 「wink」 → 「😉」
+;; v1.5.9, 2013-12-14 • changed “c1” to ①, by not requiring “c”. So, now 「1」 → 「①」, and up to 20, also 「0」 → 「⓪」. Before, these number transforms to the corresponding unicode code point, and for 1 to 31 they are ASCII control chars. Number still convert to corresponding unicode code point, other than ones changed here.
+;; v1.5.8, 2013-11-17 • added cycles (xmsi-add-cycle ["#" "♯" "№"])
+;; v1.5.7, 2013-11-12 • added cycles for several symbols related to {equal, equivalence, congruence, similarity, identity}, and also for {hyphen, minus sign, en-dash, …}. Type tilde 「~」 and press shift space to cycle. Also try on equal sign 「=」 and minus sign 「-」.
+;; v1.5.6, 2013-09-26 • added complete Double struck letters. AA→𝔸, BB→𝔹, …
+;; v1.5.5, 2013-09-09 • removed abbrevs for full width letters and digits. Rational: they are rarely used.
+;; v1.5.4, 2013-08-21 • fixed a h→η
+;; v1.5.3, 2013-08-15 • added Chinese pinyin for first tone ⁖ ā → ā, and also for all tones of ü, ⁖ {v1 → ǖ, v2 → ǘ, …}. Thanks to Lew Perin 〔 http://babelcarp.org/babelcarp/ 〕
+;; v1.5.2, 2013-08-11 • added Chinese pinyin accent. ⁖ {a2 → á, a3 → ǎ, a4 → à}.
+;; v1.5.1, 2013-04-09 • added ㎝ ㎠ ㎤. Why not?
+;; v1.4.9, 2013-03-09 • added abbrev “tv” for 「📺」.
+;; v1.4.8, 2013-03-01 • added abbrev “esc” for 「⎋」. • removed “power” for 「⎋」 because it's incorrect. there's no dedicate symbol in unicode for this. • added “sleep” for 「☾」 • added “break” for 「⎊」 • added “pause” for 「⎉」 • removed abbrev “control” for 「✲」, added abbrev “ctrl” for 「✲」. Because that symbol is associated with keyboard label only, not really “control”. • added the cycle 「✲ ⎈ ‸」 for control key symbol. • changed “enter” to insert 「⌤」 instead of 「↵」, because the new is more correct. • added abbrev “helm” for 「⎈」, may use for Control key. Microsoft keyboard uses 「✲」. • added cycles 「⏎ ↩ ↵ ⌤ ⎆」 • added a cycle for undo 「↶ ⎌」 (the latter is proper undo symbol, but there's no corresponding symbol for redo). • added “alt” for 「⎇」
+;; v1.4.7, 2013-01-21 • changed the name of abbrev for 「↖」 from “nwarr” to “home”. Similarly, 「↘」 from “searr” to “end”. • Added a cycle for left right delete ⌫ ⌦. • added “control” for 「✲」, used on Microsoft keyboards.
+;; v1.4.6, 2013-01-15 • added abbrev “smiley” for “☺”, added abbrev “sad” for “☹”
+;; v1.4.5, 2013-01-14 • added abbrev “wdash” for “〜” WAVE DASH. • removed abbrev “-” for MINUS SIGN because it's seldom used and can be confusing. It already has abbrev “minus”. • removed abbrev “o/”. Use html entity “Oslash” Ø or “oslash” ø or math “empty” or “es” for empty set ∅.
+;; v1.4.4, 2013-01-13 • Fixed union and intersection. Fixed abbrev “menu” for the menu key symbol. Fixed empty set symbol. Other misc improvements.
+;; v1.4.3, 2013-01-13 • major code tweak. Several new symbols are added. Abbrevs are cleaned up for the better. Cycle symbol implementation changed. Some abbrev are taken off. e.g. there was {circle ●} and {circle2 ○}, now just “circle”, and the black and white versions are a cycle.
+;; v1.4.2, 2013-01-13 • added � into the cycle ? ？ �. Added cycle between black and white versions of triangle, heart, diamond, circle, square, etc.
+;; v1.4.1, 2013-01-04 • added symbol for meter squared (m2 → ㎡). • Fixed xml entity abbrevs {lang, rang} to the correct angle brackets 〈〉. • major overhaul of braket abbrevs, now more intuitive. Abbrevs include: "" <> <<>> () [] [[]] [()] and more. Call xmsi-list-math-symbols for a list.
+;; v1.4.0, 2012-12-24 • added cycle between several punctuations and the fullwidth version: {, . : ; ! ? &}
+;; v1.3.9, 2012-12-15 • added cycle for SPACE 「 」 → NO-BREAK SPACE 「 」 → IDEOGRAPHIC SPACE 「　」. Also, FULLWIDTH COMMA 「，」 and comma are now cycle.
+;; v1.3.8, 2012-12-09 • added cycle for 「· ．。」. That is, one of these cycles to other. Also, 「,→，」.
+;; v1.3.7, 2012-06-28 • much improved parsing the input string. Now, if there's no text selection, then grab string from cursor point to the left up to a whitespace char (limit to 10 chars max), then try that, if not found, try with one char minus. e.g. If text is 「some abc▮」, try 「abc」, then 「bc」, then 「c」. This way, user doesn't have to add a whitespace as separator before the abbrev, or having to make a text selection. e.g. in coding elisp, if current text is 「(a▮」, user can call xmsi-change-to-symbol directly to get 「(α▮」.
+;; v1.3.6, 2012-05-08 • fixed a bug when any abbrev involving tilde ~ won't work.
+;; v1.3.5.4, 2012-04-04 • stopped printing a message when “xmsi-change-to-symbol” is called. Minor improvement to inline doc of “xmsi-change-to-symbol”.
+;; v1.3.5.3, 2012-04-02 • changed “-” to from “‒” FIGURE DASH to “−” MINUS SIGN.
+;; v1.3.5.2, 2012-04-01 • added ~ for ≈
+;; v1.3.5, 2012-02-26 • fixed a bug with 「:)」 in v1.3.4. • added ≔ and ≕.
+;; v1.3.4, 2012-02-22 • The input now won't take “(” as part when calling “xmsi-change-to-symbol”. This means, when coding lisp, if you have 「(a▮」 then after calling ““xmsi-change-to-symbol” it becomes 「(α▮」. • removed “(c)” for “©”, use “copy” instead.
+;; v1.3.3, 2011-11-08 • much improved handling of getting current abbrev. This means, it works in minibuffer. For example, type 【M-x】 then type 【a】, then 【Shift+Space】, then that “a” becomes “α”. Before, it was a error.
+;; v1.3.2, 2011-11-05 • fixed a major bug in v1.3.1. When no valid input are found, xmsi-list-math-symbols is now automatically called, but isn't. • Added about 5 more subscript symbols, e.g _h _k _l etc.
+;; v1.3.1, 2011-11-05 • fixed a showstopper bug. in v1.3.0. support of input using unicode names. Before, it always just insert greek alpha char.
+;; v1.3.0, 2011-11-04 • Added support of input using unicode names. For example: 「greek small letter alpha」 • Added support of input using decimal forms, for examples: {「955」, 「#955」} or hexadimal forms {「x3bb」, 「#x3bb」}. XML entities forms such as {「&#955;」, 「&#x3bb;」, 「alpha」} are still supported. • When no valid input are found, xmsi-list-math-symbols is now automatically called.
+;; v1.2.13, 2011-10-28 Corrected a abbrev for Greek lowercase rho “ρ” with abbrev “r”.
+;; v1.2.12, 2011-06-26 Fixed nbsp. It was inserting normal space. Now it's non-breaking space.
+;; v1.2.11, 2011-06-24 Added about 20 white/black shapes. e.g. square, circle, star, club …. Some are have existing abbrev but now with more intuitive name. Also a couple other changes.
+;; v1.2.10, 2011-06-10 Added/Changed “dell”, “delr”, “tabl”, “tabr”, “_”, “!?”, “?!”, “!!”.
+;; v1.2.9, 2011-03-24 Added about 102 full width version chars. Example, “fw&” becomes “＆”. Abbrev all start with “fw”. Remove about 5 redundant abbrevs.
+;; v1.2.8, 2011-02-12 Added ⟵ ⟶ ⟷ ⇔ ⟸ ⟹ ⟺ ↚ ↛ ↮ ⇍ ⇏ ⇎. (few other chars may have been added but missed being mentioned here.)
+;; v1.2.6, 2011-02-11 emdash, endash, figure dash, now have keys m- n- f-. Also, removed some full words keys: “degree” (deg), “pi” (p), “infinity” (inf), “angle” (ang).
+;; v1.2.5, 2011-02-01 added a figure dash.
+;; v1.2.4, 2011-01-11 made the error message more clear. • added symbol for circled number ① ② ... ⒈⒉ ... 🄂 🄃 ...
+;; v1.2.3, 2011-01-06 More clean up, adding symbols. The input string is changed. Now, it's from the cursor position to the left whitespace. Before this change, the input is determined by whitespace chars to the left and right.
+;; v1.2.2, 2010-12-22 Added nbsp for non-breaking-space and some others symbols.
+;; v1.2.1, 2010-12-14 Added about 10 more symbols.
+;; v1.2, 2010-12-14 Added support to enter char by unicode decimal or hexadecimal.
+;; v1.1, 2010-12-12 added more symbols.
+;; v1.0, 2010-12-08 First version.

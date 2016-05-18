@@ -1,0 +1,2 @@
+
+(org-download . [(20160411 910) ((async (1 2))) "Image drag-and-drop for Emacs org-mode" single ((:keywords "images" "screenshots" "download") (:url . "https://github.com/abo-abo/org-download"))])

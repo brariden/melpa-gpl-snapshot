@@ -1,0 +1,2 @@
+
+(sql-mssql . [(20160512 337) ((emacs (24 4))) "Connect Microsoft SQL Server with sql.el in Linux/Unix environment" single ((:url . "https://github.com/tumashu/sql-mssql"))])

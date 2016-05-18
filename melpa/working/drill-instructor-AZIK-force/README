@@ -1,0 +1,16 @@
+drill-instructor-AZIK-forceは日本語入力のためのキーマップ、AZIKの特殊拡
+張入力を支援します。AZIKについては以下を参照してください。
+
+http://hp.vector.co.jp/authors/VA002116/azik/azikinfo.htm
+
+DDSKKでの日本語入力を前提とします。他のIMとの併用では動作未検証です。
+また、popup.elが必要となりますので事前にインストールしておいてください。
+
+カスタマイズ変数として`AZIK-force-curriculum'があります。
+`AZIK-force-curriculum'を'easyとし、特殊拡張入力が用意されているにも関
+わらず特殊拡張入力を用いずに入力した場合、特殊拡張入力による入力方法が
+ポップアップして親切に教えてくれます。デフォルトでは'easyに設定されて
+います。
+'born2killとすると、特殊拡張入力による入力方法を厳しい言葉でなじって教
+えてくれます。
+'born2dieとすると、Emacsが強制的に終了されてしまいます。

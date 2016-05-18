@@ -1,9 +1,9 @@
 Smartwin is a window for shell buffers, temp buffers and etc.
 
 This minor mode let shell like buffers share a window, called smart window,
-the smart window is always at the bottom of emacs window. Besides that, when
+the smart window is always at the bottom of Emacs window.  Besides that, when
 point move into or out the smart window, it will be enlarged or shrinked
-automaticly.
+automaticly.  Warning: this package can not work with popwin.el.
 
 To use smartwin, place this file to load path and add this to .emacs:
 

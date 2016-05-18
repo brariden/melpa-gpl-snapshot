@@ -1,0 +1,2 @@
+
+(rustfmt . [(20160217 742) ((emacs (24))) "Format rust code using rustfmt" single ((:keywords "convenience") (:url . "https://github.com/fbergroth/emacs-rustfmt"))])

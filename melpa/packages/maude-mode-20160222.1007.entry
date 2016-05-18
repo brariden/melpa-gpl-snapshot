@@ -1,0 +1,2 @@
+
+(maude-mode . [(20160222 1007) nil "Emacs mode for the programming language Maude" single ((:keywords "maude"))])

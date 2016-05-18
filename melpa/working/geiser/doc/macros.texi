@@ -1,0 +1,61 @@
+@set VERSION 0.8.1
+@set VERSION_NICK
+@set RELEASE_DATE October 2015
+@set GUILE_VERSION 2.0.9
+@set RACKET_VERSION 6.0
+@set CHICKEN_VERSION 4.8.0
+@set MIT_VERSION 9.2.1
+@set CHIBI_VERSION 0.7.3
+@set CHEZ_VERSION 9.4
+@set EMACS_VERSION 23.2
+@set DOWN_BASE http://download-mirror.savannah.gnu.org/@/releases/@/geiser
+@set PACKAGE_REPO @value{DOWN_BASE}/@/packages
+@set PACKAGE @value{PACKAGE_REPO}/@/geiser-@value{VERSION}.tar
+@set TARBALL geiser-@value{VERSION}.tar.gz
+
+@macro downfile{FILE, CAPT}
+@uref{@value{DOWN_BASE}/@/@value{VERSION}/@/\FILE\, \CAPT\}
+@end macro
+
+@macro vblurb{GVERS, CVERS, RVERS, DATE}
+@html
+<div class="version" align="right">
+@end html
+@downfile{@value{TARBALL},
+          Version @value{VERSION} @value{VERSION_NICK} (\DATE\) Guile \GVERS\+ Chicken \CVERS\+ and Racket \RVERS\+}
+@html
+</div>
+@end html
+@end macro
+
+@macro dvblurb{}
+@vblurb{@value{GUILE_VERSION}, @value{CHICKEN_VERSION}, @value{RACKET_VERSION}, @value{RELEASE_DATE}}
+@end macro
+
+@macro altr{LINK, TXT, TLINK, TRAIL}
+@ifhtml
+@ref{\LINK\,,\TXT\}\TRAIL\
+@end ifhtml
+@ifinfo
+@pxref{\LINK\,\TXT\}\TRAIL\
+@end ifinfo
+@iftex
+@ref{\TLINK\}\TRAIL\
+@end iftex
+@end macro
+
+@macro img{FILE, ALIGN}
+@ifhtml
+@html
+<img src="img/\FILE\.png" class="float\ALIGN\"/>
+@end html
+@end ifhtml
+@end macro
+
+@macro imgc{FILE}
+@ifhtml
+@html
+<img src="img/\FILE\.png"/>
+@end html
+@end ifhtml
+@end macro

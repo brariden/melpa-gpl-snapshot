@@ -1,0 +1,2 @@
+
+(metafmt . [(20160221 1055) nil "Run metafmt on buffers when saving them" single ((:keywords "languages" "tools") (:url . "https://github.com/lvillani/metafmt"))])

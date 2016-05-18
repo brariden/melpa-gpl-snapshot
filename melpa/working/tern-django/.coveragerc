@@ -1,0 +1,2 @@
+[run]
+include = tern_django.py

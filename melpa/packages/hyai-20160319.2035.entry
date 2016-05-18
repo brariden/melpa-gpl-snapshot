@@ -1,0 +1,2 @@
+
+(hyai . [(20160319 2035) ((cl-lib (0 5)) (emacs (24))) "Haskell Yet Another Indentation" single ((:url . "https://github.com/iquiw/hyai"))])

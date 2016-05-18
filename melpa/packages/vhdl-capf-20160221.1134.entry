@@ -1,0 +1,2 @@
+
+(vhdl-capf . [(20160221 1134) nil "Completion at point function (capf) for vhdl-mode." single ((:keywords "convenience" "usability" "vhdl" "completion") (:url . "https://github.com/sh-ow/vhdl-capf"))])

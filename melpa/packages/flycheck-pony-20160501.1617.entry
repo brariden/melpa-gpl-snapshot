@@ -1,0 +1,2 @@
+
+(flycheck-pony . [(20160501 1617) ((flycheck (0 25 1))) "Pony support in Flycheck" single ((:keywords "tools" "convenience") (:url . "https://github.com/seantallen/flycheck-pony"))])

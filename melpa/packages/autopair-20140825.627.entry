@@ -1,2 +1,0 @@
-
-(autopair . [(20140825 627) ((cl-lib (0 3))) "Automagically pair braces and quotes like TextMate" single ((:keywords "convenience" "emulations") (:url . "http://autopair.googlecode.com"))])

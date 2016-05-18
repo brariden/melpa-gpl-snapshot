@@ -20,9 +20,8 @@ these quirks and avoid using ido when it sees them. So some
 functions will not have ido completion even when this mode is
 enabled. Some other functions have ido disabled in them because
 their packages already provide support for ido via other means (for
-example, org-mode and magit). See `M-x customize-group
-ido-ubiquitous' and read about the override variables for more
-information.
+example, magit). See `M-x customize-group ido-ubiquitous' and read
+about the override variables for more information.
 
 ido-ubiquitous version 3.0 is a major update, including a split
 into two packages, and some of the configuration options have

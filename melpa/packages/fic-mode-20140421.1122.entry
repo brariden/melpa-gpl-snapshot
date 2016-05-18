@@ -1,2 +1,0 @@
-
-(fic-mode . [(20140421 1122) nil "Show FIXME/TODO/BUG/KLUDGE in special face only in comments and strings" single nil])

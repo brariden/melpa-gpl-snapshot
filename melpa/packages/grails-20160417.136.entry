@@ -1,0 +1,2 @@
+
+(grails . [(20160417 136) ((emacs (24))) "Minor mode for Grails projects" single ((:url . "https://github.com/lifeisfoo/emacs-grails"))])

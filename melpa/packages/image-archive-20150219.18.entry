@@ -1,2 +1,0 @@
-
-(image-archive . [(20150219 18) ((emacs (24)) (cl-lib (0 5))) "Image thumbnails in archive file with non-blocking" single ((:keywords "multimedia") (:url . "https://github.com/mhayashi1120/Emacs-image-archive/raw/master/image-archive.el"))])

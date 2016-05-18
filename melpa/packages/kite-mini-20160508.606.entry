@@ -1,0 +1,2 @@
+
+(kite-mini . [(20160508 606) ((dash (2 11 0)) (websocket (1 5))) "Remotely evaluate JavaScript in the WebKit debugger" tar ((:keywords "webkit") (:url . "https://github.com/tungd/kite-mini.el"))])

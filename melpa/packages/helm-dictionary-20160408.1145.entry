@@ -1,0 +1,2 @@
+
+(helm-dictionary . [(20160408 1145) ((helm (1 5 5))) "Helm source for looking up dictionaries" single ((:url . "https://github.com/emacs-helm/helm-dictionary"))])

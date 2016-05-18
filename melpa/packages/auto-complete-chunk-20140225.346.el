@@ -6,8 +6,8 @@
 ;; Maintainer: ARAKAKI, Takafumi
 ;; Created: Wed Dec 7 17:23:39 2011 +0100
 ;; Package-Requires: ((auto-complete "1.4"))
-;; Version: 0.1.0
 ;; Package-Version: 20140225.346
+;; Version: 0.1.0
 ;; URL: https://github.com/tkf/auto-complete-chunk
 ;;
 ;; This file is NOT part of GNU Emacs.

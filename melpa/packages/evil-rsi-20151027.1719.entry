@@ -1,2 +1,0 @@
-
-(evil-rsi . [(20151027 1719) ((evil (1 0 0))) "Use emacs motion keys in evil, inspired by vim-rsi" single ((:keywords "evil" "rsi" "evil-rsi") (:url . "http://github.com/linktohack/evil-rsi"))])

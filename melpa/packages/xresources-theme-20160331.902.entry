@@ -1,0 +1,2 @@
+
+(xresources-theme . [(20160331 902) nil "Use your .Xresources as your emacs theme" single ((:keywords "xresources" "theme"))])

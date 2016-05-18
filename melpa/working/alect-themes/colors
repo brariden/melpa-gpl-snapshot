@@ -1,0 +1,64 @@
+Content-Type: text/enriched
+Text-Width: 72
+
+Colors used in alect-themes
+
+
+LIGHT   -2      -1      0       +1      +2
+
+bg      <x-color><param>#262626</param><x-bg-color><param>#f6f0e1</param>#f6f0e1</x-bg-color><x-bg-color><param>#ded6c5</param> #ded6c5 </x-bg-color><x-bg-color><param>#d9ceb2</param>#d9ceb2</x-bg-color><x-bg-color><param>#ded6c5</param> </x-bg-color><x-bg-color><param>#d3c7a0</param>#d3c7a0</x-bg-color><x-bg-color><param>#ded6c5</param> </x-bg-color><x-bg-color><param>#ccc1a0</param>#ccc1a0</x-bg-color></x-color>
+
+fg      <x-color><param>#6c6c6c</param><x-bg-color><param>#ded6c5</param>#6c6c6c</x-bg-color></x-color><x-bg-color><param>#ded6c5</param> <x-color><param>#505050</param>#505050</x-color> <x-color><param>#3f3f3f</param>#3f3f3f</x-color> <x-color><param>#262626</param>#262626</x-color> <x-color><param>#101010</param>#101010</x-color></x-bg-color>
+
+red     <x-color><param>#fa5151</param><x-bg-color><param>#ded6c5</param>#fa5151</x-bg-color></x-color><x-bg-color><param>#ded6c5</param> <x-color><param>#e43838</param>#e43838</x-color> <x-color><param>#f71010</param>#f71010</x-color> <x-color><param>#d81212</param>#d81212</x-color> <x-color><param>#b22222</param>#b22222</x-color></x-bg-color>
+
+yellow  <x-color><param>#ab9c3a</param><x-bg-color><param>#ded6c5</param>#ab9c3a</x-bg-color></x-color><x-bg-color><param>#ded6c5</param> <x-color><param>#9ca30b</param>#9ca30b</x-color> <x-color><param>#ef8300</param>#ef8300</x-color> <x-color><param>#958323</param>#958323</x-color> <x-color><param>#6a621b</param>#6a621b</x-color></x-bg-color>
+
+green   <x-color><param>#3cb368</param><x-bg-color><param>#ded6c5</param>#3cb368</x-bg-color></x-color><x-bg-color><param>#ded6c5</param> <x-color><param>#1c9e28</param>#1c9e28</x-color> <x-color><param>#028902</param>#028902</x-color> <x-color><param>#008b45</param>#008b45</x-color> <x-color><param>#077707</param>#077707</x-color></x-bg-color>
+
+cyan    <x-color><param>#0eaeae</param><x-bg-color><param>#ded6c5</param>#0eaeae</x-bg-color></x-color><x-bg-color><param>#ded6c5</param> <x-color><param>#259ea2</param>#259ea2</x-color> <x-color><param>#358d8d</param>#358d8d</x-color> <x-color><param>#0d7b72</param>#0d7b72</x-color> <x-color><param>#286060</param>#286060</x-color></x-bg-color>
+
+blue    <x-color><param>#0092ff</param><x-bg-color><param>#ded6c5</param>#0092ff</x-bg-color></x-color><x-bg-color><param>#ded6c5</param> <x-color><param>#2c53ca</param>#2c53ca</x-color> <x-color><param>#0000ff</param>#0000ff</x-color> <x-color><param>#0505cc</param>#0505cc</x-color> <x-color><param>#00008b</param>#00008b</x-color></x-bg-color>
+
+magenta <x-color><param>#dc63dc</param><x-bg-color><param>#ded6c5</param>#dc63dc</x-bg-color></x-color><x-bg-color><param>#ded6c5</param> <x-color><param>#ba55d3</param>#ba55d3</x-color> <x-color><param>#a020f0</param>#a020f0</x-color> <x-color><param>#9400d3</param>#9400d3</x-color> <x-color><param>#8b008b</param>#8b008b</x-color></x-bg-color>
+
+
+DARK    -2      -1      0       +1      +2
+
+bg      <x-color><param>#d5d2be</param><x-bg-color><param>#222222</param>#222222</x-bg-color><x-bg-color><param>#3f3f3f</param> #3f3f3f </x-bg-color><x-bg-color><param>#4f4f4f</param>#4f4f4f</x-bg-color><x-bg-color><param>#3f3f3f</param> </x-bg-color><x-bg-color><param>#5f5f5f</param>#5f5f5f</x-bg-color><x-bg-color><param>#3f3f3f</param> </x-bg-color><x-bg-color><param>#6f6f6f</param>#6f6f6f</x-bg-color></x-color>
+
+fg      <x-color><param>#8c826d</param><x-bg-color><param>#3f3f3f</param>#8c826d</x-bg-color></x-color><x-bg-color><param>#3f3f3f</param> <x-color><param>#d0bf8f</param>#d0bf8f</x-color> <x-color><param>#f0dfaf</param>#f0dfaf</x-color> <x-color><param>#d5d2be</param>#d5d2be</x-color> <x-color><param>#f6f0e1</param>#f6f0e1</x-color></x-bg-color>
+
+red     <x-color><param>#fa6a6e</param><x-bg-color><param>#3f3f3f</param>#fa6a6e</x-bg-color></x-color><x-bg-color><param>#3f3f3f</param> <x-color><param>#fa5151</param>#fa5151</x-color> <x-color><param>#ea3838</param>#ea3838</x-color> <x-color><param>#db4334</param>#db4334</x-color> <x-color><param>#c83029</param>#c83029</x-color></x-bg-color>
+
+yellow  <x-color><param>#f8ffa0</param><x-bg-color><param>#3f3f3f</param>#f8ffa0</x-bg-color></x-color><x-bg-color><param>#3f3f3f</param> <x-color><param>#e8e815</param>#e8e815</x-color> <x-color><param>#fe8b04</param>#fe8b04</x-color> <x-color><param>#e5c900</param>#e5c900</x-color> <x-color><param>#abab3a</param>#abab3a</x-color></x-bg-color>
+
+green   <x-color><param>#8ce096</param><x-bg-color><param>#3f3f3f</param>#8ce096</x-bg-color></x-color><x-bg-color><param>#3f3f3f</param> <x-color><param>#32cd32</param>#32cd32</x-color> <x-color><param>#7fb07f</param>#7fb07f</x-color> <x-color><param>#3cb370</param>#3cb370</x-color> <x-color><param>#099709</param>#099709</x-color></x-bg-color>
+
+cyan    <x-color><param>#8cf1f1</param><x-bg-color><param>#3f3f3f</param>#8cf1f1</x-bg-color></x-color><x-bg-color><param>#3f3f3f</param> <x-color><param>#2fdbde</param>#2fdbde</x-color> <x-color><param>#1fb3b3</param>#1fb3b3</x-color> <x-color><param>#528d8d</param>#528d8d</x-color> <x-color><param>#0c8782</param>#0c8782</x-color></x-bg-color>
+
+blue    <x-color><param>#b2c3f8</param><x-bg-color><param>#3f3f3f</param>#b2c3f8</x-bg-color></x-color><x-bg-color><param>#3f3f3f</param> <x-color><param>#94bff3</param>#94bff3</x-color> <x-color><param>#62b6ea</param>#62b6ea</x-color> <x-color><param>#00aff5</param>#00aff5</x-color> <x-color><param>#3390dc</param>#3390dc</x-color></x-bg-color>
+
+magenta <x-color><param>#ebabde</param><x-bg-color><param>#3f3f3f</param>#ebabde</x-bg-color></x-color><x-bg-color><param>#3f3f3f</param> <x-color><param>#dc8cc3</param>#dc8cc3</x-color> <x-color><param>#e353b9</param>#e353b9</x-color> <x-color><param>#e81eda</param>#e81eda</x-color> <x-color><param>#be59d8</param>#be59d8</x-color></x-bg-color>
+
+
+BLACK   -2      -1      0       +1      +2
+
+bg      <x-color><param>#b2af95</param><x-bg-color><param>#404040</param>#404040</x-bg-color><x-bg-color><param>#000000</param> #000000 </x-bg-color><x-bg-color><param>#202020</param>#202020</x-bg-color><x-bg-color><param>#000000</param> </x-bg-color><x-bg-color><param>#303030</param>#303030</x-bg-color><x-bg-color><param>#000000</param> </x-bg-color><x-bg-color><param>#454545</param>#454545</x-bg-color></x-color>
+
+fg      <x-color><param>#8b806c</param><x-bg-color><param>#000000</param>#8b806c</x-bg-color></x-color><x-bg-color><param>#000000</param> <x-color><param>#ab9861</param>#ab9861</x-color> <x-color><param>#c4ad63</param>#c4ad63</x-color> <x-color><param>#b2af95</param>#b2af95</x-color> <x-color><param>#d6cbae</param>#d6cbae</x-color></x-bg-color>
+
+red     <x-color><param>#e96060</param><x-bg-color><param>#000000</param>#e96060</x-bg-color></x-color><x-bg-color><param>#000000</param> <x-color><param>#ea4141</param>#ea4141</x-color> <x-color><param>#db4334</param>#db4334</x-color> <x-color><param>#c83029</param>#c83029</x-color> <x-color><param>#ae2823</param>#ae2823</x-color></x-bg-color>
+
+yellow  <x-color><param>#e9e953</param><x-bg-color><param>#000000</param>#e9e953</x-bg-color></x-color><x-bg-color><param>#000000</param> <x-color><param>#c9d617</param>#c9d617</x-color> <x-color><param>#dc7700</param>#dc7700</x-color> <x-color><param>#bcaa00</param>#bcaa00</x-color> <x-color><param>#959508</param>#959508</x-color></x-bg-color>
+
+green   <x-color><param>#47cd57</param><x-bg-color><param>#000000</param>#47cd57</x-bg-color></x-color><x-bg-color><param>#000000</param> <x-color><param>#29b029</param>#29b029</x-color> <x-color><param>#60a060</param>#60a060</x-color> <x-color><param>#319448</param>#319448</x-color> <x-color><param>#078607</param>#078607</x-color></x-bg-color>
+
+cyan    <x-color><param>#26d5d5</param><x-bg-color><param>#000000</param>#26d5d5</x-bg-color></x-color><x-bg-color><param>#000000</param> <x-color><param>#1ec1c4</param>#1ec1c4</x-color> <x-color><param>#1ba1a1</param>#1ba1a1</x-color> <x-color><param>#4c8383</param>#4c8383</x-color> <x-color><param>#0a7874</param>#0a7874</x-color></x-bg-color>
+
+blue    <x-color><param>#8cb7ff</param><x-bg-color><param>#000000</param>#8cb7ff</x-bg-color></x-color><x-bg-color><param>#000000</param> <x-color><param>#58b1f3</param>#58b1f3</x-color> <x-color><param>#00a2f5</param>#00a2f5</x-color> <x-color><param>#1e7bda</param>#1e7bda</x-color> <x-color><param>#2062d0</param>#2062d0</x-color></x-bg-color>
+
+magenta <x-color><param>#dc8cc3</param><x-bg-color><param>#000000</param>#dc8cc3</x-bg-color></x-color><x-bg-color><param>#000000</param> <x-color><param>#e353b9</param>#e353b9</x-color> <x-color><param>#da26ce</param>#da26ce</x-color> <x-color><param>#c251df</param>#c251df</x-color> <x-color><param>#a92ec9</param>#a92ec9</x-color></x-bg-color>
+
+
+

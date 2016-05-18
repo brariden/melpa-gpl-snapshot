@@ -1,0 +1,2 @@
+
+(go . [(20150414 1918) ((emacs (24))) "Play GO, translate and transfer between GO back ends" tar ((:keywords "game" "go" "sgf") (:url . "http://eschulte.github.io/el-go/"))])

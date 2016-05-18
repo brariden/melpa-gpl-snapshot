@@ -1,2 +1,0 @@
-
-(egg . [(20160111 231) nil "Emacs Got Git - Emacs interface to Git" tar ((:keywords "git" "version control" "release management"))])

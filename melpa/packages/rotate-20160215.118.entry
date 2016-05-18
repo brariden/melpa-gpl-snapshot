@@ -1,0 +1,2 @@
+
+(rotate . [(20160215 118) nil "Rotate the layout of emacs" single ((:keywords "window" "layout") (:url . "https://github.com/daic-h/emacs-rotate"))])

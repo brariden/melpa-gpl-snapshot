@@ -1,2 +1,0 @@
-
-(avy-zap . [(20151211 1348) ((avy (0 2 0))) "Zap to char using `avy'" single ((:keywords "extensions") (:url . "https://github.com/cute-jumper/avy-zap"))])

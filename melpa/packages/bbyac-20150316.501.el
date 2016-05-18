@@ -6,8 +6,8 @@
 ;; Maintainer: Bao Haojun <baohaojun@gmail.com>
 ;; Created: 28th January 2015
 ;; Package-Requires: ((browse-kill-ring "1.3") (cl-lib "0.5"))
-;; Keywords: abbrev
 ;; Package-Version: 20150316.501
+;; Keywords: abbrev
 ;; Version: 0.0.20150128
 ;; URL: https://github.com/baohaojun/bbyac
 

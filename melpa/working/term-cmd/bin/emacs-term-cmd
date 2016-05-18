@@ -1,0 +1,28 @@
+#!/bin/bash
+# Send a command to Emacs through term.el.
+
+function usage() {
+    echo "Usage: $(basename "${0}") command [arg]"
+    exit 1
+}
+
+test -z "${1}" && usage
+CMD="${1}"
+
+if [ ! -z "${2}" ]; then
+    ARG=" ${2}"
+else
+    ARG=''
+fi
+
+
+# Sanity check before printing; not foolproof, unfortunately (try
+# tmux, then ssh). Screen uses a different escape sequence from tmux,
+# but there doesn't seem to be a definitive way to distinguish between
+# the two. :-(
+if [[ "${TERM}" =~ 'eterm' ]]; then
+    printf '\033TeRmCmD %s%s\n' "${CMD}" "${ARG}"
+elif [ "${TERM}" = 'screen' ] && [ ! -z "${TMUX}" ] &&
+         [[ "$(tmux display-message -p '#{client_termname}')" =~ 'eterm' ]]; then
+    printf '\033Ptmux;\033\033TeRmCmD %s%s\n\033\\' "${CMD}" "${ARG}"
+fi

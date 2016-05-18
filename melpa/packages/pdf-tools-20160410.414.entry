@@ -1,0 +1,2 @@
+
+(pdf-tools . [(20160410 414) ((emacs (24 3)) (tablist (0 70)) (let-alist (1 0 4))) "Support library for PDF documents." tar ((:keywords "files" "multimedia"))])

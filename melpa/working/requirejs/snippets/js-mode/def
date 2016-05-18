@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+#name : def
+# expand-env: ((yas-indent-line 'auto))
+# --
+`(if requirejs-define-header-hook (funcall requirejs-define-header-hook) )`define([], function() {
+'use strict';
+$0
+});

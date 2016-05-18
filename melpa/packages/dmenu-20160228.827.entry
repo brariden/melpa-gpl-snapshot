@@ -1,0 +1,2 @@
+
+(dmenu . [(20160228 827) ((cl-lib (0 5))) "simulate the dmenu command line program" single ((:keywords "convenience" "usability"))])

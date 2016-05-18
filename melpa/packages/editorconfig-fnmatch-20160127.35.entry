@@ -1,2 +1,0 @@
-
-(editorconfig-fnmatch . [(20160127 35) ((cl-lib (0 5))) "Glob pattern matching in Emacs lisp" single ((:url . "https://github.com/editorconfig/editorconfig-emacs#readme"))])

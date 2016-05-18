@@ -1,2 +1,0 @@
-
-(plantuml-mode . [(20131031 1832) ((auto-complete (1 4))) "Major mode for plantuml" single ((:keywords "uml" "ascii") (:url . "https://github.com/wildsoul/plantuml-mode"))])

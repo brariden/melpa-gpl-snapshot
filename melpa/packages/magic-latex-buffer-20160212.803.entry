@@ -1,0 +1,2 @@
+
+(magic-latex-buffer . [(20160212 803) ((cl-lib (0 5)) (emacs (24 3))) "Magically enhance LaTeX-mode font-locking for semi-WYSIWYG editing" single ((:url . "http://hins11.yu-yake.com/"))])

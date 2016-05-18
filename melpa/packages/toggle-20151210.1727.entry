@@ -1,2 +1,0 @@
-
-(toggle . [(20151210 1727) nil "quickly open corresponding file (eg test vs impl)." single ((:keywords "files" "extensions" "convenience"))])

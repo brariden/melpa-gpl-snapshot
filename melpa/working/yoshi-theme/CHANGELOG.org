@@ -1,0 +1,133 @@
+#+TITLE: Change Log
+#+STARTUP: content
+#+OPTIONS: H:1 num:nil author:nil creator:nil timestamp:nil toc:nil
+#+HTML_HEAD: <link type="text/css" rel="stylesheet" href="css/changelog.css"/>
+#+HTML_LINK_UP: ./
+#+TODO: ADDED CHANGED DEPRECATED REMOVED FIXED SECURITY
+
+All notable changes to this project will be documented in this file.
+This project adheres to [[http://semver.org][Semantic Versioning]].
+
+* [[https://github.com/ryuslash/yoshi-theme/compare/v6.1.0...HEAD][Unreleased]]
+** ADDED Colors for modes using ansi-color.el, such as Eshell
+
+** CHANGED the color of high-scoring unread mails in gnus
+
+** CHANGED the color of normal ticked mails in gnus
+
+* [[https://github.com/ryuslash/yoshi-theme/compare/v6.0.0...v6.1.0][6.1.0]] -- 2015-11-20
+  :PROPERTIES:
+  :CUSTOM_ID: release-6.1.0
+  :END:
+** ADDED Some helm faces
+
+   Add the helm faces: =helm-M-x-key=, =helm-buffer-directory=,
+   =helm-buffer-file=, =helm-buffer-not-saved=, =helm-buffer-process=,
+   =helm-buffer-size=, =helm-match=, =helm-selection=, =helm-source-header=,
+   =helm-ff-directory=, =helm-ff-dotted-directory=, =helm-ff-executable=,
+   =helm-ff-file=, =helm-ff-invalid-symlink=, =helm-ff-symlink=.
+
+** ADDED Some circe faces
+
+   Add the circe faces: =circe-highlight-nick-face= and
+   =circe-server-face=.
+
+** ADDED Some lui faces
+
+   Add the lui faces: =lui-button-face=, =lui-time-stamp-face=.
+
+** ADDED CSS faces
+
+   Add the CSS faces: =css-property=, =css-selector= and
+   =css-proprietary-property=.
+
+** ADDED =magit-section-highlight= face
+
+** ADDED =highlight-numbers-number= face
+
+** FIXED Make markdown header faces work without loading Org
+
+   Stop making the =markdown-header-face-*= faces inherit from the
+   equivalent =org-level-*= faces, this kept the markdown faces from
+   working if Org mode wasn't loaded.
+
+* [[https://github.com/ryuslash/yoshi-theme/compare/v5.13.0...v6.0.0][6.0.0]] -- 2015-08-31
+  :PROPERTIES:
+  :CUSTOM_ID: release-6.0.0
+  :END:
+
+** ADDED =js2-function-param= face.
+
+** ADDED =magit-log-head-label-head= face.
+
+** ADDED =magit-log-head-label-default= face.
+
+** ADDED Some hydra faces.
+
+   Add the =hydra-face-amaranth=, =hydra-face-blue=, =hydra-face-pink=,
+   =hydra-face-red= and =hydra-face-teal= faces.
+
+** ADDED Some magit faces.
+
+   Magit came out with a new version and changed (almost) all the face
+   names. The following faces have been added because of this:
+   =magit-bisect-bad=, =magit-bisect-good=, =magit-bisect-skip=,
+   =magit-blame-date=, =magit-blame-hash=, =magit-blame-heading=,
+   =magit-blame-name=, =magit-blame-summary=, =magit-branch-current=,
+   =magit-branch-local=, =magit-branch-remote=, =magit-diff-added=,
+   =magit-diff-added-highlight=, =magit-diff-context=,
+   =magit-diff-context-highlight=, =magit-diff-file-heading=,
+   =magit-diff-removed=, =magit-diff-removed-highlight=, =magit-process-ng=,
+   =magit-process-ok=, =magit-section-heading=.
+
+** ADDED =erc-button= face.
+
+** CHANGED Change faces to stop using certain colors.
+
+** CHANGED Change =gnus-signature= foreground to =fgdim=.
+
+** CHANGED Change =message-header-xheader= foreground to =fgdim= and make it italic.
+
+** CHANGED Change =mode-line= background and box color to =bgblue=.
+
+** CHANGED Change =mode-line-buffer-id= foreground to =fggreen=.
+
+** CHANGED Change =org-agenda-done= foreground to =fgorange=.
+
+** CHANGED Remove =org-block-begin-line= background.
+
+** CHANGED Remove =org-block-end-line= background.
+
+** CHANGED Change =org-headline-done= foreground to =fgdim=.
+
+** CHANGED Remove bold weight from =org-level-1=.
+
+** CHANGED Change =org-level-2= foreground to =fgcyan= and remove bold weight.
+
+** CHANGED Change =org-level-3= foreground to =fgred= and remove bold weight.
+
+** CHANGED Change =org-level-4= foreground to =fgblue= and remove bold weight.
+
+** CHANGED Change =org-level-5= foreground to =fgyellow= and remove bold weight.
+
+** CHANGED Change =org-level-6= foreground to =fgpurple= and remove bold weight.
+
+** CHANGED Change =org-level-7= foreground to =fgturquoise= and remove bold weight.
+
+** CHANGED Change =org-level-8= foreground to =fgorange= and remove bold weight.
+
+** CHANGED Remove =whitespace-tab= foreground and change underline to =bgbright=.
+
+** CHANGED Change the foreground color of =diff-file-header= to bright and add bold weight
+
+** REMOVED Stop using and remove certain colors for simplicity.
+
+   Stop using and remove the following colors: =fgdim-1=, =fgdim-2=,
+   =fgorange-1=, =fggreen-1=, =fggreen-2=, =fggreen-3=, =fggreen-4= and =bgblue-1=
+   colors.
+
+* COMMENT Local variables
+
+# Local Variables:
+# org-html-validation-link: ""
+# End:

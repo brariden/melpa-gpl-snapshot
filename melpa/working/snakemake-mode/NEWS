@@ -1,0 +1,76 @@
+NEWS -- history of user-visible changes             -*- mode: org; -*-
+
+* v0.5.0 (unreleased)
+
+** New features
+
+- New command ~snakemake-graph-this-file~ displays the graph for the
+  first rule of the current file.  Similar functionality is available
+  from ~snakemake-graph~, which supports graphing any target in the
+  file, but you may find the new command useful if your workflow
+  involves frequently using Snakemake's ~--snakefile~ option.
+
+- New function ~snakemake-mode-setup-mmm~ configures MMM mode to
+  highlight string-embedded R code.  (Contributed by Endre Bakken
+  Stovner.)
+
+- ".rules" has been added as a suffix for Snakemake files.
+
+- ~beginning-of-defun~ and ~end-of-defun~ implementations for rule
+  blocks are now defined.
+
+- Rule blocks are now recognized by ~add-log-current-defun~.
+
+* v0.4.0
+
+** New features
+
+- New library snakemake.el provides a popup interface for running
+  Snakemake from Emacs.
+
+- New command ~snakemake-graph~ displays the graph of dependencies for
+  a rule.  (Thanks to Endre Bakken Stovner for the idea and initial
+  implementation.)
+
+- ".snakefile" has been added as a suffix for Snakemake files.
+
+- Anonymous rule blocks are now supported.
+
+- The 'wrapper' keyword is now recognized.
+
+* v0.3.0
+
+** New features
+
+- The keywords 'configfile', 'onsuccess', 'onerror', 'log', and
+  'benchmark', 'script', 'shadow', as well as the 'touch' function,
+  are now recognized.
+
+- Indentation for field values starting on the line below a field key
+  is now supported.  New variable ~snakemake-indent-value-offset~
+  controls the offset for the value and replaces the variable
+  ~snakemake-indent-run-offset~.  If these values are continued on
+  another line, indentation cycling now includes a step that indents
+  according to Python mode.
+
+- ~snakemake-compile-rule~ can now pass the '--touch' flag to
+  snakemake.
+
+- The Imenu index now includes Python mode items in addition to rule
+  blocks.
+
+- Errors in Snakefiles are now highlighted in complilation buffers.
+
+* v0.2.0
+
+** New features
+
+- Both the executable and flags for the Snakemake ~compile-command~ are
+  now customizable.
+
+- New command ~snakemake-compile-rule~ runs Snakemake with the rule at
+  point as the target.
+
+- Subworkflow blocks are now supported.
+
+- The 'ruleorder' keyword is now recognized.

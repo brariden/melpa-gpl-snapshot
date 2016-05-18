@@ -1,0 +1,370 @@
+#+title: Movement and Editing
+* Files
+** Loading and saving
+*** Tramp Setup
+**** TODO magic here to do The Right Thing (tm) for tramp, regardless of what OS is being used to execute it. 
+**** TODO the best mode (scp? ssh? something else?) should be set as the default.
+**** Set tramp up to play nicely with NixOS
+#+name: tramp
+#+begin_src emacs-lisp
+(require 'tramp) 
+(add-to-list 'tramp-remote-path "/var/run/current-system/sw/bin")
+#+end_src
+
+** Backups
+*** Disabling this was such a monumentally stupidly bad idea. 
+	My excuse is that it was a self-inflicted curse for not understanding what I was snarfing and barfing.
+#+begin_src emacs-lisp
+(setq auto-save-default t)
+#+end_src
+
+*** Backup files are annoying, until they save your skin 
+This was snarfed from Magnars [fn:1]
+
+#+begin_src emacs-lisp
+(setq backup-directory-alist
+      `(("." . ,(expand-file-name
+                 (concat user-emacs-directory "backups")))))
+
+(setq tramp-backup-directory-alist backup-directory-alist)
+
+;; Make backups of files, even when they're in version control
+(setq vc-make-backup-files t)
+#+end_src
+
+* Transient mark mode
+
+  For now Transient Mark mode is just turned off.  I don't like
+  transients.
+
+  Seriously though, the reason why I like not having transient mark
+  mode is that I have gotten into the habit of dropping marks and
+  using the mark ring.  I also use the mark for nagivation, and having
+  transient mark mode on messes with my workflow.
+
+  If you are opposite, then let me know (file a bug report:
+  https://github.com/jonnay/emagicians-starter-kit/issues/new) and
+  I'll fix the emagicians kit so that transient mark mode can be
+  easily activated.
+
+#+name: turn-off-transient-mark
+#+begin_src emacs-lisp
+  (transient-mark-mode -1)
+#+end_src
+
+* Multiple Cursors												 :keybinding:
+#+begin_src emacs-lisp
+(emagician-expect-package 'multiple-cursors)
+(global-set-key (kbd "C-S-c e") 'mc/edit-lines)
+
+(global-set-key (kbd "C-S-c n") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-S-c p") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-S-c h") 'mc/mark-all-like-this)
+#+end_src
+
+* Working with Text
+** Filling
+*** Unfill [fn:2]
+#+begin_src emacs-lisp
+(defun unfill-paragraph ()
+  "Unfill a paragraph at or after point."
+  (interactive)
+  (let ((fill-column (point-max)))
+    (fill-paragraph nil)))
+
+(global-set-key (kbd "M-Q") 'unfill-paragraph)
+#+end_src
+** Killing and yanking												   :kill:
+*** System clipboard should be part of the kill ring if at all possible
+#+begin_src emacs-lisp
+(setq save-interprogram-paste-before-kill t)
+#+end_src
+This code is subsumed by teh var above.
+#+begin_src emacs-lisp :tangle no
+(defadvice kill-new (before kill-new-push-xselection-on-kill-ring activate)
+  "Before putting new kill onto the kill-ring, add the clipboard/external selection to the kill ring"
+  (let ((have-paste (and interprogram-paste-function
+                         (funcall interprogram-paste-function))))
+    (when have-paste (push have-paste kill-ring))))
+#+end_src
+*** TODO Swap region with kill ring
+*** TODO Insert-yank-as-rectangle
+*** when yanking, indent according to the mode
+#+begin_src emacs-lisp
+  (defadvice yank (after indent-region activate)
+    "indent the region after a yank if we're in a programming mode."
+    (if (derived-mode-p 'prog-mode)
+        (indent-region (region-beginning) (region-end) nil)))
+#+end_src
+**** TODO make sure there is a way to not indent accoring to the mode
+***** NEXT write the advice to be around, so it can skip on a prefix arg of 0.
+*** kill-buffer-file-name
+
+#+begin_src emacs-lisp
+  (defun kill-buffer-file-name () 
+    "Show current buffer's filename in the echo area and add it to the kill ring." 
+    (interactive) 
+    (let ((buffer-file-name (buffer-file-name))) 
+      (if (null buffer-file-name) 
+          (message "Buffer %s is not associated with a file." (buffer-name)) 
+        (message "%s" (kill-new buffer-file-name)))))
+#+end_src
+*** Basic Kill nicities 
+**** Big kill ring!
+	 Since the ring is searchable by helm, this is not only fine, but desireable!
+#+begin_src emacs-lisp 
+(setq kill-ring-max 120)
+#+end_src
+**** Other 
+#+begin_src emacs-lisp 
+(setq kill-whole-line t)
+(setq kill-read-only-ok t)
+#+end_src
+
+
+** Indenting and tabbing 
+  I am not going to solve this for everyone and try to be all things for all peope.  In fact I will bet money that my style of indentation kinda sucks, and look to the emacs community to help me to stop sucking.
+#+begin_src emacs-lisp
+(set-default 'tab-width 4)
+#+end_src
+
+#+name fix-defaults
+#+begin_src emacs-lisp
+(set-default 'c-basic-offset tab-width)
+(set-default 'cperl-indent-level tab-width)
+(set-default 'nxml-child-indent tab-width)
+#+end_src
+*** Change Behavior of the home key
+   	Home should jump between the level of indendation and the first line 
+
+**** Shamelessly hacked from Drew Adams. 
+#+begin_src emacs-lisp
+(defun emagician-beginning-or-indentation (&optional n)
+  "Bounce cursor to beginning of this line or to its indentation."
+  (interactive "P")
+  (cond ((bolp) 
+         (back-to-indentation))
+        ((save-excursion (skip-chars-backward " \t") (bolp)) ; At indentation.
+         (forward-line 0))
+        (t (back-to-indentation))))
+#+end_src
+**** Do key map 
+#+begin_src emacs-lisp
+(global-set-key [home] 'emagician-beginning-or-indentation)
+(substitute-key-definition 'beginning-of-line 'beginning-or-indentation global-map)
+#+end_src
+
+*** Make sure end key always goes to end of hte line
+#+begin_src emacs-lisp
+(global-set-key [end] 'end-of-line)
+#+end_src
+
+* Delimiters
+** Rainbow Delimiters 
+   - Totally broken
+
+   Not really sure if this should be interface, or more in the movement and editing section.
+
+   It's nice to have a good string for testing:
+   (((((((((((((((((()))))))))))))))))))
+
+   I am not 100% sure I like this colorscheme.  The Angry red unmatched delimiter is nice.
+
+#+begin_src emacs-lisp :tangle no
+  (emagician-expect-package 'rainbow-delimiters)
+  (add-hook 'emacs-startup-hook 'global-rainbow-delimiters-mode)
+  
+  (custom-set-faces
+   '(rainbow-delimiters-depth-1-face ((t :background "grey95")))
+   '(rainbow-delimiters-depth-2-face ((t :background "grey90")))
+   '(rainbow-delimiters-depth-3-face ((t :background "grey85")))
+   '(rainbow-delimiters-depth-4-face ((t :background "grey80")))
+   '(rainbow-delimiters-depth-5-face ((t :background "grey75")))
+   '(rainbow-delimiters-depth-6-face ((t :background "grey70")))
+   '(rainbow-delimiters-depth-7-face ((t :background "grey65")))
+   '(rainbow-delimiters-depth-8-face ((t :background "grey60")))
+   '(rainbow-delimiters-depth-9-face ((t :background "grey55")))
+   '(rainbow-delimiters-unmatched-face ((t :background "firebrick2"))))
+  
+#+end_src
+* Spell checking
+#+begin_src emacs-lisp
+  (emagician-expect-package  'flyspell-lazy)
+  
+  (add-hook 'prog-mode-hook 'flyspell-prog-mode)
+  
+  (require 'flyspell-lazy)
+  (flyspell-lazy-mode 1)
+#+end_src
+
+** TODO add chunk to further enhance aspell timing
+   - [ ] check if aspell is avail
+   - [ ] check if it is in use
+   - [ ] run code 
+#+begin_src emacs-lisp :tangle no
+(add-to-list 'ispell-extra-args "--sug-mode=ultra")
+#+end_src
+
+* Snippets
+
+#+name: snippets 
+#+begin_src emacs-lisp
+  (emagician-expect-package 'yasnippet)
+  
+  (setq yas-snippet-dirs (expand-file-name "assets/snippets" emagician-dir))
+  (setq yas-trigger-key nil)
+  (setq yas-next-field-key "<next>")
+  (setq yas-prev-field-key "<prev>")
+  (require 'yasnippet)
+  
+  (add-hook 'prog-mode-hook 'yas-minor-mode-on)
+  (add-hook 'org-mode-hook 'yas-minor-mode-on)
+
+  ;; I actually don't think this rigamaroll is needed anymore
+  
+  (defun yas/org-very-safe-expand ()
+    (let ((yas/fallback-behavior 'return-nil)) (yas/expand)))
+  
+  (defun yas/org-setup ()
+    ;; yasnippet (using the new org-cycle hooks)
+    (make-variable-buffer-local 'yas/trigger-key)
+    (setq yas/trigger-key [tab])
+    (add-to-list 'org-tab-first-hook 'yas/org-very-safe-expand)
+    (define-key yas/keymap [tab] 'yas/next-field))
+  
+  ;(add-hook 'org-mode-hook #'yas/org-setup)
+  
+  (yas/reload-all)
+  
+#+end_src
+
+* Auto-complete 
+
+#+name: auto-complete
+#+begin_src emacs-lisp
+(emagician-expect-package 'auto-complete)
+#+end_src 
+
+** Standard Auto-complete setup
+
+#+begin_src emacs-lisp 
+(require 'auto-complete-config)
+(ac-config-default)
+(ac-flyspell-workaround)
+
+(global-auto-complete-mode t)
+(setq ac-auto-show-menu t)
+(setq ac-dwim t)
+(setq ac-use-menu-map t)
+(setq ac-quick-help-delay 0.25)
+(setq ac-quick-help-height 20)
+#+end_src
+
+** Dictionaries
+#+begin_src emacs-lisp
+  (emagician/expect-dir "assets/ac-dictionaries")
+  (add-to-list 'ac-dictionary-directories (expand-file-name "assets/ac-dictionaries" emagician-dir))
+  
+#+end_src
+*** TODO make emagicians starter kit generate the dictionaries itself
+
+*** TODO write jQuery dictionary.  
+**** NEXT google up a jquery keyword list
+**** TODO purify myself afterwards by writing one for Ender
+
+** Sources
+
+   *Note:* if you were looking for the AC sources for a particular language or mode, then you will want to look in those specific language/mode emagician files.  
+
+** pcomplete as a source
+
+#+begin_src emacs-lisp
+  (ac-define-source pcomplete
+    '((candidates . pcomplete-completions)))
+#+end_src
+
+*** Default Sources
+
+#+begin_src emacs-lisp
+  (set-default 'ac-sources
+               '(ac-source-yasnippet
+                 ac-source-dictionary
+                 ac-source-words-in-buffer
+                 ac-source-words-in-same-mode-buffers))
+#+end_src
+*** TODO fix ac-source-yasnippet as a default
+
+** Keyboard setup
+
+#+begin_src emacs-lisp
+;;Key triggers
+(define-key ac-completing-map (kbd "C-M-n") 'ac-next)
+(define-key ac-completing-map (kbd "C-M-p") 'ac-previous)
+(define-key ac-completing-map "\t" 'ac-complete)
+(define-key ac-completing-map (kbd "M-RET") 'ac-help)
+(define-key ac-completing-map "\r" 'nil)
+#+end_src
+
+* Undo
+** Undo locations
+*** TODO install goto-last-change or goto-change 
+
+** Undo tree
+
+(find-lisp-object-file-name 'undo-tree-mode (symbol-function 'undo-tree-mode)) 
+
+#+begin_src emacs-lisp
+    (emagician-expect-package 'undo-tree)
+    (setq undo-tree-enable-undo-in-region t
+          undo-tree-visualizer-diff t
+          undo-tree-visualizer-timestamps t)
+    
+    (require 'undo-tree)
+    
+    (global-undo-tree-mode)
+    
+#+end_src
+* Movement
+** Ace Jump
+#+begin_src emacs-lisp
+  (emagician-expect-package 'ace-jump-mode)
+  (require 'ace-jump-mode)
+  (define-key global-map (kbd "C-c C-SPC") 'ace-jump-mode)
+  (setq erc-track-enable-keybindings nil)
+  (add-hook 'org-mode-hook #'(lambda () (define-key org-mode-map (kbd "C-c C-SPC") 'ace-jump-mode)))
+#+end_src
+
+*** TODO fix problem with emagician/define-mode-key
+
+#+begin-src emacs-lisp :tangle no
+(emagician/define-mode-key 'org-mode (kbd "C-c C-SPC") 'ace-jump-mode)
+
+(macroexpand '(emagician/define-mode-key 'org-mode "C-c C-SPC" 'ace-jump-mode))
+#+end_src
+** Saveplace
+   Saveplace allows emacs to remember where you were in a file.  It is very handy and transparent.
+#+begin_src emacs-lisp
+(require 'saveplace)
+(setq-default save-place t)
+#+end_src
+* Extra modes
+** Markdown
+#+begin_src emacs-lisp
+(emagician-expect-package 'markdown-mode)
+
+(add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
+#+end_src
+** Yaml
+#+begin_src emacs-lisp
+  (emagician-expect-package 'yaml-mode)
+#+end_src
+* Footnotes
+
+[fn:1]  http://whattheemacsd.com/init.el-02.html
+
+[fn:2] From didi on #emacs
+
+
+
+
+

@@ -1,2 +1,0 @@
-
-(sunshine . [(20151013 814) ((cl-lib (0 5))) "Provide weather and forecast information." single ((:keywords "tools" "weather") (:url . "https://github.com/aaronbieber/sunshine.el"))])

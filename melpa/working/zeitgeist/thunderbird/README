@@ -1,0 +1,10 @@
+Links
+=====
+
+Useful resources:
+	https://developer.mozilla.org/en/js-ctypes/Using_js-ctypes
+	
+TODO
+====
+	* add events for attachments
+	* add events for calendar if thunderbird has lightning intalled

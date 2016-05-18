@@ -1,2 +1,0 @@
-
-(markdown-mode . [(20160121 728) ((cl-lib (0 5))) "Emacs Major mode for Markdown-formatted text files" single ((:keywords "markdown" "github flavored markdown" "itex") (:url . "http://jblevins.org/projects/markdown-mode/"))])

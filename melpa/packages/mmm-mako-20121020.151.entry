@@ -1,2 +1,0 @@
-
-(mmm-mako . [(20121020 151) ((mmm-mode (0 4 8))) "MMM submode class for Mako Templates" single ((:url . "https://bitbucket.org/pjenvey/mmm-mako"))])

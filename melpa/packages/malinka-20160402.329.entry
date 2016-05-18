@@ -1,0 +1,2 @@
+
+(malinka . [(20160402 329) ((s (1 9 0)) (dash (2 4 0)) (f (0 11 0)) (cl-lib (0 3)) (rtags (0 0)) (projectile (0 11 0))) "A C/C++ project configuration package for Emacs" single ((:keywords "c" "c++" "project-management") (:url . "https://github.com/LefterisJP/malinka"))])

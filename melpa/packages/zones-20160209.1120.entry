@@ -1,0 +1,2 @@
+
+(zones . [(20160209 1120) nil "Zones of text - like multiple regions" single ((:keywords "narrow" "restriction" "widen" "region" "zone") (:url . "http://www.emacswiki.org/zones.el"))])

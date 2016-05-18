@@ -4,8 +4,8 @@
 
 ;; Author: Junpeng Qiu <qjpchmail@gmail.com>
 ;; Package-Requires: ((emacs "24"))
-;; Keywords: extensions
 ;; Package-Version: 20151116.1349
+;; Keywords: extensions
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by

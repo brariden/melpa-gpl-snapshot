@@ -1,0 +1,2 @@
+
+(emamux . [(20160516 439) ((emacs (24)) (cl-lib (0 5))) "Interact with tmux" single ((:url . "https://github.com/syohex/emacs-emamux"))])

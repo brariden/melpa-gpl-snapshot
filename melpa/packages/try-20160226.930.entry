@@ -1,0 +1,2 @@
+
+(try . [(20160226 930) ((emacs (24))) "Try out Emacs packages." single ((:keywords "packages") (:url . "http://github.com/larstvei/try"))])

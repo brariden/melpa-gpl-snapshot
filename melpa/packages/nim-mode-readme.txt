@@ -3,6 +3,5 @@ adapted to Nim
 
 Todo:
 
--- Make things non-case-sensitive and ignore underscores
 -- Treat parameter lists separately
 -- Treat pragmas inside "{." and ".}" separately

@@ -1,2 +1,0 @@
-
-(org2blog . [(20151208 1028) ((org (8 1)) (xml-rpc (1 6 8)) (metaweblog (0 1))) "Blog from Org mode to wordpress" tar nil])

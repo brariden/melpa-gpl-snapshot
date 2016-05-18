@@ -1,2 +1,0 @@
-
-(save-sexp . [(20150731 1046) nil "save variables in files using setter forms like `setq'" tar ((:keywords "convenience") (:url . "https://github.com/tarsius/save-sexp"))])

@@ -1,2 +1,0 @@
-
-(js-comint . [(20151126 2038) ((nvm (0 2 0))) "Run a JavaScript interpreter in an inferior process window." single ((:keywords "javascript" "node" "inferior-mode" "convenience") (:url . "https://github.com/redguardtoo/js-comint"))])

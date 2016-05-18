@@ -1,0 +1,2 @@
+
+(fic-mode . [(20160209 1211) nil "Show FIXME/TODO/BUG(...) in special face only in comments and strings" single ((:url . "https://github.com/lewang/fic-mode"))])

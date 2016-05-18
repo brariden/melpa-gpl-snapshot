@@ -1,0 +1,2 @@
+
+(darcula-theme . [(20160305 421) nil "Inspired by IntelliJ's Darcula theme" single ((:keywords "faces") (:url . "https://github.com/fommil/darcula-theme-emacs"))])

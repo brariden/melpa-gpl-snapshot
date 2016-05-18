@@ -1,2 +1,0 @@
-
-(osx-dictionary . [(20151108 2352) ((cl-lib (0 5))) "Interface for OSX Dictionary.app" tar ((:keywords "mac" "dictionary") (:url . "https://github.com/xuchunyang/osx-dictionary.el"))])

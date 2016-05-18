@@ -1,2 +1,0 @@
-
-(helm-gitignore . [(20150517 2256) ((gitignore-mode (1 1 0)) (helm (1 7 0)) (request (0 1 0)) (cl-lib (0 5))) "Generate .gitignore files with gitignore.io." single ((:keywords "helm" "gitignore" "gitignore.io") (:url . "https://github.com/jupl/helm-gitignore"))])

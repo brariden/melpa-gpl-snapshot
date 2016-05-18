@@ -1,0 +1,20 @@
+language: emacs-lisp
+dist: trusty
+env:
+  - EMACS_VERSION=24.5
+  # - EMACS_VERSION=snapshot
+before_install:
+  # Use packaged emacs
+  - sudo apt-get -qq update
+  - sudo apt-get -qq install emacs24-nox
+  # Install cask
+  - mkdir -p $HOME/bin
+  - export PATH="$HOME/bin:$PATH"
+  - wget 'https://raw.githubusercontent.com/flycheck/emacs-travis/master/emacs-travis.mk'
+  - make -f emacs-travis.mk install_cask
+install:
+  # Install our packages
+  - cask install
+script:
+  # Run unit tests.
+  - cask exec ert-runner

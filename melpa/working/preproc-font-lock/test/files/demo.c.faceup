@@ -1,0 +1,21 @@
+«m:/*»«x:
+ * Demonstration of the Emacs package Preproc Font Lock.
+ »«m:*/»
+
+«m:/* »«x:Include directive »«m:*/»
+«:preproc-font-lock-preprocessor-background:«p:#include» «s:<stdio.h>»»
+
+«m:/* »«x:Normal macro »«m:*/»
+«:preproc-font-lock-preprocessor-background:«p:#define» «v:HORSE» 1»
+
+«m:/* »«x:Multiline macro »«m:*/»
+«:preproc-font-lock-preprocessor-background:«p:#define» «f:MAX»(«v:x», «v:y»)                              \»
+«:preproc-font-lock-preprocessor-background:  (  (x) > (y)                                 \»
+«:preproc-font-lock-preprocessor-background:   ? (x)                                       \»
+«:preproc-font-lock-preprocessor-background:   : (y))»
+
+«m:/* »«x:Broken multiline macro (end-of-line backslash missing) »«m:*/»
+«:preproc-font-lock-preprocessor-background:«p:#define» «f:MIN»(«v:x», «v:y»)                              \»
+«:preproc-font-lock-preprocessor-background:  (  (x) < (y)»
+   ? (x)                                       \
+   : (y))

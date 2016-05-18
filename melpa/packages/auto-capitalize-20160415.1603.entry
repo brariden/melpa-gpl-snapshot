@@ -1,0 +1,2 @@
+
+(auto-capitalize . [(20160415 1603) nil "Automatically capitalize (or upcase) words" single ((:keywords "text" "wp" "convenience"))])

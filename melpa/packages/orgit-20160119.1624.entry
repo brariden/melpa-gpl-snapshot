@@ -1,2 +1,0 @@
-
-(orgit . [(20160119 1624) ((emacs (24 4)) (dash (2 12 1)) (magit (2 4 1)) (org (8 3 3))) "support for Org links to Magit buffers" single ((:url . "https://github.com/magit/orgit"))])

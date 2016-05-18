@@ -1,0 +1,36 @@
+# -*- mode:org; mode:auto-fill; fill-column:80; coding:utf-8; -*-
+* 0.3 (In Progress)
+** New Modules
+*** Commands: =weechat-cmd=
+    Implement IRC commands (/command) in elisp
+** New Features
+*** Nick prefix support  =weechat-complete-nick-prefix-alist=
+*** Read Marker: =weechat-read-marker=
+*** Ivy Completion Support
+* 0.2
+** Incompatible Changes
+*** Notification moved to modules
+    Notification support is now handled by modules.  For =notifications.el=-based
+    notifications load the =weechat-notifications= module and for Sauron based
+    notifications the =weechat-sauron= module.
+** New Features
+*** SSL Support
+*** Color-Handling
+*** Timestamps and Highlighted Messages
+*** Input-History
+*** Auto-Reconnect
+*** Various other improvements!
+    Check =M-x customize-group RET weechat RET= or experience it yourself!
+** New Modules
+*** Corrector: =weechat-corrector=
+    Correct previous messages with s/foo/bar/ regular expressions.
+*** Image Previews: =weechat-image=
+    Preview image links in the chat buffer.
+*** LaTeX Previews: =weechat-latex=
+    Renders LaTeX snippets in the chat buffer.
+*** Mode-line Activity Indicator: =weechat-tracking=
+*** Speedbar support: =weechat-speedbar=
+    Use Emacs' =M-x speedbar= to switch between weechat buffers.
+*** Spell Checking: =weechat-spelling=
+* 0.1 <2013-02-26 Tue>
+  Initial release

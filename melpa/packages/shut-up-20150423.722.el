@@ -6,8 +6,8 @@
 ;; Author: Johan Andersson <johan.rejeep@gmail.com>
 ;; Maintainer: Johan Andersson <johan.rejeep@gmail.com>
 ;; Package-Requires: ((cl-lib "0.3") (emacs "24"))
-;; Version: 0.3.2
 ;; Package-Version: 20150423.722
+;; Version: 0.3.2
 ;; URL: http://github.com/rejeep/shut-up.el
 
 ;; This file is NOT part of GNU Emacs.

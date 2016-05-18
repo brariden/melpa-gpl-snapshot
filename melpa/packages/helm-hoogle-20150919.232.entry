@@ -1,0 +1,2 @@
+
+(helm-hoogle . [(20150919 232) ((helm (1 6 2)) (emacs (24 4))) "Use helm to navigate query results from Hoogle" single ((:keywords "haskell" "programming" "hoogle") (:url . "https://github.com/jwiegley/haskell-config"))])

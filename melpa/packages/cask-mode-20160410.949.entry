@@ -1,0 +1,2 @@
+
+(cask-mode . [(20160410 949) ((emacs (24 3))) "major mode for editing Cask files" single nil])

@@ -1,0 +1,9 @@
+* helm-safari
+[[http://melpa.org/#/helm-safari][file:http://melpa.org/packages/helm-safari-badge.svg]]
+
+Helm integration for Safari Bookmarks and History.
+
+** Usage
+
+- M-x helm-safari-bookmarks
+- M-x helm-safari-history

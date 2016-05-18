@@ -1,0 +1,2 @@
+
+(wsd-mode . [(20160511 51) nil "Emacs major-mode for www.websequencediagrams.com" tar ((:keywords "wsd" "diagrams" "design" "process" "modelling" "uml") (:url . "https://github.com/josteink/wsd-mode"))])

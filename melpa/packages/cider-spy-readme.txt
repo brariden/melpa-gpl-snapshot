@@ -38,10 +38,6 @@ access, such as <kbd>C-c C-s</kbd>.
 If you want the developer interactivity behavours then you need a run a `CIDER-SPY-HUB`.
 See the documentation for how to set one up.
 
-Give yourself an alias on the hub:
-
-    (setq cider-spy-hub-alias "my-alias")
-
 
 # Keyboard Shortcuts
 
@@ -53,6 +49,7 @@ These shortcuts are available on the `CIDER-SPY` summary buffer:
  - `p` : Goto to previous section
  - `a` : Set `CIDER-SPY-HUB` alias
  - `s` : Send message to another dev (when cursor is on a dev)
+ - `w` : Watch another devs REPL session (when cursor is on a dev)
  - `d` : Disconnect from the `CIDER-SPY-HUB`
  - `RETURN` : Visit section
  - `TAB` : Toggle section visibility

@@ -1,2 +1,0 @@
-
-(imenus . [(20150107 1139) ((cl-lib (0 5))) "Imenu for multiple buffers" single ((:keywords "tools" "convenience") (:url . "https://gitorious.org/alezost-emacs/imenus"))])

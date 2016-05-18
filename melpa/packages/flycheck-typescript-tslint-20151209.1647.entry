@@ -1,2 +1,0 @@
-
-(flycheck-typescript-tslint . [(20151209 1647) ((flycheck (0 22)) (emacs (24))) "Typescript tslint error checker" single ((:keywords "flycheck" "typescript" "tslint") (:url . "https://github.com/Simplify/flycheck-typescript-tslint/"))])

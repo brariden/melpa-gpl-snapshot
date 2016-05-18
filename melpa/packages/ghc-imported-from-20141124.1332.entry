@@ -1,2 +1,0 @@
-
-(ghc-imported-from . [(20141124 1332) ((emacs (24 1))) "Haskell documentation lookup with ghc-imported-from" single ((:keywords "languages"))])

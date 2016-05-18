@@ -1,2 +1,0 @@
-
-(company-qml . [(20151027 1035) ((qml-mode (0 1)) (company (0 8 12))) "Company backend for QML files" tar ((:keywords "extensions"))])

@@ -10,4 +10,9 @@ should accept another key afterwards. For example, if `vertigo-cut-off' is
 set to its default value of 3, pressing "da" would jump 31 lines, pressing
 "d;" would jump 30 lines, and pressing "f" would jump 4 lines.
 
+A good alternative to this package is to use avy's `avy-goto-line'.
+
+Additionally, vertigo provides commands to set the digit argument using the
+same style of keypresses.
+
 For more information see the README in the github repo.

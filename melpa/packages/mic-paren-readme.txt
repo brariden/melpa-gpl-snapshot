@@ -137,6 +137,11 @@ IMPORTANT NOTES (important for people who have customized mic-paren
 
 ----------------------------------------------------------------------
 Versions:
+v3.13   + Fix bug introduced in v3.12: Use ‘cl-flet*’.
+
+v3.12   + Avoid naked ‘flet’; use ‘cl-flet’ instead.
+          Thanks to Le Wang.
+
 v3.11   + Added support for recognizing SML-style comments as a sexp.
           Thanks to Leo Liu, Stefan Monnier.
 

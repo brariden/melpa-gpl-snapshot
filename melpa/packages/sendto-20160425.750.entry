@@ -1,0 +1,2 @@
+
+(sendto . [(20160425 750) ((emacs (24 4))) "send the region content to a function" single ((:keywords "convenience" "region") (:url . "https://github.com/lujun9972/sendto.el"))])

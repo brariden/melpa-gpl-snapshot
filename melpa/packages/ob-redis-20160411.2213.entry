@@ -1,0 +1,2 @@
+
+(ob-redis . [(20160411 2213) ((org (8))) "Execute Redis queries within org-mode blocks." single ((:keywords "org" "babel" "redis") (:url . "https://github.com/stardiviner/ob-redis"))])

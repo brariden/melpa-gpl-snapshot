@@ -1,0 +1,21 @@
+<Addin id="ZeitgeistDataprovider"
+	namespace="Tomboy"
+	name="Zeitgeist Dataprovider Add-in"
+	author="Manish Sinha"
+	description="Pushes Tomboy events like open/close/delete notes into Zeitgeist"
+	category="Logging"
+	defaultEnabled="false"
+	version="0.1">
+
+	<Runtime>
+		<Import assembly="ZeitgeistDataprovider.dll" />
+	</Runtime>
+
+	<Dependencies>
+		<Addin id="Tomboy" version="0.10" />
+	</Dependencies>
+
+	<Extension path="/Tomboy/ApplicationAddins">
+		<ApplicationAddin type="Tomboy.Zeitgeist.ZeitgeistAddin" />
+	</Extension>
+</Addin>

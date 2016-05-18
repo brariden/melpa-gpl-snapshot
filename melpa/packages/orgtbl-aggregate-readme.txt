@@ -11,15 +11,15 @@ Starting from a source table of activities and quantities
 |-----------+-------+-------+----------|
 | Monday    | Red   |    30 |       11 |
 | Monday    | Blue  |    25 |        3 |
-| Thuesday  | Red   |    51 |       12 |
-| Thuesday  | Red   |    45 |       15 |
-| Thuesday  | Blue  |    33 |       18 |
+| Tuesday   | Red   |    51 |       12 |
+| Tuesday   | Red   |    45 |       15 |
+| Tuesday   | Blue  |    33 |       18 |
 | Wednesday | Red   |    27 |       23 |
 | Wednesday | Blue  |    12 |       16 |
 | Wednesday | Blue  |    15 |       15 |
-| Turdsday  | Red   |    39 |       24 |
-| Turdsday  | Red   |    41 |       29 |
-| Turdsday  | Red   |    49 |       30 |
+| Thursday  | Red   |    39 |       24 |
+| Thursday  | Red   |    41 |       29 |
+| Thursday  | Red   |    49 |       30 |
 | Friday    | Blue  |     7 |        5 |
 | Friday    | Blue  |     6 |        8 |
 | Friday    | Blue  |    11 |        9 |
@@ -31,9 +31,9 @@ exist for each day), typing C-c C-c
 | Day       | mean(Level) | sum(Quantity) |
 |-----------+-------------+---------------|
 | Monday    |        27.5 |            14 |
-| Thuesday  |          43 |            45 |
+| Tuesday   |          43 |            45 |
 | Wednesday |          18 |            54 |
-| Turdsday  |          43 |            83 |
+| Thursday  |          43 |            83 |
 | Friday    |           8 |            22 |
 #+END
 

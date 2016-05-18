@@ -98,7 +98,7 @@ until all your Lisp code is turned into Python :).
 
 Some Clojure support depends on `cider'.
 Some Scheme support depends on `geiser'.
-Some Common Lisp support depends on `slime'.
+Some Common Lisp support depends on `slime' or `sly'.
 You can get them from MELPA.
 
 See http://abo-abo.github.io/lispy/ for a detailed documentation.

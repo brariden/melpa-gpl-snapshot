@@ -1,0 +1,71 @@
+* Helm Spotify
+
+A simple Emacs interface for Spotify that makes good use of helm.
+
+[[helm-spotify.png]]
+
+* Video
+
+See how [[http://www.youtube.com/watch?v=XjKtkEMUYGc&feature=youtu.be][the first version was coded in 16 minutes]].
+
+** Installation
+
+If you're hooked up to [[http://melpa.milkbox.net/][MELPA]]:
+
+#+BEGIN_EXAMPLE
+M-x package-refresh-contents
+M-x package-install RET helm-spotify
+#+END_EXAMPLE
+
+Alternatively just grab the single =helm-spotify.el= file and
+install that in your preferred way.
+
+* Usage
+
+=M-x helm-spotify= and type a search string.
+
+(The search begins after you've typed at least 2 characters. You can
+use space-separated terms for psuedo-fuzzy matching.)
+
+*** Keys
+
+| =C-n=   | Next item.                       |
+| =C-p=   | Previous item.                   |
+| =RET=   | Play this track.                 |
+| =C-z=   | Play this album.                 |
+| =TAB=   | More options.                    |
+| =C-h m= | Full list of keyboard shortcuts. |
+
+* Status
+
+Ready to use.
+
+Currently OSX & Linux only. Windows support is available, but
+partial. Please contribute the code for your platform, if you can!
+
+* Supporting Other Platforms
+
+Find out what emacs says your =system-type= is. (=C-h v system-type=).
+Let's say it shows the symbol =ms-dos=. Then you need to write this function:
+
+#+BEGIN_SRC emacs-lisp
+  (defmulti-method spotify-play-href 'ms-dos
+    (href)
+    ...
+    ... href is a string that's something like "spotify:track:5Yt80fWRB8JG73XlPjrrKP"
+    ...
+    ... here, you write any code that will cause Spotify to play that href.
+    ...
+    )
+#+END_SRC
+
+Then submit a pull request!
+
+** Credits
+
+Thanks to [[https://github.com/aes][Anders Eurenius]] for supplying the Linux portion of the code.
+Thanks to [[https://github.com/Kungsgeten][Kungsgeten]] for supplying the Windows portion of the code.
+
+I tip my hat to the team behind [[https://github.com/emacs-helm/helm][Helm]], to [[https://github.com/purcell][Steve Purcell]] (for [[https://github.com/milkypostman/melpa][Melpa]]),
+and to [[https://github.com/kurisuwhyte][Christina Whyte]] (for [[https://github.com/kurisuwhyte/emacs-multi][Emacs Multimethods]]).
+

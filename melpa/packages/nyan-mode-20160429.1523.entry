@@ -1,0 +1,2 @@
+
+(nyan-mode . [(20160429 1523) nil "Nyan Cat shows position in current buffer in mode-line." tar ((:keywords "nyan" "cat" "lulz" "scrolling" "pop tart cat" "build something amazing") (:url . "https://github.com/TeMPOraL/nyan-mode/"))])

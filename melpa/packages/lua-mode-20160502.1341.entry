@@ -1,0 +1,2 @@
+
+(lua-mode . [(20160502 1341) nil "a major-mode for editing Lua scripts" tar ((:keywords "languages" "processes" "tools") (:url . "http://immerrr.github.com/lua-mode"))])

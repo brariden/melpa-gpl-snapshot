@@ -1,0 +1,2 @@
+
+(latex-extra . [(20160328 1921) ((auctex (11 86 1)) (cl-lib (0 5))) "Adds several useful functionalities to LaTeX-mode." single ((:keywords "tex") (:url . "http://github.com/Malabarba/latex-extra"))])

@@ -1,0 +1,27 @@
+Running tests ...
+[1A[KRunning 17 tests in 1 runtime ...
+[1A[K[1m[31mFailure: [0mANSI table draws multi-line cells
+  [1m[31m[refute.equals] """Something In this
+          cell
+Other     There is
+           stuff
+" expected not to be equal to "Something In this
+          cell
+Other     There is
+           stuff
+"[0m
+      at Object.buster.testCase.draws multi-line cells (./features/stubs/ansi-table-test.js:3:5)
+[1m[31mRunning 17 tests in 1 runtime ... 6% done[0m
+[1A[K[1m[31mRunning 17 tests in 1 runtime ... 12% done[0m
+[1A[K[1m[31mRunning 17 tests in 1 runtime ... 12% done[0m
+[1A[K[1m[31mRunning 17 tests in 1 runtime ... 35% done[0m
+[1A[K[1m[31mRunning 17 tests in 1 runtime ... 35% done[0m
+[1A[K[1m[31mRunning 17 tests in 1 runtime ... 47% done[0m
+[1A[K[1m[31mRunning 17 tests in 1 runtime ... 47% done[0m
+[1A[K[1m[31mRunning 17 tests in 1 runtime ... 53% done[0m
+[1A[K[1m[31mRunning 17 tests in 1 runtime ... 53% done[0m
+[1A[K[1m[31mRunning 17 tests in 1 runtime ... 59% done[0m
+[1A[K[1m[31mRunning 17 tests in 1 runtime ... 59% done[0m
+[1A[K[1m[31mRunning 17 tests in 1 runtime ... 88% done[0m
+[1A[K[1m[31mRunning 17 tests in 1 runtime ... 88% done[0m
+[1A[K[1m[31m17 tests, 18 assertions, 1 runtime ... 1 failure[0m

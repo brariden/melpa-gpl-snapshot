@@ -1,2 +1,0 @@
-
-(cpputils-cmake . [(20151030 603) nil "Easy real time C++ syntax check and intellisense if you use CMake" tar nil])

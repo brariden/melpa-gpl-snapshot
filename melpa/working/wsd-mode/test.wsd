@@ -1,0 +1,51 @@
+
+title How the internet works
+
+participant User as u
+participant Browser as b
+participant Server as s
+
+u->+b: Gimme web!
+b->+s: Gimme codez
+
+# is a comment. actually supported by WSD
+# the "opt" keyword is like alt, except there's only one.
+
+opt Authentication
+
+    s-->-b: Gimme token!
+    b-->-u: Gimme password!
+
+    alt Has password
+
+        u->*b: Password
+        b->s: Hash
+        deactivate b
+
+    else No password
+
+        u->+b: Zeh cancel
+        
+        state over b
+            This is seriously not cool.
+        end state
+        
+        b->+s: Zeh lulz
+
+        
+    end
+
+end
+
+s-->-b: HTMLz
+b-->-u: Webz
+
+# the following statements are only meant to
+# interactively test fontification
+
+destroy destroy
+activate activate
+deactivate deactivate
+
+note over non-fontified actor
+end note

@@ -1,0 +1,2 @@
+
+(epresent . [(20160410 2101) ((org (8)) (cl-lib (0 5))) "Simple presentation mode for Emacs Org-mode" single ((:keywords "gui") (:url . "https://github.com/dakrone/epresent"))])

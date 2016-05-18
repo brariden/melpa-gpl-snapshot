@@ -1,0 +1,2 @@
+
+(sudo-edit . [(20160304 26) nil "Utilities for opening files with sudo" single nil])

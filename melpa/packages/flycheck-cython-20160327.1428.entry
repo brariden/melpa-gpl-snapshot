@@ -1,0 +1,2 @@
+
+(flycheck-cython . [(20160327 1428) ((flycheck (0 25))) "Support Cython in flycheck" single nil])

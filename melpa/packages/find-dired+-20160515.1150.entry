@@ -1,0 +1,2 @@
+
+(find-dired+ . [(20160515 1150) nil "Extensions to `find-dired.el'." single ((:keywords "internal" "unix" "tools" "matching" "local") (:url . "http://www.emacswiki.org/find-dired+.el"))])

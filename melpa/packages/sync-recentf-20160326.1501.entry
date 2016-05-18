@@ -1,0 +1,2 @@
+
+(sync-recentf . [(20160326 1501) nil "Synchronize the recent files list between Emacs instances" single ((:keywords "recentf") (:url . "https://github.com/ffevotte/sync-recentf"))])

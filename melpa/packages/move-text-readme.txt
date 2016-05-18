@@ -18,4 +18,4 @@ And the following to your ~/.emacs startup file.
 
 Acknowledgements:
 
- Feature extracted from basid-edit-toolkit.el - by Andy Stewart. (LazyCat)
+ Feature extracted from basic-edit-toolkit.el - by Andy Stewart (LazyCat)

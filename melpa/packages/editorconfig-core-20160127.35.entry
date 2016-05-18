@@ -1,2 +1,0 @@
-
-(editorconfig-core . [(20160127 35) ((editorconfig-fnmatch (0 6 2)) (cl-lib (0 5))) "EditorConfig Core library in Emacs Lisp" tar ((:url . "https://github.com/editorconfig/editorconfig-emacs#readme"))])

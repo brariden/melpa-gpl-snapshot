@@ -1,0 +1,70 @@
+;;;;;
+;;;;;
+;;;;; Base
+;;;;;
+;;;;;
+
+(define $eq
+  (matcher-dfs
+    {[,$val []
+      {[$tgt (if (eq? val tgt)
+                 {[]}
+                 {})]}]
+     [$ [something]
+      {[$tgt {tgt}]}]
+     }))
+  
+(define $bool eq)
+(define $char eq)
+(define $integer eq)
+(define $float eq)
+
+;;
+;; Utility
+;;
+(define $id 1#%1)
+
+(define $fst 2#%1)
+
+(define $snd 2#%2)
+
+(define $compose
+  (lambda [$f $g]
+    (lambda $x
+      (apply g (apply f x)))))
+
+(define $compose3
+  (lambda [$f $g $h]
+    (lambda $x
+      (apply h (apply g (apply f x))))))
+
+(define $ref
+  (lambda [$xa $i]
+    (array-ref xa i)))
+
+(define $eq?/m
+  (lambda [$a $x $y]
+    (match x a
+      {[,y #t]
+       [_ #f]})))
+
+;;
+;; Boolean
+;;
+(define $and
+  (lambda [$b1 $b2]
+    (if b1
+        b2
+        #f)))
+
+(define $or
+  (lambda [$b1 $b2]
+    (if b1
+        #t
+        b2)))
+
+(define $not
+  (lambda [$b]
+    (match b bool
+      {[,#t #f]
+       [,#f #t]})))

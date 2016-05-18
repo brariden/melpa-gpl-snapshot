@@ -1,2 +1,0 @@
-
-(nameless . [(20151014 639) ((emacs (24 4))) "Hide package namespace in your emacs-lisp code" single ((:keywords "convenience" "lisp") (:url . "https://github.com/Malabarba/nameless"))])

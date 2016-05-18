@@ -1,0 +1,43 @@
+Links
+=====
+
+Code is based on:
+	http://www.ibm.com/developerworks/opensource/library/os-xpcomfirefox/index.html
+
+Other useful ressources:
+	https://developer.mozilla.org/en/XPCOM_Glue
+	http://www.iosart.com/firefox/xpcom/
+	http://www.ibm.com/developerworks/webservices/library/co-xpcom5.html (with link to the complete series)
+	http://blog.lazytech.info/2007/05/26/xpcom-javascript-function-call/ (about implementing JS callbacks)
+
+
+Unknown symbols in ubuntu lucid
+===============================
+
+On ubuntu lucid `ldd -r *.so` shows libxpcom as unknown symbol, to fix this create 
+
+	/etc/ld.so.conf.d/libxpcom.conf
+
+with this content: 
+
+	# for xpcom
+	/usr/lib/xulrunner-1.9.2.3
+
+
+And rebuild the cache
+	$ sudo ldconfig
+
+You have to do the same for libzeitgeist!
+
+
+Component UUID
+==============
+
+the uuid for the component is
+	d879c08c-517d-44f0-83e1-3ef75a527ddf
+
+
+TODO
+====
+	* add JS callback to .insert() so user can be notified of issues while inserting event
+	* add events for downloads, see https://developer.mozilla.org/en/nsIDownloadProgressListener

@@ -4,8 +4,8 @@
 ;;
 ;; Author: Ric Lister
 ;; Package-Requires: ((org "7"))
-;; URL: https://github.com/rlister/org-present
 ;; Package-Version: 20141109.1956
+;; URL: https://github.com/rlister/org-present
 ;;
 ;; This file is not part of GNU Emacs.
 ;;

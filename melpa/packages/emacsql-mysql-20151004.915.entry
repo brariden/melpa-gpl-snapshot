@@ -1,0 +1,2 @@
+
+(emacsql-mysql . [(20151004 915) ((emacs (24 3)) (cl-lib (0 3)) (emacsql (2 0 0))) "EmacSQL back-end for MySQL" single ((:url . "https://github.com/skeeto/emacsql"))])

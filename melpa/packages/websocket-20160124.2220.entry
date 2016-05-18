@@ -1,2 +1,0 @@
-
-(websocket . [(20160124 2220) nil "Emacs WebSocket client and server" single ((:keywords "communication" "websocket" "server"))])

@@ -18,7 +18,8 @@ See also «Example configuration».
 forecast.el is available on Melpa with the package name `forecast'.
 
 Otherwise, put  the forecast.el file  somewhere in your  path, then
-`require' it.  Then set these variables in your configuration:
+`require'   it.   Then   set   these  variables   either  in   your
+configuration, or via the customisation group `forecast':
 
 `forecast-latitude'  Latitude of your location,       float
 `forecast-longitude' Longitude of your configuration  float
@@ -29,11 +30,14 @@ Otherwise, put  the forecast.el file  somewhere in your  path, then
 `forecast-units'     Unit standard to use             symbol
 
 Only the first  five variables are mandatory.  The  first four have
-non-sane  defaults, and  if `forecast-api-key'  is absent,  program
+*non-sane* defaults,  and if `forecast-api-key' is  absent, program
 will not run.
 
+Use  [ M-x  customize-group  RET forecast  ] in  order  to see  all
+possible customisations.
+
 The variables  `forecast-city' and `forecast-country' are  used for
-display  purposes only.  At  the moment  forecast.el cannot  deduce
+display  purposes only.   At the  moment forecast.el  cannot deduce
 these names  from the latitude  and longitude values, but  maybe in
 future it will be able to.
 
@@ -46,7 +50,8 @@ developer website:
 https://developer.forecast.io/
 
 For the rest of variables, see their docstrings (C-h v RET var-name
-RET).
+RET) and the  customize buffer for forecast,  via the customisation
+group `forecast'.
 
 See also  the docstring  for the face  `forecast-moon-phase', which
 governs the face for the moon phase visualisation.  Most fonts will

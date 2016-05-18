@@ -1,0 +1,2 @@
+
+(company-ghci . [(20160310 2000) ((company (0 8 11)) (haskell-mode (13))) "company backend which uses the current ghci process." single nil])

@@ -1,0 +1,2 @@
+
+(emacsql-sqlite . [(20160311 1438) ((emacs (24 3)) (cl-lib (0 3)) (emacsql (2 0 0))) "EmacSQL back-end for SQLite" tar ((:url . "https://github.com/skeeto/emacsql"))])

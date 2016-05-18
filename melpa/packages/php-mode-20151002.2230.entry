@@ -1,2 +1,0 @@
-
-(php-mode . [(20151002 2230) nil "Major mode for editing PHP code" tar ((:url . "https://github.com/ejmr/php-mode"))])

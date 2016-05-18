@@ -1,0 +1,2 @@
+
+(sly-repl-ansi-color . [(20160214 218) ((sly (0)) (cl-lib (0 5))) "Add ANSI colors support to the sly mrepl." single ((:keywords "sly") (:url . "https://github.com/PuercoPop/sly-repl-ansi-color"))])

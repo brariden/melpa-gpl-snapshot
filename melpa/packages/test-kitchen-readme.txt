@@ -16,7 +16,8 @@ You'll probably want to define some key bindings to run these.
   (global-set-key (kbd "C-c C-d") 'test-kitchen-destroy)
   (global-set-key (kbd "C-c C-t") 'test-kitchen-test)
   (global-set-key (kbd "C-c l") 'test-kitchen-list)
-  (global-set-key (kbd "C-c C-v") 'test-kitchen-verify)
+  (global-set-key (kbd "C-c C-kv") 'test-kitchen-verify)
+  (global-set-key (kbd "C-c C-kc") 'test-kitchen-converge)
 
 TODO:
 

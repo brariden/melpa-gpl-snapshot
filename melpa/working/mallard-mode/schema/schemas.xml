@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<locatingRules xmlns="http://thaiopensource.com/ns/locating-rules/1.0">
+  <namespace ns="http://projectmallard.org/1.0/" typeId="Mallard"/>
+  <uri pattern="*.page" typeId="Mallard"/>
+  <uri pattern="*.page.stub" typeId="Mallard"/>
+  <typeId id="Mallard" uri="mallard-1.0.rnc"/>
+</locatingRules>

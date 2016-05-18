@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<overlay id="zeitgeist" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+	<script type="application/javascript" src="chrome://zeitgeist/content/module.js"></script>
+	<script type="application/javascript" src="chrome://zeitgeist/content/event.js"></script>
+	
+</overlay>

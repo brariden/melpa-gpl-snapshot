@@ -1,0 +1,2 @@
+
+(clean-buffers . [(20160426 718) ((cl-lib (0 5))) "clean useless buffers" single ((:keywords "convenience" "usability" "buffers"))])

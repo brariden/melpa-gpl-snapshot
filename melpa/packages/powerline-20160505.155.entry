@@ -1,0 +1,2 @@
+
+(powerline . [(20160505 155) ((cl-lib (0 2))) "Rewrite of Powerline" tar ((:keywords "mode-line") (:url . "http://github.com/milkypostman/powerline/"))])

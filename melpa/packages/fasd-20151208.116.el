@@ -4,8 +4,8 @@
 
 ;; Author: steckerhalter
 ;; Package-Requires: ((grizzl "0"))
-;; URL: https://github.com/steckerhalter/emacs-fasd
 ;; Package-Version: 20151208.116
+;; URL: https://github.com/steckerhalter/emacs-fasd
 ;; Keywords: cli bash zsh autojump
 
 ;;; Commentary:

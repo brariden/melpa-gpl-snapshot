@@ -40,9 +40,9 @@ Key Binding  | Function
 `leader H'   | go to previous sexp
 `leader i'   | switch to `insert state`
 `leader I'   | go to beginning of current expression and switch to `insert state`
-`leader j'   | next closing parenthesis
+`leader j'   | next closing parenthesis/bracket/brace
 `leader J'   | join expression
-`leader k'   | previous opening parenthesis
+`leader k'   | previous opening parenthesis/bracket/brace
 `leader l'   | next symbol
 `leader L'   | go to next sexp
 `leader p'   | paste after

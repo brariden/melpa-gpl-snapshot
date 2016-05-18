@@ -1,2 +1,0 @@
-
-(haskell-mode . [(20160125 403) ((emacs (24 1)) (cl-lib (0 5))) "A Haskell editing mode" tar ((:keywords "haskell" "cabal" "ghc" "repl") (:url . "https://github.com/haskell/haskell-mode"))])

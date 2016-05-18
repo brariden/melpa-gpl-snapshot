@@ -1,0 +1,2 @@
+
+(ivy . [(20160517 241) ((emacs (24 1))) "Incremental Vertical completYon" tar ((:keywords "matching") (:url . "https://github.com/abo-abo/swiper"))])

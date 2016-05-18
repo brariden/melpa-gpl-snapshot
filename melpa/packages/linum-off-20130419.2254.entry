@@ -1,2 +1,0 @@
-
-(linum-off . [(20130419 2254) nil "Provides an interface for turning line-numbering off" single ((:keywords "line" "numbering") (:url . "http://www.emacswiki.org/emacs/auto-indent-mode.el "))])

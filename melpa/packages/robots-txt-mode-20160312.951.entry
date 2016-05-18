@@ -1,0 +1,2 @@
+
+(robots-txt-mode . [(20160312 951) nil "Major mode for editing robots.txt" single ((:keywords "web"))])

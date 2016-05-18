@@ -1,2 +1,0 @@
-
-(math-symbol-lists . [(20151215 1243) nil "Lists of Unicode math symbols and latex commands" single ((:keywords "unicode" "symbols" "mathematics") (:url . "https://github.com/vspinu/math-symbol-lists"))])

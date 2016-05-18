@@ -1,4 +1,4 @@
-This is a minor mode that runs within dired emulating many of the features of
+This is a derived major mode that runs within dired emulating many of the features of
 ranger <https://github.com/hut/ranger>. This minor mode shows a stack of the
 parent directories and updates the parent buffers while nvaigating the file
 system. The preview window takes some of the ideas from Peep-Dired

@@ -1,0 +1,2 @@
+
+(fakespace . [(20120817 1906) nil "fake namespaces with defpackage" single ((:url . "https://github.com/skeeto/elisp-fakespace"))])

@@ -1,2 +1,0 @@
-
-(helm-go-package . [(20150603 804) ((helm (1 0)) (go-mode (9)) (deferred (0 3 2))) "helm sources for Go programming language's package" single ((:keywords "helm" "go") (:url . "https://github.com/yasuyk/helm-go-package"))])

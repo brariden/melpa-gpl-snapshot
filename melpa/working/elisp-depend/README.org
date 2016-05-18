@@ -1,0 +1,6 @@
+* Authors
+
+ * Andy Stewart, original and primary author
+
+ * Tom Breton (Tehom), current maintainer
+

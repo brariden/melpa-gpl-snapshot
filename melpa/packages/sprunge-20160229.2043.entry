@@ -1,0 +1,2 @@
+
+(sprunge . [(20160229 2043) ((request (0 2 0)) (cl-lib (0 5))) "Upload pastes to sprunge.us" single ((:keywords "tools"))])

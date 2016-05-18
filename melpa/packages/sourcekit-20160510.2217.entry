@@ -1,0 +1,2 @@
+
+(sourcekit . [(20160510 2217) ((emacs (24 3)) (dash (2 12 1)) (dash-functional (1 2 0))) "Library to interact with sourcekittendaemon" single ((:keywords "tools" "processes") (:url . "https://github.com/nathankot/company-sourcekit"))])

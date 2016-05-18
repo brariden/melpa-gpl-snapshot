@@ -1,0 +1,2 @@
+
+(elisp-slime-nav . [(20160128 1309) ((cl-lib (0 2))) "Make M-. and M-, work in elisp like they do in slime" single ((:keywords "navigation" "slime" "elisp" "emacs-lisp") (:url . "https://github.com/purcell/elisp-slime-nav"))])

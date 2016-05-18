@@ -1,0 +1,2 @@
+
+(load-relative . [(20160505 219) nil "relative file load (within a multi-file Emacs package)" single ((:keywords "internal") (:url . "http://github.com/rocky/emacs-load-relative"))])

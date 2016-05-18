@@ -1,0 +1,2 @@
+
+(cl-lib-highlight . [(20140127 1512) ((cl-lib (0 3))) "full cl-lib font-lock highlighting" single ((:url . "https://github.com/skeeto/cl-lib-highlight"))])

@@ -1,0 +1,119 @@
+* ob-sagemath
+  [[http://melpa.org/#/ob-sagemath][file:http://melpa.org/packages/ob-sagemath-badge.svg]]
+  [[http://stable.melpa.org/#/ob-sagemath][file:http://stable.melpa.org/packages/ob-sagemath-badge.svg]]
+  [[https://travis-ci.org/stakemori/ob-sagemath][https://travis-ci.org/stakemori/ob-sagemath.svg]]
+
+  ob-sagemath provides an [[http://orgmode.org/worg/org-contrib/babel/][org-babel]] integration with [[http://www.sagemath.org/][SageMath]] by [[https://github.com/stakemori/sage-shell-mode][sage-shell-mode]].
+  This package is inspired by [[https://github.com/gregsexton/ob-ipython][ob-ipython]],
+  though the implementation is completely different.
+
+** Requirements
+   1. SageMath 6.6 or newer.
+   1. GNU Emacs 24.3 or newer.
+   1. [[https://github.com/stakemori/sage-shell-mode][sage-shell-mode]]
+
+** Installation and sample configuration
+   You can install =ob-sagemath= from [[https://github.com/milkypostman/melpa.git][MELPA]].
+   =ob-sagemath= requires [[https://github.com/stakemori/sage-shell-mode][sage-shell-mode]].
+   See [[https://github.com/stakemori/sage-shell-mode#installation-and-setup][Installation and Setup]] to setup [[https://github.com/stakemori/sage-shell-mode][sage-shell-mode]].
+   The following is a sample configuration for =ob-sagemath=. Put these lines in your "~/.emacs.d/init.el".
+
+#+begin_src emacs-lisp
+  ;; Ob-sagemath supports only evaluating with a session.
+  (setq org-babel-default-header-args:sage '((:session . t)
+                                             (:results . "output")))
+
+  ;; C-c c for asynchronous evaluating (only for SageMath code blocks).
+  (with-eval-after-load "org"
+    (define-key org-mode-map (kbd "C-c c") 'ob-sagemath-execute-async))
+
+  ;; Do not confirm before evaluation
+  (setq org-confirm-babel-evaluate nil)
+
+  ;; Do not evaluate code blocks when exporting.
+  (setq org-export-babel-evaluate nil)
+
+  ;; Show images when opening a file.
+  (setq org-startup-with-inline-images t)
+
+  ;; Show images after evaluating code blocks.
+  (add-hook 'org-babel-after-execute-hook 'org-display-inline-images)
+#+end_src
+
+** Example file
+   Here is an example org file.
+
+   [[file:./example.org][example.org]]
+
+** Session
+    ob-sagemath currently supports only evaluating with a session by using [[https://github.com/stakemori/sage-shell-mode][sage-shell-mode]].
+    So like in the sample configuration, you have to provide the =:session= header argument.
+    Usually, code blocks are evaluated in the =*Sage*= process buffer.
+    If the =:session= argument is provided and it is a string, then the code block is evaluated in
+    another process buffer.
+    For example, by evaluating the following code block, a process buffer =*Sage<foo>*= is created and
+    the code block is evaluated in the process buffer.
+
+#+BEGIN_EXAMPLE
+  ,#+BEGIN_SRC  sage :session foo
+    print 'This code will be evaluated in the process buffer *Sage<foo>*.'
+  ,#+END_SRC
+#+END_EXAMPLE
+
+** Asynchronous evaluation
+   You can evaluate SageMath code blocks by =C-c C-c= (bound to =org-ctrl-c-ctrl-c=) like in other org-babel packages.
+   But usually it blocks user inputs. In the sample configuration, =C-c c= is bound to =ob-sagemath-execute-async=.
+   And it enables the asynchronous evaluation. So you can interact with Emacs during the evaluation.
+   With a prefix argument, it evaluates all code blocks in a buffer.
+   If the =org-mode= buffer is killed during the evaluation, the output will be lost.
+   Please do not kill the =org-mode= buffer until the evaluation completes.
+
+** Images
+   Image files of graphs can be embedded by providing the =:file= header argument.
+   By evaluating the code block, the image file is stored in the file.
+   Here is an example.
+
+#+BEGIN_EXAMPLE
+  ,#+BEGIN_SRC sage :file sin.png
+    # You can change the size of the image by providing the figsize argument.
+    plot(sin, [0, 2*pi], figsize=4)
+  ,#+END_SRC
+
+  ,#+RESULTS:
+  [[file:sin.png]]
+#+END_EXAMPLE
+
+   If the =:file= header argument is not provided and the =:results= header argument contains =file=,
+   then the code block returns a temporally file name.
+   SageMath deletes these temporally files when the process exits.
+
+#+BEGIN_EXAMPLE
+  ,#+BEGIN_SRC sage :results file
+    plot(sin, [0, 2*pi])
+  ,#+END_SRC
+#+END_EXAMPLE
+
+
+** Tables
+   If the =:results= header argument contains =table= and the output looks like a table
+   (a list/tuple of lists/tuples), then the result is converted to a table.
+
+#+BEGIN_EXAMPLE
+  ,#+BEGIN_SRC sage :results table :colnames '(Fruit Price)
+    [("Apple", 300), ("Banana", 200), ("Orange", 300)]
+  ,#+END_SRC
+
+  ,#+RESULTS:
+  | Fruit  | Price |
+  |--------+-------|
+  | Apple  |   300 |
+  | Banana |   200 |
+  | Orange |   300 |
+#+END_EXAMPLE
+
+** Kill evaluation
+   To kill the evaluation, switch to the process buffer (usually its buffer name is =*Sage*=),
+   and hit =C-c C-c= (bound to =sage-shell:interrupt-subjob=).
+
+** Issues or pull requests
+   I am new to org-babel. There may be missing features. Feel free to post issues or send pull requests.

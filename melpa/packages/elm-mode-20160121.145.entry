@@ -1,2 +1,0 @@
-
-(elm-mode . [(20160121 145) ((f (0 17)) (let-alist (1 0 4)) (s (1 7 0)) (emacs (24))) "Major mode for Elm" tar ((:url . "https://github.com/jcollard/elm-mode"))])

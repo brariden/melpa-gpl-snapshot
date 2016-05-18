@@ -1,2 +1,0 @@
-
-(textmate-to-yas . [(20150914 746) nil "Import Textmate macros into yasnippet syntax" tar ((:keywords "yasnippet" "textmate") (:url . "https://github.com/mlf176f2/textmate-to-yas.el/"))])

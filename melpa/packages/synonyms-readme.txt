@@ -7,7 +7,7 @@
  To use library Synonyms, you will need the Moby Thesaurus II file,
  `mthesaur.txt', available here:
 
-   ftp://ibiblio.org/pub/docs/books/gutenberg/etext02/mthes10.zip
+   https://archive.org/details/mobythesauruslis03202gut
 
  Put this in your initialization file (~/.emacs):
 

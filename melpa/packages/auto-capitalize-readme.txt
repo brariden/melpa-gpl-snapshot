@@ -28,6 +28,25 @@ To enable (interactive) capitalization in all Text modes, add this
 to your site-lisp/default.el or ~/.emacs file:
 	(add-hook 'text-mode-hook 'enable-auto-capitalize-mode)
 
+
+In order to avoid, that in Auctex, math-mode constructions like
+$A_i$ get expanded to $A_I$ use set `auto-capitalize-predicate' was
+set to (lambda () (not (texmathp))) as in the following. However
+`texmathp' function doesn't save match data but it's run in
+`auto-capitalize' that is installed into `after-change-functions'
+hook however such functions (info "(elisp)Change Hooks") must
+restore match data otherwise unexpected behavior will appear, as
+it's in the case of the following BUG
+see:https://debbugs.gnu.org/cgi/bugreport.cgi?bug=23180
+
+(defun my-set-auto-capitalize ()
+  (interactive)
+  (set (make-local-variable 'auto-capitalize-predicate)
+       (lambda () (not (save-match-data (texmathp))))))
+					; suggestion from Mosè Giordano
+(add-hook 'LaTeX-mode-hook 'my-set-auto-capitalize)
+See the modification in the function auto-capitalize adding `save-match-data'
+
 To prevent a word from ever being capitalized or upcased
 (e.g. "http"), simply add it (in lowercase) to the
 `auto-capitalize-words' list.

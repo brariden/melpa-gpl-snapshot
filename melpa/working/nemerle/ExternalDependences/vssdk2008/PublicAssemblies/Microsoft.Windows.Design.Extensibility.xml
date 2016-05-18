@@ -1,0 +1,3179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Microsoft.Windows.Design.Extensibility</name>
+  </assembly>
+  <members>
+    <member name="T:Microsoft.Windows.Design.RequirementAttribute">
+      <summary>
+                    Defines attributes used by the <see cref="T:Microsoft.Windows.Design.RequirementValidator" /> class. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.RequirementAttribute.#ctor">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.RequirementAttribute" /> class.
+                </summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.RequirementAttribute.AllRequired">
+      <summary>
+                    Gets a value indicating whether all requirement attributes of the same type are required.
+                </summary>
+      <returns>true if all requirement attributes of the same type are required; otherwise, false.
+                </returns>
+    </member>
+    <member name="M:Microsoft.Windows.Design.RequirementAttribute.CreateSubscription(Microsoft.Windows.Design.EditingContext)">
+      <summary>
+                    Returns a <see cref="T:Microsoft.Windows.Design.RequirementSubscription" /> object that can be used to be notified when the requirement contained in this attribute has changed. 
+                </summary>
+      <returns>
+                    A new <see cref="T:Microsoft.Windows.Design.RequirementSubscription" /> object.
+                </returns>
+      <param name="context">
+                    The editing context to check.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="context" /> is null.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.RequirementAttribute.MeetsRequirement(Microsoft.Windows.Design.EditingContext)">
+      <summary>
+                    Determines if the <see cref="T:Microsoft.Windows.Design.EditingContext" /> meets the requirements specified in this attribute.
+                </summary>
+      <returns>true if the attribute's requirements are met; otherwise, false.
+                </returns>
+      <param name="context">
+                    The editing context to check.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="context" /> is null.
+                </exception>
+    </member>
+    <member name="T:Microsoft.Windows.Design.RequirementSubscription">
+      <summary>
+                    Provides a notification when changes in the editing context may have satisfied the attached requirement.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.RequirementSubscription.#ctor(Microsoft.Windows.Design.RequirementAttribute)">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.RequirementSubscription" /> class.
+                </summary>
+      <param name="requirement">
+                    The requirement to create a subscription for.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="requirement" /> is null.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.RequirementSubscription.OnRequirementChanged">
+      <summary>
+                    Raises the <see cref="E:Microsoft.Windows.Design.RequirementSubscription.RequirementChanged" /> event.
+                </summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.RequirementSubscription.Requirement">
+      <summary>
+                    Gets the requirement attribute that is attached to this subscription.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.RequirementAttribute" /> that is attached to this subscription.
+                </returns>
+    </member>
+    <member name="E:Microsoft.Windows.Design.RequirementSubscription.RequirementChanged">
+      <summary>
+                    Occurs when the requirement has changed. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.RequirementSubscription.Subscribe">
+      <summary>
+                    Subscribes to context events.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.RequirementSubscription.Unsubscribe">
+      <summary>
+                    Removes subscriptions to context events.
+                </summary>
+    </member>
+    <member name="T:Microsoft.Windows.Design.RequirementValidator">
+      <summary>
+                    Determines whether the required context and services are available for the specified type. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.RequirementValidator.#ctor(Microsoft.Windows.Design.EditingContext,System.Type)">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.RequirementValidator" /> class for the specified editing context and type.
+                </summary>
+      <param name="context">
+                    The editing context to validate requirements against.
+                </param>
+      <param name="type">
+                    The type to get requirement attributes from.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="context" /> or <paramref name="type" /> is null.
+                </exception>
+    </member>
+    <member name="P:Microsoft.Windows.Design.RequirementValidator.MeetsRequirements">
+      <summary>
+                    Gets a value indicating whether the type requirements exist in the editing context.
+                </summary>
+      <returns>true if the type requirements exist in the editing context, or false if one or more requirements is missing.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.RequirementValidator.PendingRequirements">
+      <summary>
+                    Gets a list of pending requirement attributes. 
+                </summary>
+      <returns>
+                    A list of pending requirement attributes. These are requirements that have not yet been met.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.RequirementValidator.Requirements">
+      <summary>
+                    Gets an enumeration of all requirements for the type contained in this validator.
+                </summary>
+      <returns>
+                    An enumeration of <see cref="T:Microsoft.Windows.Design.RequirementAttribute" /> objects for <see cref="P:Microsoft.Windows.Design.RequirementValidator.Type" />.
+                </returns>
+    </member>
+    <member name="E:Microsoft.Windows.Design.RequirementValidator.RequirementsChanged">
+      <summary>
+                    Occurs when the set of requirements necessary to use the type have changed.
+                </summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.RequirementValidator.Type">
+      <summary>
+                    Gets the type of object to validate requirements for.
+                </summary>
+      <returns>
+                    A <see cref="T:System.Type" /> representing the object to validate requirements for.
+                </returns>
+    </member>
+    <member name="T:Microsoft.Windows.Design.RequiresContextItemAttribute">
+      <summary>
+                    Indicates that the class relies on the specified context.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.RequiresContextItemAttribute.#ctor(System.Type)">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.RequiresContextItemAttribute" /> class.
+                </summary>
+      <param name="contextItemType">
+                    The type of context that is required.
+                </param>
+    </member>
+    <member name="P:Microsoft.Windows.Design.RequiresContextItemAttribute.ContextItemType">
+      <summary>
+                    Gets the context item type the class requires.
+                </summary>
+      <returns>
+                    A <see cref="T:System.Type" /> that indicates the <see cref="T:Microsoft.Windows.Design.ContextItem" /> type the class requires. 
+                </returns>
+    </member>
+    <member name="M:Microsoft.Windows.Design.RequiresContextItemAttribute.CreateSubscription(Microsoft.Windows.Design.EditingContext)">
+      <summary>
+                    Creates an object that enables notification when the requirement specified by this attribute is fulfilled by the editing context.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.RequirementSubscription" /> object that you can use to handle events.
+                </returns>
+      <param name="context">
+                    The editing context to check.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="context" /> is null.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.RequiresContextItemAttribute.MeetsRequirement(Microsoft.Windows.Design.EditingContext)">
+      <summary>
+                    Indicates whether the editing context contains a context item of type <see cref="P:Microsoft.Windows.Design.RequiresContextItemAttribute.ContextItemType" />.
+                </summary>
+      <returns>true if the attribute's requirements are met; otherwise, false.
+                </returns>
+      <param name="context">
+                    The editing context to check.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="context" /> is null.
+                </exception>
+    </member>
+    <member name="P:Microsoft.Windows.Design.RequiresContextItemAttribute.TypeId">
+      <summary>
+                    Gets the type ID of this attribute.
+                </summary>
+      <returns>
+                    An object that indicates the type ID of this attribute.
+                </returns>
+    </member>
+    <member name="T:Microsoft.Windows.Design.RequiresServiceAttribute">
+      <summary>
+                    Indicates that the class relies on the specified service.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.RequiresServiceAttribute.#ctor(System.Type)">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.RequiresServiceAttribute" /> class.
+                </summary>
+      <param name="serviceType">
+                    The type of service the class requires.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.RequiresServiceAttribute.CreateSubscription(Microsoft.Windows.Design.EditingContext)">
+      <summary>
+                    Creates an object that enables notification when the requirement specified by this attribute is fulfilled by the editing context.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.RequirementSubscription" /> object that you can use to handle events.
+                </returns>
+      <param name="context">
+                    The editing context to check.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="context" /> is null.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.RequiresServiceAttribute.MeetsRequirement(Microsoft.Windows.Design.EditingContext)">
+      <summary>
+                    Indicates whether the editing context contains a service of type <see cref="P:Microsoft.Windows.Design.RequiresServiceAttribute.ServiceType" />.
+                </summary>
+      <returns>true if the attribute's requirements are met; otherwise, false.
+                </returns>
+      <param name="context">
+                    The editing context to check.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="context" /> is null.
+                </exception>
+    </member>
+    <member name="P:Microsoft.Windows.Design.RequiresServiceAttribute.ServiceType">
+      <summary>
+                    Gets the service type the class requires.
+                </summary>
+      <returns>
+                    A <see cref="T:System.Type" /> that indicates the service type the class requires.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.RequiresServiceAttribute.TypeId">
+      <summary>
+                    Gets the type ID of this attribute. 
+                </summary>
+      <returns>
+                    An object that indicates the type ID of this attribute.
+                </returns>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Features.FeatureAttribute">
+      <summary>
+                    Stores a <see cref="T:System.Type" /> object that represents a <see cref="T:Microsoft.Windows.Design.Features.FeatureProvider" /> type. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.FeatureAttribute.#ctor(System.Type)">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Features.FeatureAttribute" /> class.
+                </summary>
+      <param name="featureProviderType">
+                    The type of feature provider this attribute describes.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="featureProviderType" /> is null.
+                </exception>
+      <exception cref="T:System.ArgumentException">
+                    The feature provider is not assignable from <paramref name="featureProviderType" />.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.FeatureAttribute.Equals(System.Object)">
+      <returns>true if the specified object equals this attribute; otherwise, false.
+                </returns>
+      <param name="obj">
+                    The object to compare to.
+                </param>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Features.FeatureAttribute.FeatureProviderType">
+      <summary>
+                    Gets the <see cref="T:Microsoft.Windows.Design.Features.FeatureProvider" /> type to instantiate.
+                </summary>
+      <returns>
+                    A <see cref="T:System.Type" /> representing the class of the feature provider to attach to the target control. 
+                </returns>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.FeatureAttribute.GetHashCode">
+      <returns>
+                    The hash code for this object.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Features.FeatureAttribute.TypeId">
+      <summary>
+                    Gets a unique identifier for this attribute.
+                </summary>
+      <returns>
+                    An <see cref="T:System.Object" /> that is a unique identifier for the attribute.  
+                </returns>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Features.FeatureAvailableEventArgs">
+      <summary>
+                    Provides data for the <see cref="E:Microsoft.Windows.Design.Features.FeatureManager.FeatureAvailable" /> event.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.FeatureAvailableEventArgs.#ctor(System.Type)">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Features.FeatureAvailableEventArgs" /> class.
+                </summary>
+      <param name="featureProviderType">
+                    The type of feature provider that is now available to be created.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="featureProviderType" /> is null.
+                </exception>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Features.FeatureAvailableEventArgs.FeatureProviderType">
+      <summary>
+                    Gets the type of feature provider that is available for creation.
+                </summary>
+      <returns>
+                    A <see cref="T:System.Type" /> object that represents the feature provider that is available for creation.
+                </returns>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Features.FeatureConnector`1">
+      <summary>
+                    Provides a base implementation for all feature connector-based extensibility.
+                </summary>
+      <typeparam name="TFeatureProviderType">
+                    The type of feature provider.
+                </typeparam>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.FeatureConnector`1.#ctor(Microsoft.Windows.Design.Features.FeatureManager)">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Features.FeatureConnector`1" /> class. 
+                </summary>
+      <param name="manager">
+                    The feature manager associated with this feature connector.
+                </param>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Features.FeatureConnector`1.Context">
+      <summary>
+                    Gets the editing context for the feature connector.
+                </summary>
+      <returns>
+                    An <see cref="T:Microsoft.Windows.Design.EditingContext" /> associated with the feature connector.
+                </returns>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.FeatureConnector`1.CreateFeatureProviders(Microsoft.Windows.Design.Model.ModelItem)">
+      <summary>
+                    Creates a new list of feature providers associated with the feature connector, based on the specified <see cref="T:Microsoft.Windows.Design.Model.ModelItem" />.
+                </summary>
+      <returns>
+                    An enumeration of feature providers.
+                </returns>
+      <param name="instance">
+                    The <see cref="T:Microsoft.Windows.Design.Model.ModelItem" /> to query for feature providers.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="instance" /> is null.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.FeatureConnector`1.CreateFeatureProviders``1(Microsoft.Windows.Design.Model.ModelItem)">
+      <summary>
+                    Creates a new list of feature providers associated with the feature connector, based on the specified <see cref="T:Microsoft.Windows.Design.Model.ModelItem" /> and subtype. 
+                </summary>
+      <returns>
+                    An enumeration of feature providers, filtered by the subtype.
+                </returns>
+      <param name="instance">
+                    The <see cref="T:Microsoft.Windows.Design.Model.ModelItem" /> to query for feature providers.
+                </param>
+      <typeparam name="TSubtype">
+                    The subtype of the feature provider type.
+                </typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="instance" /> is null.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.FeatureConnector`1.CreateFeatureProviders``1(System.Type)">
+      <summary>
+                    Creates a new list of feature providers associated with the feature connector, based on the provided type and subtype.
+                </summary>
+      <returns>
+                    An enumeration of feature providers, filtered by the subtype.
+                </returns>
+      <param name="type">
+                    The <see cref="T:System.Type" /> to query for feature providers.
+                </param>
+      <typeparam name="TSubtype">
+                    The subtype of the feature provider type.
+                </typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="type" /> is null.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.FeatureConnector`1.CreateFeatureProviders(System.Type)">
+      <summary>
+                    Creates a new list of feature providers associated with the feature connector, based on the provided type.
+                </summary>
+      <returns>
+                    An enumeration of feature providers.
+                </returns>
+      <param name="type">
+                    The <see cref="T:System.Type" /> to query for feature providers.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="type" /> is null.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.FeatureConnector`1.Dispose">
+      <summary>
+                    Releases all resources used by the <see cref="T:Microsoft.Windows.Design.Features.FeatureConnector`1" />. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.FeatureConnector`1.Dispose(System.Boolean)">
+      <summary>
+                    Releases the unmanaged resources used by the <see cref="T:Microsoft.Windows.Design.Features.FeatureConnector`1" /> and optionally releases the managed resources. 
+                </summary>
+      <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources. 
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.FeatureConnector`1.Finalize"></member>
+    <member name="P:Microsoft.Windows.Design.Features.FeatureConnector`1.Manager">
+      <summary>
+                    Gets the <see cref="T:Microsoft.Windows.Design.Features.FeatureManager" /> for the feature connector.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Features.FeatureManager" /> associated with the feature connector.
+                </returns>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Features.FeatureConnectorAttribute">
+      <summary>
+                    Indicates the type of <see cref="T:Microsoft.Windows.Design.Features.FeatureConnector`1" /> required to handle the <see cref="T:Microsoft.Windows.Design.Features.FeatureProvider" />. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.FeatureConnectorAttribute.#ctor(System.Type)">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Features.FeatureConnectorAttribute" /> class. 
+                </summary>
+      <param name="featureConnectorType">
+                    The type of feature manager.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="featureConnectorType" /> is null.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.FeatureConnectorAttribute.Equals(System.Object)">
+      <returns>true if the object is equal to this object; otherwise, false.
+                </returns>
+      <param name="obj">
+                    The object to compare.
+                </param>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Features.FeatureConnectorAttribute.FeatureConnectorType">
+      <summary>
+                    Gets the type of <see cref="T:Microsoft.Windows.Design.Features.FeatureConnector`1" /> to instantiate.
+                </summary>
+      <returns>
+                    A <see cref="T:System.Type" /> object that represents the <see cref="T:Microsoft.Windows.Design.Features.FeatureConnector`1" /> type to instantiate.
+                </returns>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.FeatureConnectorAttribute.GetHashCode">
+      <returns>
+                    A hash code for this object.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Features.FeatureConnectorAttribute.TypeId">
+      <summary>
+                    Gets an object that is used to determine unique attributes.
+                </summary>
+      <returns>
+                    A object that is used to determine unique attributes.
+                </returns>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Features.FeatureConnectorInformation">
+      <summary>
+                    Contains information describing a specified feature connector. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.FeatureConnectorInformation.#ctor">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Features.FeatureConnectorInformation" /> class.
+                </summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Features.FeatureConnectorInformation.FeatureConnectorType">
+      <summary>
+                    Gets the type of feature connector this <see cref="T:Microsoft.Windows.Design.Features.FeatureConnectorInformation" /> describes.
+                </summary>
+      <returns>
+                    A <see cref="T:System.Type" /> object that represents the type of feature connector for this <see cref="T:Microsoft.Windows.Design.Features.FeatureConnectorInformation" /> object.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Features.FeatureConnectorInformation.PendingItems">
+      <summary>
+                    Gets a list of context items that are required by the feature connector, but are not yet available in the editing context.
+                </summary>
+      <returns>
+                    An enumeration of required context item types that are not available in the editing context.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Features.FeatureConnectorInformation.PendingServices">
+      <summary>
+                    Gets a list of services that are required by the feature connector, but are not yet available in the editing context.
+                </summary>
+      <returns>
+                    An enumeration of required service types that are not available in the editing context.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Features.FeatureConnectorInformation.RequiredItems">
+      <summary>
+                    Gets a list of context items the feature connector requires.
+                </summary>
+      <returns>
+                    An enumeration of required context item types that must be available in the editing context before the feature connector is created.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Features.FeatureConnectorInformation.RequiredServices">
+      <summary>
+                    Gets a list of services the feature connector requires.
+                </summary>
+      <returns>
+                    An enumeration of required service types that must be available in the editing context before the feature connector is created.
+                </returns>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Features.FeatureManager">
+      <summary>
+                    Manages feature providers and feature connectors. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.FeatureManager.#ctor(Microsoft.Windows.Design.EditingContext)">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Features.FeatureManager" /> class.
+                </summary>
+      <param name="context">
+                    The editing context this feature manager uses to resolve services and context items.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="context" /> is null.
+                </exception>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Features.FeatureManager.Context">
+      <summary>
+                    Gets the editing context for this feature manager.
+                </summary>
+      <returns>
+                    An <see cref="T:Microsoft.Windows.Design.EditingContext" /> for this feature manager.
+                </returns>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.FeatureManager.CreateFeatureProviders(System.Type)">
+      <summary>
+                    Creates and returns a set of feature providers for the specified type. 
+                </summary>
+      <returns>
+                    An enumeration of feature providers. If no feature providers for <paramref name="featureProviderType" /> are available, this method returns an empty enumeration.
+                </returns>
+      <param name="featureProviderType">
+                    The type of feature provider to return.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="featureProviderType" /> is null.
+                </exception>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="featureProviderType" /> does not derive from <see cref="T:Microsoft.Windows.Design.Features.FeatureProvider" />.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.FeatureManager.CreateFeatureProviders(System.Type,Microsoft.Windows.Design.Model.ModelItem)">
+      <summary>
+                    Creates and returns a set of feature providers that exist for the specified item.
+                </summary>
+      <returns>
+                    An enumeration of feature providers. If no feature providers for <paramref name="featureProviderType" /> or <paramref name="instance" /> are available, this method returns an empty enumeration.
+                </returns>
+      <param name="featureProviderType">
+                    The type of feature provider to return.
+                </param>
+      <param name="instance">
+                    The <see cref="T:Microsoft.Windows.Design.Model.ModelItem" /> to create feature providers for.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="featureProviderType" /> or <paramref name="instance" /> is null.
+                </exception>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="featureProviderType" /> does not derive from <see cref="T:Microsoft.Windows.Design.Features.FeatureProvider" />.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.FeatureManager.CreateFeatureProviders(System.Type,Microsoft.Windows.Design.Model.ModelItem,System.Predicate{System.Type})">
+      <summary>
+                    Creates and returns a set of feature providers that exist for the specified object.
+                </summary>
+      <returns>
+                    An enumeration of feature providers. If no feature providers for <paramref name="featureProviderType" />, <paramref name="instance" />, or <paramref name="match" /> are available, this method returns an empty enumeration.
+                </returns>
+      <param name="featureProviderType">
+                    The type of feature provider to return.
+                </param>
+      <param name="instance">
+                    The instance to create feature providers for.
+                </param>
+      <param name="match">
+                    A predicate to use when creating feature providers. If the predicate returns true, the feature provider will be included in the enumeration.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="featureProviderType" />, <paramref name="instance" /> or <paramref name="match" /> is null.
+                </exception>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="featureProviderType" /> does not derive from <see cref="T:Microsoft.Windows.Design.Features.FeatureProvider" />.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.FeatureManager.CreateFeatureProviders(System.Type,System.Predicate{System.Type})">
+      <summary>
+                    Creates and returns a set of feature providers for the specified type. 
+                </summary>
+      <returns>
+                    An enumeration of feature providers. If no feature providers for <paramref name="featureProviderType" /> or <paramref name="match" /> are available, this method returns an empty enumeration.
+                </returns>
+      <param name="featureProviderType">
+                    The type of feature provider to return.
+                </param>
+      <param name="match">
+                    A predicate to use when creating feature providers. If the predicate returns true, the feature provider will be included in the enumeration.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="featureProviderType" /> or <paramref name="match" /> is null.
+                </exception>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="featureProviderType" /> does not derive from <see cref="T:Microsoft.Windows.Design.Features.FeatureProvider" />.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.FeatureManager.CreateFeatureProviders(System.Type,System.Type)">
+      <summary>
+                    Creates and returns a set of feature providers that exist for the specified type.
+                </summary>
+      <returns>
+                    An enumeration of feature providers. If no feature providers for <paramref name="featureProviderType" /> or <paramref name="type" /> are available, this method returns an empty enumeration.
+                </returns>
+      <param name="featureProviderType">
+                    The type of feature provider to return.
+                </param>
+      <param name="type">
+                    The type to create feature providers for.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="featureProviderType" /> or <paramref name="type" /> is null.
+                </exception>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="featureProviderType" /> does not derive from <see cref="T:Microsoft.Windows.Design.Features.FeatureProvider" />.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.FeatureManager.CreateFeatureProviders(System.Type,System.Type,Microsoft.Windows.Design.Model.ModelItem,System.Predicate{System.Type})">
+      <summary>
+                    Creates the specified feature provider.
+                </summary>
+      <returns>
+                    An enumeration of feature providers. If no feature providers for the specified parameters are available, this method returns an empty enumeration.
+                </returns>
+      <param name="featureProviderType">
+                    The type of feature provider to create. This is never null.
+                </param>
+      <param name="instanceType">
+                    The type of the instance to inspect when looking for feature attributes. This value may be null, in which case all available feature providers should be returned.
+                </param>
+      <param name="instance">
+                    The instance to inspect when looking for feature attributes. This value may be null. If non-null, you should use it to obtain attributes.
+                </param>
+      <param name="match">
+                    A predicate to use when creating feature providers. If the predicate returns true, the feature provider will be included in the enumeration.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="featureProviderType" /> or <paramref name="match" /> is null.
+                </exception>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="featureProviderType" /> does not derive from <see cref="T:Microsoft.Windows.Design.Features.FeatureProvider" />.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.FeatureManager.CreateFeatureProviders(System.Type,System.Type,System.Predicate{System.Type})">
+      <summary>
+                    Creates and returns a set of feature providers that exist for the specified type.
+                </summary>
+      <returns>
+                    An enumeration of feature providers. If no feature providers for <paramref name="featureProviderType" />, <paramref name="type" />, or <paramref name="match" /> are available, this method returns an empty enumeration.
+                </returns>
+      <param name="featureProviderType">
+                    The type of feature provider to return.
+                </param>
+      <param name="type">
+                    The type to create feature providers for.
+                </param>
+      <param name="match">
+                    A predicate to use when creating feature providers. If the predicate returns true, the feature provider will be included in the enumeration.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="featureProviderType" />, <paramref name="type" /> or <paramref name="match" /> is null.
+                </exception>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="featureProviderType" /> does not derive from <see cref="T:Microsoft.Windows.Design.Features.FeatureProvider" />.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.FeatureManager.Dispose">
+      <summary>
+                    Releases all resources used by the <see cref="T:Microsoft.Windows.Design.Features.FeatureManager" />.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.FeatureManager.Dispose(System.Boolean)">
+      <summary>
+                    Disposes all running feature connectors.
+                </summary>
+      <param name="disposing">true if this object is being disposed, false if it is being finalized.
+                </param>
+    </member>
+    <member name="E:Microsoft.Windows.Design.Features.FeatureManager.FeatureAvailable">
+      <summary>
+                    Occurs when a new type of feature is available. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.FeatureManager.Finalize">
+      <summary>
+                    Finalizer that calls <see cref="M:Microsoft.Windows.Design.Features.FeatureManager.Dispose" />.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.FeatureManager.InitializeFeatures(System.Type)">
+      <summary>
+                    Initializes any feature connectors for the feature providers defined on the specified type.
+                </summary>
+      <param name="type">
+                    The type to initialize feature connectors for.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="type" /> is null.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.FeatureManager.OnFeatureAvailable(Microsoft.Windows.Design.Features.FeatureAvailableEventArgs)">
+      <summary>
+                    Raises the <see cref="E:Microsoft.Windows.Design.Features.FeatureManager.FeatureAvailable" /> event.
+                </summary>
+      <param name="e">
+                    The <see cref="T:System.EventArgs" /> to pass to the event.
+                </param>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Features.FeatureManager.PendingConnectors">
+      <summary>
+                    Gets an enumeration of all connectors that have not been activated yet because they are waiting on context items or services.
+                </summary>
+      <returns>
+                    An enumeration of feature connectors that are waiting for services or context items to become available in the editing context.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Features.FeatureManager.RunningConnectors">
+      <summary>
+                    Gets an enumeration of all connectors that are currently running.
+                </summary>
+      <returns>
+                    An enumeration of feature connectors that are currently running.
+                </returns>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Features.FeatureProvider">
+      <summary>
+                    Adds a class-specific contribution to a feature.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.FeatureProvider.#ctor">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Features.FeatureProvider" /> class.
+                </summary>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Features.PolicyDrivenFeatureConnector`1">
+      <summary>
+                    A feature connector that can create feature providers based on <see cref="T:Microsoft.Windows.Design.Policies.ItemPolicy" /> objects.  
+                </summary>
+      <typeparam name="TFeatureProviderType">
+                    The type of feature provider.
+                </typeparam>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.PolicyDrivenFeatureConnector`1.#ctor(Microsoft.Windows.Design.Features.FeatureManager)">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Features.PolicyDrivenFeatureConnector`1" /> class.
+                </summary>
+      <param name="manager">
+                    The feature manager managing this connector.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="manager" /> is null.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.PolicyDrivenFeatureConnector`1.Dispose(System.Boolean)">
+      <summary>
+                    Releases the unmanaged resources used by the <see cref="T:Microsoft.Windows.Design.Features.PolicyDrivenFeatureConnector`1" /> and optionally releases the managed resources. 
+                </summary>
+      <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources. 
+                </param>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Features.PolicyDrivenFeatureConnector`1.FeatureProviders">
+      <summary>
+                    Gets an enumeration of all current feature providers.
+                </summary>
+      <returns>
+                    An <see cref="T:System.Collections.Generic.IEnumerable`1" /> of <see cref="T:Microsoft.Windows.Design.Features.PolicyDrivenFeatureConnector`1.ItemFeatureProvider" /> objects.
+                </returns>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.PolicyDrivenFeatureConnector`1.FeatureProvidersAdded(Microsoft.Windows.Design.Model.ModelItem,System.Collections.Generic.IEnumerable{`0})">
+      <summary>
+                    When overridden in a derived class, this method is called automatically when a policy changes and feature providers are added to the set of active feature providers.
+                </summary>
+      <param name="item">
+                    The item that is offering these feature providers.
+                </param>
+      <param name="featureProviders">
+                    An enumeration of feature providers that have been added.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.PolicyDrivenFeatureConnector`1.FeatureProvidersRemoved(Microsoft.Windows.Design.Model.ModelItem,System.Collections.Generic.IEnumerable{`0})">
+      <summary>
+                    When overridden in a derived class, this method is called automatically when a policy changes and feature providers are removed from the set of active feature providers.
+                </summary>
+      <param name="item">
+                    The item that is offering these feature providers.
+                </param>
+      <param name="featureProviders">
+                    An enumeration of feature providers that have been removed.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.PolicyDrivenFeatureConnector`1.IsValidProvider(Microsoft.Windows.Design.Features.FeatureProvider)">
+      <summary>
+                    Checks if the specified feature provider to be invoked is valid.
+                </summary>
+      <returns>true if <paramref name="featureProvider" /> is valid; otherwise, false. The default is true.
+                </returns>
+      <param name="featureProvider">
+                    The <see cref="T:Microsoft.Windows.Design.Features.FeatureProvider" /> to check for validity.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Features.PolicyDrivenFeatureConnector`1.UpdateFeatureProviders">
+      <summary>
+                    Called when the set of running features must be updated. 
+                </summary>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Features.PolicyDrivenFeatureConnector`1.ItemFeatureProvider">
+      <summary>
+                    Identifies the feature providers that belong to a particular item.
+                </summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Features.PolicyDrivenFeatureConnector`1.ItemFeatureProvider.FeatureProvider">
+      <summary>
+                    Gets the currently running feature provider.
+                </summary>
+      <returns>
+                    A <see cref="T:System.Type" /> which represents the currently running feature provider.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Features.PolicyDrivenFeatureConnector`1.ItemFeatureProvider.Item">
+      <summary>
+                    Gets the item associated with this feature provider.
+                </summary>
+      <returns>
+                    The <see cref="T:Microsoft.Windows.Design.Model.ModelItem" /> associated with the <see cref="P:Microsoft.Windows.Design.Features.PolicyDrivenFeatureConnector`1.ItemFeatureProvider.FeatureProvider" /> type. 
+                </returns>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Interaction.Adapter">
+      <summary>
+                    Used to adapt logic for a particular item. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.Adapter.#ctor">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Interaction.Adapter" /> class.
+                </summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.Adapter.AdapterType">
+      <summary>
+                    When overridden in a derived class, gets the type of adapter this object represents. 
+                </summary>
+      <returns>
+                    A <see cref="T:System.Type" /> that represents the adapter type.
+                </returns>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Interaction.AdornerProvider">
+      <summary>
+                    A feature provider that you can add to a class to automatically add adorners to the designer surface. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.AdornerProvider.#ctor">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Interaction.AdornerProvider" /> class.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.AdornerProvider.Activate(Microsoft.Windows.Design.Model.ModelItem,System.Windows.DependencyObject)">
+      <summary>
+                    Called when adorners are requested for the first time by the designer.
+                </summary>
+      <param name="item">
+                    A <see cref="T:Microsoft.Windows.Design.Model.ModelItem" /> representing the adorned element.
+                </param>
+      <param name="view">
+                    An instance of the adorned element.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="view" /> is null.
+                </exception>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.AdornerProvider.Adorners">
+      <summary>
+                    Gets the collection of adorners that are provided by this adorner provider.
+                </summary>
+      <returns>
+                    A collection of <see cref="T:System.Windows.UIElement" /> objects that have adorner attached properties.  
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.AdornerProvider.AdornersVisible">
+      <summary>
+                    Gets or sets the visibility of a set of adorners.
+                </summary>
+      <returns>true if the adorners are added to the designer view. false if the adorners are removed from the designer view.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.AdornerProvider.Context">
+      <summary>
+                    Gets the editing context that activated this adorner provider. 
+                </summary>
+      <returns>
+                    An <see cref="T:Microsoft.Windows.Design.EditingContext" /> that activated this adorner provider.
+                </returns>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.AdornerProvider.Deactivate">
+      <summary>
+                    Called when an adorner provider is about to be discarded by the designer. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.AdornerProvider.IsToolSupported(Microsoft.Windows.Design.Interaction.Tool)">
+      <summary>
+                    Gets a value indicating if the adorner provider supports the provided <see cref="T:Microsoft.Windows.Design.Interaction.Tool" />.
+                </summary>
+      <param name="tool">
+                    The <see cref="T:Microsoft.Windows.Design.Interaction.Tool" /> to be checked.
+                </param>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Interaction.ContextMenuProvider">
+      <summary>
+                    Defines a set of menu items that are shown in a context menu.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.ContextMenuProvider.#ctor">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Interaction.ContextMenuProvider" /> class.
+                </summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.ContextMenuProvider.Items">
+      <summary>
+                    Gets the items to add to the context menu.
+                </summary>
+      <returns>
+                    An <see cref="T:System.Collections.ObjectModel.ObservableCollection`1" /> of <see cref="T:Microsoft.Windows.Design.Interaction.MenuBase" /> items.
+                </returns>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.ContextMenuProvider.Update(Microsoft.Windows.Design.EditingContext)">
+      <summary>
+                    Raises the <see cref="E:Microsoft.Windows.Design.Interaction.ContextMenuProvider.UpdateItemStatus" /> event so the visibility and enabled status of menu items can be refreshed.
+                </summary>
+      <param name="context">
+                    The <see cref="T:Microsoft.Windows.Design.EditingContext" /> to send in the <see cref="T:Microsoft.Windows.Design.Interaction.MenuActionEventArgs" />. 
+                </param>
+    </member>
+    <member name="E:Microsoft.Windows.Design.Interaction.ContextMenuProvider.UpdateItemStatus">
+      <summary>
+                    Occurs when the menu item is about to be shown.
+                </summary>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Interaction.CreationCommands">
+      <summary>
+                    Represents a set of static command definitions for tool creation commands.
+                </summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.CreationCommands.Create">
+      <summary>
+                    Gets a command identifier for creating new objects. 
+                </summary>
+      <returns>
+                    A command identifier for creating new objects.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.CreationCommands.CreateAt">
+      <summary>
+                    Gets a tool command identifier for creating new objects at the current position. 
+                </summary>
+      <returns>
+                    A tool command identifier for creating new objects at the current position.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.CreationCommands.CreateWithin">
+      <summary>
+                    Gets a tool command identifier for creating new objects within gesture positions. 
+                </summary>
+      <returns>
+                    A tool command identifier for creating new objects within gesture positions.
+                </returns>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Interaction.CreationTool">
+      <summary>
+                    A tool that is used to create new instances of objects on the designer.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.CreationTool.#ctor">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Interaction.CreationTool" /> class.
+                </summary>
+    </member>
+    <member name="E:Microsoft.Windows.Design.Interaction.CreationTool.CreationComplete">
+      <summary>
+                    Occurs when the tool completes the creation of its object. 
+                </summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.CreationTool.CreationType">
+      <summary>
+                    Gets or sets the type of object this tool should create. 
+                </summary>
+      <returns>
+                    A <see cref="T:System.Type" /> object representing the type of object this tool should create. For example, if this tool is to create a button, this property should be typeof(Button).
+                </returns>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.CreationTool.FromType(System.Type)">
+      <summary>
+                    Searches the type metadata for a <see cref="T:Microsoft.Windows.Design.Interaction.CreationToolAttribute" /> that provides a creation tool type.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.CreationTool" /> or null if there is no tool for the type.
+                </returns>
+      <param name="type">
+                    The type to return the creation tool for.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="type" /> is null.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.CreationTool.OnCreationComplete(System.EventArgs)">
+      <summary>
+                    Raises the <see cref="E:Microsoft.Windows.Design.Interaction.CreationTool.CreationComplete" /> event.
+                </summary>
+      <param name="e">
+                    The event to give to the creation complete event.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="e" /> is null.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.CreationTool.PerformCreationComplete">
+      <summary>
+                    Raises the <see cref="E:Microsoft.Windows.Design.Interaction.CreationTool.CreationComplete" /> event.
+                </summary>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Interaction.CreationToolAttribute">
+      <summary>
+                    Identifies the creation tool that should be used to create an instance of a specified type.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.CreationToolAttribute.#ctor(System.Type)">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Interaction.CreationToolAttribute" /> class.
+                </summary>
+      <param name="toolType">
+                    The type of tool this attribute describes. You can specify null to prevent a <see cref="T:Microsoft.Windows.Design.Interaction.CreationTool" /> base class from surfacing.
+                </param>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="toolType" /> does not derive from <see cref="T:Microsoft.Windows.Design.Interaction.CreationTool" />.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.CreationToolAttribute.Equals(System.Object)">
+      <summary>
+                    Returns a value that indicates whether this instance is equal to a specified object.
+                </summary>
+      <returns>true if the object is equal to this object; otherwise, false.
+                </returns>
+      <param name="obj">
+                    The object to compare.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.CreationToolAttribute.GetHashCode">
+      <summary>
+                    Returns the hash code for this instance.
+                </summary>
+      <returns>
+                    An integer hash code.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.CreationToolAttribute.ToolType">
+      <summary>
+                    Gets the <see cref="T:Microsoft.Windows.Design.Interaction.CreationTool" /> type to instantiate.
+                </summary>
+      <returns>
+                    A <see cref="T:System.Type" /> object that represents the type of the <see cref="T:Microsoft.Windows.Design.Interaction.CreationTool" /> to be instantiated.
+                </returns>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Interaction.DesignerCommands">
+      <summary>
+                    Represents commands associated with a designer.
+                </summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.DesignerCommands.Cancel">
+      <summary>
+                    Gets a command that cancels the current operation.
+                </summary>
+      <returns>
+                    A command that cancels the current operation.
+                </returns>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Interaction.MenuAction">
+      <summary>
+                    A context menu item which represents an action to take in the designer.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.MenuAction.#ctor(System.String)">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Interaction.MenuAction" /> class. 
+                </summary>
+      <param name="displayName">
+                    The text that appears in the context menu.
+                </param>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.MenuAction.Checkable">
+      <summary>
+                    Gets or sets a value indicating whether the menu item requires user interface (UI) that displays a check box. 
+                </summary>
+      <returns>true if the menu item requires a check box; otherwise, false. The default is false.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.MenuAction.Checked">
+      <summary>
+                    Gets or sets a value indicating whether the menu item is checked. 
+                </summary>
+      <returns>true if the menu item should be rendered with a check mark; otherwise, false. The default is false.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.MenuAction.Command">
+      <summary>
+                    Gets the command which represents the menu action.
+                </summary>
+      <returns>
+                    An <see cref="T:System.Windows.Input.ICommand" /> which represents the menu action. 
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.MenuAction.Enabled">
+      <summary>
+                    Gets or sets a value indicating whether the menu action item is available to the user.
+                </summary>
+      <returns>true if the menu action item is available to the user; otherwise, false. The default is true.
+                </returns>
+    </member>
+    <member name="E:Microsoft.Windows.Design.Interaction.MenuAction.Execute">
+      <summary>
+                    Occurs when the menu item is executed. 
+                </summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.MenuAction.ImageUri">
+      <summary>
+                    Gets or sets the path to an image associated with the <see cref="T:Microsoft.Windows.Design.Interaction.MenuAction" />.
+                </summary>
+      <returns>
+                    A <see cref="T:System.Uri" /> to the image associated with the <see cref="T:Microsoft.Windows.Design.Interaction.MenuAction" />. The default value is null.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.MenuAction.Visible">
+      <summary>
+                    Gets or sets a value indicating whether the item is displayed in the menu.
+                </summary>
+      <returns>true if the action is displayed in the menu; otherwise, false. The default is true.
+                </returns>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Interaction.MenuActionEventArgs">
+      <summary>
+                    Provides data for <see cref="T:Microsoft.Windows.Design.Interaction.MenuAction" /> events.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.MenuActionEventArgs.#ctor(Microsoft.Windows.Design.EditingContext)">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Interaction.MenuActionEventArgs" /> class.
+                </summary>
+      <param name="context">
+                    The associated <see cref="T:Microsoft.Windows.Design.EditingContext" />.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="context" /> is null.
+                </exception>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.MenuActionEventArgs.Context">
+      <summary>
+                    Gets the currently active editing context.
+                </summary>
+      <returns>
+                    An <see cref="T:Microsoft.Windows.Design.EditingContext" /> representing the active editing batch. 
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.MenuActionEventArgs.Selection">
+      <summary>
+                    Gets the current selection on the design surface.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.Selection" /> representing the currently selected control.
+                </returns>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Interaction.MenuBase">
+      <summary>
+                    Provides a base class for both actions and groups.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.MenuBase.#ctor">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Interaction.MenuBase" /> class.
+                </summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.MenuBase.Context">
+      <summary>
+                    Gets the current editing context.
+                </summary>
+      <returns>
+                    An <see cref="T:Microsoft.Windows.Design.EditingContext" /> for the current context or null.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.MenuBase.DisplayName">
+      <summary>
+                    Gets or sets the localized text to display for the menu item.
+                </summary>
+      <returns>
+                    The localized text to display for the menu item.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.MenuBase.Name">
+      <summary>
+                    Gets or sets the unique identifier for the menu item.
+                </summary>
+      <returns>
+                    The unique identifier for the menu item.
+                </returns>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.MenuBase.OnPropertyChanged(System.String)">
+      <summary>
+                    Raises the <see cref="E:Microsoft.Windows.Design.Interaction.MenuBase.PropertyChanged" /> event.
+                </summary>
+      <param name="name">
+                    The name of the property that is changing.
+                </param>
+    </member>
+    <member name="E:Microsoft.Windows.Design.Interaction.MenuBase.PropertyChanged">
+      <summary>
+                    Occurs when a property has changed.
+                </summary>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Interaction.MenuGroup">
+      <summary>
+                    Represents a group of menu items. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.MenuGroup.#ctor(System.String)">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Interaction.MenuGroup" /> class that has the specified group name.
+                </summary>
+      <param name="groupName">
+                    The name of the <see cref="T:Microsoft.Windows.Design.Interaction.MenuGroup" /> instance. 
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.MenuGroup.#ctor(System.String,System.String)">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Interaction.MenuGroup" /> class that has the specified group name and display name.
+                </summary>
+      <param name="groupName">
+                    The name of the <see cref="T:Microsoft.Windows.Design.Interaction.MenuGroup" /> instance.
+                </param>
+      <param name="displayName">
+                    Localized text to display when <see cref="P:Microsoft.Windows.Design.Interaction.MenuGroup.HasDropDown" /> equals true.
+                </param>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.MenuGroup.HasDropDown">
+      <summary>
+                    Gets or sets a value indicating whether the menu items in the <see cref="P:Microsoft.Windows.Design.Interaction.MenuGroup.Items" /> collection are added to a submenu. 
+                </summary>
+      <returns>true if the menu items in the items collection will be added to a submenu; false if the items in the collection will be added directly to the current menu, rendered with a separator on each end. 
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.MenuGroup.Items">
+      <summary>
+                    Gets a list of menu items to display as siblings within the same menu group.
+                </summary>
+      <returns>
+                    An <see cref="T:System.Collections.ObjectModel.ObservableCollection`1" /> of <see cref="T:Microsoft.Windows.Design.Interaction.MenuAction" /> items. 
+                </returns>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Interaction.NudgeIntent">
+      <summary>
+                    An enumeration that indicates the method a <see cref="T:Microsoft.Windows.Design.Interaction.PlacementAdapter" /> uses to move controls during keyboard nudges.
+                </summary>
+    </member>
+    <member name="F:Microsoft.Windows.Design.Interaction.NudgeIntent.Left">
+      <summary>
+                    Indicates that the intent of the placement call is to nudge the control to the left.
+                </summary>
+    </member>
+    <member name="F:Microsoft.Windows.Design.Interaction.NudgeIntent.Right">
+      <summary>
+                    Indicates that the intent of the placement call is to nudge the control to the right.
+                </summary>
+    </member>
+    <member name="F:Microsoft.Windows.Design.Interaction.NudgeIntent.Up">
+      <summary>
+                    Indicates that the intent of the placement call is to nudge the control upward.
+                </summary>
+    </member>
+    <member name="F:Microsoft.Windows.Design.Interaction.NudgeIntent.Down">
+      <summary>
+                    Indicates that the intent of the placement call is to nudge the control downward.
+                </summary>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Interaction.ParentAdapter">
+      <summary>
+                    Provides an extension point for any type that can be a parent of child objects.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.ParentAdapter.#ctor">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Interaction.ParentAdapter" /> class.
+                </summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.ParentAdapter.AdapterType">
+      <summary>
+                    Gets the type of adapter this class represents.
+                </summary>
+      <returns>
+                    A <see cref="T:System.Type" /> representing the class type of parent adapter. 
+                </returns>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.ParentAdapter.CanParent(Microsoft.Windows.Design.Model.ModelItem,System.Type)">
+      <summary>
+                    Gets a value indicating whether the specified parent object can be a parent to an object of the specified type. 
+                </summary>
+      <returns>true if the specified parent can accept a child of the specified type; otherwise, false. The default is true.
+                </returns>
+      <param name="parent">
+                    A <see cref="T:Microsoft.Windows.Design.Model.ModelItem" /> representing the parent.
+                </param>
+      <param name="childType">
+                    The type of child item.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="parent" /> or <paramref name="childType" /> is null.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.ParentAdapter.IsParent(Microsoft.Windows.Design.Model.ModelItem,Microsoft.Windows.Design.Model.ModelItem)">
+      <summary>
+                    Gets a value indicating whether the specified child item is a child of the specified parent item. 
+                </summary>
+      <returns>true if <paramref name="child" /> is a child item of <paramref name="parent" />; otherwise, false. 
+                </returns>
+      <param name="parent">
+                    The parent item.
+                </param>
+      <param name="child">
+                    The child item.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.ParentAdapter.Parent(Microsoft.Windows.Design.Model.ModelItem,Microsoft.Windows.Design.Model.ModelItem)">
+      <summary>
+                    Changes the parent of an object to another parent. 
+                </summary>
+      <param name="newParent">
+                    The new parent item for <paramref name="child" />.
+                </param>
+      <param name="child">
+                    The child item.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="newParent" /> or <paramref name="child" /> is null.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.ParentAdapter.RedirectParent(Microsoft.Windows.Design.Model.ModelItem,System.Type)">
+      <summary>
+                    Redirect a reference from one parent to another. .
+                </summary>
+      <returns>
+                    A redirected parent. The default implementation returns <paramref name="parent" />.
+                </returns>
+      <param name="parent">
+                    The parent item.
+                </param>
+      <param name="childType">
+                    The type of child item.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="parent" /> or <paramref name="childType" /> is null.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.ParentAdapter.RemoveParent(Microsoft.Windows.Design.Model.ModelItem,Microsoft.Windows.Design.Model.ModelItem,Microsoft.Windows.Design.Model.ModelItem)">
+      <summary>
+                    Replaces the current parent of the specified child with a new parent.
+                </summary>
+      <param name="currentParent">
+                    The item that is currently the parent of <paramref name="child" />.
+                </param>
+      <param name="newParent">
+                    The item that will become the new parent of <paramref name="child" />.
+                </param>
+      <param name="child">
+                    The child item.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="currentParent" />, <paramref name="newParent" />, or <paramref name="child" /> is null.
+                </exception>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Interaction.PlacementAdapter">
+      <summary>
+                    An adapter that is used to get and set positions of objects in parent coordinates. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.PlacementAdapter.#ctor">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Interaction.PlacementAdapter" /> class.
+                </summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.PlacementAdapter.AdapterType">
+      <summary>
+                    Gets the type of adapter this class represents. 
+                </summary>
+      <returns>
+                    Returns a <see cref="T:Microsoft.Windows.Design.Interaction.PlacementAdapter" /> type.
+                </returns>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.PlacementAdapter.BeginPlacement(Microsoft.Windows.Design.Model.ModelItem)">
+      <summary>
+                    Begins the placement operation.
+                </summary>
+      <param name="item">
+                    The <see cref="T:Microsoft.Windows.Design.Model.ModelItem" /> for which the placement operation is started.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.PlacementAdapter.CanSetPosition(Microsoft.Windows.Design.Interaction.PlacementIntent,Microsoft.Windows.Design.Interaction.RelativePosition)">
+      <summary>
+                    Returns a value that indicates whether the specified coordinate can be set.
+                </summary>
+      <returns>true if the coordinate can be set; otherwise, false.
+                </returns>
+      <param name="intent">
+                    Specifies the reason for this placement call. 
+                </param>
+      <param name="position">
+                    Coordinate to be set.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="position" /> is null.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.PlacementAdapter.EndPlacement">
+      <summary>
+                    Ends the placement operation.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.PlacementAdapter.GetPlacement(Microsoft.Windows.Design.Model.ModelItem,Microsoft.Windows.Design.Interaction.RelativePosition[])">
+      <summary>
+                    Returns a collection of positions that describe the placement of the specified item.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.RelativeValueCollection" /> object that is a collection of placement coordinates.
+                </returns>
+      <param name="item">
+                    The item to request placement information for.
+                </param>
+      <param name="positions">
+                    The positions to request placement information for.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="item" /> is null.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.PlacementAdapter.GetPlacementBoundary(Microsoft.Windows.Design.Model.ModelItem)">
+      <summary>
+                    Gets the boundary of the specified item parent.
+                </summary>
+      <returns>
+                    A <see cref="T:System.Windows.Rect" /> representing the boundary of the <paramref name="item" />.
+                </returns>
+      <param name="item">
+                    The parent <see cref="T:Microsoft.Windows.Design.Model.ModelItem" /> to find the boundary for.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="item" /> is null.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.PlacementAdapter.GetPlacementBoundary(Microsoft.Windows.Design.Model.ModelItem,Microsoft.Windows.Design.Interaction.PlacementIntent,Microsoft.Windows.Design.Interaction.RelativeValue[])">
+      <summary>
+                    Gets the boundary of the specified item's parent.
+                </summary>
+      <returns>
+                    A <see cref="T:System.Windows.Rect" /> representing the boundary of the parent of <paramref name="item" />.
+                </returns>
+      <param name="item">
+                    Item parent boundary to find.
+                </param>
+      <param name="intent">
+                    Specifies the reason for this placement call. 
+                </param>
+      <param name="positions">
+                    Array of placement positions to set.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="item" /> is null.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.PlacementAdapter.SetNudgePlacements(Microsoft.Windows.Design.Model.ModelItem,Microsoft.Windows.Design.Interaction.NudgeIntent,Microsoft.Windows.Design.Interaction.RelativeValue[])">
+      <summary>
+                    Assigns the specified array of positions for moving controls during keyboard nudges.
+                </summary>
+      <param name="item">
+                    The <see cref="T:Microsoft.Windows.Design.Model.ModelItem" /> to position.
+                </param>
+      <param name="intent">
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.NudgeIntent" />   that specifies the intent of this placement call.
+                </param>
+      <param name="positions">
+                    An array of placement positions to set.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.PlacementAdapter.SetNudgePlacements(Microsoft.Windows.Design.Model.ModelItem,Microsoft.Windows.Design.Interaction.NudgeIntent,Microsoft.Windows.Design.Interaction.RelativeValueCollection)">
+      <summary>
+                    Assigns the specified collection of positions for moving controls during keyboard nudges.
+                </summary>
+      <param name="item">
+                    The <see cref="T:Microsoft.Windows.Design.Model.ModelItem" /> to position.
+                </param>
+      <param name="intent">
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.NudgeIntent" />  that specifies the intent of this placement call.
+                </param>
+      <param name="placement">
+                    A collection of placement positions to set.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.PlacementAdapter.SetPlacements(Microsoft.Windows.Design.Model.ModelItem,Microsoft.Windows.Design.Interaction.PlacementIntent,Microsoft.Windows.Design.Interaction.RelativeValue[])">
+      <summary>
+                    Assigns the specified array of positions to the specified model item. 
+                </summary>
+      <param name="item">
+                    The <see cref="T:Microsoft.Windows.Design.Model.ModelItem" /> to position.
+                </param>
+      <param name="intent">
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.PlacementIntent" />  that specifies the intent of this placement call.
+                </param>
+      <param name="positions">
+                    An array of placement positions to set.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.PlacementAdapter.SetPlacements(Microsoft.Windows.Design.Model.ModelItem,Microsoft.Windows.Design.Interaction.PlacementIntent,Microsoft.Windows.Design.Interaction.RelativeValueCollection)">
+      <summary>
+                    Assigns the specified collection of positions to the specified model item. 
+                </summary>
+      <param name="item">
+                    The <see cref="T:Microsoft.Windows.Design.Model.ModelItem" /> to position.
+                </param>
+      <param name="intent">
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.PlacementIntent" />  that specifies the intent of this placement call.
+                </param>
+      <param name="placement">
+                    A collection of placement positions to set.
+                </param>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Interaction.PlacementIntent">
+      <summary>
+                    An enumeration that indicates the method a <see cref="T:Microsoft.Windows.Design.Interaction.PlacementAdapter" /> uses to place controls. 
+                </summary>
+    </member>
+    <member name="F:Microsoft.Windows.Design.Interaction.PlacementIntent.Move">
+      <summary>
+                    Indicates that the intent of the placement call is to move the control.
+                </summary>
+    </member>
+    <member name="F:Microsoft.Windows.Design.Interaction.PlacementIntent.Size">
+      <summary>
+                    Indicates that the intent of the placement call is to size the control.
+                </summary>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Interaction.PrimarySelectionAdornerProvider">
+      <summary>
+                    Offers a set of adorners that are shown for the primary selection.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.PrimarySelectionAdornerProvider.#ctor">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Interaction.PrimarySelectionAdornerProvider" /> class.
+                </summary>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Interaction.PrimarySelectionContextMenuProvider">
+      <summary>
+                    Offers a set of <see cref="T:Microsoft.Windows.Design.Interaction.MenuGroup" /> items that are shown for the current selection.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.PrimarySelectionContextMenuProvider.#ctor">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Interaction.PrimarySelectionContextMenuProvider" /> class. 
+                </summary>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Interaction.PrimarySelectionTaskProvider">
+      <summary>
+                    Provides a set of tasks that are available from the selection tool when a class is in the primary selection.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.PrimarySelectionTaskProvider.#ctor">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Interaction.PrimarySelectionTaskProvider" /> class.
+                </summary>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Interaction.RelativePoint">
+      <summary>
+                    Defines a point that consists of an X and Y location and a <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> class that defines the relationship of those coordinates to some other object.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.RelativePoint.#ctor(Microsoft.Windows.Design.Interaction.RelativePosition,System.Double,System.Double)">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Interaction.RelativePoint" /> structure for specified <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" />, X, and Y values.
+                </summary>
+      <param name="position">
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> object that defines the relationship between the specified X and Y locations and some other object.
+                </param>
+      <param name="x">
+                    An X coordinate.
+                </param>
+      <param name="y">
+                    A Y coordinate.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.RelativePoint.#ctor(Microsoft.Windows.Design.Interaction.RelativePosition,System.Windows.Point)">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Interaction.RelativePoint" /> class for a specified a non-relative point.
+                </summary>
+      <param name="position">
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> object that defines the relationship between the specified X and Y locations and some other object.
+                </param>
+      <param name="point">
+                    A <see cref="T:System.Windows.Point" /> structure containing the coordinates to create for this <see cref="T:Microsoft.Windows.Design.Interaction.RelativePoint" />.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.RelativePoint.Equals(Microsoft.Windows.Design.Interaction.RelativePoint)">
+      <summary>
+                    Specifies whether this <see cref="T:Microsoft.Windows.Design.Interaction.RelativePoint" /> contains the same coordinates as the specified <see cref="T:Microsoft.Windows.Design.Interaction.RelativePoint" />.
+                </summary>
+      <returns>true if the <see cref="T:Microsoft.Windows.Design.Interaction.RelativePoint" /> objects have the same coordinates; otherwise, false.
+                </returns>
+      <param name="value">
+                    The <see cref="T:Microsoft.Windows.Design.Interaction.RelativePoint" /> to test.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.RelativePoint.Equals(System.Object)">
+      <summary>
+                    Specifies whether this <see cref="T:Microsoft.Windows.Design.Interaction.RelativePoint" /> contains the same coordinates as the specified <see cref="T:System.Object" />. 
+                </summary>
+      <returns>true if <paramref name="obj" /> is a <see cref="T:Microsoft.Windows.Design.Interaction.RelativePoint" /> and has the same coordinates as this <see cref="T:Microsoft.Windows.Design.Interaction.RelativePoint" />.
+                </returns>
+      <param name="obj">
+                    The <see cref="T:System.Object" /> to test.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.RelativePoint.FromPoint(System.Windows.Point)">
+      <summary>
+                    Converts the specified <see cref="T:System.Windows.Point" /> to a <see cref="T:Microsoft.Windows.Design.Interaction.RelativePoint" /> that is relative to the top left corner.
+                </summary>
+      <returns>
+                    A new <see cref="T:Microsoft.Windows.Design.Interaction.RelativePoint" />.
+                </returns>
+      <param name="point">
+                    The <see cref="T:System.Windows.Point" /> structure to convert.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.RelativePoint.GetHashCode"></member>
+    <member name="M:Microsoft.Windows.Design.Interaction.RelativePoint.op_Equality(Microsoft.Windows.Design.Interaction.RelativePoint,Microsoft.Windows.Design.Interaction.RelativePoint)">
+      <summary>
+                    Compares two <see cref="T:Microsoft.Windows.Design.Interaction.RelativePoint" /> structures. The result specifies whether the values of the Position, X, and Y properties of the two <see cref="T:Microsoft.Windows.Design.Interaction.RelativePoint" /> structures are equal. 
+                </summary>
+      <returns>true if the Position, X, and Y properties are equal; otherwise, false.
+                </returns>
+      <param name="point1"></param>
+      <param name="point2"></param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.RelativePoint.op_Implicit(System.Windows.Point)~Microsoft.Windows.Design.Interaction.RelativePoint">
+      <summary>
+                    Converts the specified <see cref="T:System.Windows.Point" /> structure to a <see cref="T:Microsoft.Windows.Design.Interaction.RelativePoint" /> structure. 
+                </summary>
+      <param name="point">
+                    The <see cref="T:System.Windows.Point" /> structure to convert.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.RelativePoint.op_Inequality(Microsoft.Windows.Design.Interaction.RelativePoint,Microsoft.Windows.Design.Interaction.RelativePoint)">
+      <summary>
+                    Compares two <see cref="T:Microsoft.Windows.Design.Interaction.RelativePoint" /> structures. The result specifies whether the values of the Position, X, or Y properties of the two <see cref="T:Microsoft.Windows.Design.Interaction.RelativePoint" /> structures are not equal.
+                </summary>
+      <returns>true if the values of either the Position, X, or Y properties of <paramref name="p1" /> and <paramref name="p2" /> are not equal; otherwise, false.
+                </returns>
+      <param name="point1"></param>
+      <param name="point2"></param>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.RelativePoint.Position">
+      <summary>
+                    Gets or sets the relative position of the <see cref="T:Microsoft.Windows.Design.Interaction.RelativePoint" /> structure. 
+                </summary>
+      <returns>
+                    The relative position of the <see cref="T:Microsoft.Windows.Design.Interaction.RelativePoint" /> structure.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.RelativePoint.X">
+      <summary>
+                    Gets or sets the X coordinate of the <see cref="T:Microsoft.Windows.Design.Interaction.RelativePoint" /> structure.
+                </summary>
+      <returns>
+                    The X coordinate of the <see cref="T:Microsoft.Windows.Design.Interaction.RelativePoint" /> structure.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.RelativePoint.Y">
+      <summary>
+                    Gets or sets the Y coordinate of the <see cref="T:Microsoft.Windows.Design.Interaction.RelativePoint" /> structure.
+                </summary>
+      <returns>
+                    The Y coordinate of the <see cref="T:Microsoft.Windows.Design.Interaction.RelativePoint" /> structure.
+                </returns>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Interaction.RelativePosition">
+      <summary>
+                    Represents a position on the designer that remains independent of coordinate systems. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.RelativePosition.#ctor(Microsoft.Windows.Design.Interaction.RelativePosition[])">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> class that contains zero or more existing reference positions.
+                </summary>
+      <param name="values">
+                    An array of <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> objects included in a composite.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="values" /> is null.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.RelativePosition.#ctor(System.String,Microsoft.Windows.Design.Interaction.RelativePosition[])">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> class that contains zero or more existing reference positions. 
+                </summary>
+      <param name="name">
+                    A name that describes this <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" />. This is only used for diagnostic purposes.
+                </param>
+      <param name="values">
+                    An array of <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> objects included in a composite.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="values" /> is null.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.RelativePosition.Contains(Microsoft.Windows.Design.Interaction.RelativePosition)">
+      <summary>
+                    Returns a value indicating whether the specified <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> exists inside of this <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" />.
+                </summary>
+      <returns>true if <paramref name="value" /> is contained within this <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" />; otherwise, false.
+                </returns>
+      <param name="value">
+                    The <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> to check.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="value" /> is null.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.RelativePosition.Equals(Microsoft.Windows.Design.Interaction.RelativePosition)">
+      <summary>
+                    Determines whether the specified <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> is equal to this <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" />. 
+                </summary>
+      <returns>true if the <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> objects are equal; otherwise, false.
+                </returns>
+      <param name="position">
+                    The <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> to test.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.RelativePosition.Equals(System.Object)">
+      <summary>
+                    Determines whether the specified object is equal to this <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> object.
+                </summary>
+      <returns>true if the specified object and this <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> are equal; otherwise, false.
+                </returns>
+      <param name="obj">
+                    The object to test.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.RelativePosition.GetHashCode"></member>
+    <member name="M:Microsoft.Windows.Design.Interaction.RelativePosition.op_Equality(Microsoft.Windows.Design.Interaction.RelativePosition,Microsoft.Windows.Design.Interaction.RelativePosition)">
+      <summary>
+                    Compares two <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> objects.
+                </summary>
+      <returns>true if the two <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> objects are equal; otherwise, false.
+                </returns>
+      <param name="point1"></param>
+      <param name="point2"></param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.RelativePosition.op_Inequality(Microsoft.Windows.Design.Interaction.RelativePosition,Microsoft.Windows.Design.Interaction.RelativePosition)">
+      <summary>
+                    Compares two <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> objects.
+                </summary>
+      <returns>true if the two <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> objects are not equal; otherwise, false.
+                </returns>
+      <param name="point1"></param>
+      <param name="point2"></param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.RelativePosition.ToString">
+      <summary>
+                    Returns the name of this position.
+                </summary>
+      <returns>
+                    The name of this position. If the object is not named, returns the base implementation.
+                </returns>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Interaction.RelativePositions">
+      <summary>
+                    Represents a set of static instances of common <see cref="T:Microsoft.Windows.Design.Interaction.RelativePositions" /> objects.
+                </summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.RelativePositions.BottomLeft">
+      <summary>
+                    Gets the bottom-left corner of an item on the design surface.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> that represents the bottom-left corner of an item on the design surface.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.RelativePositions.BottomRight">
+      <summary>
+                    Gets the bottom-right corner of an item on the design surface.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> that represents the bottom-right corner of an item on the design surface.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.RelativePositions.BottomSide">
+      <summary>
+                    Gets the bottom side of an item on the design surface.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> that represents the bottom side of an item on the design surface.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.RelativePositions.Center">
+      <summary>
+                    Gets the center of an item on the design surface.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> that represents the center of an item on the design surface.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.RelativePositions.ExternalBottomLeft">
+      <summary>
+                    Gets the external bottom-left corner of an item on the design surface.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> that represents the external bottom-left corner of an item on the design surface.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.RelativePositions.ExternalBottomRight">
+      <summary>
+                    Gets the external bottom-right corner of an item on the design surface.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> that represents the external bottom-right corner of an item on the design surface.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.RelativePositions.ExternalBottomSide">
+      <summary>
+                    Gets the external bottom side of an item on the design surface.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> that represents the external bottom side of an item on the design surface.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.RelativePositions.ExternalLeftSide">
+      <summary>
+                    Gets the external left side of an item on the design surface.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> that represents the external left side of an item on the design surface.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.RelativePositions.ExternalRightSide">
+      <summary>
+                    Gets the external right side of an item on the design surface.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> that represents the external right side of an item on the design surface.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.RelativePositions.ExternalTopLeft">
+      <summary>
+                    Gets the external top-left corner of an item on the design surface.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> that represents the external top-left corner of an item on the design surface.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.RelativePositions.ExternalTopRight">
+      <summary>
+                    Gets the external top-right corner of an item on the design surface.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> that represents the external top-right corner of an item on the design surface.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.RelativePositions.ExternalTopSide">
+      <summary>
+                    Gets the external top side of an item on the design surface.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> that represents the external top side of an item on the design surface.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.RelativePositions.InternalBottomLeft">
+      <summary>
+                    Gets the internal bottom-left corner of an item on the design surface.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> that represents the internal bottom-left corner of an item on the design surface.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.RelativePositions.InternalBottomRight">
+      <summary>
+                    Gets the internal bottom-right corner of an item on the design surface.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> that represents the internal bottom-right corner of an item on the design surface.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.RelativePositions.InternalBottomSide">
+      <summary>
+                    Gets the internal bottom side of an item on the design surface.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> that represents the internal bottom side of an item on the design surface.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.RelativePositions.InternalLeftSide">
+      <summary>
+                    Gets the internal left side of an item on the design surface.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> that represents the internal left side of an item on the design surface.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.RelativePositions.InternalRightSide">
+      <summary>
+                    Gets the internal right side of an item on the design surface.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> that represents the internal right side of an item on the design surface.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.RelativePositions.InternalTopLeft">
+      <summary>
+                    Gets the internal top-left corner of an item on the design surface.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> that represents the internal top-left corner of an item on the design surface.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.RelativePositions.InternalTopRight">
+      <summary>
+                    Gets the internal top-right corner of an item on the design surface.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> that represents the internal top-right corner of an item on the design surface.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.RelativePositions.InternalTopSide">
+      <summary>
+                    Gets the internal top side of an item on the design surface.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> that represents the internal top side of an item on the design surface.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.RelativePositions.LeftSide">
+      <summary>
+                    Gets the left side of an item on the design surface.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> that represents the left side of an item on the design surface.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.RelativePositions.RightSide">
+      <summary>
+                    Gets the right side of an item on the design surface.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> that represents the right side of an item on the design surface.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.RelativePositions.TopLeft">
+      <summary>
+                    Gets the top-left corner of an item on the design surface.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> that represents the top-left corner of an item on the design surface.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.RelativePositions.TopRight">
+      <summary>
+                    Gets the top-right corner of an item on the design surface.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> that represents the top-right corner of an item on the design surface.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.RelativePositions.TopSide">
+      <summary>
+                    Gets the top side of an item on the design surface.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> that represents the top side of an item on the design surface.
+                </returns>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Interaction.RelativeValue">
+      <summary>
+                    Represents a coordinate on the designer. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.RelativeValue.#ctor(Microsoft.Windows.Design.Interaction.RelativePosition,System.Double)">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Interaction.RelativeValue" /> structure using a <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> and a value.
+                </summary>
+      <param name="reference">
+                    The known relative position type for this value.
+                </param>
+      <param name="value">
+                    The value for this relative position.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.RelativeValue.Equals(System.Object)">
+      <summary>
+                    Determines whether the specified object is equal to this <see cref="T:Microsoft.Windows.Design.Interaction.RelativeValue" /> structure.
+                </summary>
+      <returns>true if the specified object and this <see cref="T:Microsoft.Windows.Design.Interaction.RelativeValue" /> are equal; otherwise, false.
+                </returns>
+      <param name="obj">
+                    The object to test.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.RelativeValue.GetHashCode"></member>
+    <member name="M:Microsoft.Windows.Design.Interaction.RelativeValue.op_Equality(Microsoft.Windows.Design.Interaction.RelativeValue,Microsoft.Windows.Design.Interaction.RelativeValue)">
+      <summary>
+                    Compares two <see cref="T:Microsoft.Windows.Design.Interaction.RelativeValue" /> structures.
+                </summary>
+      <returns>true if the two <see cref="T:Microsoft.Windows.Design.Interaction.RelativeValue" /> structures are equal; otherwise, false.
+                </returns>
+      <param name="first">
+                    The first <see cref="T:Microsoft.Windows.Design.Interaction.RelativeValue" /> to compare.
+                </param>
+      <param name="second">
+                    The second <see cref="T:Microsoft.Windows.Design.Interaction.RelativeValue" /> to compare.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.RelativeValue.op_Inequality(Microsoft.Windows.Design.Interaction.RelativeValue,Microsoft.Windows.Design.Interaction.RelativeValue)">
+      <summary>
+                    Compares two <see cref="T:Microsoft.Windows.Design.Interaction.RelativeValue" /> structures.
+                </summary>
+      <returns>true if the two <see cref="T:Microsoft.Windows.Design.Interaction.RelativeValue" /> structures are not equal; otherwise, false.
+                </returns>
+      <param name="first">
+                    The first <see cref="T:Microsoft.Windows.Design.Interaction.RelativeValue" /> to compare.
+                </param>
+      <param name="second">
+                    The second <see cref="T:Microsoft.Windows.Design.Interaction.RelativeValue" /> to compare.
+                </param>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.RelativeValue.Position">
+      <summary>
+                    Gets or sets the <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> that identifies the kind for this value.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> that identifies the kind for this value.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.RelativeValue.Value">
+      <summary>
+                    Gets or sets the actual value of this position or coordinate.
+                </summary>
+      <returns>
+                    The actual value of this position or coordinate.
+                </returns>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Interaction.RelativeValueCollection">
+      <summary>
+                    Represents a collection of values that describe the placement of an item within a panel or container on the designer surface. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.RelativeValueCollection.#ctor">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Interaction.RelativeValueCollection" /> class. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.RelativeValueCollection.Find(Microsoft.Windows.Design.Interaction.RelativePosition)">
+      <summary>
+                    Finds the position value of the specified position.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.RelativeValue" /> of the specified position.
+                </returns>
+      <param name="position">
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.RelativePosition" /> to find.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="position" /> is null.
+                </exception>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Interaction.RootPlacementAdapter">
+      <summary>
+                    Provides placement support for any element that does not have a parent. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.RootPlacementAdapter.#ctor">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Interaction.RootPlacementAdapter" /> class.
+                </summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.RootPlacementAdapter.AdapterType">
+      <summary>
+                    Gets the adapter type.
+                </summary>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Interaction.SelectionCommands">
+      <summary>
+                    Provides standard commands that control the selection of objects in a designer. 
+                </summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.SelectionCommands.Clear">
+      <summary>
+                    Gets a <see cref="T:System.Windows.Input.RoutedCommand" /> that represents a request to clear the existing selection.
+                </summary>
+      <returns>
+                    A request to clear the existing selection.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.SelectionCommands.SelectAll">
+      <summary>
+                    Gets a <see cref="T:System.Windows.Input.RoutedCommand" /> that represents a request to select all objects in the designer.
+                </summary>
+      <returns>
+                    A request to select all objects in the designer.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.SelectionCommands.SelectNext">
+      <summary>
+                    Gets a <see cref="T:System.Windows.Input.RoutedCommand" /> that represents a request to select the next object in the designer.
+                </summary>
+      <returns>
+                    A request to select the next object in the designer.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.SelectionCommands.SelectOnlyTarget">
+      <summary>
+                    Gets a <see cref="T:Microsoft.Windows.Design.Interaction.ToolCommand" /> that represents a request to select only the object under the mouse pointer in the designer.
+                </summary>
+      <returns>
+                    A request to select only the object under the mouse pointer in the designer.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.SelectionCommands.SelectPrevious">
+      <summary>
+                    Gets a <see cref="T:System.Windows.Input.RoutedCommand" /> that represents a request to select the previous object in the designer.
+                </summary>
+      <returns>
+                    A request to select the previous object in the designer.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.SelectionCommands.SelectTarget">
+      <summary>
+                    Gets a <see cref="T:Microsoft.Windows.Design.Interaction.ToolCommand" /> that represents a request to select the object under the mouse pointer in the designer.
+                </summary>
+      <returns>
+                    A request to select the object under the mouse pointer in the designer.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.SelectionCommands.ShowEvent">
+      <summary>
+                    Gets a <see cref="T:Microsoft.Windows.Design.Interaction.ToolCommand" /> that represents a request to display the default event handler for the primary selection object in the designer.
+                </summary>
+      <returns>
+                    A request to display the default event handler for the primary selection object in the designer.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.SelectionCommands.ToggleSelectTarget">
+      <summary>
+                    Gets a <see cref="T:Microsoft.Windows.Design.Interaction.ToolCommand" /> that represents a request to toggle the selection state of the object under the mouse pointer in the designer.
+                </summary>
+      <returns>
+                    A request to toggle the selection state of the object under the mouse pointer in the designer.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.SelectionCommands.UnionSelectTarget">
+      <summary>
+                    Gets a <see cref="T:Microsoft.Windows.Design.Interaction.ToolCommand" /> that represents a request to add the object under the mouse pointer in the designer to the existing selection.
+                </summary>
+      <returns>
+                    A request to add the object under the mouse pointer in the designer to the existing selection.
+                </returns>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Interaction.SelectionTool">
+      <summary>
+                    Represents a tool that selects objects in a designer, such as a mouse pointer. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.SelectionTool.#ctor">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Interaction.SelectionTool" /> class.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.SelectionTool.OnActivate(Microsoft.Windows.Design.Interaction.Tool)">
+      <summary>
+                    Called when a <see cref="T:Microsoft.Windows.Design.Interaction.SelectionTool" /> is activated.
+                </summary>
+      <param name="previousTool">
+                    The tool that was previously active.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.SelectionTool.OnDeactivate">
+      <summary>
+                    Called when a <see cref="T:Microsoft.Windows.Design.Interaction.SelectionTool" /> is deactivated.
+                </summary>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Interaction.TaskProvider">
+      <summary>
+                    A feature provider that you can add to a class to automatically add tasks to the active tool. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.TaskProvider.#ctor">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Interaction.TaskProvider" /> class.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.TaskProvider.Activate(Microsoft.Windows.Design.Model.ModelItem)">
+      <summary>
+                    Called when a task provider's tasks are about to be requested for the first time.
+                </summary>
+      <param name="item">
+                    A <see cref="T:Microsoft.Windows.Design.Model.ModelItem" /> object. 
+                </param>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.TaskProvider.Context">
+      <summary>
+                    Gets the editing context that activated this task provider. 
+                </summary>
+      <returns>
+                    An <see cref="T:Microsoft.Windows.Design.EditingContext" /> object that represents the object that activated the current task provider.
+                </returns>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.TaskProvider.Deactivate">
+      <summary>
+                    Called when a task provider is about to be discarded by the designer.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Interaction.TaskProvider.IsToolSupported(Microsoft.Windows.Design.Interaction.Tool)">
+      <summary>
+                    Returns a value indicating whether this task provider supports the specified tool. 
+                </summary>
+      <returns>true if the specified tool is supported; otherwise, false.
+                </returns>
+      <param name="tool">
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.Tool" /> object to check.
+                </param>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Interaction.TaskProvider.Tasks">
+      <summary>
+                    Gets a collection of tasks this task provider offers.
+                </summary>
+      <returns>
+                    An <see cref="T:System.Collections.Generic.ICollection`1" /> that contains all of the tasks that this <see cref="T:Microsoft.Windows.Design.Interaction.TaskProvider" /> offers.
+                </returns>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Model.DefaultInitializer">
+      <summary>
+                    Used to configure a new object in the designer. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Model.DefaultInitializer.#ctor">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Model.DefaultInitializer" /> class.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Model.DefaultInitializer.InitializeDefaults(Microsoft.Windows.Design.Model.ModelItem)">
+      <summary>
+                    Initializes default values for the specified item.
+                </summary>
+      <param name="item">
+                    The item to initialize. This should not be null.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="item" /> is null.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Model.DefaultInitializer.InitializeDefaults(Microsoft.Windows.Design.Model.ModelItem,Microsoft.Windows.Design.EditingContext)">
+      <summary>
+                    Initializes default values for the specified item using the provided editing context.
+                </summary>
+      <param name="item">
+                    The item to initialize. This should not be null.
+                </param>
+      <param name="context">
+                    The editing context. 
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="item" /> is null.
+                </exception>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Model.DesignModeValueProvider">
+      <summary>
+                    Captures property changes that are made by the user in the designer and provides new values at design time.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Model.DesignModeValueProvider.#ctor">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Model.DesignModeValueProvider" /> class.
+                </summary>
+      <exception cref="T:System.InvalidOperationException">
+                    An invalid property is added to <see cref="P:Microsoft.Windows.Design.Model.DesignModeValueProvider.Properties" />.
+                </exception>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Model.DesignModeValueProvider.Properties">
+      <summary>
+                    Gets the set of properties to capture.
+                </summary>
+      <returns>
+                    A <see cref="T:Microsoft.Windows.Design.Model.PropertyIdentifierCollection" /> that contains the set of properties to capture.
+                </returns>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Model.DesignModeValueProvider.TranslatePropertyValue(Microsoft.Windows.Design.Model.PropertyIdentifier,System.Object)">
+      <summary>
+                    Captures property changes made by the user in the designer and uses custom logic to provide new values at design time.
+                </summary>
+      <returns>
+                    The value to set the property to in the designer.
+                </returns>
+      <param name="identifier">
+                    The property that the user is changing the value of.
+                </param>
+      <param name="value">
+                    The new value that the user is giving the property.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="identifier" /> is null. 
+                </exception>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Model.InstanceFactory">
+      <summary>
+                    A feature provider that enables you to provide the implementation of the <see cref="M:Microsoft.Windows.Design.Model.InstanceFactory.CreateInstance(System.Type,System.Object[])" /> method for your object. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Model.InstanceFactory.#ctor">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Model.InstanceFactory" /> class. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Model.InstanceFactory.CreateInstance(System.Type,System.Object[])">
+      <summary>
+                    Creates an instance of the specified type.
+                </summary>
+      <returns>
+                    A newly created object. The return value should not return null.
+                </returns>
+      <param name="type">
+                    The type of object to create.
+                </param>
+      <param name="arguments">
+                    An optional array of arguments to pass into the constructor.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="type" /> is null.
+                </exception>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Model.ModelParent">
+      <summary>
+                    A class that can be used to help set the parent of an item. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Model.ModelParent.CanParent(Microsoft.Windows.Design.EditingContext,Microsoft.Windows.Design.Model.ModelItem,System.Type)">
+      <summary>
+                    Determines if the specified type can be the parent of the specified child type.
+                </summary>
+      <returns>true if the specified <paramref name="parent" /> item can accept instances of <paramref name="childType" /> as a child; otherwise, false.
+                </returns>
+      <param name="context">
+                    The editing context to use.
+                </param>
+      <param name="parent">
+                    The parent.
+                </param>
+      <param name="childType">
+                    The type of item you wish to parent.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Model.ModelParent.FindParent(Microsoft.Windows.Design.EditingContext,Microsoft.Windows.Design.Model.ModelItem,Microsoft.Windows.Design.Model.ModelItem)">
+      <summary>
+                    Finds a viable parent for the specified child and editing context.
+                </summary>
+      <returns>
+                    An item that can accept a <paramref name="childItem" />, or null if no viable parent could be found.
+                </returns>
+      <param name="context">
+                    The editing context to use.
+                </param>
+      <param name="childItem">
+                    The item you wish to parent.
+                </param>
+      <param name="startingItem">
+                    The item to use as a starting point for the search.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Model.ModelParent.FindParent(Microsoft.Windows.Design.EditingContext,System.Type,Microsoft.Windows.Design.Model.ModelItem)">
+      <summary>
+                    Finds a viable parent for the specified type of child and editing context.
+                </summary>
+      <returns>
+                    An item that can accept an item of type <paramref name="childType" />, or null if no viable parent could be found.
+                </returns>
+      <param name="context">
+                    The editing context to use.
+                </param>
+      <param name="childType">
+                    The type of item you wish to parent.
+                </param>
+      <param name="startingItem">
+                    The item to use as a starting point for the search.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Model.ModelParent.FindParent(System.Type,Microsoft.Windows.Design.Interaction.GestureData)">
+      <summary>
+                    Finds a viable parent for the specified type of child.
+                </summary>
+      <returns>
+                    An item that can accept an item of type <paramref name="childType" />, or null if no viable parent could be found.
+                </returns>
+      <param name="childType">
+                    The type of item you wish to parent.
+                </param>
+      <param name="gestureData">
+                    Gesture data that can be used to determine the starting item and position of the search.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Model.ModelParent.Parent(Microsoft.Windows.Design.EditingContext,Microsoft.Windows.Design.Model.ModelItem,Microsoft.Windows.Design.Model.ModelItem)">
+      <summary>
+                    Sets the specified item as the parent of the specified child item.
+                </summary>
+      <param name="context">
+                    The editing context to use.
+                </param>
+      <param name="parentItem">
+                    The parent to set the child into.
+                </param>
+      <param name="childItem">
+                    The child to be parented.
+                </param>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Model.PropertyIdentifier">
+      <summary>
+                    An object that represents a property. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Model.PropertyIdentifier.#ctor(System.String)">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Model.PropertyIdentifier" /> class. 
+                </summary>
+      <param name="name">
+                    The name of the property that this instance represents.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Model.PropertyIdentifier.#ctor(System.Windows.DependencyProperty)">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Model.PropertyIdentifier" /> class. 
+                </summary>
+      <param name="property">
+                    The property that this instance represents.
+                </param>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Model.PropertyIdentifier.DependencyProperty">
+      <summary>
+                    The dependency property this identifier represents.
+                </summary>
+      <returns>
+                    The <see cref="T:System.Windows.DependencyProperty" /> represented by this identifier.
+                </returns>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Model.PropertyIdentifier.Equals(System.Object)">
+      <returns>true if <paramref name="obj" /> is equal to the property represented by <see cref="T:Microsoft.Windows.Design.Model.PropertyIdentifier" />; otherwise, false.
+                </returns>
+      <param name="obj">
+                    The object being compared for equality
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Model.PropertyIdentifier.GetHashCode">
+      <returns>
+                    An integer that is a hash code representing the object. 
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Model.PropertyIdentifier.Name">
+      <summary>
+                    The property name.
+                </summary>
+      <returns>
+                    A string that represents the name of this property represented by this identifier.
+                </returns>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Model.PropertyIdentifierCollection">
+      <summary>
+                    A collection of property identifiers.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Model.PropertyIdentifierCollection.#ctor">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Model.PropertyIdentifierCollection" /> class.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Model.PropertyIdentifierCollection.Add(System.String)">
+      <summary>
+                    Adds a new property identifier.
+                </summary>
+      <param name="name">
+                    A string that represents the name of the property to be added to the collection. 
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Model.PropertyIdentifierCollection.Add(System.Windows.DependencyProperty)">
+      <summary>
+                    Adds a new property identifier.
+                </summary>
+      <param name="property">
+                    The <see cref="T:System.Windows.DependencyProperty" /> to be added to the collection.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Model.PropertyIdentifierCollection.InsertItem(System.Int32,Microsoft.Windows.Design.Model.PropertyIdentifier)">
+      <summary>
+                    Inserts a new <see cref="T:Microsoft.Windows.Design.Model.PropertyIdentifier" />.
+                </summary>
+      <param name="index">
+                    The index in the application where the <paramref name="item" /> will be inserted.
+                </param>
+      <param name="item">
+                    A <see cref="T:Microsoft.Windows.Design.Model.PropertyIdentifier" /> instance.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Model.PropertyIdentifierCollection.SetItem(System.Int32,Microsoft.Windows.Design.Model.PropertyIdentifier)">
+      <summary>
+                    Sets the item at the specified index.
+                </summary>
+      <param name="index">
+                    The index for the item to be set.
+                </param>
+      <param name="item">
+                    A <see cref="T:Microsoft.Windows.Design.Model.PropertyIdentifier" /> instance.
+                </param>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Policies.ItemPolicy">
+      <summary>
+                    A policy that specifies a set of rules in the designer.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Policies.ItemPolicy.#ctor">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Policies.ItemPolicy" /> class.
+                </summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Policies.ItemPolicy.Context">
+      <summary>
+                    Gets the editing context for the designer. 
+                </summary>
+      <exception cref="T:System.InvalidOperationException">
+                    The policy has not been activated.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Policies.ItemPolicy.GetSurrogateItems(Microsoft.Windows.Design.Model.ModelItem)">
+      <summary>
+                    Returns an optional set of surrogate items for this item. 
+                </summary>
+      <returns>
+                    An enumeration of surrogate items to check. The default returns an empty enumeration.
+                </returns>
+      <param name="item">
+                    The item to retrieve the surrogate for.
+                </param>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Policies.ItemPolicy.IsSurrogate">
+      <summary>
+                    Gets a value indicating whether the policy is a surrogate policy. 
+                </summary>
+      <returns>true if the policy is a surrogate policy; otherwise, false.
+                </returns>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Policies.ItemPolicy.OnActivated">
+      <summary>
+                    Called when a policy is activated. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Policies.ItemPolicy.OnDeactivated">
+      <summary>
+                    Called when the policy is deactivated. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Policies.ItemPolicy.OnPolicyItemsChanged(Microsoft.Windows.Design.Policies.PolicyItemsChangedEventArgs)">
+      <summary>
+                    Raises the <see cref="E:Microsoft.Windows.Design.Policies.ItemPolicy.PolicyItemsChanged" /> event. 
+                </summary>
+      <param name="e">
+                    A <see cref="T:Microsoft.Windows.Design.Policies.PolicyItemsChangedEventArgs" /> that contains the event data.
+                </param>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Policies.ItemPolicy.PolicyItems">
+      <summary>
+                    Gets an enumeration of all items in the policy.
+                </summary>
+      <returns>
+                    An <see cref="T:System.Collections.Generic.IEnumerable`1" /> containing the set of items in the policy.
+                </returns>
+    </member>
+    <member name="E:Microsoft.Windows.Design.Policies.ItemPolicy.PolicyItemsChanged">
+      <summary>
+                    Occurs when the policy changes. 
+                </summary>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Policies.PolicyAddedEventArgs">
+      <summary>
+                    Provides data for the <see cref="T:Microsoft.Windows.Design.Policies.PolicyAddedEventArgs" /> event.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Policies.PolicyAddedEventArgs.#ctor(Microsoft.Windows.Design.Policies.ItemPolicy)">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Policies.PolicyAddedEventArgs" /> class. 
+                </summary>
+      <param name="policy">
+                    The newly added policy.
+                </param>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Policies.PolicyAddedEventArgs.Policy">
+      <summary>
+                    Gets the policy that was newly added.
+                </summary>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Policies.PolicyItemsChangedEventArgs">
+      <summary>
+                    Provides data for the <see cref="E:Microsoft.Windows.Design.Policies.ItemPolicy.PolicyItemsChanged" /> event.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Policies.PolicyItemsChangedEventArgs.#ctor(Microsoft.Windows.Design.Policies.ItemPolicy,System.Collections.Generic.IEnumerable{Microsoft.Windows.Design.Model.ModelItem},System.Collections.Generic.IEnumerable{Microsoft.Windows.Design.Model.ModelItem})">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Policies.PolicyItemsChangedEventArgs" /> class.
+                </summary>
+      <param name="policy">
+                    The policy that has changed.
+                </param>
+      <param name="itemsAdded">
+                    The items that have been added to the policy since the last change event.
+                </param>
+      <param name="itemsRemoved">
+                    The items that have been removed from the policy since the last change event.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="policy" /> is null.
+                </exception>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Policies.PolicyItemsChangedEventArgs.ItemsAdded">
+      <summary>
+                    Gets the items that have been added to the policy since the last change event.
+                </summary>
+      <returns>
+                    An enumeration of <see cref="T:Microsoft.Windows.Design.Model.ModelItem" /> objects that were added during the policy change. 
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Policies.PolicyItemsChangedEventArgs.ItemsRemoved">
+      <summary>
+                    Gets the items that have been removed from the policy since the last change event.
+                </summary>
+      <returns>
+                    An enumeration of <see cref="T:Microsoft.Windows.Design.Model.ModelItem" /> objects that were removed during the policy change. 
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Policies.PolicyItemsChangedEventArgs.Policy">
+      <summary>
+                    Gets the policy that changed.
+                </summary>
+      <returns>
+                    An <see cref="T:Microsoft.Windows.Design.Policies.ItemPolicy" /> object representing the policy that changed.
+                </returns>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Policies.PrimarySelectionPolicy">
+      <summary>
+                    A policy that specifies the primarily selected element.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Policies.PrimarySelectionPolicy.#ctor">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Policies.PrimarySelectionPolicy" /> class.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Policies.PrimarySelectionPolicy.GetPolicyItems(Microsoft.Windows.Design.Interaction.Selection)">
+      <summary>
+                    Returns the policy item that represents the primary selection.
+                </summary>
+      <returns>
+                    Either a single element that is the primary selection, or an empty enumeration.
+                </returns>
+      <param name="selection">
+                    The current selection.
+                </param>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Policies.SecondarySelectionPolicy">
+      <summary>
+                    A policy that specifies all items in the selection that are not the primary selection.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Policies.SecondarySelectionPolicy.#ctor">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Policies.SecondarySelectionPolicy" /> class.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Policies.SecondarySelectionPolicy.IsInPolicy(Microsoft.Windows.Design.Interaction.Selection,Microsoft.Windows.Design.Model.ModelItem)">
+      <summary>
+                    Gets a value indicating whether the specified item is in the selection and is not the primary selection. 
+                </summary>
+      <returns>true if <paramref name="item" /> is not the primary selection; otherwise, false.
+                </returns>
+      <param name="selection">
+                    Selection state.
+                </param>
+      <param name="item">
+                    Item to be evaluated.
+                </param>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Policies.SelectionParentPolicy">
+      <summary>
+                    A policy that specifies the set of unique parents for the current set of selected items.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Policies.SelectionParentPolicy.#ctor">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Policies.SelectionParentPolicy" /> class.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Policies.SelectionParentPolicy.GetPolicyItems(Microsoft.Windows.Design.Interaction.Selection)">
+      <summary>
+                    Overrides the default <see cref="M:Microsoft.Windows.Design.Policies.SelectionPolicy.GetPolicyItems(Microsoft.Windows.Design.Interaction.Selection)" /> method to return the unique parents of the specified selection.
+                </summary>
+      <returns>
+                    An enumeration of unique parents for the given selection.
+                </returns>
+      <param name="selection">
+                    The current selection.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Policies.SelectionParentPolicy.IsInPolicy(Microsoft.Windows.Design.Interaction.Selection,Microsoft.Windows.Design.Model.ModelItem,Microsoft.Windows.Design.Model.ModelItem)">
+      <summary>
+                    Evaluates whether the specified parent item is to be included in the policy. 
+                </summary>
+      <returns>true if <paramref name="parent" /> is to be included in the policy; otherwise, false.
+                </returns>
+      <param name="selection">
+                    Selection state.
+                </param>
+      <param name="item">
+                    Item to be evaluated.
+                </param>
+      <param name="parent">
+                    Parent of item to be evaluated.
+                </param>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Policies.SelectionPolicy">
+      <summary>
+                    A policy that makes all items in the selection available. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Policies.SelectionPolicy.#ctor">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Policies.SelectionPolicy" /> class.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Policies.SelectionPolicy.GetPolicyItems(Microsoft.Windows.Design.Interaction.Selection)">
+      <summary>
+                    Returns the policy items from the specified selection. 
+                </summary>
+      <returns>
+                    An enumeration of <see cref="T:Microsoft.Windows.Design.Model.ModelItem" /> objects to use for this policy. 
+                </returns>
+      <param name="selection">
+                    The current selection.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Policies.SelectionPolicy.IsInPolicy(Microsoft.Windows.Design.Interaction.Selection,Microsoft.Windows.Design.Model.ModelItem)">
+      <summary>
+                    Gets a value indicating whether the specified item is to be included in the policy. 
+                </summary>
+      <returns>true if item is to be included in the policy; otherwise, false.
+                </returns>
+      <param name="selection">
+                    A <see cref="T:Microsoft.Windows.Design.Interaction.Selection" /> to filter with policy logic.
+                </param>
+      <param name="item">
+                    Item to be evaluated.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Policies.SelectionPolicy.OnActivated">
+      <summary>
+                    Called when this policy is activated. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Policies.SelectionPolicy.OnDeactivated">
+      <summary>
+                    Called when this policy is deactivated. 
+                </summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Policies.SelectionPolicy.PolicyItems">
+      <summary>
+                    Gets an enumeration of items that are affected by this policy.
+                </summary>
+      <returns>
+                    An enumeration of <see cref="T:Microsoft.Windows.Design.Model.ModelItem" /> objects that are affected by this policy.
+                </returns>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Policies.UsesItemPolicyAttribute">
+      <summary>
+                    Restricts a feature provider to a specified policy. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Policies.UsesItemPolicyAttribute.#ctor(System.Type)">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Policies.UsesItemPolicyAttribute" /> class.
+                </summary>
+      <param name="itemPolicyType">
+                    The type of policy this extension can be associated with.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="itemPolicyType" /> is null.
+                </exception>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Policies.UsesItemPolicyAttribute.AllRequired">
+      <summary>
+                    Overrides the <see cref="P:Microsoft.Windows.Design.RequirementAttribute.AllRequired" /> property to return false. 
+                </summary>
+      <returns>
+                    Always false.
+                </returns>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Policies.UsesItemPolicyAttribute.CreateSubscription(Microsoft.Windows.Design.EditingContext)">
+      <summary>
+                    Returns a <see cref="T:Microsoft.Windows.Design.RequirementSubscription" /> object that can be used to be notified when this policy is available.
+                </summary>
+      <returns>
+                    A new <see cref="T:Microsoft.Windows.Design.RequirementSubscription" /> object.
+                </returns>
+      <param name="context">
+                    The editing context to check.
+                </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="context" /> is null.
+                </exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Policies.UsesItemPolicyAttribute.Equals(System.Object)">
+      <summary>
+                    Determines whether the specified object is equal to this <see cref="T:Microsoft.Windows.Design.Policies.UsesItemPolicyAttribute" />.
+                </summary>
+      <returns>true if the specified object and this <see cref="T:Microsoft.Windows.Design.Policies.UsesItemPolicyAttribute" /> are equal; otherwise, false.
+                </returns>
+      <param name="obj">
+                    The object to test.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Policies.UsesItemPolicyAttribute.GetHashCode">
+      <summary>
+                    Returns the hash code for this attribute.
+                </summary>
+      <returns>
+                    A hash code for this attribute.
+                </returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Policies.UsesItemPolicyAttribute.ItemPolicyType">
+      <summary>
+                    Gets the type of policy the feature provider can be associated with.
+                </summary>
+      <returns>
+                    A <see cref="T:System.Type" /> that represents the policy associated with the feature provider. 
+                </returns>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Policies.UsesItemPolicyAttribute.MeetsRequirement(Microsoft.Windows.Design.EditingContext)">
+      <summary>
+                    Returns a value indicating whether the specified editing context contains the <see cref="P:Microsoft.Windows.Design.Policies.UsesItemPolicyAttribute.ItemPolicyType" /> associated with this attribute instance.
+                </summary>
+      <returns>true if this requirement is met; otherwise, false.
+                </returns>
+      <param name="context">
+                    The editing context to check.
+                </param>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Policies.UsesItemPolicyAttribute.TypeId">
+      <summary>
+                    Gets the type ID for this attribute.
+                </summary>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Services.AdapterService">
+      <summary>
+                    Provides adapters for a specified item.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Services.AdapterService.#ctor">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Services.AdapterService" /> class.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Services.AdapterService.GetAdapter``1(System.Type)">
+      <summary>
+                    Returns an adapter of the specified adapter type for the specified item. 
+                </summary>
+      <param name="itemType">
+                    The item to get the adapter for.
+                </param>
+      <typeparam name="TAdapterType">
+                    The type of adapter.
+                </typeparam>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Services.AdapterService.GetAdapter(System.Type,System.Type)">
+      <summary>
+                    Returns an adapter of the specified adapter type for the specified item. 
+                </summary>
+      <param name="adapterType">
+                    The type of adapter to return.
+                </param>
+      <param name="itemType">
+                    The item to get the adapter for.
+                </param>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Services.ContextMenuService">
+      <summary>
+                    A service that locates items to display on a context menu.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Services.ContextMenuService.GetItems">
+      <summary>
+                    Gets a list of menu items.
+                </summary>
+      <returns>
+                    An enumeration of currently applicable menu items.
+                </returns>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Services.EventBindingService">
+      <summary>
+                    Defines methods to create, remove, display and query the contents of the event handling class for the current editing context. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Services.EventBindingService.#ctor">
+      <summary>
+                    When overridden in a derived class, initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Services.EventBindingService" /> class.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Services.EventBindingService.AddEventHandler(Microsoft.Windows.Design.Model.ModelEvent,System.String)">
+      <summary>
+                    When overridden in a derived class, requests that a specified method be declared as handling a specified event.
+                </summary>
+      <returns>true if the method can be successfully declared in the code-behind file to handle the given event; otherwise, false.
+                </returns>
+      <param name="modelEvent">
+                    The event to handle.
+                </param>
+      <param name="methodName">
+                    The method to declare.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Services.EventBindingService.AllowClassNameForMethodName">
+      <summary>
+                    When overridden in a derived class, determines whether a class name can be used in creating a unique method name in a language.
+                </summary>
+      <returns>true if a class name can be used in creating a unique method name in a language; otherwise, false.
+                </returns>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Services.EventBindingService.CreateMethod(Microsoft.Windows.Design.Model.ModelEvent,System.String)">
+      <summary>
+                    When overridden in a derived class, creates a method that handles an event.
+                </summary>
+      <returns>true if the method is successfully created; otherwise, false.
+                </returns>
+      <param name="modelEvent">
+                    The event that <paramref name="methodName" /> handles.
+                </param>
+      <param name="methodName">
+                    The method to create.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Services.EventBindingService.CreateUniqueMethodName(Microsoft.Windows.Design.Model.ModelEvent)">
+      <summary>
+                    When overridden in a derived class, returns a unique method name for an event handler.
+                </summary>
+      <returns>
+                    A unique event handler name. For example, Button1_Click or Button1_Click_1.
+                </returns>
+      <param name="modelEvent">
+                    The event for which to create a unique event handler name.
+                </param>
+    </member>
+    <member name="E:Microsoft.Windows.Design.Services.EventBindingService.EventHandlerGenerated"></member>
+    <member name="M:Microsoft.Windows.Design.Services.EventBindingService.GetCompatibleMethods(Microsoft.Windows.Design.Model.ModelEvent)">
+      <summary>
+                    When overridden in a derived class, returns the names of methods that are compatible with a specified event.
+                </summary>
+      <returns>
+                    The names of methods that are compatible with <paramref name="modelEvent" />.
+                </returns>
+      <param name="modelEvent">
+                    The event that the methods are compatible with.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Services.EventBindingService.GetMethodHandlers(Microsoft.Windows.Design.Model.ModelEvent)">
+      <summary>
+                    When overridden in a derived class, returns a list of methods that handle a specified event.
+                </summary>
+      <returns>
+                    The list of methods that handle <paramref name="modelEvent" />.
+                </returns>
+      <param name="modelEvent">
+                    The event that is being handled.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Services.EventBindingService.IsExistingMethodName(Microsoft.Windows.Design.Model.ModelEvent,System.String)">
+      <summary>
+                    When overridden in a derived class, determines whether a method name that handles a specified event already exists.
+                </summary>
+      <returns>true if the method name that handles <paramref name="modelEvent" /> already exists; otherwise, false.
+                </returns>
+      <param name="modelEvent">
+                    The event that <paramref name="methodName" /> handles.
+                </param>
+      <param name="methodName">
+                    The name of the method to check.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Services.EventBindingService.OnEventHandlerGenerated(Microsoft.Windows.Design.Model.ModelEvent,System.String)"></member>
+    <member name="M:Microsoft.Windows.Design.Services.EventBindingService.RemoveHandle(Microsoft.Windows.Design.Model.ModelEvent,System.String)">
+      <summary>
+                    When overridden in a derived class, requests that a specific method stop handling a specific event by removing it from a Handles clause.
+                </summary>
+      <returns>true if the event can be successfully removed from the method declaration in the code-behind file; otherwise, false.
+                </returns>
+      <param name="modelEvent">
+                    The event to stop <paramref name="methodName" /> from handling.
+                </param>
+      <param name="methodName">
+                    The method to stop handling <paramref name="modelEvent" />.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Services.EventBindingService.RemoveHandlesForName(System.String)"></member>
+    <member name="M:Microsoft.Windows.Design.Services.EventBindingService.RemoveMethod(Microsoft.Windows.Design.Model.ModelEvent,System.String)">
+      <summary>
+                    When overridden in a derived class, requests that a specific method stop handling a specific event by removing it from an event handling class.
+                </summary>
+      <returns>true if <paramref name="methodName" /> is successfully removed from the event handling class; otherwise, false.
+                </returns>
+      <param name="modelEvent">
+                    The event to stop handling.
+                </param>
+      <param name="methodName">
+                    The method to stop handling <paramref name="modelEvent" />.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Services.EventBindingService.SetClassName(System.String)">
+      <summary>
+                    When overridden in a derived class, identifies the methods that the binding service is referring to as belonging to the specified class.
+                </summary>
+      <param name="className">
+                    The name of the class that the methods belong to.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Services.EventBindingService.ShowMethod(Microsoft.Windows.Design.Model.ModelEvent,System.String)">
+      <summary>
+                    When overridden in a derived class, attempts to display the specified method to the user.
+                </summary>
+      <returns>true if the method is successfully displayed to the user; otherwise, false.
+                </returns>
+      <param name="modelEvent">
+                    The event that <paramref name="methodName" /> handles.
+                </param>
+      <param name="methodName">
+                    The method to display.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Services.EventBindingService.ValidateMethodName(Microsoft.Windows.Design.Model.ModelEvent,System.String)">
+      <summary>
+                    When overridden in a derived class, determines whether a method name is a valid method name and raises an exception if it is not.
+                </summary>
+      <param name="modelEvent">
+                    The event that <paramref name="methodName" /> handles.
+                </param>
+      <param name="methodName">
+                    The name of the method to check.
+                </param>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Services.EventHandlerGeneratedEventArgs"></member>
+    <member name="M:Microsoft.Windows.Design.Services.EventHandlerGeneratedEventArgs.#ctor(Microsoft.Windows.Design.Model.ModelEvent,System.String)"></member>
+    <member name="P:Microsoft.Windows.Design.Services.EventHandlerGeneratedEventArgs.MethodName"></member>
+    <member name="P:Microsoft.Windows.Design.Services.EventHandlerGeneratedEventArgs.ModelEvent"></member>
+    <member name="T:Microsoft.Windows.Design.Services.ValueTranslationService">
+      <summary>
+                    Provides a mechanism for capturing property changes that are made by the user in the designer and providing new values at design time.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Services.ValueTranslationService.#ctor">
+      <summary>
+                    When overridden in a derived class, initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Services.ValueTranslationService" /> class.
+                </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Services.ValueTranslationService.GetProperties(System.Type)">
+      <summary>
+                    When overridden in a derived class, returns an enumeration that contains the properties to translate for the specified type.
+                </summary>
+      <returns>
+                    An enumeration that contains the properties to translate for a specified type, if any.
+                </returns>
+      <param name="itemType">
+                    The type for which to get the properties to translate.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Services.ValueTranslationService.HasValueTranslation(System.Type,System.String)">
+      <summary>
+                    When overridden in a derived class, determines whether the specified property should be translated for the specified type.
+                </summary>
+      <returns>true if the specified property should be translated for the specified type; otherwise, false.
+                </returns>
+      <param name="itemType">
+                    The type for which to determine whether <paramref name="propertyName" /> should be translated.
+                </param>
+      <param name="propertyName">
+                    The property of <paramref name="itemType" /> that might get translated.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Services.ValueTranslationService.HasValueTranslation(System.Type,System.Windows.DependencyProperty)">
+      <summary>
+                    When overridden in a derived class, determines whether the specified dependency property should be translated for the specified type.
+                </summary>
+      <returns>true if the specified dependency property should be translated for the specified type; otherwise, false.
+                </returns>
+      <param name="itemType">
+                    The type for which to determine whether <paramref name="dependencyProperty" /> should be translated.
+                </param>
+      <param name="dependencyProperty">
+                    The dependency property of <paramref name="itemType" /> that might get translated.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Services.ValueTranslationService.TranslatePropertyValue(System.Type,System.String,System.Object)">
+      <summary>
+                    When overridden in a derived class, calls custom logic to translate the specified property for the specified type, and specifies the value to translate.
+                </summary>
+      <returns>
+                    The translated value of the property to set in the designer.
+                </returns>
+      <param name="itemType">
+                    The type for which the user sets the property value in the designer.
+                </param>
+      <param name="propertyName">
+                    The property for which the user sets the value in the designer.
+                </param>
+      <param name="value">
+                    The value set by the user in the designer.
+                </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Services.ValueTranslationService.TranslatePropertyValue(System.Type,System.Windows.DependencyProperty,System.Object)">
+      <summary>
+                    When overridden in a derived class, calls custom logic to translate the specified dependency property for the specified type, and specifies the value to translate.
+                </summary>
+      <returns>
+                    The translated value of the property to set in the designer.
+                </returns>
+      <param name="itemType">
+                    The type for which the user sets the property value in the designer.
+                </param>
+      <param name="dependencyProperty">
+                    The dependency property for which the user sets the value in the designer.
+                </param>
+      <param name="value">
+                    The value set by the user in the designer.
+                </param>
+    </member>
+  </members>
+</doc>

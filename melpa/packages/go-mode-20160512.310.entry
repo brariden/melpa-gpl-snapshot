@@ -1,0 +1,2 @@
+
+(go-mode . [(20160512 310) nil "Major mode for the Go programming language" tar ((:keywords "languages" "go") (:url . "https://github.com/dominikh/go-mode.el"))])

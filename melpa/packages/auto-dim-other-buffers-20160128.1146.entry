@@ -1,0 +1,2 @@
+
+(auto-dim-other-buffers . [(20160128 1146) nil "Makes non-current buffers less prominent" single ((:url . "https://github.com/mina86/auto-dim-other-buffers.el"))])

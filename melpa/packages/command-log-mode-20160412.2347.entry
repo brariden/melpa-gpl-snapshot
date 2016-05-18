@@ -1,0 +1,2 @@
+
+(command-log-mode . [(20160412 2347) nil "log keyboard commands to buffer" single ((:keywords "help") (:url . "https://github.com/lewang/command-log-mode"))])

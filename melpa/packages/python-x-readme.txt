@@ -9,7 +9,8 @@ defined by "# {{{" and "# }}}" (see `python-shell-send-fold-or-section').
 
 python-x installs an handler to show uncaught exceptions produced by
 interactive code evaluation by default. See `python-shell-show-exceptions'
-to control this behavior.
+to control this behavior. The execution status of the inferior process is
+tracked in the modeline, in order to know when the evaluation is complete.
 
 The following functions are introduced:
 - `python-shell-send-line': evaluate and print the current line, accounting
@@ -25,6 +26,9 @@ The following functions are introduced:
   region or symbol at point, displaying the inferior process output.
 - `python-shell-display-shell': Display the inferior Python process output
   in another window.
+- `python-shell-switch-to-shell-or-buffer': Switch between the buffer and
+  the inferior (cycling command).
+- `python-shell-restart-process': Restart the inferior Python process.
 - `python-forward-fold-or-section': Move forward by fold/sections.
 - `python-backward-fold-or-section': Move backward by fold/sections.
 - `python-mark-fold-or-section': Mark current fold or section.
@@ -51,3 +55,5 @@ To automatically setup python-x with an ESS-like keyboard map, use
 The keyboard map definition is currently tuned to the author's taste, and
 may change over time. You are encouraged to look at the definition of
 `python-x-setup' and derive your own.
+
+See the `python-x' customization group for additional settings.

@@ -1,0 +1,2 @@
+
+(ox-bibtex-chinese . [(20160510 706) ((emacs (24 4))) "Let ox-bibtex work well for Chinese users" single ((:url . "https://github.com/tumashu/ox-bibtex-chinese.git"))])

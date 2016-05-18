@@ -1,0 +1,11 @@
+Post-commit hook to submit bazaar commits to Zeitgeist
+******************************************************
+
+To use this plugin:
+
+* Install Zeitgeist 0.3 (or greater) so that the python library is available system-wide.
+* Run the install.sh script which will copy the hook to '~/.bazaar/plugins/'.
+
+To update plugin changes:
+* Run the install.sh script to recopy the hook files.
+

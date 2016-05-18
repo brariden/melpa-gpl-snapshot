@@ -1,0 +1,86 @@
+#+TITLE: Otama -- Org-table Manipulator
+#+AUTHOR: Yoshinari Nomura
+#+EMAIL:
+#+DATE: 2016-02-03
+#+OPTIONS: H:3 num:2 toc:nil
+#+OPTIONS: ^:nil @:t \n:nil ::t |:t f:t TeX:t
+#+OPTIONS: skip:nil
+#+OPTIONS: author:t
+#+OPTIONS: email:nil
+#+OPTIONS: creator:nil
+#+OPTIONS: timestamp:nil
+#+OPTIONS: timestamps:nil
+#+OPTIONS: d:nil
+#+OPTIONS: tags:t
+#+TEXT:
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE: ja
+#+LATEX_CLASS: jsarticle
+#+LATEX_CLASS_OPTIONS: [a4j]
+# #+LATEX_HEADER: \usepackage{plain-article}
+# #+LATEX_HEADER: \renewcommand\maketitle{}
+# #+LATEX_HEADER: \pagestyle{empty}
+# #+LaTeX: \thispagestyle{empty}
+
+[[http://melpa.org/#/otama][file:http://melpa.org/packages/otama-badge.svg]]
+
+* DESCRIPTION
+  Otama is a simple org-table based database.
+  Mainly, it is intended to be a light version of BB DB (Address book),
+  and helm-friendly.
+
+  You can get the latest version from:
+  + https://github.com/yoshinari-nomura/otama
+
+* SYSTEM REQUIREMENTS
+  + Emacs 24 or newer
+    + Org-mode version 8 or newer
+    + Helm
+
+* INSTALL AND SETUP
+  Otama is now available on [[http://melpa.org/][MELPA]]. If you set up packaging system correctly,
+  you can install otama with package.el (=M-x= =package-install= =otama=).
+  Check [[https://github.com/milkypostman/melpa#usage][MELPA usage]] for details.
+
+  Instead, without MELPA, setup these in your =.emacs=:
+  #+BEGIN_SRC emacs-lisp
+    (add-to-list
+     'load-path
+     (expand-file-name "/path/to/directory/where/otama.el/exists"))
+
+    (require 'otama)
+  #+END_SRC
+
+  Also, you need to setup the location of database in your =.emacs=:
+  #+BEGIN_SRC emacs-lisp
+    (setq otama-database-file-name "/path/to/address-book-file.org")
+  #+END_SRC
+  and =M-x otama-helm= will help you to insert address information
+  into the current buffer.
+
+  Example for =otama-database-file-name= is found at [[https://raw.githubusercontent.com/yoshinari-nomura/otama/master/address-book-sample.org][address-book-sample.org]]
+
+  You may want to bind =otama-helm= to a specific key:
+  #+BEGIN_SRC emacs-lisp
+    (global-set-key "\C-;" 'otama-helm)
+  #+END_SRC
+
+  If you are using some MUA in Emacs such as Mew,
+  you can add these code for automatic gathering
+  from mail-draft buffers:
+  #+BEGIN_SRC emacs-lisp
+    (with-eval-after-load
+     'mew-key
+     (define-key mew-draft-header-map (kbd "C-;") 'otama-helm))
+
+    (defun otama-add-address-book-entry-from-mail-draft-buffer ()
+      (let ((db (otama-open otama-database-file-name)))
+        (mapc (lambda (rec)
+                (unless (otama-find db 'mail (otama-attribute rec 'mail))
+                  (otama-insert rec "Inbox" db)))
+              (otama-mail-to-address-records))))
+
+    (add-hook 'mew-send-hook
+              'otama-add-address-book-entry-from-mail-draft-buffer)
+  #+END_SRC

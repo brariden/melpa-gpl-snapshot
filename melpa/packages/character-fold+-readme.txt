@@ -1,6 +1,14 @@
  Extensions to Isearch character folding.
 
 
+ NOTE: This library is NOT UP-TO-DATE WRT EMACS 25.  The vanilla
+       Emacs library `character-fold.el', which this library
+       extends, was changed in incompatible ways after this library
+       was written.  I have not yet had a chance to update this
+       (and am waiting for Emacs 25 to be released to do so).
+       Sorry about that.
+
+
  Choose One-Way or Symmetric Character Folding
  ---------------------------------------------
 

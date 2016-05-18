@@ -1,0 +1,2 @@
+
+(rainbow-delimiters . [(20160501 158) nil "Highlight brackets according to their depth" single ((:keywords "faces" "convenience" "lisp" "tools") (:url . "https://github.com/Fanael/rainbow-delimiters"))])

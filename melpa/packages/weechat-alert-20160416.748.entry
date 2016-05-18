@@ -1,0 +1,2 @@
+
+(weechat-alert . [(20160416 748) ((weechat (0 3 1)) (cl-lib (0 5)) (alert (1 2))) "Weechat notifier using alerts" single ((:keywords "irc" "chat" "network" "weechat") (:url . "https://github.com/kungi/weechat-alert"))])

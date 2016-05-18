@@ -1,0 +1,30 @@
+* [[https://github.com/nekop/yasnippet-java-mode][yasnippet-java-mode]]
+
+A set of java-mode snippets for [[https://github.com/capitaomorte/yasnippet][YASnippet]].
+
+** Installation
+
+I highly recommend installing =yasnippet-java-mode= through elpa.
+
+The package name is =java-snippets= and it's available on [[http://melpa.milkbox.net/][MELPA]].
+
+#+BEGIN_EXAMPLE
+M-x package-install java-snippets
+#+END_EXAMPLE
+
+*** Old fashion way
+
+Put "snippets/java-mode" directory under your "~/.emacs.d/snippets/" directory.
+
+The following describes two ways of installing. The first method requires that =git= is installed and the second does not.
+
+**** Git
+
+#+BEGIN_EXAMPLE
+git clone https://github.com/nekop/yasnippet-java-mode.git /tmp/yasnippet-java-mode
+mv /tmp/yasnippet-java-mode/snippets/java-mode ~/.emacs.d/snippets/
+#+END_EXAMPLE
+
+**** Archive
+
+[[https://github.com/nekop/yasnippet-java-mode/archive/master.zip][Download]] an archive and extract to the directory you want to install in.

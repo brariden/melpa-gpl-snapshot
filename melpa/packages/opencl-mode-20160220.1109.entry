@@ -1,0 +1,2 @@
+
+(opencl-mode . [(20160220 1109) nil "Syntax coloring for opencl kernels" single ((:keywords "c" "opencl") (:url . "https://github.com/salmanebah/opencl-mode"))])

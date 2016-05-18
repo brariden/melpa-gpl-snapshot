@@ -1,0 +1,2 @@
+
+(exwm-x . [(20160307 255) ((cl-lib (0 5)) (exwm (0 1)) (switch-window (0 10)) (dmenu (0 1)) (start-menu (0 1))) "Addition tools for exwm (emacs x window manager)" tar ((:keywords "window-manager" "exwm") (:url . "https://github.com/tumashu/exwm-x"))])

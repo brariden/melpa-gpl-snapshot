@@ -1,0 +1,2 @@
+
+(interaction-log . [(20160305 701) ((cl-lib (0))) "exhaustive log of interactions with Emacs" single ((:keywords "convenience") (:url . "https://github.com/michael-heerdegen/interaction-log.el"))])

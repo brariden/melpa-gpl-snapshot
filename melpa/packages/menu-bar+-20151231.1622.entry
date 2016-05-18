@@ -1,2 +1,0 @@
-
-(menu-bar+ . [(20151231 1622) nil "Extensions to `menu-bar.el'." single ((:keywords "internal" "local" "convenience") (:url . "http://www.emacswiki.org/menu-bar+.el"))])

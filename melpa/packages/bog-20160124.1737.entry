@@ -1,2 +1,0 @@
-
-(bog . [(20160124 1737) ((cl-lib (0 5))) "Extensions for research notes in Org mode" single ((:keywords "bib" "outlines") (:url . "https://github.com/kyleam/bog"))])

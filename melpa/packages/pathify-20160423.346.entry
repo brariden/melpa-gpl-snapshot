@@ -1,0 +1,2 @@
+
+(pathify . [(20160423 346) nil "Symlink your scripts into a PATH directory" single ((:keywords "convenience") (:url . "https://gitlab.com/alezost-emacs/pathify"))])

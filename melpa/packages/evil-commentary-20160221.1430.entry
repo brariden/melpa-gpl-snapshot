@@ -1,0 +1,2 @@
+
+(evil-commentary . [(20160221 1430) ((evil (1 0 0))) "Comment stuff out. A port of vim-commentary." tar ((:keywords "evil" "comment" "commentary" "evil-commentary") (:url . "http://github.com/linktohack/evil-commentary"))])

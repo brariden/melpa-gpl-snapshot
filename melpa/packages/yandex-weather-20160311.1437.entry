@@ -1,0 +1,2 @@
+
+(yandex-weather . [(20160311 1437) nil "Fetch Yandex Weather forecasts." tar nil])

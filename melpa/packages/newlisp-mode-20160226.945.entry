@@ -1,0 +1,2 @@
+
+(newlisp-mode . [(20160226 945) nil "newLISP editing mode for Emacs" single ((:keywords "language" "lisp" "newlisp") (:url . "https://github.com/kosh04/newlisp-mode"))])

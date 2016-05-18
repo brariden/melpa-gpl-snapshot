@@ -1,2 +1,0 @@
-
-(visual-regexp-steroids . [(20150411 616) ((visual-regexp (0 8))) "Extends visual-regexp to support other regexp engines" tar ((:keywords "external" "foreign" "regexp" "replace" "python" "visual" "feedback") (:url . "https://github.com/benma/visual-regexp-steroids.el/"))])

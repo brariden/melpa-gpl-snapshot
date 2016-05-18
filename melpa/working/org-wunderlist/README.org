@@ -1,0 +1,49 @@
+* Org-Wunderlist 
+ =org-wunderlist= offers
+  - Fetch Wunderlist task
+  - Post/edit org element
+  - Edit task order on Org-mode side.
+  - Download files from Wunderlist server side.
+
+* Requirements
+ 
+- [[https://github.com/tkf/emacs-request][tkf/emacs-request]]
+- [[https://github.com/jwiegley/alert][jwiegley/alert]]
+- [[https://github.com/magnars/s.el][magnars/s.el]]
+
+* Installation
+
+1. Go to [[https://developer.wunderlist.com/apps][My Apps page]]
+
+2. Click on  =CREATE APP=
+
+3. Put any URL on  =App Url=  and  =Auth Callback URL=.
+
+4. Click on  =SAVE=
+
+5. Record the Client ID and Client secret for setup.
+
+** Setting example
+
+#+begin_src elisp
+(require 'org-wunderlist)
+(setq org-wunderlist-client-id "your-client-id"
+      org-wunderlist-token "your-token"
+      org-wunderlist-file  "~/.emacs.d/Wunderlist.org"
+      org-wunderlist-dir "~/.emacs.d/org-wunderlist/")
+#+end_src
+
+* Usage
+** =org-wunderlist-fetch=
+   Fetch Wunderlist tasks and populate =org-wunderlist-dir= locations.
+** =org-wunderlist-post=
+   Post/edit org block at point to Wunderlist. 
+** =org-wunderlist-post-all=
+   Post/edit all tasks to Wunderlist. (this command is unstable)
+** =org-wunderlist-post-pos=
+   Edit task order on Org-mode side.
+
+
+
+
+App Url  Auth Callback URL

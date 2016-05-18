@@ -1,0 +1,2 @@
+
+(auto-compile . [(20160424 618) ((emacs (24 3)) (dash (2 12 1)) (packed (0 5 3))) "automatically compile Emacs Lisp libraries" single ((:keywords "compile" "convenience" "lisp") (:url . "https://github.com/tarsius/auto-compile"))])

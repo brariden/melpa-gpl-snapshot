@@ -1,0 +1,2 @@
+
+(closql . [(20160415 2116) ((emacs (25 0 92)) (emacsql-sqlite (2 0 1))) "store EIEIO objects using EmacSQL" single ((:keywords "extensions") (:url . "https://gitlab.com/tarsius/closql"))])

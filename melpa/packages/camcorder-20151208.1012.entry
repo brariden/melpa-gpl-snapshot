@@ -1,2 +1,0 @@
-
-(camcorder . [(20151208 1012) ((emacs (24)) (names (20150000)) (cl-lib (0 5))) "Record screencasts in gif or other formats." single ((:keywords "multimedia" "screencast") (:url . "http://github.com/Bruce-Connor/camcorder.el"))])

@@ -1,0 +1,2 @@
+
+(matrix-client . [(20160424 2359) ((json (1 4)) (request (0 2 0))) "A minimal chat client for the Matrix.org RPC" tar ((:keywords "web") (:url . "http://doc.rix.si/matrix.html"))])

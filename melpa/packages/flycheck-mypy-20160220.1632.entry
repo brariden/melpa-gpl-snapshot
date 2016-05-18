@@ -1,0 +1,2 @@
+
+(flycheck-mypy . [(20160220 1632) ((flycheck (0 18))) "Support mypy in flycheck" single nil])

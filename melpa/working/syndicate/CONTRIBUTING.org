@@ -1,0 +1,6 @@
+* Contributing
+I am open to suggestions/pull requests regarding different keybindings and such for this package.
+I personally am curious to get a feel of conventions for bindings such as these, so suggest away!
+Also, because org-mode is so deep, feel free to add new code to address an uncovered area.
+
+In short, issue or pull request away!

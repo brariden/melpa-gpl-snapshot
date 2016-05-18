@@ -1,0 +1,196 @@
+#+TITLE: Emacs VHDL Tools
+
+[[https://github.com/csantosb/vhdl-tools/blob/master/LICENSE][file:http://img.shields.io/badge/license-GNU%20GPLv3-blue.svg]]
+[[http://stable.melpa.org/#/vhdl-tools][file:http://stable.melpa.org/packages/vhdl-tools-badge.svg]]
+[[http://melpa.org/#/vhdl-tools][file:http://melpa.org/packages/vhdl-tools-badge.svg]]
+
+This project provides useful VHDL support for Emacs in terms of navigation.
+
+* Table of contents
+
+ - [[#about][About]]
+ - [[#install][Install]]
+ - [[#setup][Setup]]
+ - [[#use][Use]]
+     - [[#headings][Headings]]
+     - [[#custom-imenu][Custom Imenu]]
+     - [[#jumping-around][Jumping around]]
+     - [[#misc][Misc]]
+ - [[#related-utilities][Related utilities]]
+ - [[#coding][Coding]]
+ - [[#configurations][Configurations]]
+ - [[#license][License]]
+
+* About
+
+[[https://csantosb.github.io/blog/2015/12/23/vhdl-tools/][Vhdl-tools]] provides a minor mode intended to be used under [[https://guest.iis.ee.ethz.ch/~zimmi/emacs/vhdl-mode.html][vhdl-mode]].
+It adds specific functionality on top of [[https://github.com/leoliu/ggtags][ggtags]], [[http://batsov.com/projectile/][projectile]], =imenu= and
+[[https://github.com/tj64/outshine][outshine]] to ease navigating vhdl sources. It expects a working setup of
+=ggtags=, completing it with
+
+  - Jumping into instances
+  - Jump to upper level
+  - Searching for references
+  - Link and headings management
+  - Custom use of =imenu=
+
+* Install
+
+Manual installation: as usual, download it, add to path and require after
+loading =vhdl-mode=
+
+#+begin_src emacs-lisp
+  (with-eval-after-load 'vhdl-mode
+    (add-to-list 'load-path "...")
+    (require 'vhdl-tools))
+#+end_src
+
+This package is available fom [[http://stable.melpa.org/#/vhdl-tools][Melpa]] too, you may install it by calling
+
+#+begin_src emacs-lisp
+  M-x package-install RET vhdl-tools
+#+end_src
+
+Then, activate the minor mode by completing the =vhdl-mode= hook.
+
+#+begin_src emacs-lisp
+  (add-hook 'vhdl-mode-hook
+            (lambda ()
+              (vhdl-tools-mode 1)))
+#+end_src
+
+* Setup
+
+=VHDL-tools= expects a correct setup of the packages it relies on
+
+- configure [[https://github.com/leoliu/ggtags][ggtags]]
+- setup [[https://github.com/bbatsov/projectile][projectile]] by putting it under version control with [[https://git-scm.com/][git]]
+
+Finally, if you plan to use [[https://github.com/tj64/outshine][outshine]] by setting =vhdl-tools-use-outshine= to
+true, just don’t [[https://github.com/tj64/outshine#installation][forget]] to
+
+#+begin_src example
+  (require 'outshine)
+  (add-hook 'outline-minor-mode-hook 'outshine-hook-function)
+#+end_src
+
+before activating =vhdl-tools=. Remember to
+
+#+begin_src example
+  (add-to-list 'company-begin-commands 'outshine-self-insert-command)
+#+end_src
+
+otherwise =company= idle completion using the =capf= backed won’t [[https://github.com/tj64/outshine/issues/38][work]] (see
+[[#related-utilities][Related utilities]] section below).
+
+* Use
+
+** Headings
+
+Following the status of the =vhdl-tools-use-outshine= flag (off by default),
+when the mode is enabled, =vhdl-tools= will activate =outline-minor-mode=
+locally and =outshine= globally, setting =vhdl-tools-outline-regexp= as the
+regexp used to locate headings.
+
+This enables using this kind of headings
+
+#+begin_src example
+  -- * Header Level 1
+
+  -- ** Header Level 2
+  MyInstance : MyComponent
+      port map ( ...
+#+end_src
+
+to delimit code blocks.
+
+Then, call =outshine-speed-command-help= to get an overview over the available
+functionality and the keybindings. Additionally, the following keybinds are
+provided to navigate headings
+
+  + =C-c C-n=, get to next header
+  + =C-c C-h=, get to previous header
+
+** Custom Imenu
+
+The following keybinds are made available to browse current buffer contents
+
+  + =C-x c i m=    standard imenu
+  + =C-x c i i=    instances
+  + =C-x c i c=    components
+  + =C-x c i p=    processes
+  + =C-x c i SPC=  headers (with a prefix argument use ido instead)
+  + =C-x c i a=    all items
+
+** Jumping around
+
+The following keybinds are available
+
+  + =C-c M-D=, jumps to the definition of symbol at point
+
+    [[file:JumpDef.gif][JumpDef.gif]]
+
+  + =C-c M-w=, stores a link
+  + =C-c M-y=, pastes a link
+  + =C-c M-j=, follows the link at point
+
+    [[file:Links.gif][Links.gif]]
+
+  + =C-c M-.=, jumps into the instance at point
+
+    [[file:JumpIntoInstance.gif][JumpIntoInstance.gif]]
+
+  + =C-c M-a=, moves point to first appearance of symbol at point
+
+    [[file:JumpFirst.gif][JumpFirst.gif]]
+
+  + =C-c M-u=, jumps to upper hierarchy level
+
+    [[file:JumpUpper.gif][JumpUpper.gif]]
+
+Cursor will jump to the target if there is one, searching packages too. The ring
+mark is push after jumping, so to get back, press =C-c C-p= or M-, (default
+binds under =ggtags=) if corresponding definition has been found. Works better
+for files with correct syntax: think =vhdl-beautify-buffer= before using
+=vhdl-tools=.
+
+Also have a look at customization possibilities with =M-x customize-group vhdl-tools=.
+
+** Misc
+
++ =C-c M-b=, beautify current block (module, etc.)
+
+* Related utilities
+
+Some additional emacs packages useful in this context
+
+- [[https://github.com/mickeynp/smart-scan][smart scan]] :: Jumps between other symbols found at point in Emacs
+- [[https://github.com/Malabarba/beacon][beacon]] :: A light that follows your cursor around so you don't lose it!
+- [[https://github.com/Malabarba/aggressive-indent-mode][aggressive-indent-mode]] :: Emacs minor mode that keeps your code always
+     indented. More reliable than electric-indent-mode
+- [[https://github.com/sh-ow/vhdl-capf][VDHL capf]] :: emacs completion at point function (capf) backend for use with [[https://company-mode.github.io/][company]]
+
+* Coding
+
+Sparse list of projects intended at improving coding
+
+- [[https://github.com/VHDLTool/VHDLHandbook][VHDLHandbook]]
+
+* Configurations
+
+For an example configuration, see my [[http://csantosb.pw:5003/emacs.cat/org-config.cat/csb-vhdl][personal]] setup.
+
+* License
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.

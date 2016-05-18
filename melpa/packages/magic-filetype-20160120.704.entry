@@ -1,2 +1,0 @@
-
-(magic-filetype . [(20160120 704) ((emacs (24)) (s (1 9 0))) "Enhance filetype major mode" single ((:keywords "vim" "ft" "file" "magic-mode"))])

@@ -1,0 +1,5 @@
+content		zeitgeist	chrome/content/
+
+overlay		chrome://messenger/content/messenger.xul	chrome://zeitgeist/content/zeitgeist.xul
+
+locale		zeitgeist	en-US	chrome/locale/en-US/

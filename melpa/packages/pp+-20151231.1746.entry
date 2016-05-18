@@ -1,2 +1,0 @@
-
-(pp+ . [(20151231 1746) nil "Extensions to `pp.el'." single ((:keywords "lisp") (:url . "http://www.emacswiki.org/pp%2b.el"))])

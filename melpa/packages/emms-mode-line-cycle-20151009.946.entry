@@ -1,2 +1,0 @@
-
-(emms-mode-line-cycle . [(20151009 946) ((emacs (24)) (emms (4 0))) "Display the emms mode line as a ticker" single ((:keywords "emms" "mode-line") (:url . "https://github.com/momomo5717/emms-mode-line-cycle"))])

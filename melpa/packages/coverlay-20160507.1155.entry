@@ -1,0 +1,2 @@
+
+(coverlay . [(20160507 1155) ((emacs (24 1)) (cl-lib (0 5))) "Test coverage overlays" single ((:keywords "coverage" "overlay") (:url . "https://github.com/twada/coverlay.el"))])

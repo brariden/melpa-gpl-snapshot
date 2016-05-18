@@ -40,13 +40,18 @@ git clone git@github.com:milkypostman/melpa.git
 cd melpa
 make
 
+
 # Find which packages are GPLed:
 # (using pcregrep instead of grep for searching across newlines... sometimes developers cite the GPL as part of comments in source code which span lines)
 pcregrep -i -r -l --buffer-size=1000000 --exclude-dir=.git -M "general[\s|;]+public[\s|;]license" * | xargs grep -l -r -i -P "Version\s+[2|3]" | sed "s|/.*||" | sort | uniq > ../GPLed-projects.txt
 
+# Add in some public domain
+pcregrep -i -r -l --buffer-size=1000000 --exclude-dir=.git -M "released[\s|;]+into[\s|;]+the[\s|;]+public[\s|;]+domain" | sed "s|/.*||" | sort | uniq >> ../GPLed-projects.txt
+
 # Remove any Affero licensed packages
 pcregrep -r -i -l --buffer-size=1000000 --exclude-dir=.git -M "under[\s|;]+the[\s|;]+terms[\s|;]+of[\s|;]+the[\s|;]+GNU[\s|;]+Affero" * | sed "s|/.*||" | uniq > ../Affero.txt
-cat ../Affero.txt | xargs -L 1 -I @ sh -c "ls -1 @*" |  xargs -L 1 echo rm 
+
+cat ../Affero.txt | xargs -L 1 echo rm -rf
 
 # BTW, I found the following in Affero.txt and doublechecked that they were removed correctly
 cat Affero.txt

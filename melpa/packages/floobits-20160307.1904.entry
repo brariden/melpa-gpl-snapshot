@@ -1,0 +1,2 @@
+
+(floobits . [(20160307 1904) ((json (1 2)) (highlight (0))) "Floobits plugin for real-time collaborative editing" tar ((:keywords "comm" "tools") (:url . "http://github.com/Floobits/floobits-emacs"))])

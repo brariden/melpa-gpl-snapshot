@@ -1,2 +1,0 @@
-
-(mandoku . [(20160126 2226) ((org (8 0)) (magit (20151028)) (github-clone (20150705)) (git (20140128))) "A tool to access repositories of premodern Chinese texts" tar nil])

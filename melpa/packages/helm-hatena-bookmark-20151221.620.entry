@@ -1,2 +1,0 @@
-
-(helm-hatena-bookmark . [(20151221 620) ((helm (1 8 0))) "Hatena::Bookmark with helm interface" single ((:url . "https://github.com/masutaka/emacs-helm-hatena-bookmark"))])

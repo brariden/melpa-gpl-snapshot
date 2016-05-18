@@ -1,0 +1,413 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Console;
+using System.IO.Path;
+using System.Linq;
+using System.Xml.Linq;
+using System.Xml.XPath;
+using Nemerle.Collections;
+using Nemerle.Imperative;
+using Nemerle.Utility;
+using Utilities;
+
+partial class RsdnMl
+{
+  public ErrorCount                   : int { get; private set; }
+  public _errors                      : List[string] = List();
+  public Errors                       : array[string] { get { _errors.NToArray() } }
+  
+  /// Ассациативный массив идентификаторов стилей к названиям стилей.
+  mutable styleIdToNameMap            : Hashtable[string, string];
+  mutable index                       : int;
+  mutable picIndex                    : int;
+  mutable dir                         : string;
+  mutable path                        : string;
+  mutable rsdnMlFilePath              : string;
+  mutable rsdnMlFileDir               : string;
+  // Идентефикаторы стилей. Они меняются в зависимости от версии ворда (русская/английская).
+  // Их нужно читывать при обработке списка стилей.
+  mutable HyperlinkStyleId            : string;
+  mutable AnnotationReferenceStyleId  : string;
+  mutable CaptionStyleId              : string;
+          _literature                 : List[string] = List();
+  
+  MoveIndex(text : string, textLen : int = -1) : void
+  {
+    def len = if (textLen >= 0) textLen else text.Length;
+#if DEBUG
+    //_errors.Add($"$index:$len:Text: '$text'");
+#endif
+    index += len;
+  }
+  
+  ErrorUnspottedStyle(stileId : string, paragraph : bool, elem : XElement) : void
+  {
+    ErrorCount++;
+    def styleName = styleIdToNameMap[stileId];
+    def sryleType = if (paragraph) "параграфа" else "символов";
+    def len = elem.Value.Length;
+    _errors.Add($"$index:$len:Не поддерживаемый стиль $sryleType: '$styleName'!\nТекст параграфа: «$(elem.Value)»");
+  }
+
+  Error(msg : string, tag : Tag) : void
+  {
+    ErrorCount++;
+    _errors.Add($"$(tag.StartPos):$(tag.Length):Ошибка:  $msg");
+  }
+
+  Error(msg : string, length : int) : void
+  {
+    ErrorCount++;
+    _errors.Add($"$index:$length:Ошибка:  $msg");
+  }
+  ErrorUnsuportedTag(tag : XElement) : void
+  {
+    ErrorCount++;
+    def tegName = tag.Name.LocalName;
+    //Console.ForegroundColor = ConsoleColor.Yellow;
+    def len = tag.Value.Length;
+    _errors.Add($"$index:$len:Не поддерживаемый тег Word ML: $tegName\r\n$tag");
+    MoveIndex(tag.Value);
+    //Console.ResetColor();
+  }
+
+  public ConvertDocToRsdnMl(wordXmlPath : string, rsdnXmlPath : string) : void
+  {
+    try { ConvertDocToRsdnMlImpl(wordXmlPath, rsdnXmlPath); }
+    catch 
+    { | e is Exception => 
+      _errors.Add($"$index:Внутренняя ошибка конвертера. Сообщите о ней на mag@rsdn.ru: $(e.Message)\n$(e.StackTrace)");
+    }
+  }
+  
+  ConvertDocToRsdnMlImpl(wordXmlDocPath : string, rsdnXmlPath : string) : void
+  {
+    rsdnMlFilePath     = IO.Path.GetFullPath(rsdnXmlPath);
+    rsdnMlFileDir      = IO.Path.GetDirectoryName(rsdnMlFilePath);
+    path               = IO.Path.GetFullPath(wordXmlDocPath);
+    ErrorCount         = 0;
+    picIndex           = 0;
+    dir                = GetDirectoryName(path);
+    this.path          = path;
+    def root           = XDocument.Load(path);
+    styleIdToNameMap   = MakeStylesMap(root);
+
+    _errors.Clear();
+    _literature.Clear();
+
+    #region Обработка тегов WordMl-я.
+    def body       = root.Root.Element(ns_w + "body");
+    def removeSections(elems : IEnumerable[XElement]) : IEnumerable[XElement]
+    {
+      def isSectionOrSubSection(e) : bool
+      {
+        def name = e.Name;
+        name.Namespace == ns_auxHint && (name.LocalName == "sect" || name.LocalName == "sub-section")
+      }
+      def elems = elems.SelectMany(e => if (isSectionOrSubSection(e)) removeSections(e.Elements())
+                                        else [e]);
+      elems
+    }
+    def parags = removeSections(body.Elements());
+    def parags = parags.NToList();
+    def ps = List();
+    
+    foreach (e in parags)
+      ProcessElem(e, ps);
+      
+    def parags = ps.NToList();
+    
+    #endregion
+
+    #region Генерация заголовков статьи.
+    def (parags, title) = Title(parags);
+    def (parags, subtitle) = Subtitle(parags);
+    #endregion 
+    
+    def skipEngTitles(parags : list[Tag.P]) : array[XElement] * list[Tag.P]
+    {
+      | (Tag.P("H1", _) as h1) :: (Tag.P("H2", _) as h2) :: tail => 
+        (array[XElement("TITLE", h1.ToPlainText()), XElement("SUBTITLE", h2.ToPlainText())], tail)
+        
+      | (Tag.P("H1", _) as h1) :: tail  => (array[XElement("TITLE", h1.ToPlainText())], tail)
+      | _                               => (array[XElement("TITLE", "<no title>")], parags)
+    }
+    
+    def (parags, metadataRu) = ReadTableWithArticleMetadata(parags);
+    def (parags, metadataTagsRu, metadataTagsEn) =
+      if (metadataRu.IsEmpty) (parags, array(0), array(0))
+      else
+      {
+        def (titleEng, parags2)   = skipEngTitles(parags);
+        
+          
+        def (parags, metadataEn) = ReadTableWithArticleMetadata(parags2);
+        
+        if (metadataEn.IsEmpty) (parags, ParseMetadata(metadataRu), array(0))
+        else
+        {
+          mutable metadataEng = ParseMetadata(metadataEn);
+          
+          (parags, ParseMetadata(metadataRu), metadataEng.Append(titleEng))
+        }
+      }
+
+    def ps = Transform(parags);
+    
+    //TODO: Реализовать считывание авторов.
+    //TODO: Реализовать обработку <aml:annotation aml:author="автор" w:type="Word.Insertion">.
+
+    SaveRsdnMlToFile(rsdnMlFilePath, title, subtitle, metadataTagsRu, metadataTagsEn, ps);
+
+    def outFilePath = ChangeExtension(rsdnMlFilePath, "html");
+    
+    MakeHtmlPreview(rsdnMlFilePath, title, outFilePath);
+    
+    try { _ = Diagnostics.Process.Start(outFilePath); }
+    catch { | e => Error($"Не удалось открыть HTML-страницу предварительного просмотра:\n$(e.Message)", 0); }
+  }
+
+  MakeStylesMap(root : XDocument) : Hashtable[string, string]
+  {
+    def makeDisplayName(style : XElement) : string
+    {
+      def uiName = style.Element(ns_auxHint + "uiName");
+      def name   = style.Element(ns_w + "name").Attribute(valName).Value;
+      if (uiName == null) name
+      else $<#$(uiName.Attribute(ns_auxHint + "val").Value) ($name)#>
+    }
+    def map = Hashtable();
+    def styles = root.Root.Element(ns_w + "styles");
+    foreach (style in styles.Elements(ns_w + "style"))
+    {
+      def styleId = style.Attribute(styleIdName).Value;
+      map[styleId] = makeDisplayName(style);
+      
+      match (style.Element(ns_w + "name").Attribute(valName).Value)
+      {
+        | "Hyperlink"            => HyperlinkStyleId           = styleId;
+        | "annotation reference" => AnnotationReferenceStyleId = styleId;
+        | "caption"              => CaptionStyleId             = styleId;
+        | _ => ()
+      }
+    }  
+    map
+  }
+  
+  /// Трасформация тегов для соотвествия RSDN ML-ю
+  Transform(ps : list[Tag.P]) : list[Tag.P]
+  {
+    def transform(ps : list[Tag]) : list[Tag]
+    {
+      def loop(cur : Tag, ps, res) : list[Tag]
+      {
+        match (cur, ps)
+        {
+          | (Tag.P("Epigraph", content1) as first, Tag.P("Epigraph", content2) :: tail)
+          | (Tag.P("CODE",     content1) as first, Tag.P("CODE",     content2) :: tail) =>
+            def content =
+              match (content1 + (Tag.Text("", Format.None, "\r\n") :: content2))
+              { // если первый блок кода не текст, то нужно встать пустой текст, чтобы предотвратить 
+                // форматирование тега при преобрзоавнии его в строку.
+                | (Tag.Text("", Format.None, _) :: _) as content => content
+                | content => Tag.Text("", Format.None, "") :: content
+              };
+            
+            loop(first.ReplaceContent(content), tail, res)
+            
+          | (Tag.P("P", [Tag.Text(style="IMG") as img]), Tag.P("NAME", _) as name :: tail) =>
+            def title = name.ToXml().Value;
+            img.Attrs["title"] = title;
+           
+            loop(img, tail, res)
+            
+          | (Tag.P("NAME", _) as name, Tag.P("CODE", _) as code :: tail) =>
+            def title = name.ToXml().Value;
+            
+            match (title.FirstOrDefault())
+            {
+              | '+' with t = "hide"
+              | '-' with t = "show" => code.Attrs["title"] = title.Substring(1); code.Attrs["type"] = t; 
+              | _                   => code.Attrs["title"] = title;
+            }
+            
+            loop(code, tail, res)
+          
+          | (Tag.P(s1, content1) as first, Tag.P(s2, content2) :: tail) when (s1 == s2 && (isPanel(s1) || isList(s1))) =>
+            loop(first.ReplaceContent(content1 + content2), tail, res)
+
+          | (Tag.P(_, content) as p, head :: tail) =>
+            res.Add(p.ReplaceContent(transform(content)));
+            loop(head, tail, res)
+            
+          | (Tag.P(_, content) as p, []) =>
+            res.Add(p.ReplaceContent(transform(content)));
+            res.NToList()
+          
+          | (Tag.Text(s1, f1, t1), Tag.Text(s2, f2, t2) :: tail) 
+            when (s1 == s2 && f1 == f2) => 
+            loop(Tag.Text(s1, f1, t1 + t2), tail, res)
+            
+          | (_, head :: tail) => res.Add(cur); loop(head, tail, res)
+          | (_, [])           => res.Add(cur); res.NToList()
+        }
+      }
+      
+      if (ps.IsEmpty) ps else loop(ps.Head, ps.Tail, List())
+    }
+
+    def ps = transform(ps.Map(x => x));
+
+    // Преобразует плоский список фараграфов содежащий заголовки H3-H5 в иерархию:
+    // PART\SECTION\SUBSECTION преобразуя заголовки в теги HEADER соответствющего 
+    // раздела иерархии. 
+    // Особенность: Раздел может начинаться и не с заголовка. Это происходит когда
+    // перед первым заголовком раздела идет обычный текст (параграфы не заголовки).
+    // В этом случае этот текст добавляется в предыдущий раздел.
+    def transformPart(styleName : string, sectionName : string, ps : list[Tag]) : list[Tag]
+    {
+      def parts = List();
+      def partContent = List();
+      
+      foreach (p in ps)
+      {
+        | Tag.P(style, content) when style == styleName =>
+          // найден заголовок начинающий новый раздел этого уровня
+          
+          when (partContent.Count > 0) // имеется текст перед заголовком...
+          {
+            if (sectionName == "PART" || parts.Count > 0) // если это не первый раздел или "PART"...
+              // ... добавляет тег секции и помещаем в него собранное содержимое (применяяк нему 
+              // данное преобразование, но для секции следующего уровня)
+              parts.Add(Tag.P(null, p.StartPos, p.EndPos, sectionName, transformSection(sectionName, partContent.NToList())));
+            else // если это первый раздел и не "PART" (PART обрабатывается особо)
+              // добавляем в содержимое не помещая его в тег, так как оно пренадлежит предыдущему разделу.
+              parts.AddRange(transformSection(sectionName, partContent.NToList()));
+              
+            partContent.Clear();
+          }
+          
+          partContent.Add(Tag.P(null, p.StartPos, p.EndPos, "HEADER", content));
+          
+        | _ => partContent.Add(p);
+      }
+      
+      if (parts.Count > 0) // если встретились заголовки текущего раздела...
+      {
+        when (partContent.Count > 0) // ... и остался не пресоедененный контент...
+          // добавляем его...
+          parts.Add(Tag.P(sectionName, transformSection(sectionName, partContent.NToList())));
+          
+        parts.NToList()
+      }
+      else ps // если заголовков нет, то возвращаем не изменное содержимое.
+    }
+    // Применяет функцию transformPart для подуровнй тем самым обеспечивая псевдо-рекурсивное
+    // применение функции transformPart.
+    and transformSection(prevSecName : string, ps : list[Tag]) : list[Tag]
+    { 
+      match (prevSecName)
+      {
+        | "PART"    => transformPart("H4", "SECTION", ps)
+        | "SECTION" => transformPart("H5", "SUBSECTION", ps)
+        | _         => ps
+      }
+    }
+    
+    def ps = transformPart("H3", "PART", ps);
+    
+    def ps = if (ps.IsEmpty || ps.Head is Tag.P(style = "PART")) ps
+             else [Tag.P("PART", ps)];
+             
+    assert2(ps.ForAll(p => p : Tag is Tag.P("PART", _)));
+    
+    def res = ps.Map(x => x :> Tag.P);
+    res
+ }
+
+  TitleImpl(parags : list[Tag.P], styleName : string) : list[Tag.P] * string
+  {
+    match (parags)
+    {
+      | h :: tail when h.style == styleName => (tail, h.ToPlainText())
+      | _                                   => (parags, null)
+    }
+  }
+  
+  Title(parags : list[Tag.P]) : list[Tag.P] * string
+  {
+    def (_, title) as res = TitleImpl(parags, "H1");
+    
+    if (title == null)
+    {
+      Error("Первым абзацем должен идти заголовок статьи помеченный стилем 'H1'", 42);
+      (parags, "<<Не задан заголовок статьи>>")
+    }
+    else res
+  }
+
+  Subtitle(parags : list[Tag.P]) : list[Tag.P] * string
+  {
+    def (tail, title) = TitleImpl(parags, "H2");
+    
+    if (title == null) (parags, "")
+    else (tail, $<#<SUBTITLE>$title</SUBTITLE>#>)
+  }
+
+  /// Запись сгенерированного содержимого в файл.
+  SaveRsdnMlToFile(path : string, title : string, subtitle : string, 
+    metadataRu : array[XElement], metadataEn : array[XElement], parags : list[Tag.P]) : void
+  {
+    #region Запись сгенерированного содержимого в файл.
+    def doc = XDocument.Parse($<#<ARTICLE>
+<TITLE>$title</TITLE>
+$subtitle
+<CONTENTS/>
+</ARTICLE>
+#>);
+    def contents = doc.Descendants().First(x => x.Name.LocalName == "CONTENTS");
+    contents.AddAfterSelf(parags.MapToArray(p => p.ToXml()));
+    contents.AddBeforeSelf(metadataRu);
+    contents.AddBeforeSelf(XElement("METADATA-EN", metadataEn));
+    
+    def lit = XElement("LITERATURE", _literature.MapToArray(x => XElement("REF", x)));
+    contents.AddAfterSelf(lit);
+    
+    IO.File.WriteAllText(path, 
+      <#<?xml version="1.0" encoding="UTF-8" ?>#> + "\r\n" + doc.ToString(),
+      Text.Encoding.UTF8);
+    #endregion
+  }
+
+  /// Преобразовывает RsdnMl-файл в эквивалентный HTML (с помощью XSL-файла с rsdn.ru)
+  MakeHtmlPreview(rsdnMlFilePath : string, title : string, outFilePath : string) : void
+  {
+    #region Xsl Transform
+    
+    def xslt = Xml.Xsl.XslCompiledTransform(true);
+    xslt.Load(typeof(article));
+    
+    
+    def writer = IO.StringWriter();
+    def xsltArgs = Xml.Xsl.XsltArgumentList();
+    xsltArgs.AddParam("browser", "", "IE");
+    xslt.Transform(rsdnMlFilePath, xsltArgs, writer);
+    
+    def sbOut = Text.StringBuilder();//file:///c:\Program Files\RSDN\Authoring Pack\Authoring\CSS\article.cs http://rsdn.ru/CSS/article.css
+    _ = sbOut.AppendLine($<#<html>
+  <head>
+    <title>$title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet"  type="text/css" href="http://rsdn.ru/css/article.css" />
+  </head>
+  <body>
+  #>);
+    
+    _ = sbOut.AppendLine(writer.ToString())
+             .AppendLine("</body>\r\n</html>")
+             .Replace(<#"/images/#>, <#"http://rsdn.ru/images/#>);
+      
+    IO.File.WriteAllText(outFilePath, sbOut.ToString(), Text.Encoding.UTF8); // запись htm-а.
+    #endregion
+  }
+}

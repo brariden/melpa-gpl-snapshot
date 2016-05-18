@@ -1,0 +1,2 @@
+
+(simple-httpd . [(20150430 1955) ((cl-lib (0 3))) "pure elisp HTTP server" single ((:url . "https://github.com/skeeto/emacs-http-server"))])

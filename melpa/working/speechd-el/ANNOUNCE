@@ -1,0 +1,65 @@
+speechd-el 2.7 released
+=======================
+
+* What is speechd-el?
+
+  speechd-el is an Emacs client to speech synthesizers, Braille displays
+  and other alternative output interfaces.  It provides full speech and
+  Braille output environment for Emacs using the Speech Dispatcher and
+  BRLTTY backends.  It is focused especially on (but not limited to) the
+  blind and visually impaired users.  It allows the user to work with
+  Emacs without looking on the screen, by listening to speech output
+  produced by the speech synthesizers supported in Speech Dispatcher and
+  watching Braille output on Braille displays supported by BRLTTY.
+  
+  Key speechd-el features are:
+
+  - Speech output and Braille input/output.
+  
+  - Automated "intelligent" reading of most Emacs messages and actions.
+    Additional commands for explicit reading.
+
+  - Message priorities, voice parameter changes, sound icons and other
+    features provided by Speech Dispatcher.
+
+  - Multilingual support.
+    
+  - Almost no change of the standard Emacs behavior, no interference
+    with user settings.
+  
+  - Highly configurable.
+
+  - Possibility to add support for other alternative output methods.
+
+  - Elisp libraries for generic speech, Braille and other kinds of
+    output as well as for alternative user interface programming.
+
+  - Small code size.
+
+  - Free Software, distributed under the GPL.
+
+  More information about speechd-el (including comparison with
+  Emacspeak) can be found on its web page, see
+  http://devel.freebsoft.org/speechd-el .
+
+* What is new in the 2.7 version?
+
+  ** Minor bug fixes.
+
+  Thanks to Alain Kalker for help.
+
+* Where to get it?
+
+  The easiest way to install speechd-el is to use the package from MELPA
+  (http://melpa.milkbox.net/) or from Debian (if you use Debian or one
+  of its derivatives).  You'll also need Speech Dispatcher and/or BRLTTY.
+  
+  The source package of the released version is available at
+  http://devel.freebsoft.org/pub/projects/speechd-el/speechd-el-2.7.tar.gz .
+
+  The home page of the project is http://devel.freebsoft.org/speechd-el .
+
+
+Local Variables:
+fill-column: 72
+End:

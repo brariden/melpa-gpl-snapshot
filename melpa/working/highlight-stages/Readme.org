@@ -1,0 +1,55 @@
+* highlight-stages.el
+
+準クォートをハイライト
+
+Highlight staged (quasi-quoted) expressions.
+
+** Screenshot
+*** Lisp.
+
+[[screenshot.png]]
+
+We can easily recognize what are evaluated now and what are quoted for
+later evaluation.
+
+*** MetaOCaml.
+
+[[screenshot2.png]]
+
+*** C/C++
+
+[[screenshot3.png]]
+
+** Installation
+
+Require this script
+
+: (require 'highlight-stages)
+
+and call function "highlight-stages-mode"
+
+: (add-hook 'emacs-lisp-mode-hook 'highlight-stages-mode)
+
+If you want to enable "highlight-stages-mode" (almost) everywhere,
+call "highlight-stages-global-mode" instead.
+
+: (highlight-stages-global-mode 1)
+
+** Supported Languages
+
+Lisp-like languages, MetaOCaml, and C/C++ preprocessors.
+
+** Customizations
+
+5 faces
+
+- =highlight-stages-negative-level-face=
+- =highlight-stages-level-1-face=
+- =highlight-stages-level-2-face=
+- =highlight-stages-level-3-face=
+- =highlight-stages-higher-level-face=
+
+are all customizable.
+
+When =highlight-stages-highlight-real-quote= is non-nil, not only
+quasi-quotes(`) but also "real" quotes(') are highlighted.

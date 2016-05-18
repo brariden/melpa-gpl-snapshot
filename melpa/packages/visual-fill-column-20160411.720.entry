@@ -1,0 +1,2 @@
+
+(visual-fill-column . [(20160411 720) ((emacs (24 3))) "fill-column for visual-line-mode" single nil])

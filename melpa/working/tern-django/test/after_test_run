@@ -1,0 +1,5 @@
+#!/bin/bash
+
+PROJECT_DIR=$PWD/.project
+
+rm -rf $PROJECT_DIR

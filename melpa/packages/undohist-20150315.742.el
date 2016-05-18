@@ -4,8 +4,8 @@
 
 ;; Author: MATSUYAMA Tomohiro <m2ym.pub@gmail.com>
 ;; Package-Requires: ((cl-lib "1.0"))
-;; Keywords: convenience
 ;; Package-Version: 20150315.742
+;; Keywords: convenience
 ;; Version: 0.2
 
 ;; This program is free software; you can redistribute it and/or modify

@@ -1,2 +1,0 @@
-
-(insert-shebang . [(20141119 627) nil "Insert shebang line automatically." single ((:keywords "shebang" "tool" "convenience") (:url . "http://github.com/psachin/insert-shebang"))])

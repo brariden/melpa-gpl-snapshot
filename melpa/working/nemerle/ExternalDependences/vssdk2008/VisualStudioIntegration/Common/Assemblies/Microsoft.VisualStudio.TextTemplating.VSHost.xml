@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Microsoft.VisualStudio.TextTemplating.VSHost</name>
+  </assembly>
+  <members>
+    <member name="T:Microsoft.VisualStudio.TextTemplating.VSHost.BaseCodeGenerator"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.BaseCodeGenerator.#ctor"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.BaseCodeGenerator.Dispose">
+      <summary>
+                    Releases all resources used by the current instance of the <see cref="T:Microsoft.VisualStudio.TextTemplating.VSHost.BaseCodeGenerator" /> class.
+                </summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.BaseCodeGenerator.Dispose(System.Boolean)">
+      <param name="disposing"></param>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TextTemplating.VSHost.BaseCodeGenerator.FileNamespace"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.BaseCodeGenerator.Finalize"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.BaseCodeGenerator.Generate(System.String,System.String,System.String,System.IntPtr@,System.Int32@,Microsoft.VisualStudio.TextTemplating.VSHost.IVsGeneratorProgress)">
+      <param name="inputFilePath"></param>
+      <param name="inputFileContents"></param>
+      <param name="defaultNamespace"></param>
+      <param name="outputFileContents"></param>
+      <param name="output"></param>
+      <param name="generateProgress"></param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.BaseCodeGenerator.GenerateCode(System.String,System.String)">
+      <param name="inputFileName"></param>
+      <param name="inputFileContent"></param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.BaseCodeGenerator.GeneratorErrorCallback(System.Boolean,System.Int32,System.String,System.Int32,System.Int32)">
+      <param name="warning"></param>
+      <param name="level"></param>
+      <param name="message"></param>
+      <param name="line"></param>
+      <param name="column"></param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.BaseCodeGenerator.GetDefaultExtension"></member>
+    <member name="P:Microsoft.VisualStudio.TextTemplating.VSHost.BaseCodeGenerator.InputFilePath"></member>
+    <member name="T:Microsoft.VisualStudio.TextTemplating.VSHost.BaseCodeGeneratorWithSite"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.BaseCodeGeneratorWithSite.#ctor"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.BaseCodeGeneratorWithSite.CreateExceptionMessage(System.Exception)">
+      <param name="exception"></param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.BaseCodeGeneratorWithSite.Dispose(System.Boolean)">
+      <param name="disposing"></param>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TextTemplating.VSHost.BaseCodeGeneratorWithSite.Dte"></member>
+    <member name="P:Microsoft.VisualStudio.TextTemplating.VSHost.BaseCodeGeneratorWithSite.ErrorList"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.BaseCodeGeneratorWithSite.GetService(System.Guid)">
+      <param name="service"></param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.BaseCodeGeneratorWithSite.GetService(System.Type)">
+      <param name="service"></param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.BaseCodeGeneratorWithSite.GetSite(System.Guid@,System.IntPtr@)">
+      <param name="riid"></param>
+      <param name="ppvSite"></param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.BaseCodeGeneratorWithSite.SetSite(System.Object)">
+      <param name="pUnkSite"></param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.BaseCodeGeneratorWithSite.SetWaitCursor"></member>
+    <member name="T:Microsoft.VisualStudio.TextTemplating.VSHost.CommandIds"></member>
+    <member name="F:Microsoft.VisualStudio.TextTemplating.VSHost.CommandIds.GenerateAllCode"></member>
+    <member name="F:Microsoft.VisualStudio.TextTemplating.VSHost.CommandIds.GenerateSelectedCode"></member>
+    <member name="F:Microsoft.VisualStudio.TextTemplating.VSHost.CommandIds.GuidOrchestratorCommandSet"></member>
+    <member name="F:Microsoft.VisualStudio.TextTemplating.VSHost.CommandIds.GuidOrchestratorMenus"></member>
+    <member name="T:Microsoft.VisualStudio.TextTemplating.VSHost.ITextTemplating"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.ITextTemplating.BeginErrorSession"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.ITextTemplating.EndErrorSession"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.ITextTemplating.ProcessTemplate(System.String,System.String,Microsoft.VisualStudio.TextTemplating.VSHost.ITextTemplatingCallback,Microsoft.VisualStudio.Shell.Interop.IVsHierarchy)">
+      <param name="inputFile"></param>
+      <param name="content"></param>
+      <param name="callback"></param>
+      <param name="hierarchy"></param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TextTemplating.VSHost.ITextTemplatingCallback"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.ITextTemplatingCallback.ErrorCallback(System.Boolean,System.String,System.Int32,System.Int32)">
+      <param name="warning"></param>
+      <param name="message"></param>
+      <param name="line"></param>
+      <param name="column"></param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.ITextTemplatingCallback.SetFileExtension(System.String)">
+      <param name="extension"></param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.ITextTemplatingCallback.SetOutputEncoding(System.Text.Encoding,System.Boolean)">
+      <param name="encoding"></param>
+      <param name="fromOutputDirective"></param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TextTemplating.VSHost.IVsGeneratorProgress"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.IVsGeneratorProgress.GeneratorError(System.Boolean,System.Int32,System.String,System.Int32,System.Int32)">
+      <param name="warning"></param>
+      <param name="level"></param>
+      <param name="errorText"></param>
+      <param name="line"></param>
+      <param name="column"></param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.IVsGeneratorProgress.Progress(System.Int32,System.Int32)">
+      <param name="complete"></param>
+      <param name="total"></param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TextTemplating.VSHost.IVsSingleFileGenerator"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.IVsSingleFileGenerator.Generate(System.String,System.String,System.String,System.IntPtr@,System.Int32@,Microsoft.VisualStudio.TextTemplating.VSHost.IVsGeneratorProgress)">
+      <param name="inputFilePath"></param>
+      <param name="inputFileContents"></param>
+      <param name="defaultNamespace"></param>
+      <param name="outputFileContents"></param>
+      <param name="output"></param>
+      <param name="generateProgress"></param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.IVsSingleFileGenerator.GetDefaultExtension"></member>
+    <member name="T:Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation.#ctor"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation.AddDomainModel(System.Type)">
+      <param name="modelType"></param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation.ConvertModelRelativePathToTemplateRelativePath(System.String,System.String,System.String)">
+      <param name="modelPath"></param>
+      <param name="templatePath"></param>
+      <param name="path"></param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation.Dispose(System.Boolean)">
+      <param name="disposing"></param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation.Initialize"></member>
+    <member name="P:Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation.SkipValidation"></member>
+    <member name="P:Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation.Store"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation.ValidateStore(System.String,System.CodeDom.Compiler.CompilerErrorCollection)">
+      <param name="categories"></param>
+      <param name="errors"></param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TextTemplating.VSHost.OrchestratorOptionsAutomation"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.OrchestratorOptionsAutomation.#ctor(System.IServiceProvider)">
+      <param name="serviceProvider"></param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.OrchestratorOptionsAutomation.LoadSettingsFromStorage"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.OrchestratorOptionsAutomation.LoadSettingsFromXml(Microsoft.VisualStudio.Shell.Interop.IVsSettingsReader)">
+      <param name="reader"></param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.OrchestratorOptionsAutomation.ResetSettings"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.OrchestratorOptionsAutomation.SaveSettingsToStorage"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.OrchestratorOptionsAutomation.SaveSettingsToXml(Microsoft.VisualStudio.Shell.Interop.IVsSettingsWriter)">
+      <param name="writer"></param>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TextTemplating.VSHost.OrchestratorOptionsAutomation.ShowWarningDialog"></member>
+    <member name="T:Microsoft.VisualStudio.TextTemplating.VSHost.OrchestratorOptionsPage"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.OrchestratorOptionsPage.#ctor"></member>
+    <member name="P:Microsoft.VisualStudio.TextTemplating.VSHost.OrchestratorOptionsPage.AutomationObject"></member>
+    <member name="T:Microsoft.VisualStudio.TextTemplating.VSHost.ProvideCodeGeneratorAttribute"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.ProvideCodeGeneratorAttribute.#ctor(System.Type,System.String,System.String,System.Boolean)">
+      <param name="type"></param>
+      <param name="name"></param>
+      <param name="description"></param>
+      <param name="generatesDesignTimeSource"></param>
+    </member>
+    <member name="F:Microsoft.VisualStudio.TextTemplating.VSHost.ProvideCodeGeneratorAttribute.CSharpProjectGuid"></member>
+    <member name="P:Microsoft.VisualStudio.TextTemplating.VSHost.ProvideCodeGeneratorAttribute.Description"></member>
+    <member name="P:Microsoft.VisualStudio.TextTemplating.VSHost.ProvideCodeGeneratorAttribute.GeneratesDesignTimeSource"></member>
+    <member name="P:Microsoft.VisualStudio.TextTemplating.VSHost.ProvideCodeGeneratorAttribute.Name"></member>
+    <member name="P:Microsoft.VisualStudio.TextTemplating.VSHost.ProvideCodeGeneratorAttribute.ProjectSystem"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.ProvideCodeGeneratorAttribute.Register(Microsoft.VisualStudio.Shell.RegistrationAttribute.RegistrationContext)">
+      <param name="context"></param>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TextTemplating.VSHost.ProvideCodeGeneratorAttribute.RegisterCodeBase"></member>
+    <member name="P:Microsoft.VisualStudio.TextTemplating.VSHost.ProvideCodeGeneratorAttribute.Type"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.ProvideCodeGeneratorAttribute.Unregister(Microsoft.VisualStudio.Shell.RegistrationAttribute.RegistrationContext)">
+      <param name="context"></param>
+    </member>
+    <member name="F:Microsoft.VisualStudio.TextTemplating.VSHost.ProvideCodeGeneratorAttribute.VisualBasicProjectGuid"></member>
+    <member name="T:Microsoft.VisualStudio.TextTemplating.VSHost.ProvideDirectiveProcessorAttribute"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.ProvideDirectiveProcessorAttribute.#ctor(System.Type,System.String,System.String)">
+      <param name="type"></param>
+      <param name="name"></param>
+      <param name="description"></param>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TextTemplating.VSHost.ProvideDirectiveProcessorAttribute.Description"></member>
+    <member name="F:Microsoft.VisualStudio.TextTemplating.VSHost.ProvideDirectiveProcessorAttribute.DirectiveProcessorsKeyName"></member>
+    <member name="P:Microsoft.VisualStudio.TextTemplating.VSHost.ProvideDirectiveProcessorAttribute.Name"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.ProvideDirectiveProcessorAttribute.Register(Microsoft.VisualStudio.Shell.RegistrationAttribute.RegistrationContext)">
+      <param name="context"></param>
+    </member>
+    <member name="F:Microsoft.VisualStudio.TextTemplating.VSHost.ProvideDirectiveProcessorAttribute.TextTemplatingKeyName"></member>
+    <member name="P:Microsoft.VisualStudio.TextTemplating.VSHost.ProvideDirectiveProcessorAttribute.Type"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.ProvideDirectiveProcessorAttribute.Unregister(Microsoft.VisualStudio.Shell.RegistrationAttribute.RegistrationContext)">
+      <param name="context"></param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TextTemplating.VSHost.ProvideIncludeFolderAttribute"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.ProvideIncludeFolderAttribute.#ctor(System.String,System.Int32,System.String)">
+      <param name="extension"></param>
+      <param name="index"></param>
+      <param name="folder"></param>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TextTemplating.VSHost.ProvideIncludeFolderAttribute.Extension"></member>
+    <member name="P:Microsoft.VisualStudio.TextTemplating.VSHost.ProvideIncludeFolderAttribute.Folder"></member>
+    <member name="F:Microsoft.VisualStudio.TextTemplating.VSHost.ProvideIncludeFolderAttribute.IncludeFoldersKeyName"></member>
+    <member name="P:Microsoft.VisualStudio.TextTemplating.VSHost.ProvideIncludeFolderAttribute.Index"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.ProvideIncludeFolderAttribute.Register(Microsoft.VisualStudio.Shell.RegistrationAttribute.RegistrationContext)">
+      <param name="context"></param>
+    </member>
+    <member name="F:Microsoft.VisualStudio.TextTemplating.VSHost.ProvideIncludeFolderAttribute.TextTemplatingKeyName"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.ProvideIncludeFolderAttribute.Unregister(Microsoft.VisualStudio.Shell.RegistrationAttribute.RegistrationContext)">
+      <param name="context"></param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TextTemplating.VSHost.STextTemplating"></member>
+    <member name="T:Microsoft.VisualStudio.TextTemplating.VSHost.TemplatedCodeGenerator"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.TemplatedCodeGenerator.#ctor"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.TemplatedCodeGenerator.ErrorCallback(System.Boolean,System.String,System.Int32,System.Int32)">
+      <param name="warning"></param>
+      <param name="message"></param>
+      <param name="line"></param>
+      <param name="column"></param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.TemplatedCodeGenerator.GenerateCode(System.String,System.String)">
+      <param name="inputFileName"></param>
+      <param name="inputFileContent"></param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.TemplatedCodeGenerator.GetDefaultExtension"></member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.TemplatedCodeGenerator.SetFileExtension(System.String)">
+      <param name="extension"></param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TextTemplating.VSHost.TemplatedCodeGenerator.SetOutputEncoding(System.Text.Encoding,System.Boolean)">
+      <param name="encoding"></param>
+      <param name="fromOutputDirective"></param>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TextTemplating.VSHost.TemplatedCodeGenerator.TextTemplating"></member>
+  </members>
+</doc>

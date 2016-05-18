@@ -1,2 +1,0 @@
-
-(linum-relative . [(20160118 0) nil "display relative line number in emacs." single ((:keywords "converience") (:url . "http://github.com/coldnew/linum-relative"))])

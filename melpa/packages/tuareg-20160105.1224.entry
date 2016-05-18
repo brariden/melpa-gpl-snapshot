@@ -1,2 +1,0 @@
-
-(tuareg . [(20160105 1224) ((caml (3 12 0 1))) "OCaml mode for Emacs." tar ((:keywords "ocaml" "languages") (:url . "https://github.com/ocaml/tuareg"))])

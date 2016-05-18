@@ -1,0 +1,2 @@
+
+(hgrc-mode . [(20150409 1543) nil "major mode for editing hgrc files" single ((:keywords "convenience" "vc" "hg") (:url . "http://github.com/omajid/hgrc-mode"))])

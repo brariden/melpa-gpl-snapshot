@@ -1,0 +1,135 @@
+﻿using Nemerle.Collections;
+using Nemerle.Text;
+using Nemerle.Utility;
+using Nemerle.Imperative;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Nemerle.ComputationExpressions.Async
+{
+  /// <summary>
+  /// Implementation detail. DO NOT USE!
+  /// </summary>
+  public abstract class AsyncJobBase
+  {
+    public module JobState
+    {
+      public Ready         = 0;
+      public SwitchContext = 1;
+      public Wait          = 2;
+      public Canceled      = 3;
+    }
+
+    internal this()
+    {
+      Threading.Thread.VolatileWrite(ref _state, JobState.Ready);
+    }
+
+#pragma warning disable 649  // _state is initialized in ctor
+
+    mutable _state : int; // volatile modifier don't work in current release
+
+#pragma warning restore
+
+    public IsReady  : bool { get { State == JobState.Ready } }
+
+    public State : int
+    {
+      get { Threading.Thread.VolatileRead(ref _state) }
+      set
+      {
+        def set_state(newState)
+        {
+          def state = State; // volatile access
+          when (state != JobState.Canceled && state != newState)
+          {
+            def prevState = Threading.Interlocked.CompareExchange(ref _state, newState, state);
+            when (prevState != state)
+              set_state(newState);
+          }
+        }
+        set_state(value);
+      }
+    }
+
+    public ExecutionContext : ExecutionContext { get; set; }
+
+    public Cancel() : void
+    {
+      State = JobState.Canceled;
+      Start();
+    }
+
+    public ExecWhileReady[A](mutable async : Async[A], res : ref A) : Async[A]
+    {
+      while (async != null && IsReady)
+        async = async.Exec(this, ref res);
+      async;
+    }
+
+    public abstract Start() : void;
+
+    internal mutable NextJob : AsyncJobBase = null;
+  }
+
+  internal class AsyncJob[A] : AsyncJobBase
+  {
+    private mutable _async : Async[A];
+
+    [Accessor]
+    private _result : AsyncPromise[A] = AsyncPromise();
+    private _runCache : void -> void;
+
+    public this(executionContext : ExecutionContext, async : Async[A])
+    {
+      _async = async;
+      ExecutionContext = executionContext;
+      _runCache = Run;
+    }
+
+    public override Start() : void
+    {
+      ExecutionContext.Execute(_runCache);
+    }
+
+    private syncRoot : object = object();
+    private Run() : void
+    {
+      lock (syncRoot)
+      {
+        mutable res;
+        State = JobState.Ready;
+        try
+        {
+          _async = ExecWhileReady(_async, ref res);
+        }
+        catch
+        {
+          | ex is Exception =>
+            _result.SetException(ex);
+            return;
+        }
+        match (State)
+        {
+          | JobState.Ready         =>
+            assert2(_async == null);
+            _result.SetValue(res);
+
+          | JobState.SwitchContext => Start();
+          | JobState.Wait          => ()
+          | JobState.Canceled      =>
+            _result.SetResult(AsyncResult.Canceled(), false);
+            when (_async != null)
+            {
+              _async.Cancel();
+              _async = null;
+            }
+
+          | _ => throw NotImplementedException();
+        }
+      }
+    }
+  }
+}

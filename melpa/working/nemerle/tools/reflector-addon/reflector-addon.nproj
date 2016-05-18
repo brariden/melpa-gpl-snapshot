@@ -1,0 +1,94 @@
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TargetPlatform>v3.5</TargetPlatform>
+    <NoStdLib>false</NoStdLib>
+    <Nemerle Condition=" '$(Nemerle)' == '' ">$(ProgramFiles)\Nemerle</Nemerle>
+    <Name>reflector-addon</Name>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{c35c79b4-8107-4b5f-bc8a-64783f24726f}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Reflector.NemerleLanguage</RootNamespace>
+    <AssemblyName>Reflector.NemerleLanguage</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;REFLECTOR_VER_50</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <StartProgram>lib\Reflector.exe</StartProgram>
+    <WorkingDirectory>lib</WorkingDirectory>
+    <CmdArgs>
+    </CmdArgs>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;REFLECTOR_VER_51</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;REFLECTOR_VER_50</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Core, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Name>System.Core</Name>
+      <AssemblyName>System.Core.dll</AssemblyName>
+    </Reference>
+    <Reference Include="Accessibility, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Name>Accessibility</Name>
+      <AssemblyName>Accessibility.dll</AssemblyName>
+    </Reference>
+    <Reference Include="Reflector">
+      <Name>Reflector</Name>
+      <AssemblyName>Reflector.exe</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Reflector.exe</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Name>System.Drawing</Name>
+      <AssemblyName>System.Drawing.dll</AssemblyName>
+    </Reference>
+    <Reference Include="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Name>System.Windows.Forms</Name>
+      <AssemblyName>System.Windows.Forms.dll</AssemblyName>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\" />
+    <Folder Include="src\CodeModel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\CodeModel\LanguageWriterBase.n" />
+    <Compile Include="src\CodeModel\VisitorBase.n" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\AssemblyInfo.n" />
+    <Compile Include="src\CustomAttributeWrapper.n" />
+    <Compile Include="src\Helper.n " />
+    <Compile Include="src\Language.n" />
+    <Compile Include="src\LanguageWriter.n" />
+    <Compile Include="src\LanguageWriterConfiguration.n" />
+    <Compile Include="src\OptionsPage.n">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Package.n" />
+    <Compile Include="src\UsingNamespaceVisitor.n" />
+  </ItemGroup>
+  <Import Project="$(Nemerle)\Nemerle.MSBuild.targets" />
+</Project>

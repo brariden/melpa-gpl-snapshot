@@ -1,2 +1,0 @@
-
-(fullframe . [(20160119 411) ((cl-lib (0 5))) "Generalized automatic execution in a single frame" single ((:keywords "fullscreen"))])

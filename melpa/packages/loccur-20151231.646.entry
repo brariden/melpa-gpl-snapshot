@@ -1,2 +1,0 @@
-
-(loccur . [(20151231 646) nil "Perform an occur-like folding in current buffer" single ((:keywords "matching") (:url . "https://github.com/fourier/loccur"))])

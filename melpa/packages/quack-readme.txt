@@ -86,6 +86,9 @@ RELEASE ANNOUNCEMENTS EMAIL:
 
 HISTORY:
 
+    Version 0.48 (2016-04-03):
+        * Made fontify `#true` and `#false`.
+
     Version 0.47 (2012-11-15):
         * Added indent for `call-with-' file variants and semaphore.
         * Added font and indent for `with-handlers*', `define-runtime-path',

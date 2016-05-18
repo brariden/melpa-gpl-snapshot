@@ -1,2 +1,0 @@
-
-(evil-visualstar . [(20150514 1610) ((evil (0))) "Starts a * or # search from the visual selection" single ((:keywords "evil" "vim" "visualstar") (:url . "https://github.com/bling/evil-visualstar"))])

@@ -10,6 +10,7 @@ It is recommended to bind `cbm-cycle', `cbm-switch-buffer' and
 (global-set-key (kbd "C-;") #'cbm-cycle)
 (global-set-key (kbd "C-'") #'cbm-switch-buffer)
 (global-set-key (kbd "C-c o") #'cbm-find-org-agenda-file)
+(define-key rcirc-mode-map (kbd "M-i") #'cbm-rcirc-switch-to-channel)
 
 Usage:
 

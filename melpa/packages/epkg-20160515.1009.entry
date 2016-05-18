@@ -1,0 +1,2 @@
+
+(epkg . [(20160515 1009) ((closql (0 1 0)) (dash (2 12 1)) (emacs (25 0 92))) "browse the Emacsmirror package database" tar ((:keywords "tools") (:url . "https://gitlab.com/tarsius/epkg"))])

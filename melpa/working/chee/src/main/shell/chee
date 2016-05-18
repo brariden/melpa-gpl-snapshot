@@ -1,0 +1,5 @@
+#!<shebang>
+
+<if(cdtohere)>cd $(dirname $(readlink -e $0))<endif>
+
+<javabin> -cp <classpath> <options> $CHEE_OPTS chee.cli.Main "$@"

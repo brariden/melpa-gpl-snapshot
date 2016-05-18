@@ -1,2 +1,0 @@
-
-(php-refactor-mode . [(20140920 1611) nil "Minor mode to quickly and safely perform common refactorings" single ((:keywords "php" "refactor") (:url . "https://github.com/keelerm84/php-refactor-mode.el"))])

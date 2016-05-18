@@ -1,0 +1,2 @@
+
+(helm-bm . [(20160321 831) ((bm (1 0)) (cl-lib (0 5)) (helm (1 9 3)) (s (1 11 0))) "helm sources for bm.el" single ((:keywords "helm" "bookmark") (:url . "https://github.com/yasuyk/helm-bm"))])

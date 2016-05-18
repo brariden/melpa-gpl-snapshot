@@ -1,0 +1,2 @@
+
+(go-eldoc . [(20160307 816) ((go-mode (1 0 0)) (cl-lib (0 5))) "eldoc for go-mode" single ((:url . "https://github.com/syohex/emacs-go-eldoc"))])

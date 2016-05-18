@@ -1,0 +1,20 @@
+Create Dataprovider for:
+	* evolution (using libzeitgeist seems like the best way here) (LP: #485698)
+	* pidgin (LP: #364068)
+	* telepathy - DONE
+	* Netbeans (LP: #510535)
+	
+	* chromium - DONE (same as chrome)
+	* universal GIO dataprovider
+	* anjuta
+	* banshee - DONE
+	* brasero
+	* cheese - Upstream waiting merge https://bugzilla.gnome.org/show_bug.cgi?id=627311
+	* eclipse
+	* f-spot
+	* gimp
+	* liferea
+	* monodevelop - DONE
+	* nautilus/gvfs (present as a patch in Ubutnu's archives)
+	* OpenOffice/LibreOffice
+	* thunderbird - DONE

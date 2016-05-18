@@ -7,6 +7,7 @@ M-x imenu-list-minor-mode
 Key shortcuts from "*Ilist*" buffer:
 <enter>: Go to current definition
 <space>: display current definition
+<tab>: expand/collapse subtree
 
 Change "*Ilist*" buffer's position and size:
 `imenu-list-position', `imenu-list-size'.

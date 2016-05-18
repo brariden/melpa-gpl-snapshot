@@ -1,10 +1,10 @@
 ;;; urlenc.el --- URL encoding/decoding utility for Emacs.
-;; Package-Version: 20140116.856
 
 ;; Copyright (C) 2012  Taiki SUGAWARA
 
 ;; Author: Taiki SUGAWARA <buzz.taiki@gmail.com>
 ;; Keywords: url
+;; Package-Version: 20140116.856
 ;; URL: https://github.com/buzztaiki/urlenc-el
 
 ;; This program is free software; you can redistribute it and/or modify

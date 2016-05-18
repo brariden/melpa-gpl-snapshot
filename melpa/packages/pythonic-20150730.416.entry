@@ -1,2 +1,0 @@
-
-(pythonic . [(20150730 416) ((emacs (24)) (cl-lib (0 5)) (dash (2 11)) (s (1 9)) (f (0 17 2))) "Utility functions for writing pythonic emacs package." single ((:url . "https://github.com/proofit404/pythonic"))])

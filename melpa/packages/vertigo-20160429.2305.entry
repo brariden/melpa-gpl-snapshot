@@ -1,0 +1,2 @@
+
+(vertigo . [(20160429 2305) ((dash (2 11 0))) "Jump across lines using the home row." single ((:keywords "vim" "vertigo") (:url . "https://github.com/noctuid/vertigo.el"))])

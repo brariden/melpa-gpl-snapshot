@@ -1,2 +1,0 @@
-
-(git-link . [(20150927 1225) nil "Get the GitHub/Bitbucket/GitLab URL for a buffer location" single ((:keywords "git") (:url . "http://github.com/sshaw/git-link"))])

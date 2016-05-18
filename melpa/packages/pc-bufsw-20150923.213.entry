@@ -1,0 +1,2 @@
+
+(pc-bufsw . [(20150923 213) nil "PC style quick buffer switcher" single ((:keywords "buffer") (:url . "https://github.com/ibukanov/pc-bufsw"))])

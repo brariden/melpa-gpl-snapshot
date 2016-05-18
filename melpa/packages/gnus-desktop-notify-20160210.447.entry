@@ -1,0 +1,2 @@
+
+(gnus-desktop-notify . [(20160210 447) ((gnus (1 0))) "Gnus Desktop Notification global minor mode" single ((:url . "http://www.thregr.org/~wavexx/software/gnus-desktop-notify.el/"))])

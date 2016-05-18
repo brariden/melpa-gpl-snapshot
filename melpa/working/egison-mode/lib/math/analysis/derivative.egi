@@ -1,0 +1,87 @@
+;;;;;
+;;;;;
+;;;;; Differentiation
+;;;;;
+;;;;;
+
+(define $∂/∂
+  (lambda [$f $x]
+    (match f math-expr
+      {; symbol
+       [,x 1]
+       [<symbol _ _> 0]
+       ; function application
+       [(,exp $g) (* (exp g) (∂/∂ g x))]
+       [(,** $g $h) (* f (∂/∂ (* (log g) h) x))]
+       [(,log $g) (* (/ 1 g) (∂/∂ g x))]
+       [(,cos $g) (* (* -1 (sin g)) (∂/∂ g x))]
+       [(,sin $g) (* (cos g) (∂/∂ g x))]
+       [(,sqrt $g) (* (/ 1 (* 2 (sqrt g))) (∂/∂ g x))]
+       [<apply $g <cons $h <nil>>> (* ('(add-prime g) h) (∂/∂ h x))]
+       [<apply $g (& $args <join $hs <cons ,x _>>)> (* (capply '(add-subscript g (+ (length hs) 1)) args))]
+       [<apply $g $args>
+        (sum (map (lambda [$t] (* (∂/∂ (capply g args) t) (∂/∂ t x)))
+                  args))]
+       ; term (constant)
+       [,0 0]
+       [<term _ <nil>> 0]
+       ; term (multiplication)
+       [<term ,1 <ncons $n $fx <nil>>> (* n (** fx (- n 1)) (∂/∂ fx x))]
+       [<mult $a <ncons $n $fx $r>>
+        (+ (* a (∂/∂ (**' fx n) x) r)
+           (* a (**' fx n) (∂/∂ r x)))]
+       ; polynomial
+       [<poly $ts> (sum (map (∂/∂ $ x) ts))]
+       ; quotient
+       [<div $p1 $p2>
+        (let {[$p1' (∂/∂ p1 x)]
+              [$p2' (∂/∂ p2 x)]}
+          (/ (- (* p1' p2) (* p2' p1)) (** p2 2)))]
+       })))
+
+(define $∂/∂x (∂/∂ $ x)) ; just a syntax sugar
+(define $∂/∂y (∂/∂ $ y)) ; just a syntax sugar
+(define $∂/∂z (∂/∂ $ z)) ; just a syntax sugar
+
+(define $d/d ∂/∂)
+(define $d/dx (∂/∂ $ x)) ; just a syntax sugar
+(define $d/dy (∂/∂ $ y)) ; just a syntax sugar
+(define $d/dz (∂/∂ $ z)) ; just a syntax sugar
+
+(define $dP/dP ∂/∂)
+(define $dP/dPx (∂/∂ $ x)) ; just a syntax sugar
+(define $dP/dPy (∂/∂ $ y)) ; just a syntax sugar
+(define $dP/dPz (∂/∂ $ z)) ; just a syntax sugar
+
+(define $taylor-expansion
+  (lambda [$f $x $a]
+    (map2 *
+          (map 1#(/ (** (- x a) %1) (fact %1)) nats0)
+          (map (substitute {[x a]} $) (iterate (∂/∂ $ x) f)))))
+
+(define $maclaurin-expansion (taylor-expansion $ $ 0))
+
+(define $∇
+  (lambda [$f $xs]
+    (generate-tensor
+      1#(∂/∂ f (nth %1 xs))
+      {(length xs)})))
+
+(define $nabla ∇)
+
+(define $multivariate-taylor-expansion
+  (lambda [$f $xs $as]
+    (let* {[$n (length xs)]
+           [$hs (map 1#h_%1 (between 1 n))]
+           [$hv (| {n} hs |)]
+           [$xas (map 1#(- (nth %1 xs) (nth %1 as)) (between 1 n))]}
+      (map2 *
+            (map 1#(/ 1 (fact %1)) nats0)
+            (map (substitute {@(zip xs as)
+                              @(zip hs xas)}
+                             $)
+                 (iterate (compose (∇ $ xs) (V.* hv $)) f))))))
+
+(define $multivariate-maclaurin-expansion
+  (lambda [$f $xs]
+    (multivariate-taylor-expansion f xs (take (length xs) (repeat1 0)))))

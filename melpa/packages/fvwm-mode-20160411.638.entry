@@ -1,0 +1,2 @@
+
+(fvwm-mode . [(20160411 638) nil "A major mode for editing Fvwm configuration files" single ((:keywords "files") (:url . "https://github.com/theBlackDragon/fvwm-mode"))])

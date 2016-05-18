@@ -1,0 +1,2 @@
+
+(mingus . [(20160321 1117) ((libmpdee (2 1))) "MPD Interface" tar ((:keywords "multimedia" "elisp" "music" "mpd") (:url . "https://github.com/pft/mingus"))])

@@ -1,2 +1,0 @@
-
-(string-edit . [(20151213 1130) ((dash (1 2 0))) "Avoid escape nightmares by editing string in separate buffer" single nil])

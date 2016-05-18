@@ -1,2 +1,0 @@
-
-(shackle . [(20160102 1701) ((cl-lib (0 5))) "Enforce rules for popups" single ((:keywords "convenience") (:url . "https://github.com/wasamasa/shackle"))])

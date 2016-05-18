@@ -1,0 +1,174 @@
+* electric-case.el
+
+camelCase、snake_case の識別子を Shift キーなしで入力
+
+insert camelCase and snake_case words, without "Shift"ing
+
+** Screencast
+
+[[screencast.gif]]
+
+** Installation
+
+Load this script
+
+: (require 'electric-case)
+
+and initialize in major-mode hooks.
+
+: (add-hook 'java-mode-hook 'electric-case-java-init)
+
+And when you type the following in java-mode for example,
+
+: public class test-class{
+:     public void test-method(void){
+
+=electric-case= automatically converts it into :
+
+: public class TestClass{
+:     public void testMethod(void){
+
+Preconfigured settings for some other languages are also
+provided. Try:
+
+: (add-hook 'c-mode-hook electric-case-c-init)
+: (add-hook 'ahk-mode-hook electric-case-ahk-init)
+: (add-hook 'scala-mode-hook electric-case-scala-init)
+
+To add support for other languages, please read section 2.
+
+** Customization
+*** =electric-case-convert-calls=
+
+=electric-case= do not convert other expressions than declarations by
+default. To enable conversion for other expressions, set
+=electric-case-convert-calls= non-nil.
+
+: (setq electric-case-convert-calls t)
+
+This sometimes produces confusing results for novice users. For
+example,
+
+: foo-bar
+
+does not mean "foo minus bar", but is converted to
+
+: fooBar
+
+To make "-" counted as a subtraction or negation, insert whitespace
+around it.
+
+: foo - bar
+
+I recommend to keep =electric-case-convert-calls= =nil=, because it is
+a kind of overkill. Once you declared a symbol, the symbol can be
+inserted easily using completion. This script is useful when you TYPE
+BY HAND camel-case or snake-case symbols. But in case you do not need
+to type, not to type seems much better.
+
+*** =electric-case-convert-nums/beginning/end=
+
+Even if =electric-case-convert-calls= is non-nil, numbers and hyphens
+at beginning/end of symbols are not converted.
+
+: -foo-1  =>  -foo-1
+
+You may change this behavior by setting some of three variables to
+non-nil.
+
+: (setq electric-case-convert-nums t)      hyphens around numbers
+: (setq electric-case-convert-beginning t) hyphens at beginning of symbols
+: (setq electric-case-convert-end t)       hyphens at end of symbols
+
+When you insert an expression "-foo--1--bar-",
+
+:                 +---num
+:                 |     +--- num
+:                 V     V
+:  -  f  o  o  -  -  1  -  -  b  a  r  -
+:  ^           ^           ^           ^
+:  |           +--- end    |           +--- end
+:  +--- beginning          +--- beginning
+
+electric-case will convert as follows:
+
+| num | beg | end | result       |
+|-----+-----+-----+--------------|
+| nil | nil | nil | -foo--1--bar-|
+| nil | nil | t   | -foo-1--bar  |
+| nil | t   | nil | Foo--1-Bar-  |
+| t   | nil | nil | -foo1Bar-    |
+| t   | t   | t   | Foo1Bar      |
+
+*** Overlays
+
+Symbols that may be converted by =electric-case= are shadowed by
+default. If this is not comfortable for you, evaluate following
+expression to disable it.
+
+: (setq electric-case-pending-overlay nil)
+
+Or you may also choose another face to highlight pending symbols, that
+looks better in your color-scheme.
+
+: (setq electric-case-pending-overlay 'highlight)
+
+** Implementing Language Supports
+
+There are two important buffer-local variables:
+
+- =electric-case-criteria=
+
+  A function that defines which case to convert the symbol into. The
+  function will be given 2 arguments: the beginning and the end point
+  of the symbol. The function must return one of =camel=, =ucamel=,
+  =snake=, =usnake=, or =nil=. When the return value is =nil=, the
+  symbol is not converted.
+
+  Remember, that if =electric-case-convert-calls= is =nil=, symbols
+  not in declarations are not expected to be
+  converted. =electric-case= does not know whether the symbol is in a
+  declaration or not, so criteria functions must be aware of it.
+
+  Here is an example:
+
+  : (setq electric-case-criteria
+  :       (lambda (b e n)
+  :         (let ((proper (text-properties-at b)))
+  :           (cond ((member 'font-lock-function-name-face proper) 'snake)
+  :                 ((member 'font-lock-variable-name-face proper)
+  :                  (if (member '(cpp-macro) (c-guess-basic-syntax))
+  :                      'usnake 'snake))
+  :                 (electric-case-convert-calls 'snake)
+  :                 (t nil)))))
+
+  With the criteria function above, function-declarations and
+  variable-declarations are converted into snake_case. Macro
+  declarations are converted into UP_SNAKE_CASE. Other symbols are
+  converted into snake_case, if and only if
+  =electric-case-convert-calls= is non-nil. This may be one of the
+  minimal criteria functions for C-like language.
+
+- =electric-case-max-iteration=
+
+  For example, in Java, the syntactic category of the symbol
+  "what-is-this" below is not decidable.
+
+  : what-is-this
+
+  But when " symbol;" is added, now "what-is-this" is a class name.
+
+  : what-is-this symbol;
+
+  So electric-case can convert it.
+
+  : WhatIsThis symbol;
+
+  In this example, the symbol "what-is-this" must be checked
+  twice. So, =electric-case-max-iteration= for Java must be 2 or
+  greater. Otherwise, "what-is-this" is not checked twice, and is not
+  converted.
+
+** Known Bugs:
+
+- class name that ends with "Class" is treated as keyword "class"

@@ -1,0 +1,47 @@
+#+Title: noxml-fold-mode
+
+This is a minor mode that tries to enable useful folding for XML
+files, copying a lot from AUCTeX's tex-fold.el. It builds on
+nxml-mode, and will probably break horribly if it is not the
+major-mode.
+
+** Installation
+
+*** Melpa
+
+If you're using MELPA, ~M-x list-packages RET C-s noxml-fold i x~
+should work.
+
+
+*** From Github
+
+1) Get the repository:
+   #+BEGIN_SRC 
+   git clone https://github.com/paddymcall/noxml-fold.git ./some_dir
+   #+END_SRC
+2) Edit your ~/.emacs:
+   #+BEGIN_SRC 
+   (add-to-list 'load-path "<<./path/to/some_dir>>")
+   (add-hook 'nxml-mode-hook (lambda () (require 'noxml-fold)))
+   #+END_SRC
+
+
+** Usage
+
+With an open xml file, make sure you're in nxml-mode, and load
+noxml-fold with ~M-x noxml-fold-mode~.
+
+The most useful entry points are ~noxml-fold-dwim~, and
+~noxml-fold-region~. For smaller files, you can also try
+~noxml-fold-buffer~.
+
+There is also a kind of visibility cycling. If on the ~<~ of an
+element's start tag, repeated ~<TAB>~ will let you show/hide children
+and contents of that element.
+
+** Limitations
+
+Since this mode uses overlays, it does *not* scale: for very long or
+deeply nested XML structures, you should only fold what's within view
+(`noxml-fold-visible'), or make use of `narrow-to-region'.
+

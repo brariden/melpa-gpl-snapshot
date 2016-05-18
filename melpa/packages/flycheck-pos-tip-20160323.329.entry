@@ -1,0 +1,2 @@
+
+(flycheck-pos-tip . [(20160323 329) ((dash (2 12)) (flycheck (0 22)) (pos-tip (0 4 6))) "Display Flycheck errors in GUI tooltips" single ((:keywords "tools" "convenience") (:url . "https://github.com/flycheck/flycheck-pos-tip"))])

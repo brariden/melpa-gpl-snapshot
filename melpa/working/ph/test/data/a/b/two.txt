@@ -1,0 +1,7 @@
+(buffer-local-variables &optional BUFFER)
+
+Return an alist of variables that are buffer-local in BUFFER.
+Most elements look like (SYMBOL . VALUE), describing one variable.
+For a symbol that is locally unbound, just the symbol appears in the value.
+Note that storing new VALUEs in these elements doesn't change the variables.
+No argument or nil as argument means use current buffer as BUFFER.

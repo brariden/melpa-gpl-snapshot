@@ -1,0 +1,2 @@
+
+(replace-pairs . [(20160207 651) ((emacs (24 4))) "Query-replace pairs of things" single ((:url . "https://github.com/davidshepherd7/replace-pairs"))])

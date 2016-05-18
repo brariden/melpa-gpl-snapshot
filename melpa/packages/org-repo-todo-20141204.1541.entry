@@ -1,2 +1,0 @@
-
-(org-repo-todo . [(20141204 1541) nil "Simple repository todo management with org-mode" single ((:keywords "convenience") (:url . "https://github.com/waymondo/org-repo-todo"))])

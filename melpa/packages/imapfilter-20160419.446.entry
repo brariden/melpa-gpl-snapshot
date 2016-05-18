@@ -1,0 +1,2 @@
+
+(imapfilter . [(20160419 446) nil "run the imapfilter executable" single ((:keywords "mail") (:url . "http://github.com/tarsius/imapfilter"))])

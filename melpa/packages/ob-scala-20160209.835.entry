@@ -1,0 +1,2 @@
+
+(ob-scala . [(20160209 835) ((ensime (0 9 10))) "org-babel functions for scala evaluation" single ((:keywords "scala") (:url . "github.com/reactormonk/ob-scala"))])

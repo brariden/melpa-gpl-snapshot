@@ -1,4 +1,0 @@
-(helm-open-github
- :repo "syohex/emacs-helm-open-github"
- :fetcher github
- :files ("helm-open-github.el"))

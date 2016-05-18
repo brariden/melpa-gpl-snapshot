@@ -1,2 +1,0 @@
-
-(babel-repl . [(20160114 1210) ((emacs (24))) "Run babel REPL" single ((:keywords "babel" "javascript" "es6") (:url . "https://github.com/hung-phan/babel-repl/"))])

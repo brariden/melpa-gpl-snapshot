@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "jsx": "React",
+    "module": "commonjs",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "ES5"
+  },
+
+  "files": [
+    "all.d.ts",
+    "reactComponent.tsx",
+    "test.ts"
+  ]
+}

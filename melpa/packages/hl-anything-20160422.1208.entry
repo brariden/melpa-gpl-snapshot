@@ -1,0 +1,2 @@
+
+(hl-anything . [(20160422 1208) ((emacs (24 3))) "Highlight symbols, selections, enclosing parens and more." tar nil])

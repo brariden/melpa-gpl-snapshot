@@ -1,0 +1,2 @@
+
+(projectile . [(20160507 2054) ((dash (2 11 0)) (pkg-info (0 4))) "Manage and navigate projects in Emacs easily" single ((:keywords "project" "convenience") (:url . "https://github.com/bbatsov/projectile"))])

@@ -1,0 +1,2 @@
+
+(dix . [(20160429 729) ((cl-lib (0 5))) "minor mode for editing Apertium XML dictionary files" tar ((:keywords "languages") (:url . "http://wiki.apertium.org/wiki/Emacs"))])

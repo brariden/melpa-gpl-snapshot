@@ -1,0 +1,2 @@
+
+(yasnippet . [(20160514 618) ((cl-lib (0 5))) "Yet another snippet extension for Emacs." tar ((:keywords "convenience" "emulation") (:url . "http://github.com/capitaomorte/yasnippet"))])

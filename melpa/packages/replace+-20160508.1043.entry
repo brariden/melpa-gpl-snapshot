@@ -1,0 +1,2 @@
+
+(replace+ . [(20160508 1043) nil "Extensions to `replace.el'." single ((:keywords "matching" "help" "internal" "tools" "local") (:url . "http://www.emacswiki.org/replace%2b.el"))])

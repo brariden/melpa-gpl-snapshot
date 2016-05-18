@@ -1,0 +1,2 @@
+
+(flycheck-protobuf . [(20160211 900) ((protobuf-mode (0))) "protobuf checker for flycheck" single ((:keywords "flycheck") (:url . "https://github.com/edvorg/flycheck-protobuf"))])

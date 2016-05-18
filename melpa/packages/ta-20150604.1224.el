@@ -2,9 +2,9 @@
 
 ;; Author: kuanyui <azazabc123@gmail.com>
 ;; Package-Requires: ((emacs "24.3") (cl-lib "0.5"))
+;; Package-Version: 20150604.1224
 ;; X-URL: http://github.com/kuanyui/ta.el
 ;; Version: 1.0
-;; Package-Version: 20150604.1224
 ;; Keywords: tools
 
 ;; WTFPL 2.0

@@ -1,0 +1,2 @@
+
+(chinese-conv . [(20160218 1515) ((cl-lib (0 5))) "Conversion between Chinese Characters with opencc or cconv" single ((:url . "https://github.com/gucong/emacs-chinese-conv"))])

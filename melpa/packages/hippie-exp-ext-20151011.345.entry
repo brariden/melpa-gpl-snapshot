@@ -1,2 +1,0 @@
-
-(hippie-exp-ext . [(20151011 345) nil "Extension of hippie-expand" single ((:keywords "abbrev" "convenience" "completions" "hippie-expand") (:url . "http://www.emacswiki.org/emacs/download/hippie-exp-ext.el"))])

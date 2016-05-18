@@ -1,0 +1,2 @@
+
+(fifo-class . [(20160425 58) nil "First in first out abstract class" single ((:keywords "lisp") (:url . "https://github.com/mola-T/fifo-class"))])

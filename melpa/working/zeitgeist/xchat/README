@@ -1,0 +1,13 @@
+Zeitgeist plugin to the XChat irc client
+****************************************
+
+To use this plugin:
+
+* Install Zeitgeist 0.3 (or greater)
+* Type "make" and "sudo make install" for a system-wide installation; "make" and "make local-install"
+  for a local installation
+  
+*************************************************************************************************************
+  N.B. Please don't install both system-wide and locally! XChat will load both plugins, getting double events
+  on your Zeitgeist.
+*************************************************************************************************************

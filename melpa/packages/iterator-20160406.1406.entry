@@ -1,0 +1,2 @@
+
+(iterator . [(20160406 1406) ((emacs (24)) (cl-lib (0 5))) "A library to create and use elisp iterators objects." single ((:url . "https://github.com/thierryvolpiatto/iterator"))])

@@ -1,0 +1,13 @@
+* About
+  This makes elscreen can manage buffer list for each screen.
+* Requires
+  GNU Emacs 24.4 or later
+* Usage
+  To use this, add the following line somewhere in your init file:
+  
+  #+BEGIN_SRC emacs-lisp
+  (require 'elscreen-separate-buffer-list)
+  (elscreen-separate-buffer-list-mode)
+  #+END_SRC
+
+  This apply to ido-mode or something that uses ido-make-buffer-list such as helm.

@@ -34,6 +34,9 @@ All these variables may be overridden on a per-directory basis in
 your .dir-locals.el.  See (info "(Emacs) Directory Variables") for
 details.
 
+To find in *current directory*, use `find-file-in-current-directory'
+and `find-file-in-current-directory-by-selected'.
+
 ivy-mode is used for filter/search UI
 In ivy-mode, SPACE is translated to regex ".*".
 For example, the search string "dec fun pro" is transformed into
@@ -43,9 +46,13 @@ a regex "\\(dec\\).*\\(fun\\).*\\(pro\\)"
 You switch to ido-mode by `(setq ffip-prefer-ido-mode t)'
 
 GNU Find can be installed,
-  - through `brew' on OS X
-  - through `cygwin' on Windows.
+  - through `Brew' on OS X
+  - through `Cygwin' or `MYSYS2' on Windows.
+Find executable will be automatically detected. But you can manually
+specify the executable location by insert below code into ~/.emacs,
 
+  (if (eq system-type 'windows-nt)
+     (setq ffip-find-executable "c:\\\\cygwin64\\\\bin\\\\find")
 This program works on Windows/Cygwin/Linux/Mac Emacs.
 
 Windows setup is as easy as installing Cygwin into default directory on

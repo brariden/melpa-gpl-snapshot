@@ -1,0 +1,2 @@
+
+(timp . [(20160514 525) ((emacs (24 4)) (cl-lib (0 5)) (fifo-class (1 0)) (signal (1 0))) "Multithreading library" tar ((:keywords "internal" "lisp" "processes" "tools") (:url . "https://github.com/mola-T/timp"))])

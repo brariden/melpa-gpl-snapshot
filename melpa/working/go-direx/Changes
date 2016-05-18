@@ -1,0 +1,13 @@
+Revision history for go-direx.el
+
+Revision 0.04 2015/03/16 syohex
+  - Update dependency version
+
+Revision 0.03 2014/07/02 syohex
+  - Bump up version and update Changes
+
+Revision 0.02 2014/03/03 syohex
+  - Fix highlighting issue
+
+Revision 0.01 2013/08/06 syohex
+  - Initial release

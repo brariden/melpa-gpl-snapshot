@@ -3,9 +3,16 @@ function for Java source code, compared to the ordinary etags package.
 While etags knows only the name of the identifier, jtags also knows the
 context in which the identifier is used.  This allows jtags to find the
 correct declaration at once, instead of the declaration that happens to
-appear first in the tags table file.  The jtags package also contains a
-function for completing partly typed class members, and functions for
-managing tags table files.
+appear first in the tags table file.
+
+However, there are cases when jtags cannot lookup tags.  That is because
+the etags program included with Emacs does not generate correct tags table
+files for Java source code.  For example, the interface java.util.Map is
+missing from the tags table files, and therefore cannot be looked up.
+
+In addition to looking up identifiers and showing their declaration or
+documentation, the jtags package also contains a function for completing
+partly typed identifiers, and functions for managing tags table files.
 
 The following interactive functions are included in jtags mode:
 
@@ -19,6 +26,7 @@ The following interactive functions are included in jtags mode:
                                 source code changes
 - jtags-update-this-tags-file:  update the tags table file in which the
                                 class in the current buffer is tagged
+- jtags-clear-caches:           clear internal caches, see section Caching
 
 Throughout this file, the two terms DECLARATION and DEFINITION are used
 repeatedly.  The DECLARATION of an identifier is the place in the Java
@@ -69,7 +77,10 @@ create the tags table files.
 The shell command that runs when you update tags table files is defined in
 the variable `jtags-etags-command'.  Change this variable to run a specific
 version of etags, or to include other source code files in the tags table
-files.
+files.  After updating a tags table file, any hooks defined in variable
+`jtags-after-tags-update-hook' will be called with the updated tags table
+file buffer as the current buffer.  This can be used to modify the newly
+updated tags table file if needed.
 
 To display Javadoc for third party libraries, you need to customize the
 `jtags-javadoc-root-alist' and add Javadoc root URLs for these libraries.
@@ -89,3 +100,21 @@ The jtags package defines four key bindings in the `jtags-mode-map':
 - M-,   is bound to `jtags-show-declaration'
 - M-f1  is bound to `jtags-show-documentation'
 - C-c , is bound to `jtags-update-this-tags-file'
+
+To define other key bindings, or set other things up, add a hook function
+to `jtags-mode-hook'.  The hook function will be called after; entering or
+leaving jtags mode.  This is an example:
+
+(add-hook 'jtags-mode-hook (lambda () (message "I'm in jtags-mode.")))
+
+Caching:
+
+To improve performance, jtags caches some data internally, for example
+which interfaces a certain class implements.  Most of the time this works
+fine, but if the code changes a lot the caches may contain old data.  To
+prevent this from happening, all caches are cleared each time the tags
+table files are updated.
+
+If you want more control over when the caches are cleared, you can customize
+`jtags-after-tags-update-hook' and remove the entry `jtags-clear-caches'.
+To clear all internal caches manually, type `M-x jtags-clear-caches'.

@@ -1,0 +1,2 @@
+
+(japanlaw . [(20160129 220) ((cl-lib (0 5))) "Japan law from law.e-gov.go.jp" single ((:keywords "docs" "help"))])

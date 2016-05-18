@@ -1,0 +1,56 @@
+* Org Babel Translate
+
+Translate text in Emacs' org-mode blocks, like so:
+
+#+BEGIN_EXAMPLE
+#+BEGIN_SRC translate :src en :dest de
+This is a test.
+#+END_SRC
+
+#+RESULTS:
+: Dies ist ein Test .
+#+END_EXAMPLE
+
+Or with multiple destination languages:
+
+#+BEGIN_EXAMPLE
+#+BEGIN_SRC translate :src en :dest de,fr,ar,ja
+This is a test.
+#+END_SRC
+
+#+RESULTS:
+| de | Dies ist ein Test . |
+| fr | Ceci est un essai . |
+| ar | هذا هو الاختبار.    |
+| ja | これはテストです。  |
+#+END_EXAMPLE
+
+** Installation
+
+If you're hooked up to [[http://melpa.milkbox.net/][MELPA]]:
+
+#+BEGIN_EXAMPLE
+M-x package-refresh-contents
+M-x package-install RET ob-translate
+#+END_EXAMPLE
+
+Alternatively just grab the single =ob-translate.el= file and install that in your preferred way.
+
+** Status
+
+Beta. It works for me, but I'll bet there are some character encoding
+issues in there for some languages. Please file an issue if you spot a
+problem.
+
+** Options
+
+Each block supports the following arguments:
+
+| Argument | Description              | Example                           | Default                      |
+|----------+--------------------------+-----------------------------------+------------------------------|
+| =:src=     | Source language.         | =#+BEGIN_SRC translate :src de=     | 'auto' (for auto detection). |
+| =:dest=    | Destination language(s). | =#+BEGIN_SRC translate :dest it,fr= | 'en' (for English).          |
+
+=:dest= may be a single country-code, or a comma-separated list.
+
+All defaults are customizable with =M-x customize-group RET ob-translate=.

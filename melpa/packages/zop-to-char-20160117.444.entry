@@ -1,2 +1,0 @@
-
-(zop-to-char . [(20160117 444) ((cl-lib (0 5))) "A replacement of zap-to-char." single ((:url . "https://github.com/thierryvolpiatto/zop-to-char"))])

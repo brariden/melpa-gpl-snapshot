@@ -1,0 +1,2 @@
+
+(blockdiag-mode . [(20160427 24) ((emacs (24 3))) "Major mode for editing blockdiag files" single ((:url . "https://github.com/xcezx/xdiag-mode"))])

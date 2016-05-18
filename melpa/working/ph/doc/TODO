@@ -1,0 +1,13 @@
+-*-org-*-
+
+* Ongoing
+
+** Unsure
+
+- [ ] port to Windows
+- [ ] recursive check for subprojects
+- [ ] make ph-kill-buffer-hook buffer local
+- [ ] title in modeline
+- [ ] temporally disable auto-revert in ph-project-close
+- [ ] .ph write lock
+- [ ] n last used project buffers in a Buffers-like menu

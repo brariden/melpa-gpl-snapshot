@@ -1,0 +1,19 @@
+<Addin id          = "Zeitgeist"
+       namespace   = "MonoDevelop"
+       name        = "Zeitgeist Support"
+       author      = "Patrick McEvoy and Manish Sinha"
+       copyright   = "MIT X11"
+       url         = "http://github.com/firegrass/"
+       description = "Log activity to Zeitgeist."
+       category    = "Logging"
+       version     = "0.1">
+
+	<Runtime>
+		<Import assembly="MonoDevelop.Zeitgeist.dll"/>
+	</Runtime>
+
+	<Dependencies>
+		<Addin id="Ide" version="2.6.0"/>
+	</Dependencies>
+
+</Addin>

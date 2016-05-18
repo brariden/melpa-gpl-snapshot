@@ -1,4 +1,5 @@
 ;;; x-dict.el --- emacs interface for several online dictionaries
+;; Package-Version: 20091203.1223
 
 ;; Copyright (C) 2005-2008 by Stefan Reichoer
 
@@ -23,7 +24,6 @@
 
 ;; x-dict.el provides an Emacs interface for the following dictionaries:
 ;;  URL            language
-;; Package-Version: 20091203.1223
 ;;  dict.leo.org : english <-> german
 ;;  www.dict.cc  : english <-> german
 

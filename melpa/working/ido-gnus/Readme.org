@@ -1,0 +1,37 @@
+* Library Information
+ Readme.org --- Access gnus groups or servers using ido
+
+ - Filename :: [[file:ido-gnus.el][ido-gnus.el]]
+ - Description :: Access gnus groups or servers using ido
+ - Author :: Joe Bloggs <vapniks@yahoo.com>
+ - Maintainer :: Joe Bloggs <vapniks@yahoo.com>
+Copyleft (Ↄ) 2013, Joe Bloggs, all rites reversed.
+ - Created :: 2013-06-21 12:26:18
+ - Version :: 0.4
+ - Last-Updated :: 2013-06-26 12:26:18
+ -           By :: Joe Bloggs
+ - URL :: https://github.com/vapniks/ido-gnus
+ - Keywords :: comm
+ - Compatibility :: GNU Emacs 24.3.1
+ - Package-Requires :: ((gnus "5.13") (ido ""))
+
+* Possible Dependencies
+
+gnus ido
+
+* Commentary
+
+Bitcoin donations gratefully accepted :: 16mhw12vvtzCwQyvvLAqCSBvf8i41CfKhK
+ 
+** Commands
+ - `ido-gnus-select-group'  : Select a gnus group to visit using ido.
+ - `ido-gnus-select-server' : Select a gnus server to visit using ido.
+ - `ido-gnus-select'        : Select a gnus group/server or existing gnus buffer using ido.
+** Customizable Options
+ - `ido-gnus-show-article' : If non-nil then an article will be auto-selected on group entry (default = nil).
+ - `ido-gnus-num-articles' : The number of articles to display when a group is visited (default = t).
+* Installation
+ - If you have [[http://www.marmalade-repo.org/][marmalade-repo.org]], this ido-gnus is part of the emacs packages you can install.  
+   Just type M-x package-install ido-gnus marmalade 
+ - Otherwise download the library from here Lisp:ido-gnus, and put it in a directory in the emacs load path, like ~/.emacs.d
+ - Add (require 'ido-gnus) in your ~/.emacs file

@@ -1,0 +1,29 @@
+* Library Information
+ Readme.org --- Find duplicate files and display them in a dired buffer
+
+ - Filename :: [[file:dired-dups.el][dired-dups.el]]
+ - Description :: Find duplicate files and display them in a dired buffer
+ - Author :: Joe Bloggs <vapniks@yahoo.com>
+ - Maintainer :: Joe Bloggs <vapniks@yahoo.com>
+ - Copyleft (Ↄ) 2013, Joe Bloggs, all rites reversed.
+ - Created :: 2013-05-12 01:30:22
+ - Version :: 0.1
+ - Last-Updated :: 2013-05-12 01:30:22
+ -           By :: Joe Bloggs
+ - URL :: https://github.com/vapniks/dired-dups
+ - Keywords :: unix
+ - Compatibility :: GNU Emacs 24.3.1
+Package-Requires:  
+
+* Commentary
+Bitcoin donations gratefully accepted: 12k9zUo9Dgqk8Rary2cuzyvAQWD5EAuZ4q
+
+This library provides the command `dired-find-duplicates' which searches a directory for
+duplicates of the marked files in the current dired buffer.
+It requires that the unix find and md5sum commands are on your system.
+* Installation
+
+ - If you have [[http://www.marmalade-repo.org/][marmalade-repo.org]], this dired-dups is part of the emacs packages you can install.  
+   Just type M-x package-install dired-dups marmalade 
+ - Otherwise download the library from here Lisp:dired-dups, and put it in a directory in the emacs load path, like ~/.emacs.d
+ - Add (require 'dired-dups) in your ~/.emacs file

@@ -1,0 +1,47 @@
+#+STARTUP: showall
+
+After reading [[https://ericjmritz.wordpress.com/2013/05/28/emacs-desktops/][this post]] I started using =desktop.el= as a simple project
+file-like system. The only problem was that remembering which desktops
+were where and switching between them is bothersome. This module tries
+to fix that.
+
+* Installation
+
+  If you have [[http://marmalade-repo.org/][Marmalade]] set up you can just use:
+
+  : M-x package-install <RET> desktop-registry
+
+* Usage
+
+  To switch between desktops you can use
+  =desktop-registry-change-desktop=, this will prompt (with completion)
+  for the directory you would like to load.
+
+  When you're done with a desktop or want to get rid of a desktop for
+  another reason you can use =desktop-registry-remove-desktop=.
+
+  If you've registered a desktop and you don't like what it made of
+  the name you can use =desktop-registry-rename-desktop= to give it a
+  new name.
+
+** Adding new desktops
+
+   You can use =desktop-registry-add-directory= to add a new directory
+   to the registry, or =desktop-registry-add-current-desktop= to add the
+   currently loaded desktop to the registry. With either of these
+   function you can use the universal argument (=C-u=) to specify a
+   name for the desktop as well.
+
+   If you enable =desktop-registry-auto-register= it will automatically
+   add new desktop files to the registry when you use =desktop-save=.
+
+** With org-capture-templates
+
+   The =desktop-registry-current-desktop= can be used to insert the
+   currently loaded desktop into an org capture template.
+
+   #+BEGIN_SRC emacs-lisp
+     (add-to-list 'org-capture-templates
+                  '("t" "Task" entry nil
+                    "* TODO %?  :%(desktop-registry-current-desktop \"\"):"))
+   #+END_SRC

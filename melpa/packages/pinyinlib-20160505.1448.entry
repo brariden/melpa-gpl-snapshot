@@ -1,0 +1,2 @@
+
+(pinyinlib . [(20160505 1448) nil "Convert first letter of Pinyin to Simplified/Traditional Chinese characters" single ((:keywords "extensions"))])

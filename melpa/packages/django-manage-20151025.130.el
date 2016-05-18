@@ -4,8 +4,8 @@
 
 ;; Author: Daniel Gopar <gopardaniel@yahoo.com>
 ;; Package-Requires: ((hydra "0.13.2"))
-;; Version: 0.1
 ;; Package-Version: 20151025.130
+;; Version: 0.1
 ;; Keywords: languages
 
 ;; This file is NOT part of GNU Emacs.

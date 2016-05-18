@@ -4,8 +4,8 @@
 
 ;; Author: steckerhalter
 ;; Package-Requires: ((makey "0.2"))
-;; URL: https://github.com/steckerhalter/discover-my-major
 ;; Package-Version: 20160108.1241
+;; URL: https://github.com/steckerhalter/discover-my-major
 ;; Keywords: discover help major-mode keys
 
 ;; This file is not part of GNU Emacs.

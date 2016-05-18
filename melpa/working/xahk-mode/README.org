@@ -1,0 +1,3 @@
+A emacs lisp Major mode for editing AutoHotkey scripts.
+
+Homepage: http://xahlee.info/mswin/emacs_autohotkey_mode.html

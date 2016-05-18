@@ -1,0 +1,2 @@
+
+(helm-phpunit . [(20160513 353) ((helm (1 9 5)) (phpunit (0 7 0))) "Helm integration for phpunit.el" single ((:keywords "phpunit" "helm" "php") (:url . "https://github.com/eric-hansen/phpunit-helm"))])

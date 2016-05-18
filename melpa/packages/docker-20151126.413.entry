@@ -1,2 +1,0 @@
-
-(docker . [(20151126 413) ((emacs (24 4)) (dash (1 5 0)) (magit-popup (2 0 50)) (s (1 9 0))) "Emacs interface to Docker" tar nil])

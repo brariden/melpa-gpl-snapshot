@@ -1,2 +1,0 @@
-
-(toc-org . [(20150921 905) nil "add table of contents to org-mode files (formerly, org-toc)" single ((:keywords "org-mode" "org-toc" "toc-org" "org" "toc" "table" "of" "contents") (:url . "https://github.com/snosov1/toc-org"))])

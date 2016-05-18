@@ -1,0 +1,2 @@
+
+(term-cmd . [(20160506 1112) ((emacs (24 0)) (dash (0 0)) (f (0 0))) "Send commands from programs running in term.el." tar nil])

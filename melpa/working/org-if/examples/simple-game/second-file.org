@@ -1,0 +1,13 @@
+
+  This is more text.
+
+* Code
+
+#+begin_src org-if
+(set inventory "Full")
+(print "This is some more text.")
+(choice "third-file" "Go forward with half of stuff" inventory "Half-Full")
+(if (= goal "Reached")
+    (print "Congratulations on reaching your goal!")
+    (print "You are almost there! Keep it up!"))
+#+end_src

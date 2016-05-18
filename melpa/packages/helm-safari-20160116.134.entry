@@ -1,2 +1,0 @@
-
-(helm-safari . [(20160116 134) ((helm (1 9 1)) (emacs (24))) "Helm interface for Safari Bookmarks and History" single ((:keywords "tools"))])

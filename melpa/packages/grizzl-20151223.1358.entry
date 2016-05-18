@@ -1,2 +1,0 @@
-
-(grizzl . [(20151223 1358) ((cl-lib (0 5)) (emacs (24 3))) "Fast fuzzy search index for Emacs." single ((:keywords "convenience" "usability") (:url . "https://github.com/grizzl/grizzl"))])

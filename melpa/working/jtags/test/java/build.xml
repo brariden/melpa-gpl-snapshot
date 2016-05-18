@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<project name="jtags" default="build" basedir=".">
+
+  <property name="src.dir" value="src"/>
+  <property name="classes.dir" value="classes"/>
+  <property name="doc.dir" value="doc"/>
+  <property name="build.sysclasspath" value="ignore"/>
+
+  <target name="init">
+    <mkdir dir="${classes.dir}"/>
+    <mkdir dir="${doc.dir}"/>
+  </target>
+
+  <target name="build" depends="init">
+    <javac srcdir="${src.dir}"
+           destdir="${classes.dir}"
+           classpath="${classes.dir}">
+    </javac>
+  </target>
+
+  <target name="doc" depends="init">
+    <javadoc sourcepath="${src.dir}"
+             destdir="${doc.dir}"
+             packagenames="net.sf.jtags"
+             private="yes"
+             classpath="${classes.dir}"/>
+  </target>
+
+  <target name="clean">
+    <delete includeemptydirs="true" failonerror="false">
+      <fileset dir="${classes.dir}" />
+      <fileset dir="${doc.dir}" />
+    </delete>
+  </target>
+</project>

@@ -1,0 +1,2 @@
+
+(toggle . [(20160331 300) ((cl-lib (0 5))) "quickly open corresponding file (eg test vs impl)." single ((:keywords "files" "extensions" "convenience"))])

@@ -1,2 +1,0 @@
-
-(ac-html-bootstrap . [(20151222 1512) ((web-completion-data (0 1))) "auto complete bootstrap3/fontawesome classes for `ac-html' and `company-web'" tar ((:keywords "html" "auto-complete" "bootstrap" "cssx") (:url . "https://github.com/osv/ac-html-bootstrap"))])

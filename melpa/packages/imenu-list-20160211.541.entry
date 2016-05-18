@@ -1,0 +1,2 @@
+
+(imenu-list . [(20160211 541) ((cl-lib (0 5))) "Show imenu entries in a seperate buffer" single ((:url . "https://github.com/bmag/imenu-list"))])

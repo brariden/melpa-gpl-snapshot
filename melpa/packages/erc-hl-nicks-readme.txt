@@ -4,6 +4,10 @@ add to nicknames
 
 History
 
+1.3.2
+
+- Pull request #7 - remove the list membership check on autoload
+
 1.3.1
 
 - Fix a require issue

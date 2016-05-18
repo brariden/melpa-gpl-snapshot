@@ -1,0 +1,2 @@
+
+(cider . [(20160513 1159) ((emacs (24 3)) (clojure-mode (5 3 0)) (pkg-info (0 4)) (queue (0 1 1)) (spinner (1 7)) (seq (2 14))) "Clojure Interactive Development Environment that Rocks" tar ((:keywords "languages" "clojure" "cider") (:url . "http://www.github.com/clojure-emacs/cider"))])

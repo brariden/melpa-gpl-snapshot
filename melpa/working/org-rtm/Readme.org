@@ -1,0 +1,28 @@
+* org-rtm
+A very simple import/export plugin for [[https://rememberthemilk.com][rememberthemilk]] (rtm) tasks. The main use-case for the plugin is to quickly get tasks /into/ org mode from my smart phone. I plan to support getting tasks /out of/ org mode into the app, but only in a limited kind of way.
+* Usage
+The plugin reads all your rtm lists and adds headlines for each one of them. Each task in a list gets an org-mode sub-headline.
+
+[[./img/org-rtm-original.png]]
+
+[[./img/org-rtm-export.png]]
+
+Simply add the plugin to your load-path (it's not on (m)elpa yet), then do =M-x org-rtm-import=. It will give instructions on how to retrieve the API key. You only have to do that step once.
+
+The plugin will import the data to =~/rtm.org= by default (a buffer which is not saved by default, so you can just refile your stuff and kill the buffer; no file is created). Use =M-x customize-group= for =org-rtm= to customize the file name.
+
+If =org-complete-after-import= is =t=, org-rtm will complete all imported tasks.
+* Restrictions
+*Notes*, *due dates* and *urls* are supported. However, there are:
+
+  - no repeaters
+  - no tags
+  - no contacts
+  - no estimates
+  - no location
+  - no postponed
+  - no priorities
+
+I think most of those could easily be added, but I'm just covering my use-cases at the moment, so drop me a note if you'd like some of those features as well.
+* Contribution
+I'm building upon =rtm.el= by Friedrich Delgado Friedrichs which is partly built upon org-rtm by  Avdi Grimm. Thanks to you guys for laying the foundation!

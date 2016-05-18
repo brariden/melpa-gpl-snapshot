@@ -1,2 +1,0 @@
-
-(helm-recoll . [(20160108 1557) ((helm (1 7 7))) "helm interface for the recoll desktop search tool." single ((:keywords "convenience") (:url . "https://github.com/emacs-helm/helm-recoll"))])

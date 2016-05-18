@@ -1,0 +1,2 @@
+
+(forecast . [(20160513 1359) ((emacs (24 4))) "Display a forecast.io weather report in a buffer" single ((:keywords "weather" "forecast") (:url . "http://gkayaalp.com/emacs.html#forecast.el"))])

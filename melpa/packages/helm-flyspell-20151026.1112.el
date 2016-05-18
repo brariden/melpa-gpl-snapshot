@@ -1,9 +1,9 @@
 ;;; helm-flyspell.el --- Helm extension for correcting words with flyspell
-;; Package-Version: 20151026.1112
 
 ;; Copyright (C) 2014 Andrzej Pronobis <a.pronobis@gmail.com>
 
 ;; Package-Requires: ((helm "1.6.5"))
+;; Package-Version: 20151026.1112
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by

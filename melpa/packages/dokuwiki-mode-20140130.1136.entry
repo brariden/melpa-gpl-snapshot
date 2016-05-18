@@ -1,2 +1,0 @@
-
-(dokuwiki-mode . [(20140130 1136) nil "Major mode for DokuWiki document" single ((:keywords "dokuwiki") (:url . "https://github.com/kbkbkbkb1/emacs-dokuwiki"))])

@@ -1,2 +1,0 @@
-
-(shell-pop . [(20151121 830) ((emacs (24))) "helps you to use shell easily on Emacs. Only one key action to work." single ((:keywords "shell" "terminal" "tools") (:url . "http://github.com/kyagi/shell-pop-el"))])

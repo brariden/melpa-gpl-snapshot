@@ -1,0 +1,2 @@
+
+(evil-dvorak . [(20160416 1341) ((evil (1 0 8))) "evil keybindings for that work with dvorak mode" tar ((:keywords "evil" "vim-emulation" "dvorak" "keyboard") (:url . "https://github.com/jbranso/evil-dvorak.git"))])

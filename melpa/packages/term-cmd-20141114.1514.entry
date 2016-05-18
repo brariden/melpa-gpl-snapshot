@@ -1,2 +1,0 @@
-
-(term-cmd . [(20141114 1514) nil "Send commands to Emacs from programs running under term.el" single ((:keywords "processes") (:url . "https://github.com/CallumCameron/term-cmd"))])

@@ -1,0 +1,2 @@
+
+(centered-window-mode . [(20160210 447) ((s (1 10 0))) "Center the text when there's only one window" single ((:keywords "faces" "windows") (:url . "https://github.com/anler/centered-window-mode"))])

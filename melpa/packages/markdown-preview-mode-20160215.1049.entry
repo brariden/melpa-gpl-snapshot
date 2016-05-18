@@ -1,0 +1,2 @@
+
+(markdown-preview-mode . [(20160215 1049) ((websocket (1 5)) (markdown-mode (2 1)) (cl-lib (0 5))) "markdown realtime preview minor mode." tar ((:keywords "markdown" "preview") (:url . "https://github.com/ancane/markdown-preview-mode"))])

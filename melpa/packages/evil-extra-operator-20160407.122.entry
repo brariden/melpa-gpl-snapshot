@@ -1,0 +1,2 @@
+
+(evil-extra-operator . [(20160407 122) ((evil (1 0 7))) "Evil operator for evaluating codes, taking notes, searching via google, etc." single ((:keywords "evil" "plugin") (:url . "http://github.com/Dewdrops/evil-extra-operator"))])

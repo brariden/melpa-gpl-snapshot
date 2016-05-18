@@ -1,0 +1,6 @@
+language: generic
+before_install: bash -ex .travis-ci.sh
+script: make CASK="$HOME/.cask/bin/cask" EMACS="$EMACS" compile
+env:
+  - EMACS=emacs24
+  - EMACS=emacs-snapshot

@@ -1,2 +1,0 @@
-
-(test-kitchen . [(20151027 627) nil "Run test-kitchen inside of emacs" single ((:keywords "chef" "ruby" "test-kitchen") (:url . "http://github.com/jjasghar/test-kitchen-el"))])

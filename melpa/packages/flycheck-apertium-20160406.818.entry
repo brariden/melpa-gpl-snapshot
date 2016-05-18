@@ -1,0 +1,2 @@
+
+(flycheck-apertium . [(20160406 818) ((flycheck (0 25))) "Apertium checkers in flycheck" tar ((:keywords "convenience" "tools" "xml") (:url . "http://wiki.apertium.org/wiki/Emacs"))])

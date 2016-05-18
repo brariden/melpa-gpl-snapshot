@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<overlay id="zeitgeist" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+	<script type="application/x-javascript"><![CDATA[
+		var zeitgeistgluexpcominterface = null;
+
+		var enable_googlemail = false;
+		var googlemail_view_regex = new RegExp("mail\\.google\\.com");
+		var pbs = Components.classes["@mozilla.org/privatebrowsing;1"]
+				.getService(Components.interfaces.nsIPrivateBrowsingService);
+
+		var debug = function (aMessage) {
+			var consoleService = Components.classes["@mozilla.org/consoleservice;1"]
+				.getService(Components.interfaces.nsIConsoleService);
+			consoleService.logStringMessage("Zeitgeist Extension: " + aMessage);
+			window.dump("Zeitgeist Extension:" + aMessage + "\n");
+		}
+
+		var make_pattern = function(pattern) {
+			for (item in pattern) {
+				// alert(pattern[item]);
+				pattern[item] = new RegExp(pattern[item]);
+			};
+			return pattern;
+		};
+
+		var ZeitgeistPrefObserver = {
+			register: function() {
+				// First we'll need the preference services to look for preferences.
+				var prefService = Components.classes["@mozilla.org/preferences-service;1"]
+					.getService(Components.interfaces.nsIPrefService);
+
+				// For this._branch we ask that the preferences for extensions.myextension. and children
+				this._branch = prefService.getBranch("extensions.zeitgeist.");
+
+				// Now we queue the interface called nsIPrefBranch2. This interface is described as:  
+				// "nsIPrefBranch2 allows clients to observe changes to pref values."
+				this._branch.QueryInterface(Components.interfaces.nsIPrefBranch2);
+
+				// Finally add the observer.
+				this._branch.addObserver("", this, false);
+			},
+
+			unregister: function() {
+				if(!this._branch) return;
+				this._branch.removeObserver("", this);
+			},
+
+			observe: function(aSubject, aTopic, aData) {
+				if(aTopic != "nsPref:changed") return;
+					// aSubject is the nsIPrefBranch we're observing (after appropriate QI)
+					// aData is the name of the pref that's been changed (relative to aSubject)
+					switch (aData) {
+						case "ignored_uris":
+							// extensions.zeitgeist.ignored_uris was changed
+							pattern = this.get_string(aData);
+							// alert(pattern);
+							ignored_uris = make_pattern(pattern);
+							break;
+						case "enable_googlemail":
+							enable_googlemail = this.get_bool(aData);
+							//alert("changed gmail to"+enable_googlemail);
+							break
+					}
+			},
+			get_string: function(key) {
+				try {
+					return JSON.parse(this._branch.getCharPref(key));
+				} catch(err) {
+					// this means there is no such config value
+					// ignoring this error
+					//alert(key + " : " + err);
+				};
+			},
+			get_bool: function(key) {
+				try {
+					return this._branch.getBoolPref(key);
+				} catch(err) {
+					// this means there is no such config value
+					// ignoring this error
+					//alert(key + " : " + err);
+				};
+			}
+		}
+		ZeitgeistPrefObserver.register();
+		ignored_uris = make_pattern(ZeitgeistPrefObserver.get_string("ignored_uris"));
+		debug("We are ignoring this uris: " + ignored_uris);
+		var enable_googlemail = ZeitgeistPrefObserver.get_bool("enable_googlemail");
+		debug("the googlemail handler extension is activated? ["+enable_googlemail+"]");
+
+		ignore_uri = function(uri) {
+			for (pattern in ignored_uris) {
+				if (ignored_uris[pattern].test(uri)) {
+					// alert("ignored " + uri);
+					return true;
+				};
+			};
+			return false;
+		};
+
+		try {
+			if(zeitgeistgluexpcominterface == null) {
+				netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+				zeitgeistgluexpcominterface = Components.
+					classes["@zeitgeist-project.com/DATAPROVIDER/firefox-xpcom;1"].
+					createInstance(Components.interfaces.zeitgeist);
+			}
+		} catch(err) {
+			alert(err);
+		}
+		
+		var ZeitgeistProgressListener = {
+			onStateChange: function(aBrowser, aProgress, aRequest, aStateFlags) {
+				var inPrivateBrowsingMode = pbs.privateBrowsingEnabled;
+				if (inPrivateBrowsingMode) return;                               
+				if (aStateFlags & Components.interfaces.nsIWebProgressListener.STATE_STOP) {
+					var uri = aBrowser.currentURI.spec;
+					var mimetype = aBrowser.contentDocument.contentType;
+					if (aRequest.name == uri && !ignore_uri(uri)) {
+						zeitgeistgluexpcominterface.insert(
+							uri,
+							mimetype,
+							aBrowser.contentTitle
+						);
+						//alert("THATS WHAT WE HAVE "+enable_googlemail+" | "+uri+" | "+(enable_googlemail & googlemail_view_regex.test(uri)));
+						if (enable_googlemail & googlemail_view_regex.test(uri)) {
+							debug("let's begin the google fun'");
+							var dmt = aBrowser.contentDocument;
+							var head = dmt.getElementsByTagName("title")[0];
+							head.addEventListener("DOMSubtreeModified", function(event){
+								if (dmt.title) {
+									zeitgeistgluexpcominterface.insert(
+										dmt.location.href,
+										dmt.contentType,
+										dmt.title
+									);
+								};
+							}, false);
+						}
+					}
+				}
+			},
+			// we don't implement this methods
+			onStatusChange: function(){},
+			onLocationChange: function(){},
+			onSecurityChange: function(){},
+			onProgressChange: function(){},
+		};
+
+
+		var zeitgeist = {
+			init: function() {
+				gBrowser.addTabsProgressListener(ZeitgeistProgressListener);
+			},
+			uninit: function() {
+				gBrowser.removeTabsProgressListener(ZeitgeistProgressListener);
+			},
+		};
+
+		window.addEventListener("load", function() {zeitgeist.init()}, false);
+		window.addEventListener("unload", function() {zeitgeist.uninit()}, false);
+		
+	]]></script>
+</overlay>

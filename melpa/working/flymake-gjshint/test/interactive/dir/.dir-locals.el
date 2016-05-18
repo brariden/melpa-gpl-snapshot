@@ -1,0 +1,1 @@
+((nil . ((flymake-gjshint . nil))))

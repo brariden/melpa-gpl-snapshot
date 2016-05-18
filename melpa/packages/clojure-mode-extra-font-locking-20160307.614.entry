@@ -1,0 +1,2 @@
+
+(clojure-mode-extra-font-locking . [(20160307 614) ((clojure-mode (3 0))) "Extra font-locking for Clojure mode" single ((:keywords "languages" "lisp") (:url . "http://github.com/clojure-emacs/clojure-mode"))])

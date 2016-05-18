@@ -15,7 +15,7 @@ Setup:
 (emms-mode-line 1)
 (emms-playing-time 1)
 
-If you use this package like `emms-mode-line-icon', you need to load it.
+`emms-mode-line-cycle' can be used with emms-mode-line-icon.
 (require 'emms-mode-line-icon)
 (custom-set-variables '(emms-mode-line-cycle-use-icon-p t))
 
@@ -24,6 +24,8 @@ If you use this package like `emms-mode-line-icon', you need to load it.
 User Option:
 
  + `emms-mode-line-cycle-max-width'
+ + `emms-mode-line-cycle-any-width-p'
  + `emms-mode-line-cycle-additional-space-num'
  + `emms-mode-line-cycle-use-icon-p'
  + `emms-mode-line-cycle-current-title-function'
+ + `emms-mode-line-cycle-velocity'

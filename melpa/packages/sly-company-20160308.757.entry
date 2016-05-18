@@ -1,0 +1,2 @@
+
+(sly-company . [(20160308 757) ((sly (1 0 0 -3)) (company (0 7)) (emacs (24 3))) "sly completion backend for company mode" single ((:keywords "convenience" "lisp" "abbrev"))])

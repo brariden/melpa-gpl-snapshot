@@ -1,0 +1,2 @@
+
+(sbt-mode . [(20160516 1736) nil "Interactive support for sbt projects" tar ((:keywords "languages") (:url . "https://github.com/ensime/emacs-sbt-mode"))])

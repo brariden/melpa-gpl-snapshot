@@ -1,0 +1,2154 @@
+#+TITLE: Shen Elisp
+#+AUTHOR: Aditya Siram
+#+PROPERTY: comments noweb
+#+OPTIONS: ^:nil ;; let an underscore be an underscore, disable sub-superscripting
+#+OPTIONS: timestamp:nil
+
+* Package Details
+#+BEGIN_SRC elisp :tangle shen-elisp-pkg.el
+  (define-package
+    "shen-elisp"
+    "19.2-0.0.1"
+    "Shen implementation in Elisp"
+    '((emacs "24.3"))
+    :url "http://github.com/deech/shen-elisp"
+    :keywords '("shen" "elisp"))
+#+END_SRC
+* KLambda Primitives
+** Implementation Constants
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  ;; -*- lexical-binding: t -*-
+  (defconst shen/prefix "shen/")
+#+END_SRC
+** Symbols
+Symbols in KLambda (and Shen) are very much like symbols in Elisp :
+
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defsubst shen/symbol-p (X)
+    (not (or (consp X) (bufferp X) (vectorp X) (numberp X) (stringp X))))
+#+END_SRC
+
+except for a few important differences:
+1. In KLambda (and Shen) symbols don't need to be quoted:
+   #+BEGIN_EXAMPLE
+    > some-symbol
+    some-symbol
+   #+END_EXAMPLE
+   whereras in Elisp they do:
+   #+BEGIN_EXAMPLE elisp
+     > some-symbol
+     *** Eval error ***  Symbol's value as variable is void: some-symbol
+     > 'some-symbol
+     some-symbol
+   #+END_EXAMPLE
+
+2. When calling a symbol function in Shen you can
+   simply apply the arguments:
+   #+BEGIN_EXAMPLE
+     (defun call-f (f a b c) (f a b c)
+   #+END_EXAMPLE
+   But in Elisp we need to use ~funcall~:
+   #+BEGIN_EXAMPLE
+   (defun call-f (f a b c) (funcall f a b c)
+   #+END_EXAMPLE
+
+To deal with these differences a [[Walking The AST][pass]] is taken over the KLambda ast (before
+macroexpansion) that identifies symbols that requires quoting and function calls
+that need to be applied correctly.
+
+Interning a Shen symbol delegates to Elisp's ~intern~:
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defsubst shen/intern (String)
+    (intern String))
+#+END_SRC
+
+
+as does ~shen/symbol->string~:
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defsubst shen/symbol->string (X)
+    (symbol-name X))
+#+END_SRC
+
+** Assignments
+- When setting and getting a variable, the name is prefixed to prevent the user from stomping over one that
+  already exists in the Emacs image.
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/set (X Y)
+    (set (intern (concat shen/prefix (format "%s" X))) Y))
+
+  (defun shen/value (X)
+    (condition-case ex
+            (symbol-value (intern (concat shen/prefix (format "%s" X))))
+          ('error (error (format "%s has not been assigned" X)))))
+#+END_SRC
+** KLambda Constants
+Once [[Assignments][the assigning mechanism]] is in place the spec requires some global variables:
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (shen/set '*home-directory* "")
+  (shen/set '*stoutput* standard-output)
+  (shen/set '*stinput* [()])
+  (shen/set '*language* "Elisp")
+  (shen/set '*implementation* "Elisp")
+  (shen/set '*porters* "Aditya Siram")
+  (shen/set '*release* "0.0.0.1")
+  (shen/set '*port* 1.7)
+  (shen/set '*os* "Linux")
+#+END_SRC
+** Boolean Operations
+Unlike Elisp in KLambda booleans are ~false~ and ~true~, distinct symbols which
+are not synonymous with ~nil~ and ~(not nil)~.
+
+Since ~if~ , ~and~ and ~or~ are special forms they are defined as macros to
+preserve evaluation order.
+
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defmacro shen/if (X Y Z)
+    `(if (eq ,X 'true) ,Y ,Z))
+  (defmacro shen/and (X Y) `(shen/predicate->shen (and (eq ,X 'true) (eq ,Y 'true))))
+  (defmacro shen/or (X Y) `(shen/predicate->shen (or (eq ,X 'true) (eq ,Y 'true))))
+#+END_SRC
+
+KLambda's ~cond~, unlike Elisp's forbids a fallthrough case - one of the
+predicates must be true.
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defmacro shen/cond (&rest CASES)
+    (let* ((predicates-quoted-cases
+            (mapcar (lambda (predicate-result-pair)
+                      (list (if (shen/symbol-p (nth 0 predicate-result-pair))
+                                (list 'quote (nth 0 predicate-result-pair))
+                              (list 'shen/shen->predicate (nth 0 predicate-result-pair)))
+                            (nth 1 predicate-result-pair)))
+                    CASES))
+           (fallthrough-added (append predicates-quoted-cases (list '(t (error "One of the cond predicates must be true."))))))
+      `(cond ,@fallthrough-added)))
+#+END_SRC
+** Lambdas
+Since Shen supports currying by default KLambda's ~lambda~ form is stripped down to only accept one
+argument.
+#+BEGIN_SRC elisp
+(lambda X (...))
+#+END_SRC
+
+Multiple arguments are supported via nesting:
+#+BEGIN_SRC elisp
+(lambda X (lambda Y (...)))
+#+END_SRC
+
+The implementation delegates to Elisp's ~lambda~ form:
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defmacro shen/lambda (X Y)
+    (if (eq X nil)
+          `(lambda () ,Y)
+        `(lambda (,X) ,Y)))
+#+END_SRC
+** Lets
+KLambda's ~let~ in a similar way only takes one assignment:
+#+BEGIN_SRC elisp
+(let X Y ...)
+#+END_SRC
+
+Similarly multiple assignments are supported via nested ~lets~:
+#+BEGIN_EXAMPLE elisp
+(let W X (let Y Z ...))
+#+END_EXAMPLE
+
+The implementation delegates to Elisp's ~let~:
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defmacro shen/let (X Y Z)
+    `(let ((,X ,Y)) ,Z))
+#+END_SRC
+
+** Defuns
+The structure of ~defun~ in KLambda is identical to Elisp's so a straight
+translation works.
+
+Functions are required to be tail-call optimized but that is done below
+before the body is spliced in.
+
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defmacro shen/defun (F Args Body) `(defun ,F ,Args ,Body))
+#+END_SRC
+
+** Other Generic Functions
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defsubst shen/= (X Y)
+    (shen/predicate->shen
+     (cond ((and (consp X) (consp Y)) (equal X Y))
+           ((and (stringp X) (stringp Y)) (string-equal X Y))
+           ((and (numberp X) (numberp Y)) (= X Y))
+           ((and (vectorp X) (vectorp Y)) (and (= (length X) (length Y)) (equal X Y)))
+           (t (equal X Y)))))
+#+END_SRC
+
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defmacro shen/freeze (X)
+    `(function (lambda nil ,X)))
+  (defsubst shen/type (X MyType) (declare (ignore MyType)) X)
+#+END_SRC
+
+** Lists
+List construction in KLambda is done with ~cons~ exclusively. The KLambda list
+~[ a b c ]~ for example is constructed:
+#+BEGIN_EXAMPLE
+(cons a (cons b (cons c ())))
+#+END_EXAMPLE
+
+Elisp also provides a ~cons~ so a straightforward translation is possible *but*
+it blows the recursion stack after a certain number of elements. They are [[Consolidate Cons][rewritten]] to
+~list~ calls below but a ~cons~ is provided to adhere to the standard:
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defsubst shen/cons (A Rest)
+    (cons A Rest))
+#+END_SRC
+
+The rest of the list operations function as expected:
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defsubst shen/hd (List)    (car List))
+  (defsubst shen/tl (List)    (cdr List))
+  (defsubst shen/cons? (List) (shen/predicate->shen (consp List)))
+#+END_SRC
+** Strings
+- Printing KLambda datatypes.
+
+  The only weirdness here is why we print the ~buffer-name~
+  of a stream. That is explained in the [[Streams and I/O]].:
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/str (X)
+    (cond ((null X) (error "null is not an atom in Shen; str cannot convert it to a string.~%"))
+          ((symbolp X) (symbol-name X))
+          ((or (numberp X) (stringp X) (functionp X)) (format "%s" X))
+          ((and (bufferp X) (buffer-file-name X)) (buffer-name X))
+          ((eq X standard-input) "standard-input")
+          ((eq X standard-output) "standard-output")
+          (t
+           (error (format "%s is not an atom, stream or closure; str cannot convert it to a string." X)))))
+#+END_SRC
+- Given string ~S~ get the character at index ~N~:
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defsubst shen/pos (S N) (string (aref S N)))
+#+END_SRC
+
+- Get the rest of a non-empty string:
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defsubst shen/tlstr (X) (substring X 1))
+#+END_SRC
+
+- Test for a string, join them and convert between characters and strings:
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defsubst shen/string? (S) (shen/predicate->shen (stringp S)))
+  (defsubst shen/cn (Str1 Str2) (concat Str1 Str2))
+  (defsubst shen/n->string (N) (string N))
+  (defsubst shen/string->n (S) (string-to-char S))
+#+END_SRC
+
+NOTE: If a non-empty string is converted to a character only the first character
+of the string is considered.
+** Error Handling
+Elisp's ~error~ and ~condition-case~ covers the primitive error handling
+required by the spec:
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (define-error 'shen/error "Shen error" 'error)
+  (defsubst shen/simple-error (E)
+    (signal 'shen/error
+            (if (stringp E)
+                (list E)
+              E)))
+  (defmacro shen/trap-error (X F)
+    `(condition-case ex ,X ('error (funcall ,F ex))))
+  (defsubst shen/error-to-string (E) (format "%s" E))
+#+END_SRC
+** Vectors
+Hash tables are used to represent Klambda vectors. This is counter-intuitive
+since Elisp does have native vectors but unfortunately they are not resizable.
+Since KLambda code tends to allocate huge vectors and resize often, switching
+from vectors to hash-tables where resizing is natively supported led to 4-5x
+speed-ups across the board.
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defsubst shen/absvector (N) (make-hash-table :size N :rehash-size 3.0))
+  (defsubst shen/address-> (Vector N Value) (progn (puthash N Value Vector) Vector))
+  (defsubst shen/<-address (Vector N) (gethash N Vector))
+  (defsubst shen/absvector? (X) (shen/predicate->shen (hash-table-p X)))
+#+END_SRC
+** Arithmetic Operations
+In KLambda there is only ~number~ so we have to take care to coerce to between ~float~ and
+~integer~ as necessary.
+
+Most of this code is heavily borrowed from [[https://github.com/larsbrinkhoff/emacs-cl/blob/master/src/cl-numbers.el][emacs-cl]] but simplified since Shen does not have
+the zoo of numeric types supported by CL.
+
+First a couple of limits to detect when a multiplication or addition might exceed the bounds
+of an ~integer~,
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defconst shen/multiplication-limit (floor (sqrt most-positive-fixnum)))
+  (defconst shen/addition-limit (floor (/ most-positive-fixnum 2)))
+#+END_SRC
+
+a generic function to coerce to a float if necessary,
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/number-op (X Y max op)
+    (cond
+     ((and (integerp X) (integerp Y))
+      (if (and (< X max)
+               (> X (- max))
+               (< Y max)
+               (> Y (- max)))
+          (apply op (list X Y))
+        (apply op (list (float X) (float Y)))))
+     ((and (floatp X) (numberp Y)) (apply op (list X (float Y))))
+     ((and (numberp X) (floatp Y)) (apply op (list (float X) Y)))
+     (t (error (format "Trying to %s. Both %s and %s must be numbers" op X Y)))))
+#+END_SRC
+
+and the standard arithmetic functions.
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defsubst shen/* (X Y) (shen/number-op X Y shen/multiplication-limit #'*))
+  (defsubst shen/+ (X Y) (shen/number-op X Y shen/addition-limit #'+))
+  (defsubst shen/- (X Y) (shen/number-op X Y shen/addition-limit #'-))
+#+END_SRC
+
+When we divide we leave the result an integer if we can:
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defsubst shen// (X Y)
+    (cond
+     ((or (not (numberp X)) (not (numberp Y)))
+      (error (format "Both %s and %s must be numbers." X Y)))
+     ((and (integerp X) (integerp Y))
+      (let* ((Div (/ (float X) (float Y)))
+             (Truncated (floor Div)))
+        (if (= Truncated Div)
+            Truncated
+          Div)))
+     (t (/ (float X) (float Y)))))
+#+END_SRC
+
+And finally the standard number predicates are pretty compatible with Elisp so we just
+wrap the Elisp functions:
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defsubst shen/> (X Y)     (shen/predicate->shen (> X Y)))
+  (defsubst shen/< (X Y)     (shen/predicate->shen (< X Y)))
+  (defsubst shen/>= (X Y)    (shen/predicate->shen (>= X Y)))
+  (defsubst shen/<= (X Y)    (shen/predicate->shen (<= X Y)))
+  (defsubst shen/number? (N) (shen/predicate->shen (numberp N)))
+#+END_SRC
+
+** Time
+The ~get-time~ primitive given ~real~ or ~unix~ returns the current Unix time
+(seconds since Jan 1st 1970) and given ~run~ returns the CPU time according to
+Emacs.
+
+Both Emacs functions ~get-internal-run-time~ and ~current-time~ return a 32-bit
+number as a tuple where the first is the 16 high bits and the second is the 16
+lower bits. To put them together we normalize the high bits by multiplying them
+with 2^16 and add the result to the lower bits.
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defconst shen/2^16 65536)
+  (defun shen/get-time (Time)
+    (cl-flet
+        ((timespec-to-number (spec)
+                             (let* ((high (nth 0 spec))
+                                    (low (nth 1 spec)))
+                               (+ (* high shen/2^16) low))))
+      (cond ((eq Time 'run) (timespec-to-number (get-internal-run-time)))
+            ((eq Time 'real)(timespec-to-number (current-time)))
+            ((eq Time 'unix)(timespec-to-number (current-time)))
+            (t (error (format "get-time does not understand parameter %s." Time))))))
+#+END_SRC
+** Streams and I/O
+Streams at the KLambda level are just an abstraction over file I/O. At the Elisp
+level ~X~ is a stream if it is a buffer with an associated file. That last bit
+is important, because per the spec, buffers that aren't tied to the underlying
+filesystem are not streams.
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defsubst shen/streamp (X) (and (bufferp X) (buffer-file-name X)))
+#+END_SRC
+
+Opening a stream takes a path ~Path~ and, per the spec, makes it relative to the
+global ~*home-directory*~ variable. It also takes a ~Direction~ which is either
+~in~ or ~out~ meaning we are either reading or writing.
+
+A file opened with ~Direction~ ~in~, as in ~(open some-file.txt in)~ is
+considered read-only. It must be opened with ~Direction~ ~out~, as in ~(open
+some-file.txt out)~ in order to be able to write to it. A read-only
+file stream must be ~close~ -ed and re-opened ~out~ before it can be written.
+
+Additionally buffers ~open~ -ed by Shen are "marked" with a buffer local variable
+~shen/shen-buffer~ to ensure that only Shen code can ~read~ / ~write~ / ~close~
+them:
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/open (Path Direction)
+    (let ((Path (concat (file-name-as-directory (shen/value '*home-directory*))
+                        (file-relative-name Path)))
+          (Buffer))
+      (cond
+       ((equal Direction 'in)
+        (if (not (file-exists-p Path))
+            (error (format "Path does not exist: %s" Path))
+          (progn
+            (setq Buffer (find-file-noselect Path))
+            (with-current-buffer
+                Buffer
+              (progn
+                (make-local-variable 'shen/shen-buffer)
+                (setq buffer-read-only 't
+                      shen/shen-buffer 't)
+                (goto-char (point-min))))
+            Buffer)))
+       ((equal Direction 'out)
+        (progn
+          (setq Buffer (find-buffer-visiting Path))
+          (if (bufferp Buffer)
+              (if (and (buffer-local-value 'buffer-read-only Buffer) (buffer-local-value 'shen/shen-buffer Buffer))
+                  (error (format  "A stream to %s already open read-only. Call (close \"%s\") followed by (open \"%s\" 'out). " Path Path Path))
+                Buffer)
+            (progn
+              (setq Buffer (find-file-noselect Path))
+              (with-current-buffer Buffer
+                (progn
+                  (goto-char (point-max))
+                  (make-local-variable 'shen/shen-buffer)
+                  (setq shen/shen-buffer 't))))))))))
+#+END_SRC
+
+- Before closing, reading or writing to a buffer first check that it was opened by
+  a Shen program.
+
+A further bit of weirdness is that ~write-byte~ switches on a [[(write-byte-function)][function]]. This is because
+when writing out to the [[Shen REPL]] requires calling a function with the character.
+#+BEGIN_SRC elisp "(ref:%s)" :tangle shen-primitives.el
+  (defun shen/close (Stream)
+    (if (not Stream)
+        (error "Stream is nil.")
+      (if (or (not (local-variable-p 'shen/shen-buffer Stream))
+              (not (buffer-local-value 'shen/shen-buffer Stream)))
+          (error (format "Buffer %s for file %s was not opened by Shen's (open ...) function." Stream (buffer-file-name Stream)))
+        (cond ((buffer-local-value 'buffer-read-only Stream) (kill-buffer Stream))
+              (t (with-current-buffer
+                     Stream
+                   (progn
+                     (write-file (buffer-file-name Stream))
+                     (kill-buffer Stream)
+                     '())))))))
+
+  (defun shen/write-byte (Byte &optional S)
+    (if S
+        (cond
+         ((bufferp S)
+          (if (not (buffer-local-value 'buffer-read-only S))
+              (error (format "Buffer %s is read-only." S))
+            (if (buffer-local-value 'shen/shen-buffer S)
+                (write-char Byte S)
+              (error (format "Buffer %s was not opened by Shen." S)))))
+         ((functionp S) ;; (ref:write-byte-function)
+          (funcall S Byte))
+         (t (write-char (shen/stoutput) Byte)))
+      (funcall (shen/stoutput) Byte)))
+
+  (defun shen/read-byte (&optional S)
+    (cond
+     ((and (bufferp S) (buffer-file-name S))
+      (if (buffer-local-value 'shen/shen-buffer S)
+          (with-current-buffer S
+            (let ((current-byte))
+              (if (eq (point) (point-max))
+                  -1
+                (progn
+                  (setq current-byte (get-byte))
+                  (forward-char)
+                  current-byte))))
+        (error (format "Buffer %s was not opened by Shen." S))))
+     ((vectorp S) (if (not (aref S 0))
+                      -1
+                    (pop (aref S 0))))
+     (t (error (format "Unrecognized stream format %s" S)))))
+#+END_SRC
+* Utilities
+** Lookup
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/internal/lookup-with-default (KEY ALIST DEFAULT)
+    (car (or (assoc-default KEY ALIST) (list DEFAULT))))
+#+END_SRC
+** Boolean Operations
+Helpers for translating between Elisp's and Shen's boolean values:
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defsubst shen/shen->predicate (X)
+    (eq X 'true))
+  (defsubst shen/predicate->shen (X)
+    (if X (quote true) (quote false)))
+#+END_SRC
+** AST Utilities
+The next few sections are about transforming the KLambda AST so we
+need a few utilites to make the job easier.
+*** AST Getter/Setter
+Paths in the AST are stored as a list of numbers. A getter to the path
+~'(0 4 3)~ given an ~ast~ simply folds over the list into ~(nth 0 (nth 4 (nth 3
+ast)))~.
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/internal/get-element-at (path ast)
+    (let ((res ast))
+      (dolist (current-index (reverse path) res)
+        (setq res (nth current-index res)))))
+#+END_SRC
+
+For the setter we use Elisp's ~setf~ which takes a ~PLACE~ expression and a
+value. Given the previous example path ~(0 4 3)~ , ~(setf (nth 0 (nth 4 (nth
+3 ast))) 'x)~ changes the 1st element of the 3rd element of the 2nd element to
+~'x~. This function is more complex because unlike the getter we can't just
+iterate down the tree, we have to /build/ the ~PLACE~ expression completely
+before handing it off to ~setf~.
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/internal/nset-element-at (path ast new-element)
+    (if (= 0 (length path))
+        (setf ast new-element)
+      (let ((place-fn)
+            (path (reverse path)))
+        (progn
+          (dotimes (current-index (length path) nil)
+            (setq place-fn
+                  (if (= current-index 0)
+                      `(nth ,(nth current-index path) (quote ,ast))
+                    `(nth ,(nth current-index path) ,place-fn))))
+          (if (or (consp new-element) (shen/symbol-p new-element))
+              (eval `(setf ,place-fn (quote ,new-element)) 't)
+            (eval `(setf ,place-fn ,new-element)) 't)
+          ast))))
+#+END_SRC
+
+*** AST Search
+**** Find All
+Search the tree and return paths to all the elements that are ~equal~ to the given ~X~.
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/internal/find-all (X ast)
+    (if (not (consp ast))
+        'shen/not-found
+      (let ((lists-left-to-search `((() ,ast)))
+            (found 'shen/not-found))
+        (while lists-left-to-search
+          (let* ((search-candidate (car lists-left-to-search))
+                 (search-candidate-path (nth 0 search-candidate))
+                 (current-list (nth 1 search-candidate)))
+            (progn
+              (setq lists-left-to-search (cdr lists-left-to-search))
+              (dotimes (current-index (length current-list) nil)
+                (let ((current-element (nth current-index current-list))
+                      (current-path (cons current-index search-candidate-path)))
+                  (if (equal X current-element)
+                      (if (consp found)
+                          (push current-path found)
+                        (setq found (list current-path)))
+                    (if (consp current-element)
+                        (push `(,current-path ,current-element)
+                              lists-left-to-search))))))))
+        found)))
+#+END_SRC
+**** Find Containing List
+In addition to accessing and modifying an element given a path we also need
+a function that finds the list that contains an element. This following function,
+given an element ~X~, a predicate function that takes *a list* that might contain
+the element and an ~ast~, returns a path to *the list* containing that element
+not a path to the element itself.
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/internal/list-containing-first-occurrence-of (list-pred ast)
+    (if (not (consp ast))
+        'shen/not-found
+      (let ((lists-left-to-search `((() ,ast)))
+            (found 'shen/not-found))
+        (progn
+          (while (and lists-left-to-search (eq found 'shen/not-found))
+            (let* ((search-candidate (car lists-left-to-search))
+                   (search-candidate-path (nth 0 search-candidate))
+                   (current-list (nth 1 search-candidate))
+                   (current-list-length (length current-list)))
+              (if (funcall list-pred current-list)
+                  (setq found search-candidate-path)
+                (progn
+                  (setq lists-left-to-search
+                        (append
+                         (let ((reversed-lists-in-current-list))
+                           (dotimes (current-index current-list-length (reverse reversed-lists-in-current-list))
+                             (if (consp (nth current-index current-list))
+                                 (setq reversed-lists-in-current-list
+                                       (cons (list (cons current-index search-candidate-path)
+                                                   (nth current-index current-list))
+                                             reversed-lists-in-current-list)))))
+                         (cdr lists-left-to-search)))))))
+          found))))
+#+END_SRC
+*** Path Utilities
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/internal/get-path-relative-to (parent-path path)
+    (and (shen/internal/starts-with-path parent-path path)
+         (shen/internal/path-slice path 0 (- (length path) (length parent-path)))))
+
+  (defun shen/internal/starts-with-path (parent-path path)
+    (and (<= (length parent-path) (length path))
+         (equal parent-path
+                (shen/internal/path-slice path
+                                 (- (length path)
+                                    (length parent-path))))))
+
+  (defun shen/internal/get-path-parent (path) (cdr path))
+
+  (defun shen/internal/path-slice (path start &optional end)
+    (let ((start-to-end (nthcdr start path))
+          (res))
+      (if end
+          (dotimes (i (- (if (< end (length path))
+                             end
+                           (length path))
+                         start)
+                      (nreverse res))
+            (push (nth i start-to-end) res))
+        start-to-end)))
+#+END_SRC
+
+*** AST Modification
+Given an ~ast~, some ~paths~, destructively modify the ast with ~tx-fn~. Note
+that it starts with the deepest path first so as not to invalidate paths further
+up the code tree.
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/internal/modify-ast (ast paths tx-fn)
+    (let ((deepest-first (sort paths (lambda (A B) (> (length A) (length B)))))
+          (current-ast ast))
+      (dolist (path deepest-first current-ast)
+        (setq current-ast
+              (shen/internal/nset-element-at path ast (funcall tx-fn path ast))))))
+#+END_SRC
+** List Filtering
+A partition function that returns a pair of lists where
+the first holds elements that pass and the second holds
+those that fail:
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/internal/partition (pred Xs)
+    (let ((a)
+          (b))
+      (dotimes (i (length Xs) (list a b))
+        (push (nth i Xs)
+              (if (funcall pred (nth i Xs)) a b)))))
+#+END_SRC
+
+A filter function that returns the elements of ~Xs~ for which
+~pred~ holds but also optionally includes their index:
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/internal/filter (pred Xs &optional include-index)
+    (let ((accum))
+      (dotimes (i (length Xs) accum)
+        (if (funcall pred (nth i Xs))
+            (push (if include-index
+                      (list (nth i Xs) i)
+                    (nth i Xs))
+                  accum)))))
+#+END_SRC
+
+A list search function that returns the index of the first
+element for which ~pred~ holds:
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/internal/index-of (pred Xs)
+    (let ((found)
+          (index 0))
+      (while (and (not found) (< index (length Xs)))
+        (progn
+          (if (funcall pred (nth index Xs))
+              (setq found index))
+          (setq index (+ index 1))))
+      found))
+#+END_SRC
+
+A function that deletes the first occurrences of X
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/internal/delete-first-eq (needle Xs)
+    (let ((index (shen/internal/index-of (lambda (X) (eq X needle)) Xs)))
+      (if index
+          (let ((current-index 0)
+                (copy))
+            (while (< current-index (length Xs))
+              (progn
+                (if (not (= current-index index))
+                    (push (nth current-index Xs) copy))
+                (setq current-index (1+ current-index))))
+            (nreverse copy))
+        Xs)))
+#+END_SRC
+
+* Rewriting The AST
+** Prefixing Utilities
+Elisp does not have namespaces so to insulate the rest of the user's Emacs image
+the primitive functions, user-defined functions and variables are prefixed with ~shen/~.
+Raw symbols are not touched since they can't harm existing Elisp code.
+
+When decompiling Klambda to Elisp we need functions that prefix the appropriate
+symbol with ~shen/~:
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/internal/prefix-symbol (X)
+    (if (shen/symbol-p X)
+        (intern (concat shen/prefix (format "%s" X)))
+      X))
+#+END_SRC
+
+, detect if it has already has a prefixed:
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/internal/symbol-prefixed-p (X)
+    (and (shen/symbol-p X) (string-prefix-p shen/prefix (symbol-name X))))
+
+#+END_SRC
+
+, and removes the prefix it for consumption by Shen:
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/internal/unprefix-symbol (X)
+    (if (shen/internal/symbol-prefixed-p X)
+        (intern (substring (symbol-name X) (length shen/prefix)))
+      X))
+#+END_SRC
+** Walking The AST
+Before evaluating we walk the tree and return locations that require:
+-  [[(namespace-only)]] : paths that need prefixing with ~shen/~,
+-  [[(quote-only)]] : paths that need quoting only (since KLambda symbols do not need it but Elisp does)
+-  [[(possibly-apply-function)]] : a list of *pairs* consisting of a path to the function at
+  the head of the call and a list of symbols that have been passed in or bound via ~let~.
+
+Internal to the walker, as each sublist is processed the following are tracked:
+- [[(current-path)]] The path from root to the current point in the tree
+- [[(current-list)]] The list currently being walked.
+- [[(current-list-length)]] The length of the current list
+- [[(current-index)]] The index of the current element in the current list.
+- [[(locally-scoped-symbols)]] A list of symbols local to the current list
+  that, when encountered, should remain unchanged since they were either passed
+  in or bound via ~let~.
+- [[(inner-lists)]] If a list is encountered when iterating over the current one,
+  a path to that list and the set of symbols currently in scope are stored.
+  Each inner list is processed in turn (possibly adding more). Iteration of the AST
+  is over when there are no more inner lists left.
+
+While iterating over a list the following cases are encountered:
+- At the head of the list non- ~nil~ symbols need prefixing and quoting. Additionally:
+  - if it is a [[(lambda form)]], the argument is added to the list of locally scoped variables
+    and iteration moves to the body.
+  - if we're looking at a [[(defun form)]], the second element of the
+    form does not get quoted since it is the name of the function,
+    and the arguments are added to local scope. before moving on to the
+    body.
+  - if it is a [[(let form)]], the name of the assignment is added to local scope and
+    iteration moves to the assignment body.
+  - any forms seen inside a [[(cond form)]] have to be treated differently. Specifically
+    a symbol at the head of a predicate action pair is not function application so
+    a [[(inner-lists-in-cond-form)][special flag]] is required to indicate that when iterating over the rest of a
+    ~cond~ form.
+  - otherwise it is a function call, and the path is stored along with the symbols in
+    scope thus far.
+  Symbols occuring anywhere else in the list are only quoted, not namespaced since they are not
+  functions calls. They might be variables, but ~shen/get~ and ~shen/set~ take care of prefixing
+  them so there's no need to worry about them here.
+- All sublists encountered are stored for further processing. If they are at the head of the list
+  and not part of ~cond~, they are also possible function calls.
+#+BEGIN_SRC elisp "(ref:%s)" :tangle shen-primitives.el
+  (defun shen/internal/get-function-symbol-and-funcall-paths (ast)
+    (let ((namespace-only)        ;; (ref:namespace-only)
+          (quote-only)            ;; (ref:quote-only)
+          (possibly-apply-function)) ;; (ref:possibly-apply-function)
+      (if (not (consp ast))
+          (if (shen/symbol-p ast)
+              (list nil '(nil) '(nil) nil nil)
+            (list nil nil nil nil nil))
+        (let ((current-path)                     ;; (ref:current-path)
+              (current-list ast)                 ;; (ref:current-list)
+              (current-list-length (length ast)) ;; (ref:current-list-length)
+              (current-index 0)                  ;; (ref:current-index)
+              (locally-scoped-symbols)           ;; (ref:locally-scoped-symbols)
+              (inner-lists)                      ;; (ref:inner-lists)
+              (cond-predicate-action-p)
+              (inner-lists-in-cond-form))        ;; (ref:inner-lists-in-cond-form)
+          (while (or (< current-index current-list-length) ;; (ref:continue iterating)
+                     inner-lists)
+            (cond
+             ((and (= current-index current-list-length) inner-lists) ;; (ref:sublists left)
+              (progn
+                (setq locally-scoped-symbols (nth 0 (car inner-lists)))
+                (setq current-path (nth 1 (car inner-lists)))
+                (setq cond-predicate-action-p (nth 2 (car inner-lists)))
+                (setq inner-lists-in-cond-form nil)
+                (setq inner-lists (cdr inner-lists))
+                (setq current-list (shen/internal/get-element-at current-path ast))
+                (setq current-index 0)
+                (setq current-list-length (length current-list))))
+             ((and (< current-index current-list-length)              ;; (ref:not a list)
+                   (not (consp (nth current-index current-list))))
+              (let ((current-token (nth current-index current-list)))
+                (if (= 0 current-index)
+                    (if (and (not (eq current-token 'nil))
+                             (shen/symbol-p current-token))
+                        (progn
+                          (if (and (not (memq current-token locally-scoped-symbols))
+                                   (not (eq current-token 'defun)))
+                              (push (cons 0 current-path)
+                                    namespace-only))
+                          (cond
+                           ((or (eq current-token 'lambda)
+                                (eq current-token 'shen/lambda)) ;; (ref:lambda form)
+                            (progn
+                              (push (nth 1 current-list) locally-scoped-symbols)
+                              (setq current-index 2)))
+                           ((eq current-token 'defun) ;; (ref:defun form)
+                            (progn
+                              (push (cons 1 current-path) namespace-only)
+                              (setq locally-scoped-symbols
+                                    (append (nth 2 current-list) locally-scoped-symbols))
+                              (setq current-index 3)))
+                           ((or (eq current-token 'let)
+                                (eq current-token 'shen/let))  ;; (ref:let form)
+                            (progn
+                              (push (nth 1 current-list) locally-scoped-symbols)
+                              (setq current-index 2)))
+                           ((or (eq current-token 'cond)
+                                (eq current-token 'shen/cond)) ;; (ref:cond form)
+                            (progn
+                              (setq inner-lists-in-cond-form 't)
+                              (setq current-index 1)))
+                           (t
+                            (progn
+                              (if (not cond-predicate-action-p)
+                                  (push (list (cons 0 current-path)
+                                              (memq current-token locally-scoped-symbols))
+                                        possibly-apply-function))
+                              (setq current-index 1)))))
+                      (setq current-index (1+ current-index)))
+                  (if (and (not (eq current-token 'nil))
+                           (shen/symbol-p current-token))
+                      (progn
+                        (if (not (memq current-token locally-scoped-symbols))
+                            (push (cons current-index current-path)
+                                  quote-only))
+                        (setq current-index (1+ current-index)))
+                    (setq current-index (1+ current-index))))))
+             ((and (< current-index current-list-length)             ;; (ref:a sublist)
+                   (consp (nth current-index current-list)))
+              (progn
+                (if (and (= 0 current-index) (not cond-predicate-action-p))
+                    (push (list (cons current-index current-path)
+                                nil)
+                          possibly-apply-function))
+                (push (list locally-scoped-symbols
+                            (cons current-index current-path)
+                            inner-lists-in-cond-form)
+                      inner-lists)
+                (setq current-index (+ current-index 1))))
+             (t nil)))
+          (list namespace-only quote-only possibly-apply-function))))) ;; (ref:returns)
+#+END_SRC
+
+** Function Application
+Since KLambda supports partial application and Elisp does not function application is
+tricky.
+
+First we enumerate forms that may never be partially applied:
+#+NAME: Primitive Macros
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (setq shen/*primitive-macros*
+        '(shen/if
+          shen/and
+          shen/or
+          shen/cond
+          shen/lambda
+          shen/let
+          defun
+          shen/freeze
+          shen/trap-error))
+#+END_SRC
+
+The general strategy to rewriting KLambda function application to Elisp is to
+first blindly apply the function as though all of its arguments are present and
+only deal with errors if they occur.
+
+In the case of a [[(higher-order function)]] if normal application fails, it is
+applied [[(incremental application)][incrementally]] and barring that if the ~arity~ is known a [[(curried lambda)][curried]] version
+is built and fed arguments one by one.
+
+If it is [[(a list)]] (which presumably evaluates to a function) since there is no
+hope of knowing the arity only the incremental fallback is tried.
+
+If the function has a [[(known arity)]] but is undersupplied with arguments a [[(curried
+lambda)][curried]]
+lambda expression *and* the subsequent ~funcalls~ are constructed. No
+fallback is required this time.
+
+In the interests of efficiency when constructing the [[(curried lambda)][lambda expression]] as many
+arguments as possible are applied in one fell swoop to cut down on the overhead
+of incremental application. For example if a function ~f~ takes 3 arguments but
+only 2 are supplied, the constructed expresssion looks like:
+#+BEGIN_EXAMPLE
+(lambda (A0 A1) (lambda (A2) (apply f (list A0 A1 A2))))
+#+END_EXAMPLE
+instead of:
+#+BEGIN_EXAMPLE
+(lambda (A0) (lambda (A1) (lambda (A2) (apply f (list A0 A1 A2)))))
+#+END_EXAMPLE
+
+#+BEGIN_SRC elisp "(ref:%s)" :tangle shen-primitives.el
+  (defun shen/internal/apply-function (f args locally-scoped)
+    (cond
+     (locally-scoped       ;;(ref:higher-order function)
+      `(shen/internal/apply-higher-order-function ,f (list ,@args)))
+     ((consp f)            ;;(ref:a list)
+      `(shen/internal/apply-function-expression ,f (list ,@args)))
+     (t
+      (if (fboundp 'shen/arity)
+          (let ((arity (shen/internal/check-partial-application f (length args)))) ;; (ref:known arity)
+            (if (= arity -1)
+                `(,f ,@args)
+            `(shen/internal/apply-partially (function ,f) (list ,@args))))
+        `(,f ,@args)))))
+
+  (defun shen/internal/apply-higher-order-function (f args)
+    (condition-case apply-ex (apply f args)
+      ('wrong-number-of-arguments
+       (condition-case ex
+           (let ((arity (shen/internal/check-partial-application f (length args))))
+            (if (= arity -1)
+                (signal (car apply-ex) (cdr apply-ex))
+              (apply (eval (shen/internal/make-lambda-expression f arity (length args)) 't) args)))
+         ('wrong-number-of-arguments
+          (shen/internal/apply-incrementally f args))))))
+
+  (defun shen/internal/apply-function-expression (exp args)
+    (condition-case ex (apply exp args)
+      ('wrong-number-of-arguments (shen/internal/apply-incrementally exp args))))
+
+  (defun shen/internal/apply-partially (f args)
+    (let ((arity (shen/internal/check-partial-application f (length args))))
+      (if (= arity -1)
+          (apply f args)
+        (apply (eval (shen/internal/make-lambda-expression f arity (length args)) 't) args))))
+
+  (defun shen/internal/make-lambda-expression (f arity num-args) ;; (ref:curried lambda)
+    (let* ((all-args (let ((single-apply-args)
+                           (blast-apply-args))
+                       (dotimes (i arity (list (reverse blast-apply-args)
+                                               (reverse single-apply-args)))
+                         (push (intern (format "A%d" i))
+                               (if (and num-args (< i num-args))
+                                   blast-apply-args
+                                 single-apply-args)))))
+           (blast-apply-args (nth 0 all-args))
+           (single-apply-args (nth 1 all-args))
+           (expression `(apply (function ,f) (list ,@(append blast-apply-args single-apply-args)))))
+      (dolist (arg (reverse single-apply-args) expression)
+        (setq expression `(shen/lambda ,arg ,expression)))
+      (if blast-apply-args
+          `(lambda ,(reverse blast-apply-args) ,expression)
+        expression)))
+
+  (defun shen/internal/apply-incrementally (f args) ;; (ref:incremental application)
+    (let ((result f)
+          (current-args args))
+      (while current-args
+        (setq result (funcall result (car current-args)))
+        (setq current-args (cdr current-args)))
+      result))
+
+  (defun shen/internal/check-partial-application (f num-args)
+    (let ((arity (condition-case ex (shen/arity (shen/internal/unprefix-symbol f)) ('error -1))))
+      (cond
+       ((eq -1 arity) -1)
+       ((= arity num-args) -1)
+       ((> num-args arity) -1)
+       (t arity))))
+#+END_SRC
+** Finding Tail Calls
+Finding tail calls in a form is complex because:
+- Not all self references in the tail position of a form
+  are tail calls, for instance:
+  #+BEGIN_EXAMPLE
+  (defun f (a) (map (lambda X (f "blah")) a))
+  #+END_EXAMPLE
+- ~if~ and ~cond~ forms may contain multiple tail calls:
+  #+BEGIN_EXAMPLE
+  (defun f (a b) (if true (f a) (f b))
+  (defun f (a b c) (cond (a (f a)) (b (f b)) (c (f c))))
+  #+END_EXAMPLE
+**** Detecting Recursive Calls
+The function follows the same basic template as searching for [[AST Search][the first
+occurrence]] of something in the AST but instead of stopping at the first
+encounter keeps a [[(tail-calls-found)][tally]] of paths to all tail calls.
+
+In the case where a ~cond~ is encountered all the predicate action pairs where
+the action [[(cond-filter)][can't be a function call]] are filtered out and the index of each
+action is added to the list of forms that [[(lists-left-to-search)][might contain a tail call]].
+
+In an ~if~ since the 2nd element is the predicate only the 3rd and possibly the
+4th elements (if it exists) of the list are checked. In ~trap-error~ both the
+action and the fallback may contain a tail call. In a ~lambda~, ~let~ and
+~defun~ forms only the bodies may contain a tail call. In all other cases jump
+to the end of the list and continue searching.
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/internal/find-recursive-call-paths (function-name args ast)
+    (if (not (consp ast))
+        'shen/not-found
+      (let ((lists-left-to-search `((() ,ast))) ;; (ref:lists-left-to-search)
+            (found 'shen/not-found))  ;; (ref:tail-calls-found)
+        (while lists-left-to-search
+          (let* ((search-candidate (car lists-left-to-search))
+                 (search-candidate-path (nth 0 search-candidate))
+                 (current-list (nth 1 search-candidate))
+                 (current-list-length (length current-list))
+                 (current-head (car current-list))
+                 (push-if-list     ;; (ref:push-if-list)
+                  (lambda (indexes)
+                    (mapc
+                     (lambda (index)
+                       (if (consp (nth index current-list))
+                           (setq lists-left-to-search
+                                 (append lists-left-to-search
+                                         (list
+                                          (list (cons index search-candidate-path)
+                                                (nth index current-list)))))))
+                     indexes))))
+            (progn
+              (setq lists-left-to-search (cdr lists-left-to-search))
+              (cond ((and (eq current-head function-name)
+                          (= (length (cdr current-list)) (length args)))
+                     (if (not (consp found))
+                         (setq found (list search-candidate-path))
+                       (push search-candidate-path found)))
+                    ((eq current-head 'shen/cond)
+                     (progn
+                       (mapc
+                        (lambda (action-index-pair)
+                          (setq lists-left-to-search
+                                (let ((path-to-action
+                                       (append (list 1 (1+ (nth 1 action-index-pair)))
+                                               search-candidate-path)))
+                                  (append lists-left-to-search
+                                          (list
+                                           (list path-to-action
+                                                 (nth 0 action-index-pair)))))))
+                        (mapcar
+                         (lambda (predicate-action-index)
+                           (list (nth 1 (nth 0 predicate-action-index))
+                                 (nth 1 predicate-action-index)))
+                         (shen/internal/filter  ;; (ref:cond-filter)
+                          (lambda (predicate-action-pair)
+                            (consp (nth 1 predicate-action-pair)))
+                          (cdr current-list)
+                          't)))))
+                    ((eq current-head 'shen/if)
+                     (if (= 4 current-list-length)
+                         (funcall push-if-list '(2 3))
+                       (funcall push-if-list '(2))))
+                    ((eq current-head 'shen/trap-error)
+                     (funcall push-if-list '(1 2)))
+                    ((or (eq current-head 'shen/let)
+                         (eq current-head 'defun))
+                     (funcall push-if-list '(3)))
+                    ((eq current-head 'shen/lambda)
+                     (funcall push-if-list '(2)))
+                    (t (funcall push-if-list (list (- current-list-length 1))))))))
+        found)))
+#+END_SRC
+**** Detecting Function Application Context
+This function captures the surrounding function application context around
+a tail call. For instance in the function:
+#+BEGIN_EXAMPLE
+(defun factorial (x) (if (= 0 x) 0 (+ 1 (factorial (- x 1)))))
+#+END_EXAMPLE
+~(+ 1 ...)~ is the context.
+
+Given a path to a tail call ~tail-call-path~ it works its way from the top of
+the form to that location. Since Elisp does not support lexical binding as
+locally scoped variables (function arguments, let assignments) are also captured
+as they are encountered in the path. When it encounters a function application
+it starts "recording" that context into [[(start-accumulator)][an accumulator]].
+
+Some forms stop the recording because they should not be captured. In the case
+of [[(if-stop-recording)][if's]] just stop recording and move on, with [[(let-stop-recording)][let's]], [[(lambda-stop-recording)][lambda's]] and [[(defun-stop-recording)][defun's]] skip
+but also capture the assignments or arguments. In the case of [[(cond-stop-recording)][cond's]] skip twice
+to move into the list containing the predicate action pair. If it is a [[(do-stop-recording)][do]] just
+skip it.
+#+BEGIN_SRC elisp "(ref:%s)" :tangle shen-primitives.el
+  (defun shen/start-of-function-chain (tail-call-path ast)
+    (let* ((from-the-top (reverse tail-call-path))
+           (current-from-top-path)
+           (path-left-to-tail-call (reverse tail-call-path))
+           (start tail-call-path) ;; (ref:start-accumulator)
+           (locally-scoped))
+      (cl-flet ((append-and-advance
+                 (X &optional reset-start)
+                 (progn
+                   (setq start
+                         (if reset-start ;; (ref:reset-start)
+                             tail-call-path
+                           current-from-top-path))
+                   (setq current-from-top-path
+                         (append (reverse (shen/internal/path-slice path-left-to-tail-call 0 X))
+                                 current-from-top-path)
+                         path-left-to-tail-call (shen/internal/path-slice path-left-to-tail-call X))
+
+                   )))
+        (while (not (equal current-from-top-path tail-call-path))
+          (let* ((current-list (shen/internal/get-element-at current-from-top-path ast))
+                 (current-head (car current-list)))
+            (cond
+             ((or (not (shen/symbol-p current-head))
+                  (eq 'shen/if current-head))  ;; (ref:if-stop-recording)
+              (append-and-advance 1 't))
+             ((eq 'defun current-head)    ;; (ref:defun-stop-recording)
+              (progn
+                (setq locally-scoped (append (nth 2 current-list) locally-scoped))
+                (append-and-advance 1 't)))
+             ((eq 'shen/let current-head)      ;; (ref:let-stop-recording)
+              (progn
+                (setq locally-scoped (append (list (nth 1 current-list)) locally-scoped))
+                (append-and-advance 1 't)))
+             ((eq 'shen/lambda current-head)   ;; (ref:lambda-stop-recording)
+              (progn
+                (setq locally-scoped (append (nth 1 current-list) locally-scoped))
+                (append-and-advance 1 't)))
+             ((eq 'shen/cond current-head)     ;;; (ref:cond-stop-recording)
+              (append-and-advance 2 't))
+             ((eq 'shen/do current-head)       ;;; (ref:do-stop-recording)
+              (append-and-advance 1 't))
+             (t (append-and-advance 1)))))
+        start)))
+#+END_SRC
+**** Getting the Tail Calls
+Now that we can get a list of recursive calls and their surrounding context
+a proper tail call is simply one without any context, i.e it is the last thing
+left to do.
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/internal/get-tail-call-paths (ast)
+    (let* ((function-name (nth 1 ast))
+           (args (nth 2 ast))
+           (body (nth 3 ast))
+           (recursive-call-paths (shen/internal/find-recursive-call-paths function-name args body)))
+      (if (eq recursive-call-paths 'shen/not-found)
+          'shen/not-found
+        (let ((accum))
+          (dolist (tail-call-path recursive-call-paths (if accum (reverse accum) 'shen/not-found))
+            (let* ((context (shen/start-of-function-chain tail-call-path body)))
+              (if (equal context tail-call-path)
+                  (push (append tail-call-path (list 3)) accum))))))))
+#+END_SRC
+** Generating A TCO'ed Function
+Finally we can optimize tail calls into trampolines. The body of the trampoline
+matches the body of unoptimized function except that tail calls are replaced by
+vector that holds the arguments to the recursive call fully evaluated:
+
+An Elisp vector is chosen because KLambda code can never return one and so
+uniquely identifies an intermediate return value from a recursive function.
+KLambda vectors are represented by [[Vectors][hash-tables]]
+
+A while loop extracts the arguments from the struct and passes them back into
+the trampoline until it returns something other than the struct. This is the return
+value.
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/trampoline-body (ast)
+    (let* ((args (nth 2 ast))
+           (body (nth 3 ast))
+           (tail-trampoline (make-symbol "tail-trampoline")))
+      `(cl-flet ((,tail-trampoline ,args ,body))
+         (let ((result (funcall (function ,tail-trampoline) ,@args)))
+           (while (vectorp result)
+             (setq result (apply (function ,tail-trampoline) (aref result 0))))
+           result))))
+#+END_SRC
+
+This overall approach owes a lot to Wilfred Hughes' excellent [[https://github.com/Wilfred/tco.el][tco.el]]. The
+essential difference is that he returns a function instead of a struct. The
+latter approach guards against the possibility that if the final return value is
+a function there would be no way to tell when recursion terminated.
+
+** Modifying The AST
+Now that we have mechanisms for
+- [[Walking The AST][identifying]] the parts of the AST that need changing
+- [[Function Application][applying functions calls]] in the face of partial application and
+- [[Finding Tail Calls][optimizing]] tail calls
+we are ready to transform incoming KLambda code into Elisp.
+
+The overall flow goes like this:
+1. [[(paths)][walk the KLambda code]] and get a list of locations that need to be transformed
+2. [[(quote and namespace)]] as required but hold off on function application
+3. Sift through the function application locations and remove ones that point to
+   special forms since they cannot be curried.
+4. If the KLambda is a [[(defun form)]]
+   1. Isolate function application that occurs [[(inside the recursive call)]], curry
+      accordingly and [[(package up the arguments)]] into tue struct that marks a
+      tail call return.
+   2. [[(Sub in the recurs marker)]] throughout the body of the form.
+   3. Sub in the [[(rest of the function applications)]]
+   4. Add the trampolines and [[(write out the defun)]].
+5. Otherwise just sub in function applications across the form without regard for tail calls.
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/internal/parse-ast (ast)
+    (if (not (consp ast))
+        (if (shen/symbol-p ast) (list 'quote ast) ast)
+     (let* ((function-and-symbol-paths (shen/internal/get-function-symbol-and-funcall-paths ast)) ;;; (ref:paths)
+           (namespace-only (nth 0 function-and-symbol-paths))
+           (quote-only (nth 1 function-and-symbol-paths))
+           (possibly-apply-function (nth 2 function-and-symbol-paths))
+           (current-ast ast))
+      (progn
+        (shen/internal/namespace-and-quote current-ast namespace-only quote-only) ;;; (ref:quote and namespace)
+        (let ((apply-function (shen/internal/filter
+                               (lambda (path-local)
+                                 (let ((token (shen/internal/get-element-at (nth 0 path-local) ast)))
+                                   (not (memq token shen/*primitive-macros*))))
+                               possibly-apply-function)))
+          (if (eq (car current-ast) 'defun) ;;; (ref:defun form)
+              (let* ((tail-call-paths (shen/internal/get-tail-call-paths ast)))
+                (if (not (eq tail-call-paths 'shen/not-found))
+                    (let ((not-in-tail-call apply-function)
+                          (in-tail-call))
+                      (progn
+                        (dolist (path tail-call-paths nil)
+                          (let* ((tco-non-tco-pair ;;; (ref:inside the recursive call)
+                                  (shen/internal/partition
+                                   (lambda (apply-function-path-local)
+                                     (shen/internal/starts-with-path path (nth 0 apply-function-path-local)))
+                                   not-in-tail-call))
+                                 (funcalled-tco
+                                  (let* ((normalized-paths
+                                          (shen/internal/filter
+                                           (lambda (path-local) (not (equal (nth 0 path-local) '(0))))
+                                           (mapcar
+                                            (lambda (in-tco-path-local)
+                                              (list
+                                               (shen/internal/get-path-relative-to path (nth 0 in-tco-path-local))
+                                               (nth 1 in-tco-path-local)))
+                                            (nth 0 tco-non-tco-pair))))
+                                         (tail-call (shen/internal/get-element-at path current-ast)))
+                                    (list
+                                     path
+                                     `(vector (list ,@(cdr (shen/internal/add-funcalls tail-call normalized-paths)))))))) ;;; (ref:package up the arguments)
+                            (progn
+                              (setq not-in-tail-call (nth 1 tco-non-tco-pair))
+                              (push funcalled-tco in-tail-call))))
+                        (dolist (path-tail-call in-tail-call nil)  ;;; (ref:Sub in the recurs marker)
+                          (shen/internal/modify-ast current-ast (list (nth 0 path-tail-call))
+                                           (lambda (path current-ast) (nth 1 path-tail-call))))
+                        (setq current-ast (shen/internal/add-funcalls current-ast not-in-tail-call)) ;;; (ref:rest of the function applications)
+                        (setq current-ast `(defun ,(nth 1 current-ast) ,(nth 2 current-ast) ,(shen/trampoline-body current-ast))))) ;;; (ref:write out the defun)
+                  (setq current-ast (shen/internal/add-funcalls current-ast apply-function)))
+                current-ast)
+            (progn
+              (setq current-ast (shen/internal/add-funcalls current-ast apply-function))
+              current-ast)))))))
+#+END_SRC
+
+To support the above transformation we need functions the namespace and quote the AST:
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/internal/namespace-and-quote (ast namespace-only-paths quote-only-paths)
+    (progn
+      (shen/internal/modify-ast ast namespace-only-paths
+                       (lambda (path ast)
+                         (let ((element (shen/internal/get-element-at path ast)))
+                           (if (not (shen/internal/symbol-prefixed-p element))
+                               (shen/internal/prefix-symbol (shen/internal/get-element-at path ast))
+                             element))))
+      (shen/internal/modify-ast ast quote-only-paths
+                       (lambda (path ast)
+                         (list 'quote (shen/internal/get-element-at path ast))))
+      ast))
+#+END_SRC
+
+, and run function application in the right places:
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/internal/add-funcalls (ast apply-function)
+    (let ((paths-only (mapcar (lambda (path-local) (nth 0 path-local)) apply-function)))
+      (shen/internal/modify-ast ast (mapcar #'shen/internal/get-path-parent paths-only)
+                       (lambda (path ast)
+                         (let* ((current-funcalled-list (shen/internal/get-element-at path ast))
+                                (function-name (car current-funcalled-list))
+                                (function-arguments (cdr current-funcalled-list)))
+                           (shen/internal/apply-function
+                            function-name
+                            function-arguments
+                            (shen/internal/lookup-with-default (cons 0 path) apply-function nil)))))))
+#+END_SRC
+
+** (Unused) Isolating and Filling
+I was going to do something clever with the function application context but that didn't work
+so these functions are unused for now.
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/make-holed-context (tail-call-path function-chain-path ast)
+    (let* ((function-chain (shen/internal/get-element-at function-chain-path ast))
+           (tail-call (shen/internal/get-element-at tail-call-path ast))
+           (tail-call-relative-path
+            (shen/internal/path-slice tail-call-path 0
+                    (- (length tail-call-path)
+                       (length function-chain-path)))))
+      (shen/internal/nset-element-at tail-call-relative-path function-chain 'shen/__hole__)))
+
+  (defun shen/used-in-context (context locally-scoped)
+    (mapcar (lambda (symbol-index-pair)
+              (nth 1 symbol-index-pair))
+            (shen/internal/filter
+             (lambda (v)
+               (not (eq 'shen/not-found (shen/internal/find-all v context))))
+             locally-scoped
+             't)))
+
+  (defun shen/substitute-in-context (context locally-scoped-alist)
+    (let ((current-context context))
+      (dolist (locally-scoped-pair locally-scoped-alist current-context)
+        (let* ((name (nth 0 locally-scoped-pair))
+               (value (nth 1 locally-scoped-pair))
+               (all-matching-paths (shen/internal/find-all name current-context)))
+          (if (not (eq all-matching-paths 'shen/not-found))
+              (dolist (path all-matching-paths nil)
+                (shen/internal/nset-element-at path current-context value)))))))
+#+END_SRC
+
+* Optimizations
+** Consolidate Call Chains
+KLambda code is rife with argument chains such as ~(cons x (cons y
+nil))~ for list building and ~(@s "x" (@s "y" ""))~ for string concatenation
+which can easily be rewritten to more efficient variadic Elisp functions.
+
+A generic function that takes ~matcher-fn~ which finds these chains, a
+~collector-fn~ that accumulates them and ~tx-fn~ which rewrites:
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/internal/consolidate (ast matcher-fn collector-fn tx-fn)
+    (let* ((current-ast ast)
+           (location-containing-chain
+            (shen/internal/list-containing-first-occurrence-of matcher-fn ast)))
+      (while (not (eq location-containing-chain 'shen/not-found))
+        (let ((current-chain (shen/internal/get-element-at location-containing-chain current-ast))
+              (accum))
+          (progn
+            (while (funcall matcher-fn current-chain)
+              (let ((collected (funcall collector-fn accum current-chain)))
+                (setq accum (nth 0 collected))
+                (setq current-chain (nth 1 collected))))
+            (setq current-ast
+                  (shen/internal/nset-element-at
+                   location-containing-chain
+                   current-ast
+                   (funcall tx-fn accum current-chain)))
+            (setq location-containing-chain
+                  (shen/internal/list-containing-first-occurrence-of matcher-fn current-ast)))))
+      current-ast))
+#+END_SRC
+** Consolidate Cons
+Convert ~(cons a (cons b (blah)))~ into ~(append (list 'a 'b) (blah))~
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/internal/consolidate-cons (ast)
+    (shen/internal/consolidate
+     ast
+     (lambda (current-list)
+       (and current-list
+            (consp current-list)
+            (eq 3 (length current-list))
+            (eq (nth 0 current-list) 'shen/cons)))
+     (lambda (accum current-chain)
+       (list (cons (nth 1 current-chain) accum)
+             (nth 2 current-chain)))
+     (lambda (accum remaining-chain)
+       (if (eq remaining-chain 'nil)
+           (cons 'list (reverse accum))
+         (list 'append (cons 'list (reverse accum)) remaining-chain)))))
+#+END_SRC
+** Consolidate @s
+Convert ~(@s "a" (@s "b" (blah)))~ into ~(concat (concat "a" "b") (blah))~
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/internal/consolidate-@s (ast)
+    (shen/internal/consolidate
+     ast
+     (lambda (current-list)
+       (and current-list
+            (consp current-list)
+            (eq 3 (length current-list))
+            (eq (nth 0 current-list) 'shen/@s)))
+     (lambda (accum current-chain)
+       (list (cons (nth 1 current-chain) accum)
+             (nth 2 current-chain)))
+     (lambda (accum remaining-chain)
+       (list 'concat (cons 'concat (reverse accum)) remaining-chain))))
+#+END_SRC
+** Consolidate tl
+Convert ~(tl (tl (tl Xs)))~ to ~(nthcdr 3 Xs)~
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/internal/consolidate-tl (ast)
+    (shen/internal/consolidate
+     ast
+     (lambda (current-list)
+       (and current-list
+            (consp current-list)
+            (eq 2 (length current-list))
+            (eq (nth 0 current-list) 'shen/tl)))
+     (lambda (accum current-chain)
+       (list (if (not accum) 1 (+ accum 1))
+             (nth 1 current-chain)))
+     (lambda (accum remaining-chain)
+       (list 'nthcdr accum remaining-chain))))
+#+END_SRC
+** Add 1+'s
+Convert ~(+ X 1)~ or ~(+ 1 X)~ to ~(1+ X)~
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/internal/add-1+ (ast)
+    (shen/internal/consolidate
+     ast
+     (lambda (current-list)
+       (and current-list
+            (consp current-list)
+            (eq 3 (length current-list))
+            (and (eq (nth 0 current-list) 'shen/+)
+                 (or (eq (nth 1 current-list) 1)
+                     (eq (nth 2 current-list) 1)))))
+     (lambda (accum current-list)
+       (if (eq (nth 1 current-list) 1)
+           (list (nth 2 current-list) nil)
+         (list (nth 1 current-list) nil)))
+     (lambda (accum remaining-chain)
+       (list '1+ accum))))
+#+END_SRC
+** Nil Comparisons To Null
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/internal/nil-to-null (ast)
+    (shen/internal/consolidate
+     ast
+     (lambda (current-list)
+       (and current-list
+            (consp current-list)
+            (eq 3 (length current-list))
+            (and (eq (nth 0 current-list) 'shen/=)
+                 (or (eq (nth 1 current-list) 'nil)
+                     (eq (nth 2 current-list) 'nil)))))
+     (lambda (accum current-list)
+       (if (eq (nth 1 current-list) 'nil)
+           (list (nth 2 current-list) nil)
+         (list (nth 1 current-list) nil)))
+     (lambda (accum remaining-chain)
+       `(shen/predicate->shen (null ,accum)))))
+#+END_SRC
+
+* Evaluate KLambda
+Now that the mechanisms for [[Function Application][applying functions]], and [[Modifying The AST][quoting/namespacing]] are in place
+converting KLambda to Elisp is just a couple of function calls.
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/internal/kl-to-elisp (Kl)
+    (shen/internal/nil-to-null
+     (shen/internal/add-1+
+      (shen/internal/consolidate-tl
+       (shen/internal/consolidate-@s
+        (shen/internal/consolidate-cons (shen/internal/parse-ast Kl)))))))
+#+END_SRC
+
+Evaluating KLambda to Elisp is straight forward except that a copy of the AST is
+made when evaluating a ~defun~. This is important because the AST is
+destructively modified when compiled to Elisp and Shen requires the original
+source for introspecting, profiling and tracking.
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/eval-kl (X)
+    (if (and (consp X) (eq (car X) 'defun))
+        (progn
+          (byte-compile (eval (shen/internal/kl-to-elisp (copy-tree X)) 't))
+          (nth 1 X))
+      (eval (shen/internal/kl-to-elisp X) 't)))
+#+END_SRC
+** Generate From Seed KLambda Files
+Generating ~shen.el~, the file that contains the Elisp compiled from the
+bootstrap KLambda files, requires a slightly different approach because we
+override the default generated Elisp with custom implementations.
+*** Overrides
+The following hash-table has the name of the function as the key and the new implementation
+as the value. When Klambda code is read in when a matching function is detected the entire
+form is [[Evaluate KLambda][replaced]] with the new implementation.
+
+There are three types of overrides, those which:
+1. boost [[(performance)]]
+2. are necessary because KLambda vectors are represented as [[(hash-tables)]].
+3. are necessary because Klambda functions are [[(namespacing)][prefixed]].
+4. fix [[(klambda bugs)]].
+#+BEGIN_SRC elisp "(ref:%s)" :tangle shen-primitives.el
+  (setq shen/*overrides*
+        (let ((table (make-hash-table :test 'equal)))
+          ;; (ref:performance)
+          (puthash 'map
+                   `(defun shen/map (F Xs)
+                      (mapcar (lambda (X)
+                                (shen/internal/apply-higher-order-function F (list X)))
+                              Xs))
+                   table)
+          (puthash 'shen.lazyderef
+                   `(defun shen/shen\.lazyderef
+                        (X ProcessN)
+                      (let ((Current X)
+                            (KeepLooking 't))
+                        (while KeepLooking
+                          (shen/if
+                           (shen/shen.pvar? Current)
+                           (shen/let Value (shen/shen.valvector Current ProcessN)
+                                     (shen/if (shen/= Value 'shen.-null-)
+                                              (setq KeepLooking nil)
+                                              (setq Current Value)))
+                           (setq KeepLooking nil)))
+                        Current))
+                   table)
+          (puthash 'append
+                   `(defun shen/append (Xs Ys) (append Xs Ys))
+                   table)
+          (puthash 'shen.string->bytes
+                   `(defun shen/shen.string->bytes (S)
+                      (string-to-list S))
+                   table)
+          (puthash 'shen.sum
+                   `(defun shen/shen.sum (Xs) (apply #'+ Xs))
+                   table)
+          (puthash 'shen.mod
+                   `(defun shen/shen.mod (N Div) (mod N Div))
+                   table)
+          (puthash 'integer?
+                   `(defun shen/integer? (N) (integerp N))
+                   table)
+          (puthash 'abs
+                   `(defun shen/shen.abs (N) (abs N))
+                   table)
+          (puthash 'nth
+                   `(defun shen/nth (I Xs) (nth I Xs))
+                   table)
+           ;; (ref:hash-tables)
+          (puthash 'shen/hash
+                   `(defun shen/hash
+                        (String Limit)
+                      (let ((Hash (shen/mod (shen/sum (shen/shen.string->bytes String)) Limit)))
+                        (if (= 0 Hash) 1 Hash)))
+                   table)
+          (puthash '(set *property-vector* (vector 20000))
+                   `(shen/set '*property-vector* (make-hash-table :size 1000 :test (quote equal)))
+                   table)
+          (puthash 'get
+                   `(defun shen/get
+                        (Pointer Key Table)
+                      (let ((Subtable (gethash Pointer Table)))
+                        (if (not Subtable)
+                            (shen/simple-error
+                             (format "pointer not found: %s\n" Pointer))
+                          (let ((Value (gethash Key Subtable)))
+                            (if (not Value)
+                                (shen/simple-error
+                                 (format "value not found: %s\n" (list Pointer Key))))
+                            Value))))
+                   table)
+          (puthash 'put
+                   `(defun shen/put
+                        (Pointer Key Value Table)
+                      (let ((Subtable (gethash Pointer Table)))
+                        (if (not Subtable)
+                            (let ((Subtable (make-hash-table :test 'equal)))
+                              (progn
+                                (puthash Pointer Subtable Table)
+                                (puthash Key Value Subtable)))
+                          (puthash Key Value Subtable))))
+                   table)
+          (puthash 'unput
+                   `(defun shen/unput
+                        (Pointer Key Table)
+                      (let ((Subtable (gethash Pointer Table)))
+                        (and Subtable
+                             (remhash Key Subtable))
+                        Pointer))
+                   table)
+          (puthash 'shen.resize-vector
+                   `(defun shen/shen.resize-vector (Vector NewSize Fill)
+                      (let* ((VectorLimit (shen/<-address Vector 0))
+                             (Current-Index (1+ VectorLimit)))
+                        (puthash 0 NewSize Vector)
+                        (while (<= Current-Index NewSize)
+                          (puthash Current-Index Fill Vector)
+                          (setq Current-Index (1+ Current-Index)))
+                        Vector))
+                   table)
+          ;; (ref:namespacing)
+          (puthash 'function
+                   `(defun shen/function (S)
+                      (shen/shen\.lookup-func
+                       (shen/internal/unprefix-symbol S)
+                       (shen/value 'shen\.*symbol-table*)))
+                   table)
+          ;; (ref:klambda bugs)
+          (puthash 'untrack
+                   `(defun shen/untrack (F)
+                      (progn
+                        (shen/set 'shen.*tracking* (shen/internal/delete-first-eq F (shen/value 'shen.*tracking*)))
+                        (shen/eval (shen/ps F))))
+                   table)
+          table))
+#+END_SRC
+
+*** Evaluating Bootstrapped KLambda
+When bootstrapping from the seed KLambda files we first need to [[Overrides][patch]] the
+incoming code with overrides before parsing the AST:
+#+BEGIN_SRC elisp "(ref:%s)" :tangle shen-primitives.el
+   (defun shen/patch-klambda (ast)
+    (if (eq (car ast) 'defun)
+          (let ((override (gethash (nth 1 ast) shen/*overrides*)))
+            (or override
+                (shen/internal/parse-ast ast)))
+        (let ((patched (gethash ast shen/*overrides* )))
+          (or patched
+              (shen/internal/parse-ast ast)))))
+#+END_SRC
+
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (defun shen/kl-to-buffer (X B)
+    (with-current-buffer B
+      (save-excursion
+        (goto-char (point-max))
+        (insert (pp-to-string
+                 (shen/internal/nil-to-null
+                  (shen/internal/add-1+
+                   (shen/internal/consolidate-tl
+                    (shen/internal/consolidate-@s
+                     (shen/internal/consolidate-cons
+                      (shen/patch-klambda X)))))))))))
+#+END_SRC
+
+* Providing The Primitives
+#+BEGIN_SRC elisp :tangle shen-primitives.el
+  (provide 'shen-primitives)
+#+END_SRC
+* Overlays
+Override of some of Shen's default implementations.
+** Symbol Table
+The Shen runtime maintains a ~*symbol-table* which is a mapping of all generated and
+native functions to their partially applied lambda form.
+
+The bootstrapped KLambda code uses simple alists which are inefficient and since
+this structure has to be consulted thousands of times (especially while
+typechecking), the KLambda provided implemenatation really slows everything
+down so we need to migrate to a hash-table.
+
+Additionally the bootstrap KLambda files actually fills up this structure with
+some initial content for core functions and datatypes so they need to be migrated:
+#+BEGIN_SRC elisp :tangle shen-overlays.el
+  (defun shen/migrate-symbol-table ()
+    (let ((SymbolTable (shen/value 'shen.*symbol-table*)))
+      (if (not (hash-table-p SymbolTable))
+          (let ((NewTable (make-hash-table)))
+            (dolist (Entry SymbolTable NewTable)
+              (puthash (car Entry) (cdr Entry) NewTable))
+            (shen/set 'shen.*symbol-table* NewTable))
+        SymbolTable)))
+#+END_SRC
+
+And then the routines that find and add entries to the symbol table need to be
+re-implemented:
+#+BEGIN_SRC elisp :tangle shen-overlays.el
+  (defun shen/shen.lookup-func
+      (Name Table)
+    (let ((Form (gethash Name Table)))
+      (if (not Form)
+          (shen/simple-error
+           (shen/app Name " has no lambda expansion\n" 'shen.a))
+        Form)))
+
+  (defun shen/shen.update-symbol-table
+      (Name Arity)
+    (let ((lambda-function
+           (shen/eval-kl
+            (shen/shen.lambda-form Name Arity))))
+      (puthash Name lambda-function (shen/value 'shen.*symbol-table*))
+      (shen/value 'shen.*symbol-table*)))
+#+END_SRC
+** Repl
+*** Questions
+Overlay the routines that take input from the user in the REPL session to use the mini-buffer
+#+BEGIN_SRC elisp :tangle shen-overlays.el
+  (defun shen/y-or-n? (S)
+    (progn
+      (shen/shen.prhush (shen/shen.proc-nl S) (shen/stoutput))
+      (let ((Input (format "%s" (read-from-minibuffer " (y/n) " ))))
+        (cond
+         ((string-equal Input "y") 'true)
+         ((string-equal Input "n") 'false)
+         (t (progn
+              (shen/shen.prhush  "please answer y or n~%" (shen/stoutput))
+              (shen/y-or-n? S)))))))
+
+  (defun shen/shen.pause-for-user nil
+    (let ((Byte (read-from-minibuffer "")))
+      (if (and (= 1 (length Byte)) (= (string-to-char Byte) ?^))
+          (shen/simple-error "input aborted\n")
+        (shen/nl 1))))
+#+END_SRC
+*** Changing Directories
+When changing directories in the REPL, for convenience, also change Emacs' working directory.
+#+BEGIN_SRC elisp :tangle shen-overlays.el
+  (defun shen/cd (Path)
+    (if (shen/shen->predicate (shen/= Path ""))
+        (shen/set '*home-directory* "")
+      (let ((PathString (concat Path "/")))
+        (progn
+          (setq default-directory PathString)
+          (shen/set '*home-directory* PathString))
+        PathString)))
+#+END_SRC
+** Provide it
+#+BEGIN_SRC elisp :tangle shen-overlays.el
+  (provide 'shen-overlays)
+#+END_SRC
+* Shen REPL
+#+BEGIN_SRC elisp :tangle shen-repl.el :comments no
+  ;; -*- lexical-binding: t -*-
+#+END_SRC
+
+#+BEGIN_SRC elisp :tangle shen-repl.el
+  (require 'comint)
+  (require 'shen-primitives)
+  (require 'shen)
+  (require 'shen-overlays)
+#+END_SRC
+** Credits
+The credits that appear at the top of each REPL session.
+#+BEGIN_SRC elisp :tangle shen-repl.el
+  (defconst shen/shen.credits
+    (format "%s\n%s\n%s\n%s\n\n"
+            "Shen, copyright (C) 2010-2015 Mark Tarver"
+            (format "www.shenlanguage.org, %s" (shen/value '*version*))
+            (format "running under %s, implementation: %s" (shen/value '*language*) (shen/value '*implementation*))
+            (format "port %s ported by %s" (shen/value '*port*) (shen/value '*porters*))))
+#+END_SRC
+
+** Prompt
+The Shen REPL prompt looks like ~(0-)~ and ~(100+)~ where the number is a
+counter of the number of REPL interactions so far and the ~-~ and ~+~ indicate
+whether typechecking is currently enabled.
+
+First we tell the REPL how to recognize prompts:
+#+BEGIN_SRC elisp :tangle shen-repl.el
+  (defconst shen/repl-prompt-regex
+    (rx line-start
+        (char ?( )
+              (1+ digit)
+              (or (char ?-) (char ?+))
+              (char ?))
+        (char ? )))
+#+END_SRC
+
+and make them:
+#+BEGIN_SRC elisp :tangle shen-repl.el
+  (defun shen/make-prompt nil
+    (format "(%d%s) "
+            (shen/length (shen/value 'shen.*history*))
+            (if (shen/shen->predicate (shen/value 'shen.*tc*))
+                "+"
+              "-")))
+#+END_SRC
+
+** Input Events
+#+BEGIN_SRC elisp :tangle shen-repl.el
+  (defvar shen/repl-map
+    (let ((map (make-sparse-keymap)))
+      (define-key map "\C-j" 'shen/repl-send-input)
+      (define-key map "\C-m" 'shen/repl-return)
+      map))
+
+  (defvaralias 'shen/repl-mode-map 'shen/repl-map)
+
+  (defun shen/repl-return nil
+    (interactive)
+    (shen/repl-send-input))
+
+  (defvar shen/repl-input)
+
+  (defun shen/repl-send-input nil
+    (interactive)
+    (progn
+      (comint-send-input)
+      (condition-case ex
+          (progn
+            (shen/shen.initialise_environment)
+            (shen/repl-eval (string-to-list shen/repl-input)))
+        ('error
+         (comint-output-filter (shen/repl-process) (format "%s\n%s" ex  (shen/make-prompt)))
+         (signal (car ex) (cdr ex))))
+      (with-current-buffer *shen-repl*
+        (goto-char (point-max)))))
+#+END_SRC
+
+** Evaluating User Input
+The following is a cut-and-paste of ~ielm-standard-output-impl~ which apparently
+does not exist in older versions of Emacs (a user reported a bug on 24.4.1).
+
+It periodically writes to the REPL.
+#+BEGIN_SRC elisp :tangle shen-repl.el
+  (defun shen/repl-standard-output-impl (process)
+    (let* ((output-buffer nil)
+           (flush-timer nil)
+           (flush-buffer
+            (lambda ()
+              (comint-output-filter
+               process
+               (apply #'string (nreverse output-buffer)))
+              (redisplay)
+              (setf output-buffer nil)
+              (when flush-timer
+                (cancel-timer flush-timer)
+                (setf flush-timer nil)))))
+      (lambda (char)
+        (let (flush-now)
+          (cond ((and (eq char t) output-buffer)
+                 (push ?\n output-buffer)
+                 (setf flush-now t))
+                ((characterp char)
+                 (push char output-buffer)))
+          (if flush-now
+              (funcall flush-buffer)
+            (unless flush-timer
+              (setf flush-timer (run-with-timer 0.1 nil flush-buffer))))))))
+#+END_SRC
+
+#+BEGIN_SRC elisp :tangle shen-repl.el
+  (defun shen/repl-process nil
+    ;; Return the current buffer's process.
+    (get-buffer-process (current-buffer)))
+
+  (defun shen/repl-eval (input-string)
+    (let* ((active-process (shen/repl-process))
+           (shen/repl-temp-buffer)
+           (clean-up (lambda (active-process &optional ex)
+                       (progn
+                         (comint-output-filter active-process
+                                               (if ex
+                                                   (format "\n%s\n\n%s" (nth 1 ex) (shen/make-prompt))
+                                                 (format "\n%s" (shen/make-prompt))))
+                         (funcall (shen/value '*stoutput*) t)
+                         (shen/set '*stoutput* standard-output)))))
+      (condition-case ex
+          (progn
+            (shen/set '*stoutput* (shen/repl-standard-output-impl active-process))
+            (set-buffer (get-buffer *shen-repl*))
+            (let* ((Lineread
+                    (shen/compile #'shen/shen.<st_input> input-string
+                                  (lambda (Err) (signal (car Err) (cdr Err)))))
+                   (It (shen/shen.record-it input-string))
+                   (History (shen/value 'shen.*history*))
+                   (NewLineread (shen/shen.retrieve-from-history-if-needed
+                                 (shen/@p Lineread input-string)
+                                 History))
+                   (NewHistory (shen/shen.update_history NewLineread History))
+                   (Parsed (shen/fst NewLineread)))
+              (if (not Parsed)
+                  (funcall clean-up active-process)
+                (progn
+                  (shen/shen.toplevel Parsed)
+                  (funcall (shen/value '*stoutput*) t)
+                  (comint-output-filter active-process (format "\n%s" (shen/make-prompt)))))))
+        ('shen/error (funcall clean-up active-process ex)))))
+#+END_SRC
+** The REPL Mode
+#+BEGIN_SRC elisp :tangle shen-repl.el
+  (defconst shen/syntax-table
+    (let ((table (make-syntax-table lisp-mode-syntax-table)))
+      (modify-syntax-entry 59 "_") ;; semi-colon
+      (modify-syntax-entry ?, "_")
+      (modify-syntax-entry ?# "_")
+      (modify-syntax-entry ?' "_")
+      (modify-syntax-entry ?` "_")
+      table))
+
+  (defun shen/repl-input-sender (_proc input)
+    (setq shen/repl-input input))
+
+  (defun shen/repl-pm nil
+    ;; Return the process mark of the current buffer.
+    (process-mark (get-buffer-process (current-buffer))))
+
+  (defun shen/repl-set-pm (pos)
+    ;; Set the process mark in the current buffer to POS.
+    (set-marker (process-mark (get-buffer-process (current-buffer))) pos))
+
+  (define-derived-mode shen/repl-mode comint-mode "shen-repl-mode"
+    :syntax-table shen/syntax-table
+    (setq comint-prompt-regexp shen/repl-prompt-regex)
+    (setq comint-use-prompt-regexp t)
+    (setq comint-prompt-read-only t)
+    (setq comint-input-sender 'shen/repl-input-sender)
+    (setq-local comment-use-syntax 'undecided)
+    (unless (comint-check-proc (current-buffer))
+      (condition-case nil
+          (start-process "shen/repl" (current-buffer) "cat")
+        (file-error (start-process "shen/repl" (current-buffer) "hexl")))
+      (set-process-query-on-exit-flag (shen/repl-process) nil)
+      (goto-char (point-max))
+      (set (make-local-variable 'comint-inhibit-carriage-motion) t)
+      (insert shen/shen.credits)
+      (shen/repl-set-pm (point-max))
+      (comint-output-filter (shen/repl-process) "(0-) ")
+      (set-marker comint-last-input-start (shen/repl-pm))
+      (set-process-filter (get-buffer-process (current-buffer)) 'comint-output-filter)))
+
+  (defconst *shen-repl* "*shen-repl*")
+#+END_SRC
+** Starting the REPL
+#+BEGIN_SRC elisp :tangle shen-repl.el
+  ;;;###autoload
+  (defun shen/repl nil
+    (interactive)
+    (let (old-point)
+      (unless (get-buffer *shen-repl*)
+        (with-current-buffer (get-buffer-create *shen-repl*)
+          (make-local-variable 'lexical-binding)
+          (load "shen-primitives.elc")
+          (load "shen.elc")
+          (load "shen-overlays.elc")
+          (shen/migrate-symbol-table)
+          (setq lexical-binding 't)
+          (shen/set 'shen.*history* '())
+          (shen/set '*home-directory* "")
+          (shen/set 'shen.*tc* 'false)
+          (unless (zerop (buffer-size)) (setq old-point (point)))
+          (shen/repl-mode)))
+      (switch-to-buffer *shen-repl*)
+      (when old-point (push-mark old-point))))
+#+END_SRC
+** Provide it
+#+BEGIN_SRC elisp :tangle shen-repl.el
+  (provide 'shen-repl)
+#+END_SRC
+* Bootstrap
+Bootstrapping a Shen environment involves
+1. collecting all the KLambda files in the "KLambda" directory in this package into a variable
+2. modifying the Elisp reader so it doesn't choke on what it would consider illegal symbols in KLambda
+3. iterating over the KLambda files, parse out and evaluate KLambda s-expressions
+4. providing a runner that kicks off the process
+** Collecting KLambda files
+In order to bootstrap the environment we specify the location of all the KLambda files
+that need to be read in and compiled. They are located in the ~KLambda~ directory of this
+package.
+#+BEGIN_SRC elisp :tangle install.el
+  (require 'shen-primitives)
+  (setq *klambda-directory-name* "KLambda")
+  (setq *klambda-directory* (file-name-as-directory (concat (file-name-directory load-file-name) *klambda-directory-name*)))
+  (setq *klambda-files*
+        (mapcar (lambda (klFile) (concat *klambda-directory* klFile))
+                '("toplevel.kl" "core.kl" "sys.kl" "sequent.kl" "yacc.kl"
+                  "reader.kl" "prolog.kl" "track.kl" "load.kl" "writer.kl"
+                  "macros.kl" "declarations.kl" "types.kl" "t-star.kl")))
+#+END_SRC
+
+In order to read in the KLambda s-expressions using the Elisp reader we need to
+make some adjustments due to the differences between KLambda and Elisp.
+** Modifying The Elisp Reader For KLambda
+In KLambda semicolons, colons, commas, ticks and backquotes are valid symbols. Since they have
+different meanings in Elisp they will be rejected by the reader by default so we
+need to insert them as regular symbols into a temporary ~syntax-table~ and then
+parse out the s-expressions.
+#+BEGIN_SRC elisp :tangle install.el
+  (setq shen/*klambda-syntax-table*
+        (let ((table (make-syntax-table lisp-mode-syntax-table)))
+          (modify-syntax-entry 59 "_" table) ;; semi-colon
+          (modify-syntax-entry ?, "_" table)
+          (modify-syntax-entry ?# "_" table)
+          (modify-syntax-entry ?' "_" table)
+          (modify-syntax-entry ?` "_" table)
+          table))
+
+  (defun shen/get-klambda-sexp-strings (klambda-file)
+    (with-temp-buffer
+      (insert-file-contents klambda-file)
+      (with-syntax-table shen/*klambda-syntax-table*
+        (let* ((klambda-code (buffer-string))
+               (current-sexp-end (scan-lists 0 1 0))
+               (groups nil))
+          (progn
+            (while current-sexp-end
+              (let ((current-sexp-start (scan-lists current-sexp-end -1 0)))
+                (progn
+                  (setq groups (nconc groups (list (buffer-substring current-sexp-start current-sexp-end))))
+                  (setq current-sexp-end (scan-lists current-sexp-end 1 0)))))
+            groups)))))
+#+END_SRC
+
+Even though simply changing the syntax table works for parsing the s-expressions
+as strings, the Elisp reader will still choke on illegal characters.
+
+Each of those forbidden characters is encoded as a string that is unlikely to
+occur in the normal course of events (hopefully). The name of the character is
+interleaved with its reverse and prefixed an ~_~. So, for example, ~#~ , spelled
+"hash" becomes "_hhassahh" which is the interleaving of "hash" and "hsah" with a
+leading underscore.
+
+The mappings are stored in an alist and forward and reverse lookup functions are
+provided
+#+BEGIN_SRC elisp :tangle install.el
+  (setq shen/*illegal-character->spelling*
+        '((59 "_sneomlioccoilmoens")  ;; semicolon
+          (?, "_caommmmoac")
+          (35 "_hhassshh")            ;; hash
+          (?' "_tkiccikt")
+          (?` "_beatcokuqqukoctaeb")))
+
+  (setq shen/*spelling->illegal-character*
+        (mapcar #'reverse shen/*illegal-character->spelling*))
+#+END_SRC
+
+
+With the mapping in place the klambda s-expressions can be sanitized for the Elisp reader:
+#+BEGIN_SRC elisp :tangle install.el
+  (defun shen/remove-reserved-elisp-characters (klambda-sexp-string)
+    (let ((InString nil)
+          (illegal-characters
+           (mapcar
+            (lambda (char->spelling) (nth 0 char->spelling))
+            shen/*illegal-character->spelling*))
+          (res)
+          (curr klambda-sexp-string))
+      (cl-flet ((append-and-advance
+                 (&optional X)
+                 (progn
+                   (if X (setq res (concat res X))
+                     (setq res (concat res (substring curr 0 1))))
+                   (setq curr (substring curr 1)))))
+        (while (not (= 0 (length curr)))
+          (cond
+           ((char-equal (string-to-char curr) ?\")
+            (if InString
+                (progn
+                  (setq InString nil)
+                  (append-and-advance))
+              (progn
+                (setq InString 't)
+                (append-and-advance))))
+           ((memq (string-to-char curr) illegal-characters)
+            (if InString
+                (append-and-advance)
+              (append-and-advance
+               (car (assoc-default
+                     (string-to-char curr)
+                     shen/*illegal-character->spelling*)))))
+           (t (append-and-advance))))
+        res)))
+#+END_SRC
+
+Once the reader has accepted the s-expression, the symbols need to be switched back to their
+original spellings:
+#+BEGIN_SRC elisp :tangle install.el
+  (defun shen/put-reserved-elisp-chars-back (sexp)
+    (let ((symbols (shen/find-symbols sexp)))
+      (shen/internal/modify-ast sexp
+                       symbols
+                       (lambda (path ast)
+                         (shen/change-back (shen/internal/get-element-at path ast))))))
+#+END_SRC
+
+To do so we need a function that iterates over a symbols and replaces the sanitized
+spelling with the original character:
+#+BEGIN_SRC elisp :tangle install.el
+  (defun shen/change-back (symbol)
+    (let* ((original-length (length (symbol-name symbol)))
+           (string-left (symbol-name symbol))
+           (spelling->character
+            (let ((hash (make-hash-table)))
+              (mapcar (lambda (spelling-character)
+                        (puthash (nth 0 spelling-character) (nth 1 spelling-character) hash))
+                      shen/*spelling->illegal-character*)
+              hash))
+           (spellings (hash-table-keys spelling->character))
+           (get-character-and-remaining
+            (lambda (S)
+              (let ((found-at-index (shen/internal/index-of (lambda (spelling) (string-prefix-p spelling S)) spellings)))
+                (if found-at-index
+                    (let ((spelling (nth found-at-index spellings)))
+                      (list (string (gethash spelling spelling->character))
+                            (substring S (length spelling))))
+                  (list (string (aref S 0))
+                        (substring S 1))))))
+           (reversed-result))
+      (while (> (length string-left) 0)
+        (let ((character-and-remaining (funcall get-character-and-remaining string-left)))
+          (push (nth 0 character-and-remaining) reversed-result)
+          (setq string-left (nth 1 character-and-remaining))))
+      (intern (apply #'concat (reverse reversed-result)))))
+#+END_SRC
+
+And a function that collects paths to all symbols in an s-expression:
+#+BEGIN_SRC elisp :tangle install.el
+  (defun shen/find-symbols (sexp)
+    (let ((symbols)
+          (current-path)
+          (current-list sexp)
+          (current-list-length (length sexp))
+          (current-index 0)
+          (locally-scoped-symbols)
+          (inner-lists))
+      (while (or (< current-index current-list-length)
+                 inner-lists)
+        (cond
+         ((and (= current-index current-list-length) inner-lists)
+          (progn
+            (setq current-path (car inner-lists))
+            (setq inner-lists (cdr inner-lists))
+            (setq current-list (shen/internal/get-element-at current-path sexp))
+            (setq current-index 0)
+            (setq current-list-length (length current-list))))
+         ((< current-index current-list-length)
+          (let ((current-token (nth current-index current-list)))
+            (cond
+             ((symbolp current-token)
+              (push (cons current-index current-path) symbols))
+             ((consp current-token)
+              (push (cons current-index current-path)
+                    inner-lists))
+             (t nil))
+            (setq current-index (+ current-index 1))))
+         (t nil)))
+      symbols))
+#+END_SRC
+
+** Iterating over KLambda Files
+Now we can finally collect, and parse all the s-expressions in the
+KLambda files and then pass the result to ~shen/eval-kl~ to transform
+KLambda code into Elisp.
+#+BEGIN_SRC elisp :tangle install.el
+  (setq *temp-shen-buffer*
+        (find-file-noselect
+         (concat (file-name-as-directory default-directory)
+                 (file-relative-name "shen.el"))))
+  (defun eval-klambda-files (klambda-files)
+    (with-current-buffer *temp-shen-buffer*
+      (progn
+        (erase-buffer)
+        (insert (format "%s\n" ";; -*- lexical-binding: t -*- "))
+        (insert (format "%s\n" ";; Local Variables:"))
+        (insert (format "%s\n" ";; byte-compile-warnings: (not redefine callargs free-vars unresolved obsolete noruntime cl-functions interactive-only make-local mapcar constants suspicious lexical)"))
+        (insert (format "%s\n" ";; End:"))
+        (insert (format "%s\n" "(require 'shen-primitives)"))
+        (insert (format "%s\n" "(setq max-lisp-eval-depth 60000)"))
+        (insert (format "%s\n" "(setq max-specpdl-size 13000)"))
+        (goto-char (point-max))
+        (dolist (klambda-file klambda-files nil)
+          (eval-klambda-file klambda-file))
+        (goto-char (point-max))
+        (insert (format "%s\n" "(provide 'shen)"))
+        (save-buffer))))
+  (defun eval-klambda-file (klambda-file)
+    (dolist (klambda-sexp-string (shen/get-klambda-sexp-strings klambda-file) nil)
+      (eval-klambda-sexp-string klambda-sexp-string)))
+  (defun eval-klambda-sexp-string (klambda-sexp-string)
+    (let ((ast (shen/put-reserved-elisp-chars-back
+                (read
+                 (shen/remove-reserved-elisp-characters
+                  klambda-sexp-string)))))
+      (shen/kl-to-buffer ast *temp-shen-buffer*)))
+#+END_SRC
+* The Runner
+#+BEGIN_SRC elisp :tangle install.el
+  (defun compile-and-load (F)
+    (byte-compile-file
+     (concat (file-name-as-directory default-directory)
+             (file-relative-name F))
+     't))
+  (defun load-klambda () (eval-klambda-files *klambda-files*))
+  (defun load-only ()
+    (progn
+      (compile-and-load "shen-primitives.el")
+      (compile-and-load "install.el")))
+  (defun runner ()
+    (progn
+      (compile-and-load "shen-primitives.el")
+      (compile-and-load "install.el")
+      (eval-klambda-files *klambda-files*)
+      (compile-and-load "shen.el")
+      (compile-and-load "shen-overlays.el")
+      (compile-and-load "shen-repl.el")
+      (add-to-load-path default-directory)
+      (shen/repl)))
+#+END_SRC

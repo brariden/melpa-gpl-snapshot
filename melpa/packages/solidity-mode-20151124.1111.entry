@@ -1,2 +1,0 @@
-
-(solidity-mode . [(20151124 1111) nil "Major mode for ethereum's solidity language" single ((:keywords "languages"))])

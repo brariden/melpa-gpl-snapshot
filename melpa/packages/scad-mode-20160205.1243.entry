@@ -1,0 +1,2 @@
+
+(scad-mode . [(20160205 1243) nil "A major mode for editing OpenSCAD code" single ((:keywords "languages") (:url . "https://raw.github.com/openscad/openscad/master/contrib/scad-mode.el"))])

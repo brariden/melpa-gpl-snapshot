@@ -1,2 +1,0 @@
-
-(popup-switcher . [(20160123 1600) ((cl-lib (0 3)) (popup (0 5 3))) "switch to other buffers and files via popup." single ((:keywords "popup" "switch" "buffers" "functions") (:url . "https://github.com/kostafey/popup-switcher"))])

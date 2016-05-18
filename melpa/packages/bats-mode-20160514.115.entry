@@ -1,0 +1,2 @@
+
+(bats-mode . [(20160514 115) nil "Emacs mode for editing and running Bats tests" single ((:keywords "bats" "tests") (:url . "https://github.com/dougm/bats-mode"))])

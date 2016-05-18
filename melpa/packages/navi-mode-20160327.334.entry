@@ -1,0 +1,2 @@
+
+(navi-mode . [(20160327 334) ((outshine (2 0)) (outorg (2 0))) "major-mode for easy buffer-navigation" single ((:url . "https://github.com/tj64/navi"))])

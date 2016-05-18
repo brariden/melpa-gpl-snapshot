@@ -1,0 +1,2 @@
+
+(dired-quick-sort . [(20160514 2250) ((hydra (0 13 0))) "Persistent quick sorting of dired buffers in various ways." single ((:keywords "convenience" "files") (:url . "https://gitlab.com/xuhdev/dired-quick-sort#dired-quick-sort"))])

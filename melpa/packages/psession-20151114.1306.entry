@@ -1,2 +1,0 @@
-
-(psession . [(20151114 1306) ((emacs (24)) (cl-lib (0 5))) "Persistent save of elisp objects." single ((:url . "https://github.com/thierryvolpiatto/psession"))])

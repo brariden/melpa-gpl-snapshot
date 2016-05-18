@@ -1,0 +1,2 @@
+
+(ace-mc . [(20160408 1937) ((ace-jump-mode (1 0)) (multiple-cursors (1 0)) (dash (2 10 0))) "Add multiple cursors quickly using ace jump" single ((:keywords "motion" "location" "cursor") (:url . "https://github.com/mm--/ace-mc"))])

@@ -1,0 +1,2 @@
+
+(mozc-temp . [(20160228 240) ((emacs (24)) (dash (2 10 0)) (mozc (0))) "Use mozc temporarily" single ((:url . "https://github.com/HKey/mozc-temp"))])

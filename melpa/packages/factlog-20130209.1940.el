@@ -4,8 +4,8 @@
 
 ;; Author: Takafumi Arakaki <aka.tkf at gmail.com>
 ;; Package-Requires: ((deferred "0.3.1"))
-;; Version: 0.0.1alpha0
 ;; Package-Version: 20130209.1940
+;; Version: 0.0.1alpha0
 ;; URL: https://github.com/tkf/factlog
 
 ;; This file is NOT part of GNU Emacs.

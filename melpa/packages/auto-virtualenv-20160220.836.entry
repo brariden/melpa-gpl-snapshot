@@ -1,0 +1,2 @@
+
+(auto-virtualenv . [(20160220 836) ((cl-lib (0 5)) (pyvenv (1 9)) (s (1 10 0))) "Auto activate python virtualenvs" single ((:keywords "python" "virtualenv" "tools") (:url . "http://github.com/marcwebbie/auto-virtualenv"))])

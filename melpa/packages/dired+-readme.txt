@@ -283,6 +283,9 @@
  -----------------
 
  Starting with Emacs 24.4, listing details are hidden by default.
+ Note that this is different from the vanilla Emacs behavior, which
+ is to show details by default.
+
  Use `(' anytime to toggle this hiding.  You can use option
  `diredp-hide-details-initially-flag' to change the default/initial
  state.  See also option `diredp-hide-details-propagate-flag'.
@@ -498,11 +501,12 @@
 
  Variables defined here:
 
-   `diredp-file-line-overlay', `diredp-files-within-dirs-done',
-   `diredp-font-lock-keywords-1', `diredp-hide-details-last-state'
-   (Emacs 24.4+), `diredp-hide-details-toggled' (Emacs 24.4+),
-   `diredp-list-files-map', `diredp-loaded-p',
-   `diredp-menu-bar-encryption-menu',
+   `diredp-bookmark-menu', `diredp-file-line-overlay',
+   `diredp-files-within-dirs-done', `diredp-font-lock-keywords-1',
+   `diredp-hide-details-last-state' (Emacs 24.4+),
+   `diredp-hide-details-toggled' (Emacs 24.4+),
+   `diredp-hide/show-menu', `diredp-list-files-map',
+   `diredp-loaded-p', `diredp-menu-bar-encryption-menu',
    `diredp-menu-bar-images-menu.',
    `diredp-menu-bar-immediate-menu',
    `diredp-menu-bar-immediate-bookmarks-menu',
@@ -512,8 +516,8 @@
    `diredp-menu-bar-operate-recursive-menu',
    `diredp-menu-bar-regexp-menu',
    `diredp-menu-bar-regexp-recursive-menu',
-   `diredp-menu-bar-subdir-menu', `diredp-re-no-dot',
-   `diredp-w32-drives-mode-map'.
+   `diredp-menu-bar-subdir-menu', `diredp-navigate-menu',
+   `diredp-re-no-dot', `diredp-w32-drives-mode-map'.
 
  Macros defined here:
 

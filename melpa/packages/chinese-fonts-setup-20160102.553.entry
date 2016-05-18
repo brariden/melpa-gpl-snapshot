@@ -1,2 +1,0 @@
-
-(chinese-fonts-setup . [(20160102 553) ((cl-lib (0 5))) "A fonts config tool enforcing double-width Chinese character display" single ((:keywords "convenience" "chinese" "font") (:url . "https://github.com/tumashu/chinese-fonts-setup"))])

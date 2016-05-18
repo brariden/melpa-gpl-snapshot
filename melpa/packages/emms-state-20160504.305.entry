@@ -1,0 +1,2 @@
+
+(emms-state . [(20160504 305) ((emms (0))) "Display track description and playing time in the mode line" single ((:keywords "emms") (:url . "https://github.com/alezost/emms-state.el"))])

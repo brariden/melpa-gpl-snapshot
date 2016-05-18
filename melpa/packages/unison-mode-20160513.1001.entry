@@ -1,0 +1,2 @@
+
+(unison-mode . [(20160513 1001) nil "Syntax highlighting for unison file synchronization program" single ((:keywords "symchronization" "unison") (:url . "https://github.com/impaktor/unison-mode"))])
