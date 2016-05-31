@@ -1,8 +1,0 @@
-// REFERENCE: Nemerle.Compiler.dll
-
-namespace MacroArg {
-  macro f (e) {
-    _ = e;
-    <[ () ]>
-  }
-}

@@ -1,4 +1,0 @@
-(transpose-frame
- :fetcher github
- :repo "pyluyten/emacs-nu"
- :files ("nu-mode/transpose-frame.el"))

@@ -1,3 +1,0 @@
-(ctags-update :repo "jixiuf/helm-etags-plus"
-              :fetcher github
-              :files ("ctags-update.el"))

@@ -1,3 +1,0 @@
-2012-02-07: enotify-port renamed to enotify-default-port, added some
-customization options that affect port selection during startup.
--- please rename your enotify-port to enotify-default-port in your customizations.

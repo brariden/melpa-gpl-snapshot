@@ -1,1 +1,0 @@
-﻿type x[a, b] = option[a * x[a, b]]; //E: recursive definition

@@ -1,2 +1,0 @@
-
-(elisp-sandbox . [(20131116 1242) nil "Evaluate EmacsLisp expressions in a sandbox" single ((:keywords "lisp") (:url . "https://github.com/joelmccracken/elisp-sandbox"))])

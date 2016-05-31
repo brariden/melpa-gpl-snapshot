@@ -1,7 +1,0 @@
-#!/bin/sh
-
-timeclock out
-
-proj="$1"
-shift
-timeclock in "$proj" "$@"

@@ -1,2 +1,0 @@
-
-(helm-systemd . [(20160502 220) ((emacs (24 4)) (helm (1 9 2)) (with-editor (2 5 0))) "helm's systemd interface" single ((:keywords "convenience"))])

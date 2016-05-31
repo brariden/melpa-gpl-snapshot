@@ -1,6 +1,0 @@
-# name : zfs
-# condition: serverspec
-# --
-describe zfs('${1:rpool}') do
-  ${2:it \{ should exist \}}
-end

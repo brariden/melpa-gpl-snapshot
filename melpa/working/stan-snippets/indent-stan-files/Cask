@@ -1,5 +1,0 @@
-(source gnu)
-(source melpa)
-(depends-on "stan-mode")
-(depends-on "shut-up")
-

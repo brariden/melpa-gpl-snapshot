@@ -1,2 +1,0 @@
-
-(hfst-mode . [(20160402 628) nil "major mode for editing HFST files" single ((:keywords "languages") (:url . "http://wiki.apertium.org/wiki/Emacs"))])

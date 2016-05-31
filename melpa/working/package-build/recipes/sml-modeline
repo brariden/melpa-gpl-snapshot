@@ -1,3 +1,0 @@
-(sml-modeline :fetcher bzr
-              :url "lp:~nxhtml/nxhtml/main"
-              :files ("util/sml-modeline.el"))

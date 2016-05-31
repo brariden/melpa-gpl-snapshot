@@ -1,1 +1,0 @@
-tests.exe -d:negative -p "-nowarn:10003 -def:RUNTIME_MS" -s -v > negative-descriptive.results

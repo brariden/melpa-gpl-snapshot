@@ -1,2 +1,0 @@
-
-(flycheck-d-unittest . [(20160125 618) ((flycheck (0 21 -4 1)) (dash (1 4 0))) "Add D unittest support to flycheck" single ((:keywords "flycheck" "d") (:url . "https://github.com/tom-tan/flycheck-d-unittest/"))])

@@ -1,6 +1,0 @@
-# name : iis_website
-# condition: serverspec
-# --
-describe iis_website('${1:Default Website}') do
-  ${2:it\{ should exist \}}
-end

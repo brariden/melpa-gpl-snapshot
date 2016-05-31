@@ -1,4 +1,0 @@
-* An Emacs mode for the programming language Maude.
-
-More information about Maude can be found at
-http://maude.cs.illinois.edu/w/index.php?title=The_Maude_System.

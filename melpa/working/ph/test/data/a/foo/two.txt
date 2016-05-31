@@ -1,4 +1,0 @@
- -- Function: gethash key table &optional default
-     This function looks up KEY in TABLE, and returns its associated
-     VALUE--or DEFAULT, if KEY has no association in TABLE.
-

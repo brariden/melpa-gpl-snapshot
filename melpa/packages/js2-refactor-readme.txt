@@ -35,6 +35,8 @@ All refactorings start with `C-c C-m` and then a two-letter mnemonic shortcut.
  * `co` is `contract-object`: Converts a multiline object literal to one line.
  * `eu` is `expand-function`: Converts a one line function to multiline (expecting semicolons as statement delimiters).
  * `cu` is `contract-function`: Converts a multiline function to one line (expecting semicolons as statement delimiters).
+ * `ec` is `expand-call-args`: Converts a one line function call args to multiline.
+ * `cc` is `contract-call-args`: Converts a multiline function call args to one line.
  * `ea` is `expand-array`: Converts a one line array to multiline.
  * `ca` is `contract-array`: Converts a multiline array to one line.
  * `wi` is `wrap-buffer-in-iife`: Wraps the entire buffer in an immediately invoked function expression

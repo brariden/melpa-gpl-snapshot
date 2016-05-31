@@ -1,1 +1,0 @@
-(euslisp-mode :repo "iory/euslisp-mode" :fetcher github)

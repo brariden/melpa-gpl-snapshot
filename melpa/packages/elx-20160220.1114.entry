@@ -1,2 +1,0 @@
-
-(elx . [(20160220 1114) ((emacs (24 4))) "extract information from Emacs Lisp libraries" single ((:keywords "docs" "libraries" "packages") (:url . "https://github.com/tarsius/elx"))])

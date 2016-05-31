@@ -1,3 +1,0 @@
-#name : Server kill and boot
-# --
-Server.killAll; Server.default.boot;$0

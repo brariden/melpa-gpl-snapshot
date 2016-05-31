@@ -1,2 +1,0 @@
-(plantuml-mode :repo "zwz/plantuml-mode"
-               :fetcher github)

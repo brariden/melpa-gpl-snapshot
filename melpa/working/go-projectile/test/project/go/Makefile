@@ -1,2 +1,0 @@
-gopath:
-	@echo -n $(CURDIR)

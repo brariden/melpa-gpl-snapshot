@@ -1,2 +1,0 @@
-
-(helm-rhythmbox . [(20160310 634) ((helm (1 5 0)) (cl-lib (0 5))) "control Rhythmbox's play queue via Helm" single ((:url . "https://github.com/mrBliss/helm-rhythmbox"))])

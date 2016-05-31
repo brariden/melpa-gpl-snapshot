@@ -1,3 +1,0 @@
-class A[T] { }
-type X = A[Y]; // E: The type 'X' has recursive definition.
-type Y = A[X];

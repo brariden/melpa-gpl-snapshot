@@ -1,5 +1,0 @@
-public class Ext
-{
-  static Main() : void {}
-}
-public class Ext['a] : Ext where 'a : Ext['a] {}

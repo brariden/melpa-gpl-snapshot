@@ -1,2 +1,0 @@
-(defun tester nil
-  t)

@@ -27,6 +27,7 @@ The following functions are provided:
 The following extensions are available:
 
   + avy-migemo-e.g.zzz-to-char.el
+  + avy-migemo-e.g.ivy.el
   + avy-migemo-e.g.swiper.el
   + avy-migemo-e.g.counsel.el
 
@@ -38,7 +39,7 @@ Setup:
 (require 'avy-migemo)
 `avy-migemo-mode' overrides avy's predefined functions using `advice-add'.
 (avy-migemo-mode 1)
-(global-set-key (kbd "M-g m") 'avy-migemo-mode)
+(global-set-key (kbd "M-g m m") 'avy-migemo-mode)
 
 If you would like to restrict the length of displayed keys within 2
 for `avy-style' of at-full, `avy-migemo-at-full-max' provides it.

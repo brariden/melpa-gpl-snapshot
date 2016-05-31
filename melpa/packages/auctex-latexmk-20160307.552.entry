@@ -1,2 +1,0 @@
-
-(auctex-latexmk . [(20160307 552) ((auctex (11 87))) "Add LatexMk support to AUCTeX" single ((:keywords "tex") (:url . "https://github.com/tom-tan/auctex-latexmk/"))])

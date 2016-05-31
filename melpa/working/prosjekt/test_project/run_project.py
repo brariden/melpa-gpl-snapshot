@@ -1,2 +1,0 @@
-import sample
-sample.run()

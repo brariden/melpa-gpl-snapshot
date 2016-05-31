@@ -1,1 +1,1 @@
- Documentation at http://ensime.github.io/editors/emacs/scala-mode/
+ Documentation at http://ensime.org/editors/emacs/scala-mode/

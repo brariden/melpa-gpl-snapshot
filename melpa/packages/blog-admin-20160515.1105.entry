@@ -1,2 +1,0 @@
-
-(blog-admin . [(20160515 1105) ((ctable (0 1 1)) (s (1 10 0)) (f (0 17 3)) (names (20151201 0))) "Blog admin for emacs with hexo/org-page supported" tar ((:keywords "tools" "blog" "org" "hexo" "org-page"))])

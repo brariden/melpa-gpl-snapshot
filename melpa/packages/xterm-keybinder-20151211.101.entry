@@ -1,2 +1,0 @@
-
-(xterm-keybinder . [(20151211 101) ((emacs (24 3)) (cl-lib (0 5)) (let-alist (1 0 1))) "Let you extra keybinds in xterm/urxvt" tar ((:keywords "convenient"))])

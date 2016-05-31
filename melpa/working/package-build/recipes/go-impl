@@ -1,1 +1,0 @@
-(go-impl :repo "dominikh/go-impl.el" :fetcher github)

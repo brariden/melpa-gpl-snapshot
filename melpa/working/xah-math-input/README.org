@@ -1,5 +1,0 @@
-A emacs minor mode for inputing math symbols and Unicode symbols.
-
-[[http://melpa.org/#/xah-math-input][file:http://melpa.org/packages/xah-math-input-badge.svg]]
-
-Home Page: http://ergoemacs.org/emacs/xmsi-math-symbols-input.html

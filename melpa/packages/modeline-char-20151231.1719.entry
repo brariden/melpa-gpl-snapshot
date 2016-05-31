@@ -1,2 +1,0 @@
-
-(modeline-char . [(20151231 1719) nil "In the mode-line, show the value of the character after point." single ((:keywords "mode-line" "character") (:url . "http://www.emacswiki.org/modeline-char.el"))])

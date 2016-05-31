@@ -1,3 +1,0 @@
-if $1 then
-   $0
-end_if

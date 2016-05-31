@@ -1,2 +1,0 @@
-
-(term-alert . [(20160507 156) ((emacs (24 0)) (term-cmd (1 1)) (alert (1 1)) (f (0 0))) "Notifications when commands complete in term.el." tar nil])

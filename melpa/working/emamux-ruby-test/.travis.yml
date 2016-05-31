@@ -1,7 +1,0 @@
-language: emacs-lisp
-env:
-  - EMACS=emacs24
-before_install:
-  - sh script/provision.sh
-script:
-  - make clean test

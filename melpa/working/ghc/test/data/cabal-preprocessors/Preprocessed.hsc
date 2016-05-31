@@ -1,3 +1,0 @@
-module Preprocessed where
-
-warning = ()

@@ -1,5 +1,0 @@
-echo
-echo "*** Uninstallation successful ***"
-echo "Thank you for using Nemerle."
-echo
-exit 0

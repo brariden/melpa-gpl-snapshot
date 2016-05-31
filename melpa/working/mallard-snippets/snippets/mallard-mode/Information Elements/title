@@ -1,5 +1,0 @@
-# contributor: Jaromir Hradilek <jhradilek@gmail.com>
-# name: <title type="..." role="...">
-# key: title
-# --
-<title type="${1:link}" role="$2">$0</title>

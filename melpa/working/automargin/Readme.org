@@ -1,3 +1,0 @@
-* automargin
-
-This project is now included in sublimity-attractive.el [[(https://github.com/zk-phi/sublimity]]).

@@ -1,2 +1,0 @@
-
-(notmuch . [(20160501 1911) nil "run notmuch within emacs" tar ((:url . "https://notmuchmail.org/"))])

@@ -1,2 +1,0 @@
-
-(hlinum . [(20150621 2133) ((cl-lib (0 2))) "Extension for linum.el to highlight current line number" single ((:keywords "convenience" "extensions") (:url . "https://github.com/tom-tan/hlinum-mode/"))])

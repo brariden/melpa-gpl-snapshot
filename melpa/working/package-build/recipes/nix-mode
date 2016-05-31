@@ -1,2 +1,0 @@
-(nix-mode :repo "NixOS/nix" :fetcher github
-          :files ("misc/emacs/nix-mode.el"))

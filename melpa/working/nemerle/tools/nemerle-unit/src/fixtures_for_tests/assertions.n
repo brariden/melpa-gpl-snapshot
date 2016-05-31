@@ -1,6 +1,0 @@
-using NemerleUnit
-using System
-
-test "failing equals"
-    assert "actual" equals "expected"
-

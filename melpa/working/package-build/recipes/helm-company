@@ -1,1 +1,0 @@
-(helm-company :repo "manuel-uberti/helm-company" :fetcher github)

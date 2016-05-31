@@ -1,3 +1,0 @@
-(evil-search-highlight-persist
-  :fetcher github
-  :repo "juanjux/evil-search-highlight-persist")

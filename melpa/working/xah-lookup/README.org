@@ -1,6 +1,0 @@
-A emacs lisp package for looking up Google, Dictionaries, Wikipedia, or programing reference sites.
-
-[[http://melpa.org/#/xah-lookup][file:http://melpa.org/packages/xah-lookup-badge.svg]]
-
-Home page
-http://ergoemacs.org/emacs/emacs_lookup_ref.html

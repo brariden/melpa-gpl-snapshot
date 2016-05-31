@@ -1,4 +1,0 @@
-while (true) {
- def _ = 7;
- 12 // W: ignored
-}

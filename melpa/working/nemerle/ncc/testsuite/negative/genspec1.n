@@ -1,1 +1,0 @@
-def t = System.Collections.Hashtable.[int, int]; // E: System.Collections.Hashtable..ctor doesn't take generic parameters

@@ -1,2 +1,0 @@
-
-(anaconda-mode . [(20160411 850) ((emacs (24)) (pythonic (0 1 0)) (dash (2 6 0)) (s (1 9)) (f (0 16 2))) "Code navigation, documentation lookup and completion for Python" single ((:url . "https://github.com/proofit404/anaconda-mode"))])

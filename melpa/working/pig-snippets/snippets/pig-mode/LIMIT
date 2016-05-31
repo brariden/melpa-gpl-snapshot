@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: LIMIT
-# key: limit
-# group: basics
-# contributor: David A. Shamma
-# --
-LIMIT ${1:alias} ${2:n};

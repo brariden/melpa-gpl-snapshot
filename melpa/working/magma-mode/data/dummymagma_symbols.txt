@@ -1,5 +1,0 @@
-Set
-SetAllInvariantsOfDegree
-SetAssertions
-SetVerbose
-SetBufferSize

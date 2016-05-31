@@ -13,8 +13,3 @@ all of the marked files will be visited in the *look* buffer.
 - look-dired-mark-current-looked-file   : Mark `look-current-file' in the corresponding dired-mode buffer.
 - look-dired-unmark-current-looked-file : Unmark `look-current-file' in the corresponding dired-mode buffer.
 - look-dired-run-associated-program     : Run program associated with currently looked at file.
-
-
-
-(org-readme-sync)
-(auto-document)

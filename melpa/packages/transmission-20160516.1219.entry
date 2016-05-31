@@ -1,2 +1,0 @@
-
-(transmission . [(20160516 1219) ((emacs (24 4)) (let-alist (1 0 3))) "Interface to a Transmission session" single ((:keywords "comm" "tools"))])

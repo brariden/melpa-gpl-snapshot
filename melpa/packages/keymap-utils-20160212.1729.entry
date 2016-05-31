@@ -1,2 +1,0 @@
-
-(keymap-utils . [(20160212 1729) ((cl-lib (0 3))) "keymap utilities" single ((:keywords "convenience" "extensions") (:url . "https://github.com/tarsius/keymap-utils"))])

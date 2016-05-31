@@ -1,7 +1,0 @@
-syntax: glob
-
-lib/*
-tawny-owl*.jar
-pom.xml
-stuff/*
-target/*

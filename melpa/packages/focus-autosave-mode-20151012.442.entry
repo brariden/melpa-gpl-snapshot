@@ -1,2 +1,0 @@
-
-(focus-autosave-mode . [(20151012 442) ((emacs (24 4))) "Automatically save files in focus-out-hook." single ((:keywords "convenience" "files" "frames" "mouse"))])

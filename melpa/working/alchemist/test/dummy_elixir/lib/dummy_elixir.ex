@@ -1,2 +1,0 @@
-defmodule DummyElixir do
-end

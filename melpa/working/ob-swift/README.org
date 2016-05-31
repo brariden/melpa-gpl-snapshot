@@ -1,6 +1,0 @@
-* ob-swift
-
-** supported header arguments
-
-- session
-

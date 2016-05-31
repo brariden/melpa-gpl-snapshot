@@ -1,2 +1,0 @@
-
-(diff-hl . [(20160514 1901) ((cl-lib (0 2))) "Highlight uncommitted changes using VC" tar ((:keywords "vc" "diff") (:url . "https://github.com/dgutov/diff-hl"))])

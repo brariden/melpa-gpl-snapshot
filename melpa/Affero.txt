@@ -1,0 +1,6 @@
+artbollocks-mode
+ghc
+lice
+mediawiki
+ocp-indent
+stack-mode

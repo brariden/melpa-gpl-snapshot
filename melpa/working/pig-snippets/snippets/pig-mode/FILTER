@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: FILTER
-# key: filter
-# group: basics
-# contributor: David A. Shamma
-# --
-FILTER ${1:alias} BY ${2:expression};

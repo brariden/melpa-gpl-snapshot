@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: REGISTER
-# key: register
-# group: basics
-# contributor: David A. Shamma
-# --
-REGISTER ${1:path};

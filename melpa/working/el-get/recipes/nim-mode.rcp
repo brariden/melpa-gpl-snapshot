@@ -1,4 +1,0 @@
-(:name nim-mode
-       :type github
-       :pkgname "reactormonk/nim-mode"
-       :description "Major mode for the Nim programming language")

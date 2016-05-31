@@ -1,2 +1,0 @@
-
-(pyvenv . [(20160413 256) nil "Python virtual environment interface" single ((:keywords "python" "virtualenv" "tools") (:url . "http://github.com/jorgenschaefer/pyvenv"))])

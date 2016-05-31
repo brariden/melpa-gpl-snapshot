@@ -1,9 +1,0 @@
-The second edition of the book Structure and Interpretation of
-Computer Programs (SICP) in info format.
-
-Source: http://www.neilvandyke.org/sicp-texi/
-
-repo for building MELPA pkg
-
-To convert the .texi format to compiled .info format use:
-  makeinfo --no-split sicp.texi -o sicp.info

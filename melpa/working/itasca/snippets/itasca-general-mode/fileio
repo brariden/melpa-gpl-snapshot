@@ -1,4 +1,0 @@
-status = open('$1', 1, 1)
-o(1) = string($0)
-status = write(o,1)
-status = close

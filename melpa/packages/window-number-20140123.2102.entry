@@ -1,2 +1,0 @@
-
-(window-number . [(20140123 2102) nil "Select windows by numbers." single ((:url . "http://www.emacswiki.org/emacs/download/window-number.el"))])

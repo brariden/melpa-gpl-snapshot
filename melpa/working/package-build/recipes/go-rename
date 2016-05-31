@@ -1,4 +1,0 @@
-(go-rename
- :fetcher git
- :url "https://go.googlesource.com/tools"
- :files ("refactor/rename/go-rename.el"))

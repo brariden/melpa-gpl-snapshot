@@ -1,3 +1,0 @@
-(shimbun :repo "emacsorphanage/w3m"
-	 :fetcher github
-	 :files ("shimbun/*.el"))

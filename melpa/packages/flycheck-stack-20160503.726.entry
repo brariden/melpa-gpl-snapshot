@@ -1,2 +1,0 @@
-
-(flycheck-stack . [(20160503 726) ((flycheck (26)) (haskell-mode (13))) "Flychecker using stack ghci" single nil])

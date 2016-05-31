@@ -1,1 +1,0 @@
-@bin\debug\test.exe >example.log

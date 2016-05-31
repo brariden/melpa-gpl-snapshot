@@ -1,2 +1,0 @@
-
-(company . [(20160514 1950) ((emacs (24 1)) (cl-lib (0 5))) "Modular text completion framework" tar ((:keywords "abbrev" "convenience" "matching") (:url . "http://company-mode.github.io/"))])

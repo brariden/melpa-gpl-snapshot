@@ -1,9 +1,0 @@
-using System.Collections.Generic;
-
-class D
-{
-  public GetEnumerator () : IEnumerator [int]
-  {
-    yield "foo"; // E: expected int.*, got string in assigned value
-  }
-}

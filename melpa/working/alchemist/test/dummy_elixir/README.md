@@ -1,4 +1,0 @@
-DummyElixir
-===========
-
-** TODO: Add description **

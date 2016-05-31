@@ -1,8 +1,0 @@
-
-#+TITLE: Testing with Assess
-
-#+AUTHOR: Phillip Lord
-
-#+INFOJS_OPT: view:info toc:nil
-
-#+INCLUDE: "assess.org" :lines "28-"

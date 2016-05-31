@@ -1,1 +1,0 @@
-(provide 'init-freebsd-test)

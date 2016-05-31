@@ -1,4 +1,0 @@
-* tree1                                                                           :elfeed:
-** http1
-* tree2                                                                           :elfeed:
-** http2

@@ -1,2 +1,0 @@
-
-(melpa-upstream-visit . [(20130720 533) ((s (1 6 0))) "A set of kludges to visit a melpa-hosted package's homepage" single ((:keywords "convenience"))])

@@ -1,2 +1,0 @@
-
-(evil-leader . [(20140606 743) ((evil (0))) "let there be <leader>" single ((:keywords "evil" "vim-emulation" "leader") (:url . "http://github.com/cofi/evil-leader"))])

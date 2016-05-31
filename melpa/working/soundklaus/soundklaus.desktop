@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=SoundKlaus
-Exec=emacsclient %u
-Icon=emacs-icon
-Type=Application
-Terminal=false
-MimeType=x-scheme-handler/soundklaus;

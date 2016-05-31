@@ -1,5 +1,0 @@
-resolver: lts-2.22
-packages:
-  - ./ide-backend
-  - ./ide-backend-server
-  - ./ide-backend-common

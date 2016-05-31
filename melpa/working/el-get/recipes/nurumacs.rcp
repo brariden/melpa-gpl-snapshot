@@ -1,4 +1,0 @@
-(:name nurumacs
-       :description "Smooth-scrolling and minimap, like sublime editor"
-       :type github
-       :pkgname "zk-phi/nurumacs")

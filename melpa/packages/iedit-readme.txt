@@ -4,7 +4,7 @@ other occurrences edited in the same way.
 
 Normal scenario of iedit-mode is like:
 
-- Highlight certain contents - by press C-; (The default binding)
+- Highlight certain contents - by press C-; (The default key binding)
   All occurrences of a symbol, string in the buffer or a region may be
   highlighted corresponding to current mark, point and prefix argument.
   Refer to the document of `iedit-mode' for details.

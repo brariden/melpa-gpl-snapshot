@@ -1,2 +1,0 @@
-
-(general . [(20160516 1121) ((cl-lib (0 5))) "Convenience wrappers for keybindings." tar ((:keywords "vim" "evil" "leader" "keybindings" "keys") (:url . "https://github.com/noctuid/general.el"))])

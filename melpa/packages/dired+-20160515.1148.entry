@@ -1,2 +1,0 @@
-
-(dired+ . [(20160515 1148) nil "Extensions to Dired." single ((:keywords "unix" "mouse" "directories" "diredp" "dired") (:url . "http://www.emacswiki.org/dired+.el"))])

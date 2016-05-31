@@ -1,8 +1,0 @@
-% -*- markdown -*-
-<!--/
-title: Copyright
-type: snippet
-/-->
-
-
-Copyright Sébastien Gross

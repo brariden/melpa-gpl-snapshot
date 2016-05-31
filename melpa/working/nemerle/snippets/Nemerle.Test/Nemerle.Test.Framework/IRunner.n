@@ -1,9 +1,0 @@
-﻿using System.Collections.Generic;
-
-namespace Nemerle.Test.Framework
-{
-  public interface IRunner
-  {
-    Run(tests : IEnumerable[Test]) : void
-  }
-}

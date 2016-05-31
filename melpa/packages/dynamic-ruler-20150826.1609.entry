@@ -1,2 +1,0 @@
-
-(dynamic-ruler . [(20150826 1609) nil "Displays a dynamic ruler at point." single ((:keywords "ruler" "tools" "convenience") (:url . "http://rocher.github.io/dynamic-ruler"))])
