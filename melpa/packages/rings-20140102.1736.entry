@@ -1,2 +1,0 @@
-
-(rings . [(20140102 1736) nil "Buffer rings. Like tabs, but better." single ((:keywords "utilities" "productivity") (:url . "http://github.com/konr/rings"))])

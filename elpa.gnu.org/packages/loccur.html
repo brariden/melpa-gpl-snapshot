@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+  <title>GNU ELPA - loccur</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<h1 align="center">GNU ELPA - loccur</h1>
+<p>Description: Perform an occur-like folding in current buffer</p>
+<p>Latest: <a href="loccur-1.2.2.el">loccur-1.2.2.el</a>, 2016-Jan-30, 11.0kB</p>
+<p>Home page: <a href="https://github.com/fourier/loccur">https://github.com/fourier/loccur</a></p>
+<p>Browse ELPA's repository: <a href="http://git.savannah.gnu.org/cgit/emacs/elpa.git/tree/packages/loccur">CGit</a> or <a href="http://git.savannah.gnu.org/gitweb/?p=emacs/elpa.git;a=tree;f=packages/loccur">Gitweb</a></p>
+<h2>Full description</h2><pre>
+Add the following to your .emacs file:
+
+(require 'loccur)
+;; defines shortcut for loccur of the current word
+(define-key global-map [(control o)] 'loccur-current)
+;; defines shortcut for the interactive loccur command
+(define-key global-map [(control meta o)] 'loccur)
+;; defines shortcut for the loccur of the previously found word
+(define-key global-map [(control shift o)] 'loccur-previous-match)
+</pre>
+</body>

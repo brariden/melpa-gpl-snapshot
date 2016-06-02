@@ -1,7 +1,12 @@
+#!/bin/bash
 # clone melpa
 git clone git@github.com:milkypostman/melpa.git
 cd melpa
+make clean
 make
+
+# lots of .git files..
+find . -name .git -print0 | xargs -0 rm -rf
 
 cd working
 echo "Step 1"
@@ -57,4 +62,11 @@ for filename in packages/*; do
  fi
 done
 
+make clean-json
 make json
+rm -rf working
+cd ..
+
+wget --mirror --convert-links --adjust-extension --page-requisites --no-parent -R "*org-2014*","*org-2013*","*org-2015*tar","*org-plus-contrib-2015*" http://orgmode.org/elpa/
+
+wget --mirror --convert-links --adjust-extension --page-requisites --no-parent -R "*org-2014*","*org-2013*","*org-2012*" http://elpa.gnu.org/

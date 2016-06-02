@@ -1,2 +1,0 @@
-
-(phpunit . [(20160512 930) ((s (1 9 0)) (f (0 16 0)) (pkg-info (0 5)) (emacs (24 3))) "Launch PHP unit tests using phpunit" tar ((:keywords "php" "tests" "phpunit") (:url . "https://github.com/nlamirault/phpunit.el"))])

@@ -1,2 +1,0 @@
-
-(metascript-mode . [(20150708 1957) ((emacs (24 3))) "Major mode for the Metascript programming language" single ((:keywords "languages" "metascript" "mjs") (:url . "http://github.com/metascript/metascript-mode"))])

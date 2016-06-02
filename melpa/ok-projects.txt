@@ -16,7 +16,6 @@ ac-dabbrev
 ac-dcd
 ace-flyspell
 ace-isearch
-ace-jump-helm-line
 ace-jump-mode
 ace-link
 ace-mc
@@ -51,6 +50,7 @@ adoc-mode
 aes
 afternoon-theme
 ag
+aggressive-fill-paragraph
 aggressive-indent
 ahg
 ahk-mode
@@ -89,6 +89,7 @@ anything-sage
 anzu
 aok
 aozora-view
+apache-mode
 apel
 apples-mode
 aproject
@@ -116,6 +117,7 @@ auto-auto-indent
 autobookmarks
 auto-capitalize
 auto-compile
+auto-complete
 auto-complete-auctex
 auto-complete-c-headers
 auto-complete-chunk
@@ -203,6 +205,7 @@ bongo
 bonjourmadame
 bookmark+
 boon
+borland-blue-theme
 bpe
 bracketed-paste
 brainfuck-mode
@@ -292,7 +295,6 @@ clear-text
 clevercss
 cl-format
 cliphist
-clipmon
 clippy
 clips-mode
 clj-refactor
@@ -317,6 +319,7 @@ cmake-mode
 cmake-project
 cmds-menu
 cn-outline
+cobra-mode
 codebug
 code-library
 codic
@@ -339,6 +342,7 @@ comment-dwim-2
 commenter
 commify
 common-lisp-snippets
+company
 company-anaconda
 company-arduino
 company-auctex
@@ -352,11 +356,13 @@ company-flx
 company-ghc
 company-ghci
 company-go
+company-inf-ruby
 company-irony
 company-irony-c-headers
 company-jedi
 company-lua
 company-math
+company-nand2tetris
 company-ngram
 company-qml
 company-quickhelp
@@ -369,6 +375,7 @@ company-web
 company-ycm
 company-ycmd
 composable
+concurrent
 config-parser
 conkeror-minor-mode
 connection
@@ -385,6 +392,7 @@ crappy-jsp-mode
 creds
 creole
 creole-mode
+cricbuzz
 crm-custom
 crosshairs
 crux
@@ -687,6 +695,7 @@ escreen
 esh-buf-stack
 eshell-autojump
 eshell-did-you-mean
+eshell-fringe-status
 eshell-prompt-extras
 eshell-z
 esh-help
@@ -725,6 +734,8 @@ evil-find-char-pinyin
 evil-god-state
 evil-iedit-state
 evil-indent-plus
+evil-indent-textobject
+evil-leader
 evil-lisp-state
 evil-lispy
 evil-mark-replace
@@ -894,6 +905,7 @@ fvwm-mode
 fwb-cmds
 fyure
 fzf
+gams-mode
 gandalf-theme
 gather
 geben
@@ -922,6 +934,7 @@ git-blame
 git-commit
 git-commit-insert-issue
 gitconfig
+gitconfig-mode
 git-dwim
 git-gutter
 git-gutter+
@@ -938,6 +951,7 @@ git-messenger
 gitolite-clone
 git-timemachine
 gitty
+git-wip-timemachine
 gmail2bbdb
 gmail-message-mode
 gmpl-mode
@@ -962,6 +976,7 @@ golden-ratio-scroll-screen
 gom-mode
 google
 google-contacts
+google-maps
 google-this
 google-translate
 goose-theme
@@ -990,6 +1005,7 @@ grapnel
 grass-mode
 gregorio-mode
 grep+
+grep-a-lot
 greymatters-theme
 grin
 grizzl
@@ -1007,7 +1023,6 @@ ham-mode
 handlebars-mode
 handlebars-sgml-mode
 handoff
-hardcore-mode
 harvest
 haskell-emacs
 haskell-emacs-base
@@ -1243,6 +1258,7 @@ inflections
 inf-mongo
 info+
 inf-ruby
+init-loader
 init-open-recentf
 initsplit
 inline-crypt
@@ -1370,6 +1386,7 @@ latex-preview-pane
 launch
 launchctl
 ldap-mode
+ledger-mode
 leerzeichen
 legalese
 lemon-mode
@@ -1473,6 +1490,7 @@ mb-url
 md-readme
 meacupla-theme
 mediawiki
+melpa-upstream-visit
 memolist
 mentor
 menu-bar+
@@ -1480,7 +1498,6 @@ merlin
 message-x
 metafmt
 meta-presenter
-metascript-mode
 metaweblog
 mexican-holidays
 micgoline
@@ -1496,7 +1513,6 @@ minizinc-mode
 minor-mode-hack
 mip-mode
 misc-cmds
-misc-fns
 mmm-jinja2
 mmm-mako
 mmm-mode
@@ -1518,6 +1534,7 @@ monky
 monokai-theme
 monroe
 morlock
+mouse+
 mouse3
 move-dup
 move-text
@@ -1642,7 +1659,6 @@ open-junk-file
 openwith
 org2blog
 org2issue
-org2jekyll
 org-ac
 org-agenda-property
 org-alert
@@ -1710,6 +1726,7 @@ org-tree-slide
 org-trello
 org-vcard
 org-webpage
+org-wunderlist
 osx-clipboard
 osx-dictionary
 osx-lib
@@ -1994,6 +2011,7 @@ rings
 robe
 robots-txt-mode
 roguel-ike
+rope-read-mode
 rotate
 roy-mode
 rpm-spec-mode
@@ -2048,6 +2066,7 @@ searchq
 search-web
 seclusion-mode
 second-sel
+seeing-is-believing
 seethru
 sekka
 selectric-mode
@@ -2060,6 +2079,7 @@ servant
 serverspec
 session
 seti-theme
+sexp-move
 shackle
 shadchen
 shader-mode
@@ -2075,7 +2095,6 @@ shell-toggle
 shen-elisp
 shift-number
 shift-text
-shimbun
 shm
 shoulda
 show-css
@@ -2141,6 +2160,7 @@ smooth-scroll
 smooth-scrolling
 smotitah
 smtpmail-multi
+smyx-theme
 snakemake-mode
 snapshot-timemachine
 snippet
@@ -2193,7 +2213,6 @@ stash
 state
 status
 stem
-sticky
 stickyfunc-enhance
 stock-ticker
 strie
@@ -2215,6 +2234,7 @@ summarye
 sunny-day-theme
 sunshine
 supergenpass
+super-save
 svg-mode-line-themes
 swap-regions
 swbuff-x
@@ -2310,7 +2330,6 @@ tracwiki-mode
 tramp-hdfs
 tramp-term
 transmission
-transpose-frame
 transpose-mark
 travis
 tree-mode
@@ -2386,7 +2405,6 @@ volume
 vue-mode
 w32-browser
 w32browser-dlgopen
-w3m
 wacspace
 waher-theme
 wakatime-mode
@@ -2508,6 +2526,7 @@ zoom-window
 zop-to-char
 zossima
 zotelo
+zotxt
 ztree
 zygospore
 zzz-to-char
