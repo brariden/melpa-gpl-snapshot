@@ -1,0 +1,2 @@
+
+(company-shell . [(20160528 707) ((company (0 8 12)) (dash (2 12 0)) (cl-lib (0 5))) "Company mode backend for shell functions" single ((:keywords "company" "shell") (:url . "https://github.com/Alexander-Miller/company-shell"))])

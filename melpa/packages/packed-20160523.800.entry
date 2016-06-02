@@ -1,0 +1,2 @@
+
+(packed . [(20160523 800) ((emacs (24 3)) (dash (2 12 1))) "package manager agnostic Emacs Lisp package utilities" single ((:keywords "compile" "convenience" "lisp" "package" "library") (:url . "https://github.com/tarsius/packed"))])

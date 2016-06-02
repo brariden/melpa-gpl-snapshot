@@ -1,0 +1,2 @@
+
+(overseer . [(20160518 143) ((emacs (24)) (dash (2 10 0)) (pkg-info (0 4)) (f (0 18 1))) "Ert-runner Integration Into Emacs" single ((:url . "http://www.github.com/tonini/overseer.el"))])

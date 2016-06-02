@@ -1,0 +1,2 @@
+
+(orglink . [(20160521 930) ((emacs (24 3)) (dash (2 12 1)) (org (8 3))) "use Org Mode links in other modes" single ((:keywords "hypertext") (:url . "http://github.com/tarsius/orglink"))])

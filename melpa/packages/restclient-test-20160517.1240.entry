@@ -1,0 +1,2 @@
+
+(restclient-test . [(20160517 1240) ((emacs (24 4)) (restclient (0))) "Run tests with restclient.el" single ((:url . "https://github.com/simenheg/restclient-test.el"))])

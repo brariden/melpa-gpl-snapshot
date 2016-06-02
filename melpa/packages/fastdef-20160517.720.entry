@@ -1,0 +1,2 @@
+
+(fastdef . [(20160517 720) ((ivy (0 7 0)) (w3m (0 0))) "Insert terminology from Google top search results" single ((:keywords "terminology" "org-mode" "markdown") (:url . "http://github.com/redguardtoo/fastdef"))])

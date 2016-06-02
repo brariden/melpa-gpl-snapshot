@@ -1,0 +1,2 @@
+
+(avy-migemo . [(20160521 826) ((emacs (24 4)) (avy (0 4 0)) (migemo (1 9))) "avy with migemo" tar ((:keywords "avy" "migemo") (:url . "https://github.com/momomo5717/avy-migemo"))])

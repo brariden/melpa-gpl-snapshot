@@ -1,0 +1,2 @@
+
+(gnus-summary-ext . [(20160531 1124) nil "Extra limit and process mark commands for the gnus summary buffer" single ((:keywords "comm") (:url . "https://github.com/vapniks/gnus-summary-ext"))])

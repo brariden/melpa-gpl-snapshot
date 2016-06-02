@@ -1,0 +1,2 @@
+
+(init-open-recentf . [(20160601 2200) ((emacs (24 4))) "Open recentf immediately after Emacs is started" single ((:keywords "file" "recentf" "after-init-hook"))])

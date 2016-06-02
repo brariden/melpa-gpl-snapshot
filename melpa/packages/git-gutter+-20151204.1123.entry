@@ -1,0 +1,2 @@
+
+(git-gutter+ . [(20151204 1123) ((git-commit (0)) (dash (0))) "Manage Git hunks straight from the buffer" single ((:keywords "git" "vc") (:url . "https://github.com/nonsequitur/git-gutter-plus"))])

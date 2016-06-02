@@ -1,0 +1,2 @@
+
+(ledger-mode . [(20160504 2043) nil "Helper code for use with the \"ledger\" command-line tool" tar nil])

@@ -1,0 +1,2 @@
+
+(latex-pretty-symbols . [(20151112 444) nil "Display many latex symbols as their unicode counterparts" single ((:keywords "convenience" "display") (:url . "https://bitbucket.org/mortiferus/latex-pretty-symbols.el"))])

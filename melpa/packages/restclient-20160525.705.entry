@@ -1,0 +1,2 @@
+
+(restclient . [(20160525 705) nil "An interactive HTTP client for Emacs" single ((:keywords "http"))])

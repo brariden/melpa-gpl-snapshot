@@ -1,0 +1,2 @@
+
+(github-issues . [(20120425 1735) nil "Emacs utility functions and modes for managing GitHub projects' issues" single ((:keywords "github" "issues") (:url . "http://inkel.github.com/github-issues.el/"))])

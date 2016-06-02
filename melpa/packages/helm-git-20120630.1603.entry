@@ -1,0 +1,2 @@
+
+(helm-git . [(20120630 1603) nil "Helm extension for Git." single ((:keywords "helm" "git") (:url . "https://github.com/maio/helm-git"))])

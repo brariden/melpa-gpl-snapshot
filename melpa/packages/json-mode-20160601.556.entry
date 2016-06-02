@@ -1,0 +1,2 @@
+
+(json-mode . [(20160601 556) ((json-reformat (0 0 5)) (json-snatcher (1 0 0))) "Major mode for editing JSON files" single ((:url . "https://github.com/joshwnj/json-mode"))])

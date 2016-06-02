@@ -1,0 +1,2 @@
+
+(fwb-cmds . [(20160523 735) nil "misc frame, window and buffer commands" single ((:keywords "convenience") (:url . "https://github.com/tarsius/fwb-cmds"))])

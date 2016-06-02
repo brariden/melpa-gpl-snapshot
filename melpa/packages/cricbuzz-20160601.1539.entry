@@ -1,0 +1,2 @@
+
+(cricbuzz . [(20160601 1539) ((enlive (0 0 1))) "Cricket scores from cricbuzz in emacs" single ((:keywords "cricket" "score") (:url . "https://github.com/lepisma/cricbuzz.el"))])

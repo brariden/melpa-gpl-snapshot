@@ -1,0 +1,2 @@
+
+(github-notifier . [(20160505 2) ((emacs (24))) "Displays your GitHub notifications unread count in mode-line" single ((:keywords "github" "mode-line") (:url . "https://github.com/xuchunyang/github-notifier.el"))])

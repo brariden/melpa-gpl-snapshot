@@ -1,0 +1,2 @@
+
+(persp-mode . [(20160528 1138) nil "\"perspectives\" shared among frames + save/load - bugs." single ((:keywords "perspectives" "session" "workspace" "persistence" "windows" "buffers" "convenience") (:url . "https://github.com/Bad-ptr/persp-mode.el"))])

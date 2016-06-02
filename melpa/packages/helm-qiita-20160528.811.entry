@@ -1,0 +1,2 @@
+
+(helm-qiita . [(20160528 811) ((helm (1 9 5))) "Qiita with helm interface" single ((:url . "https://github.com/masutaka/emacs-helm-qiita"))])

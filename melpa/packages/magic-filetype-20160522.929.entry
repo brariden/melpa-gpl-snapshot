@@ -1,0 +1,2 @@
+
+(magic-filetype . [(20160522 929) ((emacs (24)) (s (1 9 0))) "Enhance filetype major mode" single ((:keywords "vim" "ft" "file" "magic-mode") (:url . "https://github.com/zonuexe/magic-filetype.el"))])

@@ -1,0 +1,2 @@
+
+(timecop . [(20160520 552) ((cl-lib (0 5)) (datetime-format (0 0 1))) "Freeze Time for testing" single ((:keywords "datetime" "testing") (:url . "https://github.com/zonuexe/emacs-datetime"))])

@@ -1,0 +1,2 @@
+
+(evil . [(20160525 1348) ((undo-tree (0 6 3)) (goto-chg (1 6))) "Extensible Vi layer for Emacs." tar nil])

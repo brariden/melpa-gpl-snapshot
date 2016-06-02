@@ -1,0 +1,2 @@
+
+(x86-lookup . [(20160525 2021) ((emacs (24 3)) (cl-lib (0 3))) "jump to x86 instruction documentation" single ((:url . "https://github.com/skeeto/x86-lookup"))])

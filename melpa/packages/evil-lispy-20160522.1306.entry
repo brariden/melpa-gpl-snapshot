@@ -1,0 +1,2 @@
+
+(evil-lispy . [(20160522 1306) ((lispy (0 26 0)) (evil (1 2 12)) (hydra (0 13 5))) "precision Lisp editing with Evil and Lispy" tar ((:keywords "lisp") (:url . "https://github.com/sp3ctum/evil-lispy"))])

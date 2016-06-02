@@ -1,0 +1,2 @@
+
+(tiny-menu . [(20160531 1732) ((emacs (24 4))) "Display tiny menus." single ((:keywords "menu" "tools") (:url . "https://github.com/aaronbieber/tiny-menu.el"))])

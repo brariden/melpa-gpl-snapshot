@@ -1,0 +1,2 @@
+
+(window-number . [(20141106 2029) nil "Select windows by numbers." single ((:keywords "windows") (:url . "https://github.com/nikolas/window-number"))])

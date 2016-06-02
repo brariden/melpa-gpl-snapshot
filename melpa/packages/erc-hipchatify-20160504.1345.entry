@@ -1,0 +1,2 @@
+
+(erc-hipchatify . [(20160504 1345) ((emacs (24 4)) (s (1 10 0)) (alert (1 2)) (request (0 2 0))) "Provide emoticons and html rendering for HipChat" single ((:keywords "erc" "bitlbee" "hipchat" "multimedia") (:url . "https://bitbucket.org/seanfarley/erc-hipchatify"))])

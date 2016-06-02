@@ -1,0 +1,2 @@
+
+(nlinum-relative . [(20160526 208) ((emacs (24 4)) (nlinum (1 5))) "Relative line number with nlinum" single ((:keywords "convenience"))])

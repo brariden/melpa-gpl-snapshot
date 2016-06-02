@@ -1,0 +1,2 @@
+
+(flymd . [(20160523 259) ((cl-lib (0 5))) "On the fly markdown preview" tar ((:keywords "markdown" "convenience") (:url . "https://github.com/mola-T/flymd"))])

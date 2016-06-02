@@ -1,0 +1,2 @@
+
+(bookmark+ . [(20160530 1600) nil "Bookmark+: extensions to standard library `bookmark.el'." tar ((:keywords "bookmarks" "bookmark+" "projects" "placeholders" "annotations" "search" "info" "url" "w3m" "gnus") (:url . "http://www.emacswiki.org/bookmark+.el"))])

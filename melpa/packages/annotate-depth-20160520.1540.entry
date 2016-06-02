@@ -1,0 +1,2 @@
+
+(annotate-depth . [(20160520 1540) nil "Annotate buffer if indentation depth is beyond threshold." single ((:keywords "convenience") (:url . "https://github.com/netromdk/annotate-depth"))])

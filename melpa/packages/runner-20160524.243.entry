@@ -1,0 +1,2 @@
+
+(runner . [(20160524 243) nil "Improved \"open with\" suggestions for dired" single ((:keywords "shell command" "dired" "file extension" "open with") (:url . "https://github.com/thamer/runner"))])

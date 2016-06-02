@@ -1,0 +1,2 @@
+
+(mode-icons . [(20160531 1908) ((emacs (24)) (cl-lib (0 5))) "Show icons for modes" tar ((:keywords "multimedia") (:url . "http://ryuslash.org/projects/mode-icons.html"))])

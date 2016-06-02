@@ -1,0 +1,8 @@
+(datetime 'atom) ;=> "2015-01-12 02:01:11+09:00"
+(datetime 'atom (current-time))  ;=> "2015-01-12 02:01:11+09:00"
+(datetime 'atom 0) ;=> "1970-01-01 09:01:00+09:00"
+(datetime 'atom 0 :timezone "UTC") ;=> "1970-01-01 00:01:00+00:00"
+(datetime 'atom "2015-01-12 02:01:11") ;=> "2015-01-12 02:01:11+09:00"
+(datetime 'atom "2015-01-12 02:01:11" :timezone "Europe/Moscow") ;=> "2015-01-12 01:01:11+03:00"
+(datetime 'atom-utc "2015-01-12 02:01:11") ;=> "2015-01-11 17:01:11Z"
+(datetime 'atom nil :timezone "America/New_York") ;=> "2016-05-18 13:05:41-04:00"
