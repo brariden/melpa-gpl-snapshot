@@ -16,6 +16,7 @@ ac-dabbrev
 ac-dcd
 ace-flyspell
 ace-isearch
+ace-jump-helm-line
 ace-jump-mode
 ace-link
 ace-mc
@@ -295,6 +296,7 @@ clear-text
 clevercss
 cl-format
 cliphist
+clipmon
 clippy
 clips-mode
 clj-refactor
@@ -1023,6 +1025,7 @@ ham-mode
 handlebars-mode
 handlebars-sgml-mode
 handoff
+hardcore-mode
 harvest
 haskell-emacs
 haskell-emacs-base
@@ -1424,7 +1427,6 @@ literate-starter-kit
 lit-mode
 live-code-talks
 livescript-mode
-llvm-mode
 load-relative
 load-theme-buffer-local
 loc-changes
@@ -1498,6 +1500,7 @@ merlin
 message-x
 metafmt
 meta-presenter
+metascript-mode
 metaweblog
 mexican-holidays
 micgoline
@@ -1513,6 +1516,7 @@ minizinc-mode
 minor-mode-hack
 mip-mode
 misc-cmds
+misc-fns
 mmm-jinja2
 mmm-mako
 mmm-mode
@@ -1541,6 +1545,7 @@ move-text
 mo-vi-ment-mode
 mowedline
 moz
+mozc
 mozc-im
 moz-controller
 mozc-popup
@@ -1659,6 +1664,7 @@ open-junk-file
 openwith
 org2blog
 org2issue
+org2jekyll
 org-ac
 org-agenda-property
 org-alert
@@ -2213,6 +2219,7 @@ stash
 state
 status
 stem
+sticky
 stickyfunc-enhance
 stock-ticker
 strie
@@ -2559,6 +2566,7 @@ lice
 livid-mode
 memoize
 mouse-slider-mode
+mozc
 nasm-mode
 org-iv
 pc-bufsw

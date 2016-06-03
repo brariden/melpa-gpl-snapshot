@@ -1,0 +1,2 @@
+
+(ivy-erlang-complete . [(20160602 247) ((emacs (24 4)) (ivy (0 8 0)) (dash (2 12 1)) (s (1 11 0)) (erlang (20151013 157))) "Erlang completion at point using ivy." single ((:keywords "erlang" "ivy" "completion"))])

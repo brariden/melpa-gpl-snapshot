@@ -13,11 +13,267 @@
     <description>News about package updates</description>
     
       <item>
+        <title>aws-ec2 (20160603.353) --- Manage AWS EC2 instances</title>
+        <description>The aws-ec2 package in MELPA has been updated to version 20160603.353.</description>
+        <pubDate>Fri, 03 Jun 2016 03:53:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/aws-ec2-20160603.353.el</guid>
+        <link>https://melpa.org/#/aws-ec2</link>
+      </item>
+    
+      <item>
+        <title>csharp-mode (20160603.153) --- C# mode derived mode</title>
+        <description>The csharp-mode package in MELPA has been updated to version 20160603.153.</description>
+        <pubDate>Fri, 03 Jun 2016 01:53:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/csharp-mode-20160603.153.el</guid>
+        <link>https://melpa.org/#/csharp-mode</link>
+      </item>
+    
+      <item>
+        <title>helm (20160603.142) --- Helm is an Emacs incremental and narrowing framework</title>
+        <description>The helm package in MELPA has been updated to version 20160603.142.</description>
+        <pubDate>Fri, 03 Jun 2016 01:42:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/helm-20160603.142.tar</guid>
+        <link>https://melpa.org/#/helm</link>
+      </item>
+    
+      <item>
+        <title>alchemist (20160603.141) --- Elixir tooling integration into Emacs</title>
+        <description>The alchemist package in MELPA has been updated to version 20160603.141.</description>
+        <pubDate>Fri, 03 Jun 2016 01:41:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/alchemist-20160603.141.tar</guid>
+        <link>https://melpa.org/#/alchemist</link>
+      </item>
+    
+      <item>
+        <title>deft (20160602.939) --- quickly browse, filter, and edit plain text notes</title>
+        <description>The deft package in MELPA has been updated to version 20160602.939.</description>
+        <pubDate>Thu, 02 Jun 2016 09:39:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/deft-20160602.939.el</guid>
+        <link>https://melpa.org/#/deft</link>
+      </item>
+    
+      <item>
+        <title>seeing-is-believing (20160602.918) --- minor mode for running the seeing-is-believing ruby gem</title>
+        <description>The seeing-is-believing package in MELPA has been updated to version 20160602.918.</description>
+        <pubDate>Thu, 02 Jun 2016 09:18:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/seeing-is-believing-20160602.918.el</guid>
+        <link>https://melpa.org/#/seeing-is-believing</link>
+      </item>
+    
+      <item>
+        <title>git-messenger (20160602.910) --- Pop up last commit information of current line</title>
+        <description>The git-messenger package in MELPA has been updated to version 20160602.910.</description>
+        <pubDate>Thu, 02 Jun 2016 09:10:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/git-messenger-20160602.910.el</guid>
+        <link>https://melpa.org/#/git-messenger</link>
+      </item>
+    
+      <item>
+        <title>emamux (20160602.853) --- Interact with tmux</title>
+        <description>The emamux package in MELPA has been updated to version 20160602.853.</description>
+        <pubDate>Thu, 02 Jun 2016 08:53:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/emamux-20160602.853.el</guid>
+        <link>https://melpa.org/#/emamux</link>
+      </item>
+    
+      <item>
+        <title>shen-elisp (20160602.712) --- Shen implementation in Elisp</title>
+        <description>The shen-elisp package in MELPA has been updated to version 20160602.712.</description>
+        <pubDate>Thu, 02 Jun 2016 07:12:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/shen-elisp-20160602.712.tar</guid>
+        <link>https://melpa.org/#/shen-elisp</link>
+      </item>
+    
+      <item>
+        <title>mb-url (20160602.602) --- Multiple Backends for Emacs URL package.</title>
+        <description>The mb-url package in MELPA has been updated to version 20160602.602.</description>
+        <pubDate>Thu, 02 Jun 2016 06:02:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/mb-url-20160602.602.tar</guid>
+        <link>https://melpa.org/#/mb-url</link>
+      </item>
+    
+      <item>
+        <title>zotelo (20160602.449) --- Manage Zotero collections from emacs</title>
+        <description>The zotelo package in MELPA has been updated to version 20160602.449.</description>
+        <pubDate>Thu, 02 Jun 2016 04:49:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/zotelo-20160602.449.el</guid>
+        <link>https://melpa.org/#/zotelo</link>
+      </item>
+    
+      <item>
         <title>rtags (20160602.44) --- A front-end for rtags</title>
         <description>The rtags package in MELPA has been updated to version 20160602.44.</description>
         <pubDate>Thu, 02 Jun 2016 00:44:00 -0500</pubDate>
         <guid isPermaLink="true">https://melpa.org/packages/rtags-20160602.44.tar</guid>
         <link>https://melpa.org/#/rtags</link>
+      </item>
+    
+      <item>
+        <title>ess (20160602.403) --- Emacs Speaks Statistics</title>
+        <description>The ess package in MELPA has been updated to version 20160602.403.</description>
+        <pubDate>Thu, 02 Jun 2016 04:03:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/ess-20160602.403.tar</guid>
+        <link>https://melpa.org/#/ess</link>
+      </item>
+    
+      <item>
+        <title>ego (20160602.33) --- a static site generator based on org mode, forked from org-page.</title>
+        <description>The ego package in MELPA has been updated to version 20160602.33.</description>
+        <pubDate>Thu, 02 Jun 2016 00:33:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/ego-20160602.33.tar</guid>
+        <link>https://melpa.org/#/ego</link>
+      </item>
+    
+      <item>
+        <title>flyspell-correct (20160602.317) --- correcting words with flyspell via custom interface</title>
+        <description>The flyspell-correct package in MELPA has been updated to version 20160602.317.</description>
+        <pubDate>Thu, 02 Jun 2016 03:17:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/flyspell-correct-20160602.317.el</guid>
+        <link>https://melpa.org/#/flyspell-correct</link>
+      </item>
+    
+      <item>
+        <title>dynamic-ruler (20160602.308) --- Displays a dynamic ruler at point.</title>
+        <description>The dynamic-ruler package in MELPA has been updated to version 20160602.308.</description>
+        <pubDate>Thu, 02 Jun 2016 03:08:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/dynamic-ruler-20160602.308.el</guid>
+        <link>https://melpa.org/#/dynamic-ruler</link>
+      </item>
+    
+      <item>
+        <title>ivy-erlang-complete (20160602.247) --- Erlang completion at point using ivy.</title>
+        <description>The ivy-erlang-complete package in MELPA has been updated to version 20160602.247.</description>
+        <pubDate>Thu, 02 Jun 2016 02:47:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/ivy-erlang-complete-20160602.247.el</guid>
+        <link>https://melpa.org/#/ivy-erlang-complete</link>
+      </item>
+    
+      <item>
+        <title>helm-projectile (20160602.2311) --- Helm integration for Projectile</title>
+        <description>The helm-projectile package in MELPA has been updated to version 20160602.2311.</description>
+        <pubDate>Thu, 02 Jun 2016 23:11:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/helm-projectile-20160602.2311.el</guid>
+        <link>https://melpa.org/#/helm-projectile</link>
+      </item>
+    
+      <item>
+        <title>haskell-mode (20160602.2247) --- A Haskell editing mode</title>
+        <description>The haskell-mode package in MELPA has been updated to version 20160602.2247.</description>
+        <pubDate>Thu, 02 Jun 2016 22:47:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/haskell-mode-20160602.2247.tar</guid>
+        <link>https://melpa.org/#/haskell-mode</link>
+      </item>
+    
+      <item>
+        <title>realgud (20160602.2241) --- A modular front-end for interacting with external debuggers</title>
+        <description>The realgud package in MELPA has been updated to version 20160602.2241.</description>
+        <pubDate>Thu, 02 Jun 2016 22:41:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/realgud-20160602.2241.tar</guid>
+        <link>https://melpa.org/#/realgud</link>
+      </item>
+    
+      <item>
+        <title>swiper (20160602.218) --- Isearch with an overview. Oh, man!</title>
+        <description>The swiper package in MELPA has been updated to version 20160602.218.</description>
+        <pubDate>Thu, 02 Jun 2016 02:18:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/swiper-20160602.218.el</guid>
+        <link>https://melpa.org/#/swiper</link>
+      </item>
+    
+      <item>
+        <title>general (20160602.1918) --- Convenience wrappers for keybindings.</title>
+        <description>The general package in MELPA has been updated to version 20160602.1918.</description>
+        <pubDate>Thu, 02 Jun 2016 19:18:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/general-20160602.1918.tar</guid>
+        <link>https://melpa.org/#/general</link>
+      </item>
+    
+      <item>
+        <title>suscolors-theme (20160602.1730) --- Colorful theme, inspired by Gruvbox.</title>
+        <description>The suscolors-theme package in MELPA has been updated to version 20160602.1730.</description>
+        <pubDate>Thu, 02 Jun 2016 17:30:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/suscolors-theme-20160602.1730.el</guid>
+        <link>https://melpa.org/#/suscolors-theme</link>
+      </item>
+    
+      <item>
+        <title>chinese-pyim (20160602.1716) --- Chinese pinyin input method</title>
+        <description>The chinese-pyim package in MELPA has been updated to version 20160602.1716.</description>
+        <pubDate>Thu, 02 Jun 2016 17:16:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/chinese-pyim-20160602.1716.tar</guid>
+        <link>https://melpa.org/#/chinese-pyim</link>
+      </item>
+    
+      <item>
+        <title>racket-mode (20160602.1632) --- Major mode for Racket language.</title>
+        <description>The racket-mode package in MELPA has been updated to version 20160602.1632.</description>
+        <pubDate>Thu, 02 Jun 2016 16:32:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/racket-mode-20160602.1632.tar</guid>
+        <link>https://melpa.org/#/racket-mode</link>
+      </item>
+    
+      <item>
+        <title>dix (20160602.1526) --- minor mode for editing Apertium XML dictionary files</title>
+        <description>The dix package in MELPA has been updated to version 20160602.1526.</description>
+        <pubDate>Thu, 02 Jun 2016 15:26:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/dix-20160602.1526.tar</guid>
+        <link>https://melpa.org/#/dix</link>
+      </item>
+    
+      <item>
+        <title>org-iv (20160602.152) --- a tool used to view html (in browser) generated by org-file once the org-file changes</title>
+        <description>The org-iv package in MELPA has been updated to version 20160602.152.</description>
+        <pubDate>Thu, 02 Jun 2016 01:52:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/org-iv-20160602.152.tar</guid>
+        <link>https://melpa.org/#/org-iv</link>
+      </item>
+    
+      <item>
+        <title>evil-multiedit (20160602.1413) --- multiple cursors for evil-mode</title>
+        <description>The evil-multiedit package in MELPA has been updated to version 20160602.1413.</description>
+        <pubDate>Thu, 02 Jun 2016 14:13:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/evil-multiedit-20160602.1413.el</guid>
+        <link>https://melpa.org/#/evil-multiedit</link>
+      </item>
+    
+      <item>
+        <title>flycheck (20160602.1411) --- On-the-fly syntax checking</title>
+        <description>The flycheck package in MELPA has been updated to version 20160602.1411.</description>
+        <pubDate>Thu, 02 Jun 2016 14:11:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/flycheck-20160602.1411.tar</guid>
+        <link>https://melpa.org/#/flycheck</link>
+      </item>
+    
+      <item>
+        <title>req-package (20160602.1339) --- A use-package wrapper for package runtime dependencies management</title>
+        <description>The req-package package in MELPA has been updated to version 20160602.1339.</description>
+        <pubDate>Thu, 02 Jun 2016 13:39:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/req-package-20160602.1339.tar</guid>
+        <link>https://melpa.org/#/req-package</link>
+      </item>
+    
+      <item>
+        <title>rope-read-mode (20160602.1307) --- Rearrange lines to read text smoothly</title>
+        <description>The rope-read-mode package in MELPA has been updated to version 20160602.1307.</description>
+        <pubDate>Thu, 02 Jun 2016 13:07:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/rope-read-mode-20160602.1307.el</guid>
+        <link>https://melpa.org/#/rope-read-mode</link>
+      </item>
+    
+      <item>
+        <title>ensime (20160602.1303) --- ENhanced Scala Interaction Mode for Emacs</title>
+        <description>The ensime package in MELPA has been updated to version 20160602.1303.</description>
+        <pubDate>Thu, 02 Jun 2016 13:03:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/ensime-20160602.1303.tar</guid>
+        <link>https://melpa.org/#/ensime</link>
+      </item>
+    
+      <item>
+        <title>ivy (20160602.1234) --- Incremental Vertical completYon</title>
+        <description>The ivy package in MELPA has been updated to version 20160602.1234.</description>
+        <pubDate>Thu, 02 Jun 2016 12:34:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/ivy-20160602.1234.tar</guid>
+        <link>https://melpa.org/#/ivy</link>
       </item>
     
       <item>
@@ -29,27 +285,19 @@
       </item>
     
       <item>
+        <title>cider (20160602.1009) --- Clojure Interactive Development Environment that Rocks</title>
+        <description>The cider package in MELPA has been updated to version 20160602.1009.</description>
+        <pubDate>Thu, 02 Jun 2016 10:09:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/cider-20160602.1009.tar</guid>
+        <link>https://melpa.org/#/cider</link>
+      </item>
+    
+      <item>
         <title>powerline (20160601.924) --- Rewrite of Powerline</title>
         <description>The powerline package in MELPA has been updated to version 20160601.924.</description>
         <pubDate>Wed, 01 Jun 2016 09:24:00 -0500</pubDate>
         <guid isPermaLink="true">https://melpa.org/packages/powerline-20160601.924.tar</guid>
         <link>https://melpa.org/#/powerline</link>
-      </item>
-    
-      <item>
-        <title>csharp-mode (20160601.759) --- C# mode derived mode</title>
-        <description>The csharp-mode package in MELPA has been updated to version 20160601.759.</description>
-        <pubDate>Wed, 01 Jun 2016 07:59:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/csharp-mode-20160601.759.el</guid>
-        <link>https://melpa.org/#/csharp-mode</link>
-      </item>
-    
-      <item>
-        <title>dix (20160601.625) --- minor mode for editing Apertium XML dictionary files</title>
-        <description>The dix package in MELPA has been updated to version 20160601.625.</description>
-        <pubDate>Wed, 01 Jun 2016 06:25:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/dix-20160601.625.tar</guid>
-        <link>https://melpa.org/#/dix</link>
       </item>
     
       <item>
@@ -101,27 +349,11 @@
       </item>
     
       <item>
-        <title>realgud (20160601.2255) --- A modular front-end for interacting with external debuggers</title>
-        <description>The realgud package in MELPA has been updated to version 20160601.2255.</description>
-        <pubDate>Wed, 01 Jun 2016 22:55:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/realgud-20160601.2255.tar</guid>
-        <link>https://melpa.org/#/realgud</link>
-      </item>
-    
-      <item>
         <title>init-open-recentf (20160601.2200) --- Open recentf immediately after Emacs is started</title>
         <description>The init-open-recentf package in MELPA has been updated to version 20160601.2200.</description>
         <pubDate>Wed, 01 Jun 2016 22:00:00 -0500</pubDate>
         <guid isPermaLink="true">https://melpa.org/packages/init-open-recentf-20160601.2200.el</guid>
         <link>https://melpa.org/#/init-open-recentf</link>
-      </item>
-    
-      <item>
-        <title>ensime (20160601.219) --- ENhanced Scala Interaction Mode for Emacs</title>
-        <description>The ensime package in MELPA has been updated to version 20160601.219.</description>
-        <pubDate>Wed, 01 Jun 2016 02:19:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/ensime-20160601.219.tar</guid>
-        <link>https://melpa.org/#/ensime</link>
       </item>
     
       <item>
@@ -157,14 +389,6 @@
       </item>
     
       <item>
-        <title>haskell-mode (20160601.1545) --- A Haskell editing mode</title>
-        <description>The haskell-mode package in MELPA has been updated to version 20160601.1545.</description>
-        <pubDate>Wed, 01 Jun 2016 15:45:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/haskell-mode-20160601.1545.tar</guid>
-        <link>https://melpa.org/#/haskell-mode</link>
-      </item>
-    
-      <item>
         <title>cricbuzz (20160601.1539) --- Cricket scores from cricbuzz in emacs</title>
         <description>The cricbuzz package in MELPA has been updated to version 20160601.1539.</description>
         <pubDate>Wed, 01 Jun 2016 15:39:00 -0500</pubDate>
@@ -181,27 +405,11 @@
       </item>
     
       <item>
-        <title>alchemist (20160601.1450) --- Elixir tooling integration into Emacs</title>
-        <description>The alchemist package in MELPA has been updated to version 20160601.1450.</description>
-        <pubDate>Wed, 01 Jun 2016 14:50:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/alchemist-20160601.1450.tar</guid>
-        <link>https://melpa.org/#/alchemist</link>
-      </item>
-    
-      <item>
         <title>modern-cpp-font-lock (20160601.1450) --- Font-locking for &quot;Modern C++&quot;</title>
         <description>The modern-cpp-font-lock package in MELPA has been updated to version 20160601.1450.</description>
         <pubDate>Wed, 01 Jun 2016 14:50:00 -0500</pubDate>
         <guid isPermaLink="true">https://melpa.org/packages/modern-cpp-font-lock-20160601.1450.el</guid>
         <link>https://melpa.org/#/modern-cpp-font-lock</link>
-      </item>
-    
-      <item>
-        <title>flyspell-correct (20160601.1437) --- correcting words with flyspell via custom interface</title>
-        <description>The flyspell-correct package in MELPA has been updated to version 20160601.1437.</description>
-        <pubDate>Wed, 01 Jun 2016 14:37:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/flyspell-correct-20160601.1437.el</guid>
-        <link>https://melpa.org/#/flyspell-correct</link>
       </item>
     
       <item>
@@ -253,14 +461,6 @@
       </item>
     
       <item>
-        <title>swiper (20160601.12) --- Isearch with an overview. Oh, man!</title>
-        <description>The swiper package in MELPA has been updated to version 20160601.12.</description>
-        <pubDate>Wed, 01 Jun 2016 00:12:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/swiper-20160601.12.el</guid>
-        <link>https://melpa.org/#/swiper</link>
-      </item>
-    
-      <item>
         <title>magit (20160601.1123) --- A Git porcelain inside Emacs</title>
         <description>The magit package in MELPA has been updated to version 20160601.1123.</description>
         <pubDate>Wed, 01 Jun 2016 11:23:00 -0500</pubDate>
@@ -285,14 +485,6 @@
       </item>
     
       <item>
-        <title>ivy-erlang-complete (20160531.849) --- Erlang completion at point using ivy.</title>
-        <description>The ivy-erlang-complete package in MELPA has been updated to version 20160531.849.</description>
-        <pubDate>Tue, 31 May 2016 08:49:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/ivy-erlang-complete-20160531.849.el</guid>
-        <link>https://melpa.org/#/ivy-erlang-complete</link>
-      </item>
-    
-      <item>
         <title>sqlup-mode (20160531.653) --- Upcase SQL words for you</title>
         <description>The sqlup-mode package in MELPA has been updated to version 20160531.653.</description>
         <pubDate>Tue, 31 May 2016 06:53:00 -0500</pubDate>
@@ -314,14 +506,6 @@
         <pubDate>Tue, 31 May 2016 05:18:00 -0500</pubDate>
         <guid isPermaLink="true">https://melpa.org/packages/organic-green-theme-20160531.518.el</guid>
         <link>https://melpa.org/#/organic-green-theme</link>
-      </item>
-    
-      <item>
-        <title>req-package (20160531.512) --- A use-package wrapper for package runtime dependencies management</title>
-        <description>The req-package package in MELPA has been updated to version 20160531.512.</description>
-        <pubDate>Tue, 31 May 2016 05:12:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/req-package-20160531.512.tar</guid>
-        <link>https://melpa.org/#/req-package</link>
       </item>
     
       <item>
@@ -354,22 +538,6 @@
         <pubDate>Tue, 31 May 2016 02:18:00 -0500</pubDate>
         <guid isPermaLink="true">https://melpa.org/packages/cmake-ide-20160531.218.el</guid>
         <link>https://melpa.org/#/cmake-ide</link>
-      </item>
-    
-      <item>
-        <title>deft (20160531.2135) --- quickly browse, filter, and edit plain text notes</title>
-        <description>The deft package in MELPA has been updated to version 20160531.2135.</description>
-        <pubDate>Tue, 31 May 2016 21:35:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/deft-20160531.2135.el</guid>
-        <link>https://melpa.org/#/deft</link>
-      </item>
-    
-      <item>
-        <title>evil-multiedit (20160531.1938) --- multiple cursors for evil-mode</title>
-        <description>The evil-multiedit package in MELPA has been updated to version 20160531.1938.</description>
-        <pubDate>Tue, 31 May 2016 19:38:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/evil-multiedit-20160531.1938.el</guid>
-        <link>https://melpa.org/#/evil-multiedit</link>
       </item>
     
       <item>
@@ -434,22 +602,6 @@
         <pubDate>Tue, 31 May 2016 14:18:00 -0500</pubDate>
         <guid isPermaLink="true">https://melpa.org/packages/irony-20160531.1418.tar</guid>
         <link>https://melpa.org/#/irony</link>
-      </item>
-    
-      <item>
-        <title>general (20160531.135) --- Convenience wrappers for keybindings.</title>
-        <description>The general package in MELPA has been updated to version 20160531.135.</description>
-        <pubDate>Tue, 31 May 2016 01:35:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/general-20160531.135.tar</guid>
-        <link>https://melpa.org/#/general</link>
-      </item>
-    
-      <item>
-        <title>cider (20160531.1338) --- Clojure Interactive Development Environment that Rocks</title>
-        <description>The cider package in MELPA has been updated to version 20160531.1338.</description>
-        <pubDate>Tue, 31 May 2016 13:38:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/cider-20160531.1338.tar</guid>
-        <link>https://melpa.org/#/cider</link>
       </item>
     
       <item>
@@ -557,27 +709,11 @@
       </item>
     
       <item>
-        <title>dynamic-ruler (20160530.812) --- Displays a dynamic ruler at point.</title>
-        <description>The dynamic-ruler package in MELPA has been updated to version 20160530.812.</description>
-        <pubDate>Mon, 30 May 2016 08:12:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/dynamic-ruler-20160530.812.el</guid>
-        <link>https://melpa.org/#/dynamic-ruler</link>
-      </item>
-    
-      <item>
         <title>ac-cider (20160530.658) --- Clojure auto-complete sources using CIDER</title>
         <description>The ac-cider package in MELPA has been updated to version 20160530.658.</description>
         <pubDate>Mon, 30 May 2016 06:58:00 -0500</pubDate>
         <guid isPermaLink="true">https://melpa.org/packages/ac-cider-20160530.658.el</guid>
         <link>https://melpa.org/#/ac-cider</link>
-      </item>
-    
-      <item>
-        <title>helm (20160530.624) --- Helm is an Emacs incremental and narrowing framework</title>
-        <description>The helm package in MELPA has been updated to version 20160530.624.</description>
-        <pubDate>Mon, 30 May 2016 06:24:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/helm-20160530.624.tar</guid>
-        <link>https://melpa.org/#/helm</link>
       </item>
     
       <item>
@@ -637,14 +773,6 @@
       </item>
     
       <item>
-        <title>ivy (20160530.151) --- Incremental Vertical completYon</title>
-        <description>The ivy package in MELPA has been updated to version 20160530.151.</description>
-        <pubDate>Mon, 30 May 2016 01:51:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/ivy-20160530.151.tar</guid>
-        <link>https://melpa.org/#/ivy</link>
-      </item>
-    
-      <item>
         <title>ace-link (20160530.150) --- Quickly follow links</title>
         <description>The ace-link package in MELPA has been updated to version 20160530.150.</description>
         <pubDate>Mon, 30 May 2016 01:50:00 -0500</pubDate>
@@ -677,19 +805,19 @@
       </item>
     
       <item>
-        <title>use-package-chords (20160530.1242) --- key-chord keyword for use-package</title>
-        <description>The use-package-chords package in MELPA has been updated to version 20160530.1242.</description>
-        <pubDate>Mon, 30 May 2016 12:42:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/use-package-chords-20160530.1242.el</guid>
-        <link>https://melpa.org/#/use-package-chords</link>
-      </item>
-    
-      <item>
         <title>bind-chord (20160530.1242) --- key-chord binding helper for use-package-chords</title>
         <description>The bind-chord package in MELPA has been updated to version 20160530.1242.</description>
         <pubDate>Mon, 30 May 2016 12:42:00 -0500</pubDate>
         <guid isPermaLink="true">https://melpa.org/packages/bind-chord-20160530.1242.el</guid>
         <link>https://melpa.org/#/bind-chord</link>
+      </item>
+    
+      <item>
+        <title>use-package-chords (20160530.1242) --- key-chord keyword for use-package</title>
+        <description>The use-package-chords package in MELPA has been updated to version 20160530.1242.</description>
+        <pubDate>Mon, 30 May 2016 12:42:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/use-package-chords-20160530.1242.el</guid>
+        <link>https://melpa.org/#/use-package-chords</link>
       </item>
     
       <item>
@@ -714,14 +842,6 @@
         <pubDate>Sun, 29 May 2016 08:15:00 -0500</pubDate>
         <guid isPermaLink="true">https://melpa.org/packages/lispy-20160529.815.tar</guid>
         <link>https://melpa.org/#/lispy</link>
-      </item>
-    
-      <item>
-        <title>helm-projectile (20160529.723) --- Helm integration for Projectile</title>
-        <description>The helm-projectile package in MELPA has been updated to version 20160529.723.</description>
-        <pubDate>Sun, 29 May 2016 07:23:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/helm-projectile-20160529.723.el</guid>
-        <link>https://melpa.org/#/helm-projectile</link>
       </item>
     
       <item>
@@ -834,6 +954,14 @@
         <pubDate>Sun, 29 May 2016 17:48:00 -0500</pubDate>
         <guid isPermaLink="true">https://melpa.org/packages/biblio-core-20160529.1748.el</guid>
         <link>https://melpa.org/#/biblio-core</link>
+      </item>
+    
+      <item>
+        <title>misc-fns (20160529.1652) --- Miscellaneous non-interactive functions.</title>
+        <description>The misc-fns package in MELPA has been updated to version 20160529.1652.</description>
+        <pubDate>Sun, 29 May 2016 16:52:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/misc-fns-20160529.1652.el</guid>
+        <link>https://melpa.org/#/misc-fns</link>
       </item>
     
       <item>
@@ -1205,14 +1333,6 @@
       </item>
     
       <item>
-        <title>emamux (20160526.2324) --- Interact with tmux</title>
-        <description>The emamux package in MELPA has been updated to version 20160526.2324.</description>
-        <pubDate>Thu, 26 May 2016 23:24:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/emamux-20160526.2324.el</guid>
-        <link>https://melpa.org/#/emamux</link>
-      </item>
-    
-      <item>
         <title>keyword-search (20160526.223) --- browser keyword search from Emacs</title>
         <description>The keyword-search package in MELPA has been updated to version 20160526.223.</description>
         <pubDate>Thu, 26 May 2016 02:23:00 -0500</pubDate>
@@ -1237,19 +1357,19 @@
       </item>
     
       <item>
-        <title>dired-avfs (20160526.1536) --- AVFS support for dired</title>
-        <description>The dired-avfs package in MELPA has been updated to version 20160526.1536.</description>
-        <pubDate>Thu, 26 May 2016 15:36:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/dired-avfs-20160526.1536.el</guid>
-        <link>https://melpa.org/#/dired-avfs</link>
-      </item>
-    
-      <item>
         <title>dired-filter (20160526.1536) --- Ibuffer-like filtering for dired</title>
         <description>The dired-filter package in MELPA has been updated to version 20160526.1536.</description>
         <pubDate>Thu, 26 May 2016 15:36:00 -0500</pubDate>
         <guid isPermaLink="true">https://melpa.org/packages/dired-filter-20160526.1536.el</guid>
         <link>https://melpa.org/#/dired-filter</link>
+      </item>
+    
+      <item>
+        <title>dired-avfs (20160526.1536) --- AVFS support for dired</title>
+        <description>The dired-avfs package in MELPA has been updated to version 20160526.1536.</description>
+        <pubDate>Thu, 26 May 2016 15:36:00 -0500</pubDate>
+        <guid isPermaLink="true">https://melpa.org/packages/dired-avfs-20160526.1536.el</guid>
+        <link>https://melpa.org/#/dired-avfs</link>
       </item>
     
       <item>
@@ -1330,14 +1450,6 @@
         <pubDate>Wed, 25 May 2016 07:05:00 -0500</pubDate>
         <guid isPermaLink="true">https://melpa.org/packages/restclient-20160525.705.el</guid>
         <link>https://melpa.org/#/restclient</link>
-      </item>
-    
-      <item>
-        <title>ess (20160525.559) --- Emacs Speaks Statistics</title>
-        <description>The ess package in MELPA has been updated to version 20160525.559.</description>
-        <pubDate>Wed, 25 May 2016 05:59:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/ess-20160525.559.tar</guid>
-        <link>https://melpa.org/#/ess</link>
       </item>
     
       <item>
@@ -1506,118 +1618,6 @@
         <pubDate>Tue, 24 May 2016 05:38:00 -0500</pubDate>
         <guid isPermaLink="true">https://melpa.org/packages/dired-quick-sort-20160524.538.el</guid>
         <link>https://melpa.org/#/dired-quick-sort</link>
-      </item>
-    
-      <item>
-        <title>clj-refactor (20160524.346) --- A collection of clojure refactoring functions</title>
-        <description>The clj-refactor package in MELPA has been updated to version 20160524.346.</description>
-        <pubDate>Tue, 24 May 2016 03:46:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/clj-refactor-20160524.346.tar</guid>
-        <link>https://melpa.org/#/clj-refactor</link>
-      </item>
-    
-      <item>
-        <title>flycheck-haskell (20160524.317) --- Flycheck: Automatic Haskell configuration</title>
-        <description>The flycheck-haskell package in MELPA has been updated to version 20160524.317.</description>
-        <pubDate>Tue, 24 May 2016 03:17:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/flycheck-haskell-20160524.317.tar</guid>
-        <link>https://melpa.org/#/flycheck-haskell</link>
-      </item>
-    
-      <item>
-        <title>runner (20160524.243) --- Improved &quot;open with&quot; suggestions for dired</title>
-        <description>The runner package in MELPA has been updated to version 20160524.243.</description>
-        <pubDate>Tue, 24 May 2016 02:43:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/runner-20160524.243.el</guid>
-        <link>https://melpa.org/#/runner</link>
-      </item>
-    
-      <item>
-        <title>tabbar (20160524.1601) --- Display a tab bar in the header line</title>
-        <description>The tabbar package in MELPA has been updated to version 20160524.1601.</description>
-        <pubDate>Tue, 24 May 2016 16:01:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/tabbar-20160524.1601.tar</guid>
-        <link>https://melpa.org/#/tabbar</link>
-      </item>
-    
-      <item>
-        <title>counsel-dash (20160524.152) --- Browse dash docsets using Ivy</title>
-        <description>The counsel-dash package in MELPA has been updated to version 20160524.152.</description>
-        <pubDate>Tue, 24 May 2016 01:52:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/counsel-dash-20160524.152.el</guid>
-        <link>https://melpa.org/#/counsel-dash</link>
-      </item>
-    
-      <item>
-        <title>counsel (20160524.1442) --- Various completion functions using Ivy</title>
-        <description>The counsel package in MELPA has been updated to version 20160524.1442.</description>
-        <pubDate>Tue, 24 May 2016 14:42:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/counsel-20160524.1442.el</guid>
-        <link>https://melpa.org/#/counsel</link>
-      </item>
-    
-      <item>
-        <title>simple-mpc (20160524.1351) --- provides a simple interface to mpc</title>
-        <description>The simple-mpc package in MELPA has been updated to version 20160524.1351.</description>
-        <pubDate>Tue, 24 May 2016 13:51:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/simple-mpc-20160524.1351.tar</guid>
-        <link>https://melpa.org/#/simple-mpc</link>
-      </item>
-    
-      <item>
-        <title>zotelo (20160524.1015) --- Manage Zotero collections from emacs</title>
-        <description>The zotelo package in MELPA has been updated to version 20160524.1015.</description>
-        <pubDate>Tue, 24 May 2016 10:15:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/zotelo-20160524.1015.el</guid>
-        <link>https://melpa.org/#/zotelo</link>
-      </item>
-    
-      <item>
-        <title>packed (20160523.800) --- package manager agnostic Emacs Lisp package utilities</title>
-        <description>The packed package in MELPA has been updated to version 20160523.800.</description>
-        <pubDate>Mon, 23 May 2016 08:00:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/packed-20160523.800.el</guid>
-        <link>https://melpa.org/#/packed</link>
-      </item>
-    
-      <item>
-        <title>keymap-utils (20160523.745) --- keymap utilities</title>
-        <description>The keymap-utils package in MELPA has been updated to version 20160523.745.</description>
-        <pubDate>Mon, 23 May 2016 07:45:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/keymap-utils-20160523.745.el</guid>
-        <link>https://melpa.org/#/keymap-utils</link>
-      </item>
-    
-      <item>
-        <title>fwb-cmds (20160523.735) --- misc frame, window and buffer commands</title>
-        <description>The fwb-cmds package in MELPA has been updated to version 20160523.735.</description>
-        <pubDate>Mon, 23 May 2016 07:35:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/fwb-cmds-20160523.735.el</guid>
-        <link>https://melpa.org/#/fwb-cmds</link>
-      </item>
-    
-      <item>
-        <title>elx (20160523.728) --- extract information from Emacs Lisp libraries</title>
-        <description>The elx package in MELPA has been updated to version 20160523.728.</description>
-        <pubDate>Mon, 23 May 2016 07:28:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/elx-20160523.728.el</guid>
-        <link>https://melpa.org/#/elx</link>
-      </item>
-    
-      <item>
-        <title>bog (20160523.47) --- Extensions for research notes in Org mode</title>
-        <description>The bog package in MELPA has been updated to version 20160523.47.</description>
-        <pubDate>Mon, 23 May 2016 00:47:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/bog-20160523.47.el</guid>
-        <link>https://melpa.org/#/bog</link>
-      </item>
-    
-      <item>
-        <title>mandoku (20160523.308) --- A tool to access repositories of premodern Chinese texts</title>
-        <description>The mandoku package in MELPA has been updated to version 20160523.308.</description>
-        <pubDate>Mon, 23 May 2016 03:08:00 -0500</pubDate>
-        <guid isPermaLink="true">https://melpa.org/packages/mandoku-20160523.308.tar</guid>
-        <link>https://melpa.org/#/mandoku</link>
       </item>
     
   </channel>

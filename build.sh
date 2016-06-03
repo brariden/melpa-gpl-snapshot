@@ -7,6 +7,7 @@ make
 
 # lots of .git files..
 find . -name .git -print0 | xargs -0 rm -rf
+rm .gitignore
 
 cd working
 echo "Step 1"
@@ -69,4 +70,7 @@ cd ..
 
 wget --mirror --convert-links --adjust-extension --page-requisites --no-parent -R "*org-2014*","*org-2013*","*org-2015*tar","*org-plus-contrib-2015*" http://orgmode.org/elpa/
 
-wget --mirror --convert-links --adjust-extension --page-requisites --no-parent -R "*org-2014*","*org-2013*","*org-2012*" http://elpa.gnu.org/
+wget --mirror --convert-links --adjust-extension --page-requisites --no-parent -R "*org-2015*","*org-2014*","*org-2013*","*org-2012*" http://elpa.gnu.org/
+wget --mirror --convert-links --page-requisites --no-parent -R "*org-2014*","*org-2013*","*org-2012*" http://elpa.gnu.org/packages/archive-contents
+
+

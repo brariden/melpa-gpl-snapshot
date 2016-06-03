@@ -1,0 +1,2 @@
+
+(zotelo . [(20160602 449) ((cl-lib (0 5))) "Manage Zotero collections from emacs" single ((:keywords "zotero" "emacs" "reftex" "bibtex" "mozrepl" "bibliography manager") (:url . "https://github.com/vitoshka/zotelo"))])

@@ -1,2 +1,0 @@
-
-(csharp-mode . [(20160601 759) nil "C# mode derived mode" single ((:keywords "c#" "languages" "oop" "mode") (:url . "https://github.com/josteink/csharp-mode"))])

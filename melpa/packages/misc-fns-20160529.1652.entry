@@ -1,0 +1,2 @@
+
+(misc-fns . [(20160529 1652) nil "Miscellaneous non-interactive functions." single ((:keywords "internal" "unix" "lisp" "extensions" "local") (:url . "http://www.emacswiki.org/misc-fns.el"))])

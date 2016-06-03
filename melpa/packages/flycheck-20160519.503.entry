@@ -1,2 +1,0 @@
-
-(flycheck . [(20160519 503) ((dash (2 12 1)) (pkg-info (0 4)) (let-alist (1 0 4)) (seq (1 11)) (emacs (24 3))) "On-the-fly syntax checking" tar ((:keywords "convenience" "languages" "tools") (:url . "http://www.flycheck.org"))])
