@@ -1,0 +1,2 @@
+
+(face-remap+ . [(20170101 1131) nil "Extensions to standard library `face-remap.el'." single ((:keywords "window" "frame" "face" "font") (:url . "http://www.emacswiki.org/face-remap+.el"))])

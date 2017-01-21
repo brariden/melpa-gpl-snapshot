@@ -1,0 +1,2 @@
+
+(wimpy-del . [(20161209 936) nil "Require confirmation for large region deletion." single ((:keywords "region" "cut" "kill" "copy") (:url . "http://www.emacswiki.org/wimpy-del.el"))])

@@ -4,5 +4,4 @@ as well as break and continue.
 
 Future ideas:
 
-* loop-return
 * Named loops so you can break/continue outer loops

@@ -5,6 +5,7 @@ Current supported Cargo Key Combinations:
  * C-c C-c C-b - cargo-process-build
  * C-c C-c C-l - cargo-process-clean
  * C-c C-c C-d - cargo-process-doc
+ * C-c C-c C-h - cargo-process-doc-open
  * C-c C-c C-n - cargo-process-new
  * C-c C-c C-i - cargo-process-init
  * C-c C-c C-r - cargo-process-run
@@ -15,3 +16,6 @@ Current supported Cargo Key Combinations:
  * C-c C-c C-c - cargo-process-repeat
  * C-c C-c C-f - cargo-process-current-test
  * C-c C-c C-o - cargo-process-current-file-tests
+ * C-c C-c C-m - cargo-process-fmt
+ * C-c C-c C-k - cargo-process-check
+ * C-c C-c C-K - cargo-process-clippy

@@ -1,0 +1,2 @@
+
+(logito . [(20120225 1455) ((eieio (1 3))) "logging library for Emacs" single ((:keywords "lisp" "tool"))])

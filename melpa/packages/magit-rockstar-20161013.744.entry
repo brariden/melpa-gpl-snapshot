@@ -1,0 +1,2 @@
+
+(magit-rockstar . [(20161013 744) ((dash (2 12 1)) (magit (2 6 1))) "commit like a rockstar" single ((:keywords "convenience") (:url . "https://github.com/tarsius/magit-rockstar"))])

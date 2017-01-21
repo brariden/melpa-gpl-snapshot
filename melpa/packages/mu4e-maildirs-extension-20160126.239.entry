@@ -1,2 +1,0 @@
-
-(mu4e-maildirs-extension . [(20160126 239) ((dash (0 0 0))) "Show mu4e maildirs summary in mu4e-main-view" single ((:url . "http://github.com/agpchil/mu4e-maildirs-extension"))])

@@ -1,0 +1,2 @@
+
+(jq-mode . [(20161128 948) ((emacs (24 3))) "Edit jq scripts." tar ((:url . "https://github.com/ljos/jq-mode"))])

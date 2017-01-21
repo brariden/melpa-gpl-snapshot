@@ -1,2 +1,0 @@
-
-(bind-map . [(20160510 1248) ((emacs (24 3))) "Bind personal keymaps in multiple locations" single ((:url . "https://github.com/justbur/emacs-bind-map"))])

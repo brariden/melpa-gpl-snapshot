@@ -1,0 +1,2 @@
+
+(js-comint . [(20161212 2325) nil "Run a JavaScript interpreter in an inferior process window." single ((:keywords "javascript" "node" "inferior-mode" "convenience") (:url . "https://github.com/redguardtoo/js-comint"))])

@@ -1,0 +1,2 @@
+
+(platformio-mode . [(20161210 739) ((projectile (0 13 0))) "PlatformIO integration" single ((:url . "https://github.com/zachmassia/platformio-mode"))])

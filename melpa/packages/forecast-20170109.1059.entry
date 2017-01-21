@@ -1,0 +1,2 @@
+
+(forecast . [(20170109 1059) ((emacs (24 4))) "Weather forecasts" single ((:keywords "weather" "forecast") (:url . "http://gkayaalp.com/emacs.html#forecast.el"))])

@@ -1,2 +1,0 @@
-
-(mwim . [(20150822 1436) nil "Move to the beginning/end of line or code" single ((:keywords "convenience") (:url . "https://github.com/alezost/mwim.el"))])

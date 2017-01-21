@@ -1,0 +1,2 @@
+
+(button-lock . [(20150223 754) nil "Clickable text defined by regular expression" single ((:keywords "mouse" "button" "hypermedia" "extensions") (:url . "http://github.com/rolandwalker/button-lock"))])

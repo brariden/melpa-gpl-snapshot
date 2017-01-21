@@ -1,0 +1,2 @@
+
+(pretty-mode . [(20160614 1346) nil "Redisplay parts of the buffer as pretty Unicode symbols." single ((:keywords "pretty" "unicode" "symbols") (:url . "https://github.com/akatov/pretty-mode"))])

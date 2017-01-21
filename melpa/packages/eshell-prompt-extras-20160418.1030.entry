@@ -1,2 +1,0 @@
-
-(eshell-prompt-extras . [(20160418 1030) nil "Display extra information for your eshell prompt." single ((:keywords "eshell" "prompt"))])

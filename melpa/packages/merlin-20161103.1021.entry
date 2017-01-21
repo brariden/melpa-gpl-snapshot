@@ -1,0 +1,2 @@
+
+(merlin . [(20161103 1021) nil "Mode for Merlin, an assistant for OCaml." tar ((:keywords "ocaml" "languages") (:url . "https://github.com/the-lambda-church/merlin"))])

@@ -1,0 +1,2 @@
+
+(evil-snipe . [(20170104 1409) ((evil (1 0 8)) (cl-lib (0 5))) "emulate vim-sneak & vim-seek" single ((:keywords "emulation" "vim" "evil" "sneak" "seek") (:url . "https://github.com/hlissner/evil-snipe"))])

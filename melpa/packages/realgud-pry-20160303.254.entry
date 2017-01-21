@@ -1,2 +1,0 @@
-
-(realgud-pry . [(20160303 254) ((realgud (1 3))) "realgud front-end to the Ruby pry debugger" tar ((:url . "http://github.com/rocky/realgud-pry"))])

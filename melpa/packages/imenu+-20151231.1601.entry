@@ -1,2 +1,0 @@
-
-(imenu+ . [(20151231 1601) nil "Extensions to `imenu.el'." single ((:keywords "tools" "menus") (:url . "http://www.emacswiki.org/imenu+.el"))])

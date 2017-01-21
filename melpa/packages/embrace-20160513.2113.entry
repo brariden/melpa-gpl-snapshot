@@ -1,2 +1,0 @@
-
-(embrace . [(20160513 2113) ((cl-lib (0 5)) (expand-region (0 10 0))) "Add/Change/Delete pairs based on `expand-region'" single ((:keywords "extensions"))])

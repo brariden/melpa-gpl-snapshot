@@ -1,0 +1,2 @@
+
+(imenu-anywhere . [(20160831 556) ((cl-lib (0 5))) "ido/ivy/helm imenu across same mode/project/etc buffers" single ((:keywords "ido" "imenu" "tags") (:url . "https://github.com/vitoshka/imenu-anywhere"))])

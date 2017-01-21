@@ -1,0 +1,2 @@
+
+(xterm-color . [(20170102 1725) ((cl-lib (0 5))) "ANSI & XTERM 256 color support" single ((:keywords "faces") (:url . "https://github.com/atomontage/xterm-color"))])

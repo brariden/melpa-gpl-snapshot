@@ -1,2 +1,0 @@
-
-(flycheck-elixir . [(20160404 231) ((flycheck (0 25))) "Support Elixir in flycheck" single nil])

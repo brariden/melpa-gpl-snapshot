@@ -1,0 +1,2 @@
+
+(helm-firefox . [(20161202 717) ((helm (1 5)) (cl-lib (0 5)) (emacs (24 1))) "Firefox bookmarks" single ((:url . "https://github.com/emacs-helm/helm-firefox"))])

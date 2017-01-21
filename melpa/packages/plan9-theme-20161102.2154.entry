@@ -1,0 +1,2 @@
+
+(plan9-theme . [(20161102 2154) nil "A color theme for Emacs based on Plan9" single ((:url . "https://github.com/john2x/plan9-theme.el"))])

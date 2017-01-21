@@ -1,0 +1,2 @@
+
+(fzf . [(20161226 1136) ((emacs (24 4))) "A front-end for fzf." single ((:keywords "fzf" "fuzzy" "search") (:url . "https://github.com/bling/fzf.el"))])

@@ -1,50 +1,64 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!DOCTYPE HTML PUBLIC>
 <html>
-<head>
-  <title>GNU ELPA - company</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-</head>
-<body>
-<h1 align="center">GNU ELPA - company</h1>
-<p>Description: Modular text completion framework</p>
-<p>Latest: <a href="company-0.8.12.tar">company-0.8.12.tar</a>, 2015-Mar-05,  360kB</p>
-<p>Maintainer: Dmitry Gutov &lt;dgutov@yandex.ru></p>
-<p>Home page: <a href="http://company-mode.github.io/">http://company-mode.github.io/</a></p>
-<p>Browse ELPA's repository: <a href="http://git.savannah.gnu.org/cgit/emacs/elpa.git/tree/packages/company">CGit</a> or <a href="http://git.savannah.gnu.org/gitweb/?p=emacs/elpa.git;a=tree;f=packages/company">Gitweb</a></p>
-<h2>Full description</h2><pre>
-Company is a modular completion mechanism.  Modules for retrieving completion
-candidates are called back-ends, modules for displaying them are front-ends.
+    <head>
+        <title>GNU ELPA - company</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="shortcut icon" type="image/png" href="../favicon.png">
+        <link rel="stylesheet" href="http://code.cdn.mozilla.net/fonts/fira.css">
+        <link rel="stylesheet" type="text/css" href="../layout.css">
+        <script src="../javascript/jquery.min.js" type="text/javascript"></script>
+        <script src="../javascript/jquery.filtertable.min.js" type="text/javascript"></script>
+        <script src="../javascript/package-search.js" type="text/javascript"></script>
+        <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,width=device-width" />
+    </head>
+    <body>
 
-Company comes with many back-ends, e.g. `company-elisp'.  These are
+        <div class="wrapper">
+
+            <div class="header small">
+                <div class="container">
+                    <h1>GNU ELPA - company</h1>
+                </div>
+            </div>
+
+            <div class="container">
+<h2 class="package">company</h2><dl><dt>Description</dt><dd>Modular text completion framework</dd>
+<dt>Latest</dt> <dd><a href="company-0.9.2.tar">company-0.9.2.tar</a>, 2016-Nov-14,  390kB</dd>
+<dt>Maintainer</dt> <dd>Dmitry Gutov &lt;dgutov@yandex.ru></dd>
+<dt>Home page</dt> <dd><a href="http://company-mode.github.io/">http://company-mode.github.io/</a></dd>
+<dt>Browse ELPA's repository</dt> <dd><a href="http://git.savannah.gnu.org/cgit/emacs/elpa.git/tree/packages/company">CGit</a> or <a href="http://git.savannah.gnu.org/gitweb/?p=emacs/elpa.git;a=tree;f=packages/company">Gitweb</a></dd>
+</dl><p>To install this package, run in Emacs:</p>
+                       <pre>M-x <span class="kw">package-install</span> RET <span class="kw">company</span> RET</pre><h2>Full description</h2><pre>
+Company is a modular completion framework.  Modules for retrieving completion
+candidates are called backends, modules for displaying them are frontends.
+
+Company comes with many backends, e.g. `company-etags'.  These are
 distributed in separate files and can be used individually.
 
-Place company.el and the back-ends you want to use in a directory and add the
-following to your .emacs:
-(add-to-list 'load-path "/path/to/company")
-(autoload 'company-mode "company" nil t)
+Enable `company-mode' in all buffers with M-x global-company-mode.  For
+further information look at the documentation for `company-mode' (C-h f
+company-mode RET).
 
-Enable company-mode with M-x company-mode.  For further information look at
-the documentation for `company-mode' (C-h f company-mode RET)
-
-If you want to start a specific back-end, call it interactively or use
+If you want to start a specific backend, call it interactively or use
 `company-begin-backend'.  For example:
 M-x company-abbrev will prompt for and insert an abbrev.
 
-To write your own back-end, look at the documentation for `company-backends'.
+To write your own backend, look at the documentation for `company-backends'.
 Here is a simple example completing "foo":
 
 (defun company-my-backend (command &amp;optional arg &amp;rest ignored)
   (pcase command
-    (`prefix (when (looking-back "foo\\>")
-              (match-string 0)))
+    (`prefix (company-grab-symbol))
     (`candidates (list "foobar" "foobaz" "foobarbaz"))
     (`meta (format "This value is named %s" arg))))
 
-Sometimes it is a good idea to mix several back-ends together, for example to
-enrich gtags with dabbrev-code results (to emulate local variables).
-To do this, add a list with both back-ends as an element in company-backends.
+Sometimes it is a good idea to mix several backends together, for example to
+enrich gtags with dabbrev-code results (to emulate local variables).  To do
+this, add a list with both backends as an element in `company-backends'.
 </pre>
-<h2>Old versions</h2><table cellpadding="3" border="1">
+<h2>Old versions</h2><table>
+<tr><td><a href="company-0.9.1.tar">company-0.9.1.tar</a></td><td>2016-Nov-12</td><td> 390kB</td>
+<tr><td><a href="company-0.9.0.tar">company-0.9.0.tar</a></td><td>2016-Jun-23</td><td> 390kB</td>
 <tr><td><a href="company-0.8.9.tar">company-0.8.9.tar</a></td><td>2015-Jan-23</td><td> 360kB</td>
 <tr><td><a href="company-0.8.8.tar">company-0.8.8.tar</a></td><td>2015-Jan-15</td><td> 360kB</td>
 <tr><td><a href="company-0.8.7.tar">company-0.8.7.tar</a></td><td>2014-Oct-28</td><td> 330kB</td>
@@ -52,6 +66,7 @@ To do this, add a list with both back-ends as an element in company-backends.
 <tr><td><a href="company-0.8.5.tar">company-0.8.5.tar</a></td><td>2014-Sep-14</td><td> 330kB</td>
 <tr><td><a href="company-0.8.3.tar">company-0.8.3.tar</a></td><td>2014-Aug-27</td><td> 330kB</td>
 <tr><td><a href="company-0.8.2.tar">company-0.8.2.tar</a></td><td>2014-Jul-26</td><td> 330kB</td>
+<tr><td><a href="company-0.8.12.tar">company-0.8.12.tar</a></td><td>2015-Mar-05</td><td> 360kB</td>
 <tr><td><a href="company-0.8.11.tar">company-0.8.11.tar</a></td><td>2015-Feb-05</td><td> 360kB</td>
 <tr><td><a href="company-0.8.10.tar">company-0.8.10.tar</a></td><td>2015-Feb-04</td><td> 360kB</td>
 <tr><td><a href="company-0.8.1.tar">company-0.8.1.tar</a></td><td>2014-Jul-02</td><td> 320kB</td>
@@ -75,6 +90,66 @@ To do this, add a list with both back-ends as an element in company-backends.
 </table>
 <h2>News</h2><pre>
 # History of user-visible changes
+
+## 2016-11-12 (0.9.1)
+
+* `company-indent-or-complete-common` skips trying to indent if
+  `indent-line-function` is `indent-relative` or `indent-relative-maybe`.
+* Better visualization of search matches. New face `company-tooltip-search-selection`.
+* New variable `company-files-exclusions`.
+* `company-next-page` and `company-previous-page` adhere to
+  `company-selection-wrap-around` docstring more closely and only wrap around
+  when the selection is at the start of the end of the list.
+* `company-pseudo-tooltip-unless-just-one-frontend-with-delay` handles custom
+  frontends derived from `company-preview-frontend` better.
+* `company-idle-delay` is automatically adjusted to a non-zero value.
+
+## 2016-06-23 (0.9.0)
+
+* Group of backends can now contain keyword `:separate`, which makes candidates
+  from different backends sorted separately in the combined list.
+* New frontend `company-pseudo-tooltip-unless-just-one-frontend-with-delay`.
+* New transformer `company-sort-prefer-same-case-prefix`.
+* The value of `company-dabbrev-ignore-buffers` can also be a function.
+* `company-files` has been moved to right after `company-capf` in
+  `company-backends`
+  ([#463](https://github.com/company-mode/company-mode/issues/463)).
+* `company-semantic-insert-arguments`: New option. Like in `company-clang`.
+* `company-semantic-begin-after-member-access`: New option. Similar to the one
+  in `company-clang`.
+* `company-capf` accepts `:company-prefix-length` property value.
+* New face `company-tooltip-annotation-selection`, used for the annotation in
+  the selected tooltip line.
+* `company-clang-objc-templatify` has been renamed to
+  `company-template-objc-templatify`.
+* New user option `company-etags-everywhere`.
+* `company-yasnippet` supports `yas-key-syntaxes` better. But we use them in the
+  reverse order, preferring the longest key prefix that matches anything. And we
+  only consider trigger key prefixes that are at least as long as the symbol at
+  point, which effectively means skipping the `"w"` element
+  ([#422](https://github.com/company-mode/company-mode/issues/422)).
+* New user option `company-search-regexp-function`.
+* Completion is not started automatically when a keyboard macro is being
+  recorded ([#374](https://github.com/company-mode/company-mode/issues/374)).
+* New command `company-indent-or-complete-common`.
+* Backend command `doc-buffer` now can also return a cons of buffer and window
+  start position.
+* Backend command `ignore-case` has been documented.
+* `company-template-c-like-templatify` does not replace the default argument
+  values with `argN` anymore
+  ([#336](https://github.com/company-mode/company-mode/issues/336)). This
+  affects `company-clang` and all third-party backends that use this function.
+* Likewise for `company-clang-objc-templatify`.
+* `company-template-add-field` calling convention has changed.
+* New user option `company-dabbrev-ignore-invisible`.
+* `company-ropemacs` was removed. `ropemacs` supports completion via
+  `completion-at-point-functions` starting with version 0.8.
+* `company-pysmell` was removed.
+* `company-select-next`, `company-select-previous`,
+  `company-select-next-or-abort`, `company-select-previous-or-abort` and
+  `company-complete-common-or-cycle` accept a numeric argument.
+* The documentation buffer window can be scrolled with the mouse wheel.
+* New command `company-diag`. Use it in bug reports.
 
 ## 2015-02-02 (0.8.10)
 

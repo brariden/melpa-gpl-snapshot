@@ -1,0 +1,2 @@
+
+(git-messenger . [(20170101 2240) ((emacs (24 3)) (popup (0 5 0))) "Pop up last commit information of current line" single ((:url . "https://github.com/syohex/emacs-git-messenger"))])

@@ -1,0 +1,2 @@
+
+(ergoemacs-mode . [(20170112 1308) ((emacs (24 1)) (undo-tree (0 6 5)) (cl-lib (0 5))) "Emacs mode based on common modern interface and ergonomics." tar ((:keywords "convenience") (:url . "https://github.com/ergoemacs/ergoemacs-mode"))])

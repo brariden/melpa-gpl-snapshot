@@ -1,2 +1,0 @@
-
-(gnome-calendar . [(20140112 559) nil "Integration with the GNOME Shell calendar" single ((:keywords "gnome" "calendar"))])

@@ -1,2 +1,0 @@
-
-(japanese-holidays . [(20150208 1937) ((cl-lib (0 3))) "calendar functions for the Japanese calendar" single ((:keywords "calendar") (:url . "https://github.com/emacs-jp/japanese-holidays"))])

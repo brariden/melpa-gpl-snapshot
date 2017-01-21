@@ -1,0 +1,2 @@
+
+(isearch+ . [(20170102 141) nil "Extensions to `isearch.el' (incremental search)." single ((:keywords "help" "matching" "internal" "local") (:url . "http://www.emacswiki.org/isearch+.el"))])

@@ -1,2 +1,0 @@
-
-(el2markdown . [(20150516 1538) nil "Convert commentary section of elisp files to markdown." single ((:url . "https://github.com/Lindydancer/el2markdown"))])

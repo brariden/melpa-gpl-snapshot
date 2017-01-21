@@ -1,2 +1,0 @@
-
-(toml-mode . [(20150818 320) nil "Mojor mode for editing TOML files" single ((:keywords "data" "toml") (:url . "https://github.com/dryman/toml-mode.el"))])

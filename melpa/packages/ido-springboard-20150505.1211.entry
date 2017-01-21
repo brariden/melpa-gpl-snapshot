@@ -1,2 +1,0 @@
-
-(ido-springboard . [(20150505 1211) nil "Temporarily change default-directory for one command" single ((:keywords "ido") (:url . "https://github.com/jwiegley/springboard"))])

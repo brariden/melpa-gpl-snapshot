@@ -1,2 +1,0 @@
-
-(spotify . [(20160128 306) ((cl-lib (0 5))) "Control the spotify application from emacs" single ((:keywords "convenience") (:url . "https://github.com/remvee/spotify-el"))])

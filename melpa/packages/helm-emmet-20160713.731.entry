@@ -1,0 +1,2 @@
+
+(helm-emmet . [(20160713 731) ((helm (1 0)) (emmet-mode (1 0 2))) "helm sources for emmet-mode's snippets" single ((:keywords "convenience" "helm" "emmet") (:url . "https://github.com/yasuyk/helm-emmet"))])

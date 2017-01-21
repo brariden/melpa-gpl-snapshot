@@ -1,2 +1,0 @@
-
-(frame-fns . [(20151231 1522) nil "Non-interactive frame and window functions." single ((:keywords "internal" "extensions" "local" "frames") (:url . "http://www.emacswiki.org/frame-fns.el"))])

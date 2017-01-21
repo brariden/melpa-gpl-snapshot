@@ -1,0 +1,2 @@
+
+(org-projectile . [(20161205 1708) ((projectile (0 11 0)) (dash (2 10 0)) (emacs (24))) "Repository todo management for org-mode" tar ((:keywords "org" "projectile" "todo") (:url . "https://github.com/IvanMalison/org-projectile"))])

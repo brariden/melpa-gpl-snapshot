@@ -1,0 +1,2 @@
+
+(smart-window . [(20160716 2030) ((cl-lib (0 5))) "vim-like window controlling plugin" single ((:keywords "window") (:url . "https://github.com/dryman/smart-window.el"))])

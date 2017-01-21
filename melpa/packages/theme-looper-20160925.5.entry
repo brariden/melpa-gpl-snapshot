@@ -1,0 +1,2 @@
+
+(theme-looper . [(20160925 5) ((cl-lib (0 5))) "Loop thru the available color-themes" single ((:keywords "convenience" "color-themes") (:url . "http://ismail.teamfluxion.com"))])

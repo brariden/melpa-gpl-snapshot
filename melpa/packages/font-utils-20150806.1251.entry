@@ -1,0 +1,2 @@
+
+(font-utils . [(20150806 1251) ((persistent-soft (0 8 8)) (pcache (0 2 3))) "Utility functions for working with fonts" single ((:keywords "extensions") (:url . "http://github.com/rolandwalker/font-utils"))])

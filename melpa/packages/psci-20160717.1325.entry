@@ -1,0 +1,2 @@
+
+(psci . [(20160717 1325) ((purescript-mode (13 10)) (dash (2 9 0)) (s (1 9 0)) (f (0 17 1))) "Major mode for purescript repl psci" tar ((:keywords "purescript" "psci" "repl" "major" "mode") (:url . "https://github.com/ardumont/emacs-psci"))])

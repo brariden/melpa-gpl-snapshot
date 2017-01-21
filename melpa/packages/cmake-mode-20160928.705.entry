@@ -1,0 +1,2 @@
+
+(cmake-mode . [(20160928 705) nil "major-mode for editing CMake sources" single nil])

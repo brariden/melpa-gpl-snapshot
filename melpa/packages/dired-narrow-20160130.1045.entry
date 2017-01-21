@@ -1,2 +1,0 @@
-
-(dired-narrow . [(20160130 1045) ((dash (2 7 0)) (dired-hacks-utils (0 0 1))) "Live-narrowing of search results for dired" single ((:keywords "files"))])

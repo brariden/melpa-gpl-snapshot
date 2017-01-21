@@ -1,0 +1,2 @@
+
+(hardhat . [(20160414 913) ((ignoramus (0 7 0))) "Protect against clobbering user-writable files" single ((:keywords "convenience") (:url . "http://github.com/rolandwalker/hardhat"))])

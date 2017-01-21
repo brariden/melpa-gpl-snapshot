@@ -1,2 +1,0 @@
-
-(german-holidays . [(20151102 943) nil "German holidays for Emacs calendar" single ((:url . "https://github.com/rudolfochrist/german-holidays"))])

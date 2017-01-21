@@ -1,0 +1,2 @@
+
+(ivy-erlang-complete . [(20170113 447) ((async (1 9)) (counsel (0 8 0)) (ivy (0 8 0)) (erlang (19 2)) (emacs (24 4))) "Erlang completion at point using ivy." tar nil])

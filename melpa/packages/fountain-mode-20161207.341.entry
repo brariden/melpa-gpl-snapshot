@@ -1,0 +1,2 @@
+
+(fountain-mode . [(20161207 341) ((emacs (24 4))) "Major mode for screenwriting in Fountain markup" single ((:keywords "wp") (:url . "https://github.com/rnkn/fountain-mode"))])

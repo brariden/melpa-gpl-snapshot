@@ -1,0 +1,2 @@
+
+(tox . [(20160810 1055) nil "Launch current python test with tox" single ((:keywords "convenience" "tox" "python" "tests") (:url . "https://github.com/chmouel/tox.el"))])

@@ -1,0 +1,2 @@
+
+(git-commit-insert-issue . [(20170109 934) ((helm (0)) (projectile (0)) (s (0)) (github-issues (0)) (gitlab (0))) "Get issues list when typing \"Fixes #\"" single ((:keywords "git" "github" "gitlab" "commit" "issues") (:url . "https://gitlab.com/emacs-stuff/git-commit-insert-issue/"))])

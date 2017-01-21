@@ -1,0 +1,2 @@
+
+(hexrgb . [(20170101 1207) nil "Functions to manipulate colors, including RGB hex strings." single ((:keywords "number" "hex" "rgb" "color" "background" "frames" "display") (:url . "http://www.emacswiki.org/hexrgb.el"))])

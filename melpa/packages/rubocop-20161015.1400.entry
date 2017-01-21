@@ -1,0 +1,2 @@
+
+(rubocop . [(20161015 1400) ((dash (1 0 0)) (emacs (24))) "An Emacs interface for RuboCop" single ((:keywords "project" "convenience") (:url . "https://github.com/bbatsov/rubocop-emacs"))])

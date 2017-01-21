@@ -1,0 +1,2 @@
+
+(evil-smartparens . [(20161010 522) ((evil (1 0)) (emacs (24 4)) (smartparens (1 6 3))) "Evil support for smartparens" single ((:keywords "evil" "smartparens") (:url . "https://www.github.com/expez/evil-smartparens"))])

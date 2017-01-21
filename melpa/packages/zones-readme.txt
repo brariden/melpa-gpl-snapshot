@@ -15,7 +15,7 @@
  navigate around the sections of this doc.  Linkd mode will
  highlight this Index, as well as the cross-references and section
  headings throughout this file.  You can get `linkd.el' here:
- http://dto.freeshell.org/notebook/Linkd.html.
+ http://www.emacswiki.org/emacs/download/linkd.el.
 
  (@> "Things Defined Here")
  (@> "Documentation")
@@ -185,6 +185,9 @@
 
  * Search them (they are automatically coalesced first).  For this
    you need library `isearch-prop.el'.
+
+ * Make a set of zones or its complement (the anti-zones)
+   invisible.  For this you also need library `isearch-prop.el'.
 
  * Highlight and unhighlight them.  For this you need library
    `highlight.el' or library `facemenu+.el' (different kinds of

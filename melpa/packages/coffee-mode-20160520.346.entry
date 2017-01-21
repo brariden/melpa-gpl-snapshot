@@ -1,2 +1,0 @@
-
-(coffee-mode . [(20160520 346) ((emacs (24 1)) (cl-lib (0 5))) "Major mode for CoffeeScript code" single ((:keywords "coffeescript" "major" "mode") (:url . "http://github.com/defunkt/coffee-mode"))])

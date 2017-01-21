@@ -1,2 +1,0 @@
-
-(ox-twbs . [(20160307 58) nil "Bootstrap compatible HTML Back-End for Org" single ((:keywords "org" "html" "publish" "twitter" "bootstrap") (:url . "https://github.com/marsmining/ox-twbs"))])

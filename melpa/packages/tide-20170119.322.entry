@@ -1,0 +1,2 @@
+
+(tide . [(20170119 322) ((dash (2 10 0)) (flycheck (27)) (typescript-mode (0 1)) (cl-lib (0 5))) "Typescript Interactive Development Environment" tar ((:keywords "typescript") (:url . "http://github.com/ananthakumaran/tide"))])

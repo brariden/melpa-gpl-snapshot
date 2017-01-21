@@ -1,0 +1,2 @@
+
+(column-enforce-mode . [(20170103 1431) nil "Highlight text that extends beyond a  column" single ((:url . "www.github.com/jordonbiondo/column-enforce-mode"))])

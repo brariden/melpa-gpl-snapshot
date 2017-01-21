@@ -1,0 +1,2 @@
+
+(realgud-pry . [(20160805 945) ((realgud (1 4 3)) (cl-lib (0 5)) (emacs (24))) "realgud front-end to the Ruby pry debugger" tar ((:url . "http://github.com/rocky/realgud-pry"))])

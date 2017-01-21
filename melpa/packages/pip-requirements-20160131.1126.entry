@@ -1,2 +1,0 @@
-
-(pip-requirements . [(20160131 1126) ((dash (2 8 0))) "A major mode for editing pip requirements files." single nil])

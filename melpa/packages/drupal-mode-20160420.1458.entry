@@ -1,2 +1,0 @@
-
-(drupal-mode . [(20160420 1458) ((php-mode (1 5 0))) "Advanced minor mode for Drupal development" tar ((:keywords "programming" "php" "drupal") (:url . "https://github.com/arnested/drupal-mode"))])

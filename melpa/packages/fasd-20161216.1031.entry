@@ -1,0 +1,2 @@
+
+(fasd . [(20161216 1031) nil "Emacs integration for the command-line productivity booster `fasd'" single ((:keywords "cli" "bash" "zsh" "autojump") (:url . "https://github.com/steckerhalter/emacs-fasd"))])

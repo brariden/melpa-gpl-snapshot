@@ -1,0 +1,2 @@
+
+(badwolf-theme . [(20161004 215) ((emacs (24))) "Bad Wolf color theme" single ((:keywords "themes") (:url . "https://github.com/bkruczyk/badwolf-emacs"))])

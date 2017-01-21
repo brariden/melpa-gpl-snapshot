@@ -1,2 +1,0 @@
-
-(sql-indent . [(20150424 1916) nil "indentation of SQL statements" single ((:keywords "languages") (:url . "https://github.com/bsvingen/sql-indent"))])

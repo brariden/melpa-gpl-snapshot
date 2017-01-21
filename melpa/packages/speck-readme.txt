@@ -3,6 +3,10 @@ in Emacs windows.  Invoke the command `speck-mode' to toggle specking
 of all windows showing the current buffer.
 
 Change Log:
+2016/07/17 Felix E. Klee
+    Fix: Loading buffer local dictionary fails for Hunspell.
+    Fix: Input encoding not passed to Hunspell
+    Change default Hunspell coding system for `ru_RU' to `utf-8'.
 2014/08/30 York Zhao
     Add support to allow binding a lisp function to a "replace key" in
     `speck-replace-keys' and/or `speck-replace-map', so that one can define a

@@ -1,2 +1,0 @@
-
-(mouse3 . [(20151231 1726) nil "Customizable behavior for `mouse-3'." single ((:keywords "mouse" "menu" "keymap" "kill" "rectangle" "region") (:url . "http://www.emacswiki.org/mouse3.el"))])

@@ -1,0 +1,2 @@
+
+(ert-junit . [(20161018 1417) ((ert (0))) "JUnit XML reports from ert results" single ((:keywords "tools" "test" "unittest" "ert") (:url . "http://bitbucket.org/olanilsson/ert-junit"))])

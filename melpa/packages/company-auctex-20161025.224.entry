@@ -1,0 +1,2 @@
+
+(company-auctex . [(20161025 224) ((yasnippet (0 8 0)) (company (0 8 0)) (auctex (11 87))) "Company-mode auto-completion for AUCTeX" single ((:url . "https://github.com/alexeyr/company-auctex/"))])

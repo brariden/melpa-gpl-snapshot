@@ -1,2 +1,0 @@
-
-(nasm-mode . [(20160525 2026) ((emacs (24 3))) "NASM x86 assembly major mode" single ((:url . "https://github.com/skeeto/nasm-mode"))])

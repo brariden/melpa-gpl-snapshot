@@ -3,7 +3,7 @@ GNU Emacs 24 major mode for editing Puppet manifests.
 Provides syntax highlighting, indentation, alignment, movement, Imenu and
 code checking.
 
-Syntax highlighting: Fontification upports all of Puppet 3 syntax, including
+Syntax highlighting: Fontification supports all of Puppet 3 syntax, including
 variable expansion in strings.
 
 Indentation: Indent expressions automatically.
@@ -23,6 +23,6 @@ Code checking: Validate the syntax of the current buffer with
 with `puppet-lint' on C-c C-l.  Apply the current buffer with `puppet-apply'
 on C-c C-c.
 
-Flymake: Flymake support is _not_ provided. See Flycheck at
-http://flycheck.readthedocs.org/en/latest/ for on-the-fly validation and
-liniting of Puppet manifests.
+Syntax checking: Flymake support is _not_ provided.  See Flycheck at
+http://www.flycheck.org for on-the-fly validation and liniting of Puppet
+manifests.

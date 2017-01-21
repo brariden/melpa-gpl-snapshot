@@ -1,2 +1,0 @@
-
-(json-rpc . [(20160427 1007) ((emacs (24 1)) (cl-lib (0 5))) "JSON-RPC library" single ((:url . "https://github.com/skeeto/elisp-json-rpc"))])

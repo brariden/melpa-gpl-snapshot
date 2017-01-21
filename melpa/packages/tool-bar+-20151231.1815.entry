@@ -1,2 +1,0 @@
-
-(tool-bar+ . [(20151231 1815) nil "Extensions to standard library tool-bar.el" single ((:keywords "tool-bar" "convenience" "mouse" "button" "frame") (:url . "http://www.emacswiki.org/tool-bar%2b.el"))])

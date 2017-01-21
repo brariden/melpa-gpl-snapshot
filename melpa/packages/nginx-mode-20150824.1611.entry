@@ -1,2 +1,0 @@
-
-(nginx-mode . [(20150824 1611) nil "major mode for editing nginx config files" single ((:keywords "nginx"))])

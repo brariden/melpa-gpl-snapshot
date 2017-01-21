@@ -1,0 +1,2 @@
+
+(window-end-visible . [(20140508 1541) nil "Find the last visible point in a window" single ((:keywords "extensions") (:url . "http://github.com/rolandwalker/window-end-visible"))])

@@ -1,0 +1,2 @@
+
+(emoji-fontset . [(20160726 1424) nil "Set font face for Emoji." single ((:keywords "emoji" "font" "config"))])

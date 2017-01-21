@@ -1,2 +1,0 @@
-
-(marshal . [(20150916 2057) ((eieio (1 4)) (json (1 3))) "eieio extension for automatic (un)marshalling" single ((:keywords "eieio") (:url . "https://github.com/sigma/marshal.el"))])

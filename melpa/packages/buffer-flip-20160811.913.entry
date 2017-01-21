@@ -1,0 +1,2 @@
+
+(buffer-flip . [(20160811 913) ((key-chord (20150808))) "Use key-chord to cycle through buffers like Alt-Tab in Windows" single ((:keywords "convenience") (:url . "https://github.com/killdash9/buffer-flip.el"))])

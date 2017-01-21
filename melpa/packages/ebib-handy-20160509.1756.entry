@@ -1,2 +1,0 @@
-
-(ebib-handy . [(20160509 1756) ((emacs (24 4)) (ebib (1 0)) (chinese-pyim (0 1))) "ebib window as a cite chooser when write org file" single ((:url . "https://github.com/tumashu/ebib-handy"))])

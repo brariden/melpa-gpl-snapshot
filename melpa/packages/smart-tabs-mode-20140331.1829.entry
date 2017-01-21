@@ -1,2 +1,0 @@
-
-(smart-tabs-mode . [(20140331 1829) nil "Intelligently indent with tabs, align with spaces!" single ((:keywords "languages") (:url . "http://www.emacswiki.org/emacs/SmartTabs"))])

@@ -1,2 +1,0 @@
-
-(epm . [(20160601 202) ((emacs (24 3)) (epl (0 8))) "Emacs Package Manager" tar ((:url . "https://github.com/xuchunyang/epm"))])

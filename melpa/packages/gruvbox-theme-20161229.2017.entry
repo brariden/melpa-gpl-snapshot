@@ -1,0 +1,2 @@
+
+(gruvbox-theme . [(20161229 2017) ((autothemer (0 2))) "A retro-groove colour theme for Emacs" single ((:url . "http://github.com/Greduan/emacs-theme-gruvbox"))])

@@ -1,0 +1,2 @@
+
+(finder+ . [(20170101 1145) nil "Extensions to standard library finder.el" single ((:keywords "help") (:url . "http://www.emacswiki.org/finder+.el"))])

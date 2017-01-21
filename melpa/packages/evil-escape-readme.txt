@@ -9,6 +9,7 @@ Press `fd` quickly to:
   - quit compilation buffers
   - abort isearch
   - quit ibuffer
+  - quit image buffer
   - quit magit buffers
   - quit help buffers
   - quit apropos buffers

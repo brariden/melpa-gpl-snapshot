@@ -1,0 +1,2 @@
+
+(mwim . [(20161004 847) nil "Switch between the beginning/end of line or code" single ((:keywords "convenience") (:url . "https://github.com/alezost/mwim.el"))])

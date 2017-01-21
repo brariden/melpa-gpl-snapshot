@@ -1,0 +1,2 @@
+
+(shakespeare-mode . [(20160908 1711) nil "A major mode for editing Shakespearean templates." single ((:keywords "shakespeare" "hamlet" "lucius" "julius" "mode") (:url . "http://github.com/CodyReichert/shakespeare-mode"))])

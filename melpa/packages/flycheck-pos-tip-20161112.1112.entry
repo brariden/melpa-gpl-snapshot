@@ -1,0 +1,2 @@
+
+(flycheck-pos-tip . [(20161112 1112) ((emacs (24 1)) (flycheck (0 22)) (pos-tip (0 4 6))) "Display Flycheck errors in GUI tooltips" single ((:keywords "tools" "convenience") (:url . "https://github.com/flycheck/flycheck-pos-tip"))])

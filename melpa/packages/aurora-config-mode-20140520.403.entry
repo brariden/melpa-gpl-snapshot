@@ -1,0 +1,2 @@
+
+(aurora-config-mode . [(20140520 403) nil "Major mode for Apache Aurora configuration files" single ((:keywords "languages" "configuration") (:url . "https://github.com/bdd/aurora-config.el"))])

@@ -1,0 +1,2 @@
+
+(live-py-mode . [(20170116 1807) ((emacs (24 1))) "Live Coding in Python" tar ((:keywords "live" "coding") (:url . "http://donkirkby.github.io/live-py-plugin/"))])

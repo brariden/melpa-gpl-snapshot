@@ -1,0 +1,2 @@
+
+(realgud-old-debuggers . [(20161225 826) ((realgud (1 4 3)) (cl-lib (0 5)) (emacs (24))) "realgud front-end to older lesser-used debuggers" tar ((:url . "http://github.com/rocky/realgud-old-debuggers"))])

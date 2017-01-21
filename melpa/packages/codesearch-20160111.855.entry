@@ -1,2 +1,0 @@
-
-(codesearch . [(20160111 855) ((dash (2 8 0))) "Easy access to the codesearch tools" single ((:keywords "tools" "development" "search") (:url . "https://github.com/abingham/codesearch.el"))])

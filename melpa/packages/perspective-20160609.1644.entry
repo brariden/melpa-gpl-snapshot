@@ -1,0 +1,2 @@
+
+(perspective . [(20160609 1644) ((cl-lib (0 5))) "switch between named \"perspectives\" of the editor" single ((:keywords "workspace" "convenience" "frames") (:url . "http://github.com/nex3/perspective-el"))])

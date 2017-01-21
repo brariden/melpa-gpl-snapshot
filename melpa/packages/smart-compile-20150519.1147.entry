@@ -1,2 +1,0 @@
-
-(smart-compile . [(20150519 1147) nil "an interface to `compile'" single ((:keywords "tools" "unix"))])

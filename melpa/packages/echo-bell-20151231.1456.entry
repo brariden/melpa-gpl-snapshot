@@ -1,2 +1,0 @@
-
-(echo-bell . [(20151231 1456) nil "Show visual bell at right in the echo area." single ((:keywords "echo area" "bell" "ding") (:url . "http://www.emacswiki.org/echo-bell.el"))])

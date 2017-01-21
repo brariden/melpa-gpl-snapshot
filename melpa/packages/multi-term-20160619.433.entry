@@ -1,0 +1,2 @@
+
+(multi-term . [(20160619 433) nil "Managing multiple terminal buffers in Emacs." single ((:keywords "term" "terminal" "multiple buffer") (:url . "http://www.emacswiki.org/emacs/download/multi-term.el"))])

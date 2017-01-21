@@ -1,2 +1,0 @@
-
-(org-jira . [(20150911 758) nil "Syncing between Jira and Org-mode." tar ((:url . "https://github.com/baohaojun/org-jira"))])

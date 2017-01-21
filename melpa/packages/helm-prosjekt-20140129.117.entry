@@ -1,0 +1,2 @@
+
+(helm-prosjekt . [(20140129 117) ((prosjekt (0 3)) (helm (1 5 9))) "Helm integration for prosjekt." single ((:url . "https://github.com/abingham/prosjekt"))])

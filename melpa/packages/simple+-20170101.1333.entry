@@ -1,0 +1,2 @@
+
+(simple+ . [(20170101 1333) ((strings (0))) "Extensions to standard library `simple.el'." single ((:keywords "internal" "lisp" "extensions" "abbrev") (:url . "http://www.emacswiki.org/simple%2b.el"))])

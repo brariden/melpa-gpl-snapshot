@@ -1,0 +1,2 @@
+
+(alert . [(20170106 1220) ((gntp (0 1)) (log4e (0 3 0))) "Growl-style notification system for Emacs" single ((:keywords "notification" "emacs" "message") (:url . "https://github.com/jwiegley/alert"))])

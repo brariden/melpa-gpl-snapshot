@@ -1,0 +1,2 @@
+
+(xterm-frobs . [(20161207 1809) nil "manipulate xterm when running emacs in tty mode" single nil])

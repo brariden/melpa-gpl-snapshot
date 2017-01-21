@@ -1,0 +1,2 @@
+
+(youdao-dictionary . [(20161017 1029) ((popup (0 5 0)) (chinese-word-at-point (0 2)) (names (0 5)) (emacs (24))) "Youdao Dictionary interface for Emacs" single ((:keywords "convenience" "chinese" "dictionary") (:url . "https://github.com/xuchunyang/youdao-dictionary.el"))])

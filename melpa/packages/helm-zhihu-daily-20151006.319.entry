@@ -1,2 +1,0 @@
-
-(helm-zhihu-daily . [(20151006 319) ((helm (1 0)) (cl-lib (0 5)) (emacs (24 4))) "Helm interface for 知乎日报 (http://daily.zhihu.com)" single ((:url . "https://github.com/xuchunyang/helm-zhihu-daily"))])

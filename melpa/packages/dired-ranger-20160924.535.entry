@@ -1,0 +1,2 @@
+
+(dired-ranger . [(20160924 535) ((dash (2 7 0)) (dired-hacks-utils (0 0 1))) "Implementation of useful ranger features for dired" single ((:keywords "files"))])

@@ -1,0 +1,2 @@
+
+(flycheck-purescript . [(20161121 1107) ((emacs (24 3)) (flycheck (0 22)) (dash (2 12 0)) (let-alist (1 0 4)) (seq (1 11))) "Flycheck: PureScript support" single ((:keywords "convenience" "tools" "languages") (:url . "https://github.com/emacs-pe/flycheck-purescript"))])

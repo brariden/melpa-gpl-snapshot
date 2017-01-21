@@ -1,0 +1,2 @@
+
+(persp-projectile . [(20160710 117) ((perspective (1 9)) (projectile (0 11 0)) (cl-lib (0 3))) "Perspective integration with Projectile" single ((:keywords "project" "convenience"))])

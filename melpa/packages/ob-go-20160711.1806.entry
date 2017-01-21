@@ -1,0 +1,2 @@
+
+(ob-go . [(20160711 1806) nil "org-babel functions for go evaluation" tar ((:keywords "golang" "go" "literate programming" "reproducible research") (:url . "http://orgmode.org"))])

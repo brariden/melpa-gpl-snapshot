@@ -1,2 +1,0 @@
-
-(xahk-mode . [(20150504 1811) nil "Major mode for editing AutoHotkey scripts." single ((:keywords "languages") (:url . "http://xahlee.info/mswin/emacs_autohotkey_mode.html"))])

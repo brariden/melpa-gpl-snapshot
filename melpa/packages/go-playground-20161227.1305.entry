@@ -1,0 +1,2 @@
+
+(go-playground . [(20161227 1305) ((emacs (24)) (go-mode (1 4 0)) (gotest (0 13 0))) "Local Golang playground for short snippets." single ((:keywords "tools" "golang") (:url . "https://github.com/grafov/go-playground"))])

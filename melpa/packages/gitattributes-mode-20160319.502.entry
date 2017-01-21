@@ -1,2 +1,0 @@
-
-(gitattributes-mode . [(20160319 502) nil "Major mode for editing .gitattributes files" single ((:keywords "convenience" "vc" "git") (:url . "https://github.com/magit/git-modes"))])

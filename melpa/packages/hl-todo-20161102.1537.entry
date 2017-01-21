@@ -1,0 +1,2 @@
+
+(hl-todo . [(20161102 1537) nil "highlight TODO and similar keywords" single ((:keywords "convenience") (:url . "https://github.com/tarsius/hl-todo"))])

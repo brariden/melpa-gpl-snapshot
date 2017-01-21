@@ -1,2 +1,0 @@
-
-(sparql-mode . [(20160316 1004) ((cl-lib (0 5)) (async (1 6))) "Edit and interactively evaluate SPARQL queries." tar ((:url . "https://github.com/ljos/sparql-mode"))])

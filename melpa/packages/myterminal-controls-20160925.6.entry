@@ -1,0 +1,2 @@
+
+(myterminal-controls . [(20160925 6) ((emacs (24)) (cl-lib (0 5))) "Quick toggle controls at a key-stroke" single ((:keywords "convenience" "shortcuts") (:url . "http://ismail.teamfluxion.com"))])

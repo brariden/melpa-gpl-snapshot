@@ -1,0 +1,2 @@
+
+(litecoin-ticker . [(20160611 1911) ((json (1 2))) "litecoin price in modeline" single nil])

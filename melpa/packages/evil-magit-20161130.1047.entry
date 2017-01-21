@@ -1,0 +1,2 @@
+
+(evil-magit . [(20161130 1047) ((evil (1 2 3)) (magit (2 6 0))) "evil-based key bindings for magit" single ((:url . "https://github.com/justbur/evil-magit"))])

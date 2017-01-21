@@ -1,0 +1,2 @@
+
+(ahungry-theme . [(20160721 2322) ((emacs (24))) "Ahungry color theme for Emacs.  Make sure to (load-theme 'ahungry)." single ((:keywords "ahungry" "palette" "color" "theme" "emacs" "color-theme" "deftheme") (:url . "https://github.com/ahungry/color-theme-ahungry"))])

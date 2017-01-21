@@ -1,0 +1,2 @@
+
+(icomplete+ . [(20170101 1228) nil "Extensions to `icomplete.el'." single ((:keywords "help" "abbrev" "internal" "extensions" "local" "completion" "matching") (:url . "http://www.emacswiki.org/icomplete+.el"))])

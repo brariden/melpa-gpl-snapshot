@@ -1,0 +1,2 @@
+
+(signal . [(20160816 938) ((emacs (24)) (cl-lib (0 5))) "Advanced hook" single ((:keywords "internal" "lisp" "processes" "tools") (:url . "https://github.com/mola-T/signal"))])

@@ -1,2 +1,0 @@
-
-(tco . [(20140412 812) ((dash (1 2 0)) (emacs (24))) "tail-call optimisation for Emacs lisp" single nil])

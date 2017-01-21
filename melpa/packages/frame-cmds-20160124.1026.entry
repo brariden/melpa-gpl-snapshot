@@ -1,2 +1,0 @@
-
-(frame-cmds . [(20160124 1026) ((frame-fns (0))) "Frame and window commands (interactive functions)." single ((:keywords "internal" "extensions" "mouse" "frames" "windows" "convenience") (:url . "http://www.emacswiki.org/frame-cmds.el"))])

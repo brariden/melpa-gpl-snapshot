@@ -41,7 +41,7 @@ could partly achieve the goal:
            (url-hexify-string
             (read-string "Query: "))))
 
-If you prefer to browse inside Emacs, use =eww= instead:
+If you prefer to browse inside Emacs, use `eww` instead:
 
 ```
 (eww-browse-url

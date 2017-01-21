@@ -1,2 +1,0 @@
-
-(deferred . [(20160109 2246) nil "Simple asynchronous functions for emacs lisp" single ((:keywords "deferred" "async") (:url . "https://github.com/kiwanami/emacs-deferred"))])

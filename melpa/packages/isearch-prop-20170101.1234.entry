@@ -1,0 +1,2 @@
+
+(isearch-prop . [(20170101 1234) nil "Search text-property or overlay-property contexts." single ((:keywords "search" "matching" "invisible" "thing" "help") (:url . "http://www.emacswiki.org/isearch-prop.el"))])

@@ -1,0 +1,2 @@
+
+(better-defaults . [(20160620 108) nil "Fixing weird quirks and poor defaults" single ((:keywords "convenience") (:url . "https://github.com/technomancy/better-defaults"))])

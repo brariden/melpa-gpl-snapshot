@@ -1,0 +1,2 @@
+
+(loc-changes . [(20160801 1208) nil "keep track of positions even after buffer changes" single ((:url . "http://github.com/rocky/emacs-loc-changes"))])

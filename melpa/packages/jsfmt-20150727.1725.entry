@@ -1,0 +1,2 @@
+
+(jsfmt . [(20150727 1725) nil "Interface to jsfmt command for javascript files" single ((:url . "https://github.com/brettlangdon/jsfmt.el"))])

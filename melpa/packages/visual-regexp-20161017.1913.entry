@@ -1,0 +1,2 @@
+
+(visual-regexp . [(20161017 1913) ((cl-lib (0 2))) "A regexp/replace command for Emacs with interactive visual feedback" single ((:keywords "regexp" "replace" "visual" "feedback") (:url . "https://github.com/benma/visual-regexp.el/"))])

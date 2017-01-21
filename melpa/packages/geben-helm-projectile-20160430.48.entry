@@ -1,2 +1,0 @@
-
-(geben-helm-projectile . [(20160430 48) ((emacs (24)) (geben (0 26)) (helm-projectile (0 13 0))) "Integrate helm-projectile with geben" single ((:keywords "ahungry" "emacs" "geben" "helm" "projectile" "debug") (:url . "https://github.com/ahungry/geben-helm-projectile"))])

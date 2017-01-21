@@ -1,0 +1,2 @@
+
+(key-leap . [(20160831 947) ((emacs (24 3))) "Leap between lines by typing keywords" single ((:keywords "point" "convenience") (:url . "https://github.com/MartinRykfors/key-leap"))])

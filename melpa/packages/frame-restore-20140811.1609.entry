@@ -1,2 +1,0 @@
-
-(frame-restore . [(20140811 1609) ((emacs (24 1))) "Restore Emacs frame" single ((:keywords "frames" "convenience") (:url . "https://github.com/lunaryorn/frame-restore.el"))])

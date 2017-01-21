@@ -1,0 +1,2 @@
+
+(ncl-mode . [(20170119 347) ((emacs (24))) "Major Mode for editing NCL scripts and other goodies" tar nil])

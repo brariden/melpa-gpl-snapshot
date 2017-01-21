@@ -1,0 +1,2 @@
+
+(fuel . [(20170107 826) ((cl-lib (0 2)) (emacs (24 2))) "Major mode for the Factor programming language." tar nil])

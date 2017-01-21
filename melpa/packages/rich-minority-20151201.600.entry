@@ -1,2 +1,0 @@
-
-(rich-minority . [(20151201 600) ((cl-lib (0 5))) "Clean-up and Beautify the list of minor-modes." single ((:keywords "mode-line" "faces") (:url . "https://github.com/Malabarba/rich-minority"))])

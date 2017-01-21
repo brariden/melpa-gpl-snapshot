@@ -1,0 +1,2 @@
+
+(dix-evil . [(20170105 823) ((dix (0 3 0)) (evil (1 0 7))) "optional evil-integration with dix.el" single ((:keywords "languages") (:url . "http://wiki.apertium.org/wiki/Emacs"))])

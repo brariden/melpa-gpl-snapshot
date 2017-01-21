@@ -1,0 +1,2 @@
+
+(bison-mode . [(20160617 52) nil "Major mode for editing bison, yacc and lex files." single ((:keywords "bison-mode" "yacc-mode"))])

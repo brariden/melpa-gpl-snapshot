@@ -1,2 +1,0 @@
-
-(misc-cmds . [(20151231 1623) nil "Miscellaneous commands (interactive functions)." single ((:keywords "internal" "unix" "extensions" "maint" "local") (:url . "http://www.emacswiki.org/misc-cmds.el"))])

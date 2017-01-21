@@ -1,0 +1,2 @@
+
+(erc-view-log . [(20140227 1439) nil "Major mode for viewing ERC logs" single ((:keywords "erc" "viewer" "logs" "colors") (:url . "http://github.com/Niluge-KiWi/erc-view-log/raw/master/erc-view-log.el"))])

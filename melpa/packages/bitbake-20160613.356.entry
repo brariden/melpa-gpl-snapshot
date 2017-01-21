@@ -1,0 +1,2 @@
+
+(bitbake . [(20160613 356) ((emacs (24 1)) (dash (2 6 0)) (mmm-mode (0 5 4)) (s (1 10 0))) "Running bitbake from emacs" single ((:keywords "convenience") (:url . "https://github.com/canatella/bitbake-el"))])

@@ -1,0 +1,2 @@
+
+(sage-shell-mode . [(20170107 1908) ((cl-lib (0 5)) (emacs (24 1)) (let-alist (1 0 4)) (deferred (0 4 0))) "A front-end for Sage Math" tar ((:keywords "sage" "math") (:url . "https://github.com/sagemath/sage-shell-mode"))])

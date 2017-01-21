@@ -1,2 +1,0 @@
-
-(doremi . [(20151231 1455) nil "Do Re Mi: Incremental change using arrow keys or mouse wheel." single ((:keywords "keys" "cycle" "repeat" "higher-order") (:url . "http://www.emacswiki.org/doremi.el"))])

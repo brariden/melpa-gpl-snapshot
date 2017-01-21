@@ -1,0 +1,2 @@
+
+(fstar-mode . [(20170112 1927) ((emacs (24 3)) (dash (2 11))) "Support for F* programming" single ((:keywords "convenience" "languages") (:url . "https://github.com/FStarLang/fstar.el"))])

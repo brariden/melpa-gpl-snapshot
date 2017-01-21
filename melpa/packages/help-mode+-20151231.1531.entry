@@ -1,2 +1,0 @@
-
-(help-mode+ . [(20151231 1531) nil "Extensions to `help-mode.el'" single ((:keywords "help") (:url . "http://www.emacswiki.org/help-mode+.el"))])

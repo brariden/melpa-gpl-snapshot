@@ -1,2 +1,0 @@
-
-(elog . [(20160426 722) ((eieio (1 3))) "logging library extended from logito" single ((:keywords "lisp" "tool" "log"))])

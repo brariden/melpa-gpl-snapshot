@@ -1,0 +1,2 @@
+
+(vue-mode . [(20161227 333) ((mmm-mode (0 5 4))) "Major mode for vue component based on web-mode and mmm-mode" single ((:keywords "languages"))])

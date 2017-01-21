@@ -1,2 +1,0 @@
-
-(javadoc-lookup . [(20160213 1831) ((cl-lib (0 3))) "Javadoc Emacs integration with Maven" tar ((:url . "https://github.com/skeeto/javadoc-lookup"))])

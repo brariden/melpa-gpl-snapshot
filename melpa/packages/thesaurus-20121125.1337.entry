@@ -1,0 +1,2 @@
+
+(thesaurus . [(20121125 1337) nil "replace a word with a synonym looked up in a web service." single ((:keywords "thesaurus" "synonym") (:url . "http://www.emacswiki.org/cgi-bin/wiki/thesaurus.el"))])

@@ -1,0 +1,2 @@
+
+(git-timemachine . [(20161125 342) ((emacs (24 3))) "Walk through git revisions of a file" single ((:keywords "git") (:url . "https://github.com/pidu/git-timemachine"))])

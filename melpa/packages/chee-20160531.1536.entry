@@ -1,2 +1,0 @@
-
-(chee . [(20160531 1536) ((dash (2 12 1)) (s (1 10 0)) (f (0 18 2))) "Interface to chee using dired and image-dired" tar ((:url . "https://github.com/eikek/chee/tree/master/emacs"))])

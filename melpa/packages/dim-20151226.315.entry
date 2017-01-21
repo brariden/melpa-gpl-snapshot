@@ -1,2 +1,0 @@
-
-(dim . [(20151226 315) ((emacs (24 4))) "Change mode-line names of major/minor modes" single ((:keywords "convenience") (:url . "https://github.com/alezost/dim.el"))])

@@ -1,0 +1,2 @@
+
+(pandoc-mode . [(20161104 1721) ((hydra (0 10 0)) (dash (2 10 0))) "Minor mode for interacting with Pandoc" tar ((:keywords "text" "pandoc"))])

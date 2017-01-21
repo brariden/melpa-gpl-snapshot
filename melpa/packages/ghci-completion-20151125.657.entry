@@ -1,0 +1,2 @@
+
+(ghci-completion . [(20151125 657) ((emacs (24 1)) (cl-lib (0 5))) "Completion for GHCi commands in inferior-haskell buffers" single ((:keywords "convenience"))])

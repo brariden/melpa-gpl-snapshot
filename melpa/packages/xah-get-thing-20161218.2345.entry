@@ -1,0 +1,2 @@
+
+(xah-get-thing . [(20161218 2345) ((emacs (24 1))) "get thing or selection at point." single ((:keywords "extensions" "lisp" "tools") (:url . "http://ergoemacs.org/emacs/elisp_get-selection-or-unit.html"))])

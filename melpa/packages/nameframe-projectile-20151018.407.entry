@@ -1,2 +1,0 @@
-
-(nameframe-projectile . [(20151018 407) ((nameframe (0 4 0 -2)) (projectile (0 13 0))) "Nameframe integration with Projectile" single ((:url . "https://github.com/john2x/nameframe"))])

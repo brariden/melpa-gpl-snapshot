@@ -1,0 +1,2 @@
+
+(rally-mode . [(20161113 2154) ((popwin (1 0 0))) "a mode to interact with the Rally Software web site." single ((:keywords "rally" "ca" "agile") (:url . "https://pragcraft.wordpress.com/"))])

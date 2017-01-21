@@ -28,7 +28,7 @@ or if you have a patch suggestion to:
      erlang-patches@erlang.org
 Please state as exactly as possible:
    - Version number of Erlang Mode (see the menu), Emacs, Erlang,
-	and of any other relevant software.
+     and of any other relevant software.
    - What the expected result was.
    - What you did, preferably in a repeatable step-by-step form.
    - A description of the unexpected result.
@@ -39,5 +39,5 @@ Should the Emacs generate an error, please set the Emacs variable
 `debug-on-error' to `t'.  Repeat the error and enclose the debug
 information in your bug-report.
 
-To set the variable you can use the following command:
-    M-x set-variable RET debug-on-error RET t RET
+To toggle the variable you can use the following command:
+    M-x toggle-debug-on-error RET

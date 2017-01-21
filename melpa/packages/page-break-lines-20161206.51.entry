@@ -1,0 +1,2 @@
+
+(page-break-lines . [(20161206 51) nil "Display ugly ^L page breaks as tidy horizontal lines" single ((:keywords "convenience" "faces") (:url . "https://github.com/purcell/page-break-lines"))])

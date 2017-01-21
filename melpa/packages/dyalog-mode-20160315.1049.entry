@@ -1,2 +1,0 @@
-
-(dyalog-mode . [(20160315 1049) ((cl-lib (0 2))) "Major mode for editing Dyalog APL source code" tar ((:keywords "languages") (:url . "https://bitbucket.org/harsman/dyalog-mode/"))])

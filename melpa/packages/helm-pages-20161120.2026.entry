@@ -1,0 +1,2 @@
+
+(helm-pages . [(20161120 2026) ((helm (1 6 5)) (emacs (24)) (cl-lib (0 5))) "Pages in current buffer as Helm datasource" single ((:keywords "convenience" "helm" "outlines"))])

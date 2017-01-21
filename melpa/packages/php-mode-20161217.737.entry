@@ -1,0 +1,2 @@
+
+(php-mode . [(20161217 737) ((emacs (24)) (cl-lib (0 5))) "Major mode for editing PHP code" tar ((:url . "https://github.com/ejmr/php-mode"))])

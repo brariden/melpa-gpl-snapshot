@@ -1,2 +1,0 @@
-
-(skewer-reload-stylesheets . [(20160527 700) ((skewer-mode (1 5 3))) "live-edit CSS/SCSS/Less/etc stylesheets." tar nil])

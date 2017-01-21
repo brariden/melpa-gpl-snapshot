@@ -1,0 +1,2 @@
+
+(helm-fuzzier . [(20160605 1645) ((emacs (24 3)) (helm (1 7 0))) "Better fuzzy matching for Helm" single ((:keywords "convenience" "helm" "fuzzy") (:url . "http://github.com/EphramPerdition/helm-fuzzier"))])

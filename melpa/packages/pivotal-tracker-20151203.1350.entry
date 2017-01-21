@@ -1,2 +1,0 @@
-
-(pivotal-tracker . [(20151203 1350) nil "Interact with Pivotal Tracker through its API" single ((:url . "http://github.com/jxa/pivotal-tracker"))])

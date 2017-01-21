@@ -1,2 +1,0 @@
-
-(cmake-font-lock . [(20150828 1527) ((cmake-mode (0 0))) "Advanced, type aware, highlight support for CMake" single ((:keywords "faces" "languages") (:url . "https://github.com/Lindydancer/cmake-font-lock"))])

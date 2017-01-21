@@ -1,0 +1,2 @@
+
+(django-mode . [(20161109 949) ((projectile (0)) (s (0)) (helm-make (0))) "Major mode for Django web framework." tar ((:keywords "languages"))])

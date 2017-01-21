@@ -32,18 +32,32 @@ The ability to save/restore window configurations from/to a file
 
 Keys:
 
-s -- create/switch to perspective.
+n -- switch to next perspective.
+p -- switch to previous perspective.
+s -- create/switch to perspective in frame.
+S -- create/switch to perspective in window.
 r -- rename perspective.
-c -- kill perspective
-  (if you kill nil('none') persp -- it'll kill all opened buffers).
+c -- copy current perspective.
+C -- kill perspective.
+  Calling with prefix argument will not kill perspective's buffers
+  (however if you try to kill 'none' persp -- it'l kill all opened buffers).
 a -- add buffer to perspective.
+  Calling with prefix argument reverses the effect of the persp-switch-to-added-buffer.
+b -- switch to buffer in perspective.
 t -- switch to buffer without adding it to current perspective.
+  Calling with prefix argument allows to remove a buffer from perspective without
+  killing and switching to another buffer.
 i -- import all buffers from another perspective.
+I -- import window configuration from another perspective.
 k -- remove buffer from perspective.
+  Calling with prefix argument reverses the effect of the persp-auto-kill-buffer-on-remove.
+K -- kill buffer.
 w -- save perspectives to file.
+W -- save subset of perspectives to file.
 l -- load perspectives from file.
-o -- switch off persp-mode
-  (This may be usefull when you launch emacs just to edit a single file and don't want to
+L -- load subset of perspectives from file.
+o -- switch off persp-mode.
+  (This may be useful when you launch emacs just to edit a single file and don't want to
 restore buffers)
 
 These key sequences must follow the `persp-keymap-prefix' which you can customize

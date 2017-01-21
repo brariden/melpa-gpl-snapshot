@@ -1,2 +1,0 @@
-
-(evil-mu4e . [(20160214 522) ((emacs (24 4)) (dash (2 12 0)) (evil (1 2 10))) "evil-based key bindings for mu4e" single ((:url . "https://github.com/JorisE/evil-mu4e"))])

@@ -1,2 +1,0 @@
-
-(simple-mpc . [(20160524 1351) nil "provides a simple interface to mpc" tar ((:keywords "multimedia" "mpd" "mpc"))])

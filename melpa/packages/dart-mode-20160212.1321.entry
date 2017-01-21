@@ -1,2 +1,0 @@
-
-(dart-mode . [(20160212 1321) ((cl-lib (0 5)) (dash (2 10 0)) (flycheck (0 23))) "Major mode for editing Dart files" single ((:keywords "language") (:url . "http://code.google.com/p/dart-mode"))])

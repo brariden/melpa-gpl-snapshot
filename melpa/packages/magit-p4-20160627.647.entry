@@ -1,0 +1,2 @@
+
+(magit-p4 . [(20160627 647) ((magit (2 1)) (magit-popup (2 1)) (p4 (12 0)) (cl-lib (0 5))) "git-p4 plug-in for Magit" single ((:keywords "vc" "tools") (:url . "https://github.com/qoocku/magit-p4"))])

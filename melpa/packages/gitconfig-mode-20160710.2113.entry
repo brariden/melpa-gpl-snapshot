@@ -1,0 +1,2 @@
+
+(gitconfig-mode . [(20160710 2113) nil "Major mode for editing .gitconfig files" single ((:keywords "convenience" "vc" "git") (:url . "https://github.com/magit/git-modes"))])

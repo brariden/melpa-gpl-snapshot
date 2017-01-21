@@ -1,2 +1,0 @@
-
-(cursor-in-brackets . [(20160520 438) nil "move cursor in brackets/quotes when right bracket/quote is inserted" single ((:keywords "cursor" "bracket" "quote"))])

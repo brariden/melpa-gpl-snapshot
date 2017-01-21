@@ -1,2 +1,0 @@
-
-(mocha . [(20160524 923) ((js2-mode (20150909)) (f (0 18))) "Run Mocha or Jasmine tests" single ((:keywords "javascript" "mocha" "jasmine") (:url . "http://github.com/scottaj/mocha.el"))])

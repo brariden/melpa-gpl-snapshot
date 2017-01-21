@@ -1,0 +1,2 @@
+
+(neotree . [(20170110 521) nil "A tree plugin like NerdTree for Vim" tar ((:url . "https://github.com/jaypei/emacs-neotree"))])

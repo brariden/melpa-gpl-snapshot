@@ -1,0 +1,2 @@
+
+(package-utils . [(20161125 1130) ((async (1 6))) "Extensions for package.el" single ((:keywords "package" "convenience") (:url . "https://github.com/Silex/package-utils"))])

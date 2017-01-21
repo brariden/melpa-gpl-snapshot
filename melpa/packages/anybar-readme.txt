@@ -30,4 +30,8 @@ refresh the list of images anybar.el knows about, call
 
 These functions may be called interactively.
 
+If you have installed AnyBar to a location other than
+/Applications/AnyBar.app, you'll need to customize
+`anybar-executable-location' so that `anybar-start' may succeed.
+
 Enjoy!

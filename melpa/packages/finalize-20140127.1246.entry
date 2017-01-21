@@ -1,2 +1,0 @@
-
-(finalize . [(20140127 1246) ((emacs (24 1)) (cl-lib (0 3)) (eieio (1 4))) "finalizers for Emacs Lisp" tar nil])

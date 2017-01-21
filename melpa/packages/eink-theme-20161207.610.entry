@@ -1,0 +1,2 @@
+
+(eink-theme . [(20161207 610) nil "E Ink color theme" single ((:url . "http://github.com/maio/eink-emacs"))])

@@ -1,0 +1,2 @@
+
+(stan-mode . [(20161023 2158) nil "Major mode for editing Stan files" tar ((:keywords "languanges") (:url . "http://github.com/stan-dev/stan-mode"))])

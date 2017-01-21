@@ -1,2 +1,0 @@
-
-(cider-eval-sexp-fu . [(20160412 128) ((emacs (24)) (highlight (0)) (eval-sexp-fu (0 4 0))) "Briefly highlights an evaluated sexps." single ((:keywords "languages" "clojure" "cider"))])

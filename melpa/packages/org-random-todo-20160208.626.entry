@@ -1,2 +1,0 @@
-
-(org-random-todo . [(20160208 626) ((emacs (24 3)) (alert (1 2))) "notify of random TODO's" single ((:keywords "org" "todo" "notification"))])

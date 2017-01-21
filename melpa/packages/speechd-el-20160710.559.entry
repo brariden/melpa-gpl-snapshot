@@ -1,0 +1,2 @@
+
+(speechd-el . [(20160710 559) nil "Client to speech synthesizers and Braille displays." tar nil])

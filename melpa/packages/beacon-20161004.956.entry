@@ -1,0 +1,2 @@
+
+(beacon . [(20161004 956) ((seq (2 14))) "Highlight the cursor whenever the window scrolls" single ((:keywords "convenience") (:url . "https://github.com/Malabarba/beacon"))])

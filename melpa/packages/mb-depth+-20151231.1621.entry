@@ -1,2 +1,0 @@
-
-(mb-depth+ . [(20151231 1621) nil "Indicate minibuffer-depth in prompt" single ((:keywords "convenience") (:url . "http://www.emacswiki.org/mb-depth+.el"))])

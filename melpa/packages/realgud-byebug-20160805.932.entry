@@ -1,0 +1,2 @@
+
+(realgud-byebug . [(20160805 932) ((realgud (1 4 3)) (cl-lib (0 5)) (emacs (24))) "realgud front-end to the Ruby byebug debugger" tar ((:url . "http://github.com/rocky/realgud-byebug"))])

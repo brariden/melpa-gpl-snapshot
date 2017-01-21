@@ -7,11 +7,25 @@ The main differents of two projects are as follow:
 
 1. org-webpage's core *don't hard code git*, its process is like below:
    #+BEGIN_EXAMPLE
-   [ Org files ] --( Export )--> [ Html files ] -------
-         \                                             \
-          \--------(Generate)--> [ Upload bash script] ---> ( Git repos )--\
-                                        \                                   \
-                                         \------------------------------------( Upload )---> Remote
+
+  [ Org files in repository]  [ Website project configure ]
+
+               |                           |
+          < Export >                 < Generate >
+               |                           |
+
+         [ HTML files ]               [ Uploader ]  <- ( Uploader is a bash script )
+
+               |                           |
+               |                           |
+               +-------------+-------------+
+                             |
+                             |
+                     < Run Uploader >  <- ( For example: git uploader, rclone uploader or others )
+                             |
+                             |
+
+                         [ REMOTE ]
 
    #+END_EXAMPLE
 
@@ -20,7 +34,8 @@ The main differents of two projects are as follow:
 3. org-website find theme-files from a *themes-list* in sequence and same theme-file
    first found will be used. User can set *fallback theme* with the help of this feature.
 4. org-website include a tiny emacs web server, which can be used to test publish.
-5. ...
+5. org-website can use other uploaders to upload website, for example: rclone.
+6. ...
 
 ** Installation
 
@@ -38,8 +53,7 @@ The follow code is [[http://tumashu.github.com][my website]]'s [[https://github.
 you can adjust and paste it to your =.emacs= file:
 
 #+BEGIN_EXAMPLE
-the following is only needed if you install org-page manually
-(add-to-list 'load-path "path/to/org-webpage")
+(add-to-list 'load-path "path/to/org-webpage") ; Only needed if you install org-webpage manually
 
 (require 'org-webpage)
 
@@ -47,6 +61,7 @@ the following is only needed if you install org-page manually
  '("tumashu.github.com"
    :repository-directory "~/project/emacs-packages/tumashu.github.com"
    :remote (git "https://github.com/tumashu/tumashu.github.com.git" "master")
+   ;; you can use `rclone` with `:remote (rclone "remote-name" "/remote/path/location")` instead.
    :site-domain "http://tumashu.github.com/"
    :site-main-title "Tumashu 的个人小站"
    :site-sub-title "(九天十地，太上忘情！！！)"
@@ -78,11 +93,12 @@ M-x owp/do-publication
 2. [[http://orgmode.org/][org mode]]: v8.0 is required, please use =M-x org-version <RET>= to make sure you org mode version is not less than 8.0
 3. [[http://www.gnu.org/software/bash/][bash]]: the GNU Project's shell
 4. [[http://git-scm.com][git]]: a free and open source version control system
-5. [[https://github.com/Wilfred/mustache.el][mustache.el]]: a mustache templating library for Emacs
-6. [[http://fly.srk.fer.hr/~hniksic/emacs/htmlize.el.cgi][htmlize.el]]: a library for syntax highlighting (usually this library is shipped with emacs)
-7. [[https://github.com/magnars/dash.el][dash.el]]: a modern list library for Emacs
-8. [[https://github.com/Wilfred/ht.el][ht.el]]: a modern hash-table library for Emacs
-9. [[https://github.com/eschulte/emacs-web-server][web-server]]: a web server library for Emacs
+5. [[http://rclone.org/downloads/][rclone]]: support to other remote locations, see rclone's overview for more information. (Optional)
+6. [[https://github.com/Wilfred/mustache.el][mustache.el]]: a mustache templating library for Emacs
+7. [[http://fly.srk.fer.hr/~hniksic/emacs/htmlize.el.cgi][htmlize.el]]: a library for syntax highlighting (usually this library is shipped with emacs)
+8. [[https://github.com/magnars/dash.el][dash.el]]: a modern list library for Emacs
+9. [[https://github.com/Wilfred/ht.el][ht.el]]: a modern hash-table library for Emacs
+10. [[https://github.com/skeeto/emacs-web-server][simple-httpd]]: Extensible Emacs HTTP 1.1 server
 
 ** Known issues
 

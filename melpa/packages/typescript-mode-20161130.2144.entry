@@ -1,0 +1,2 @@
+
+(typescript-mode . [(20161130 2144) nil "Major mode for editing typescript" single ((:keywords "typescript" "languages") (:url . "http://github.com/ananthakumaran/typescript.el"))])

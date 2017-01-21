@@ -1,0 +1,2 @@
+
+(cdnjs . [(20161031 1022) ((dash (2 13 0)) (deferred (0 4)) (f (0 17 2)) (pkg-info (0 5))) "A front end for http://cdnjs.com" single ((:keywords "tools") (:url . "https://github.com/yasuyk/cdnjs.el"))])

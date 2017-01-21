@@ -1,0 +1,2 @@
+
+(realgud . [(20170117 615) ((load-relative (1 2)) (loc-changes (1 2)) (test-simple (1 2 0)) (cl-lib (0 5)) (emacs (24))) "A modular front-end for interacting with external debuggers" tar ((:url . "http://github.com/realgud/realgud/"))])

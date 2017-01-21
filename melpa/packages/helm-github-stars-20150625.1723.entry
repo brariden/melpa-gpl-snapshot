@@ -1,0 +1,2 @@
+
+(helm-github-stars . [(20150625 1723) ((helm (1 6 8)) (emacs (24 4))) "Helm integration for your starred repositories on github" single ((:keywords "helm" "github" "stars") (:url . "https://github.com/Sliim/helm-github-stars"))])

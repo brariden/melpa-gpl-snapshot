@@ -1,2 +1,0 @@
-
-(circe . [(20160527 822) ((cl-lib (0 5))) "Client for IRC in Emacs" tar ((:url . "https://github.com/jorgenschaefer/circe"))])

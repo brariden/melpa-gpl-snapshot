@@ -1,0 +1,2 @@
+
+(helm-notmuch . [(20161128 108) ((helm (1 9 3)) (notmuch (0 21))) "Search emails with Notmuch and Helm" single ((:keywords "mail") (:url . "https://github.com/xuchunyang/helm-notmuch"))])

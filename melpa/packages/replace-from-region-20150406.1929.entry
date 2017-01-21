@@ -1,2 +1,0 @@
-
-(replace-from-region . [(20150406 1929) nil "Replace commands whose query is from region" single ((:keywords "replace" "search" "region") (:url . "http://www.emacswiki.org/emacs/download/replace-from-region.el"))])

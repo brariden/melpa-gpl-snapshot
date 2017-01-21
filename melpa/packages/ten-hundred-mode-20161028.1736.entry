@@ -1,0 +1,2 @@
+
+(ten-hundred-mode . [(20161028 1736) ((cl-lib (0 5))) "use only the ten hundred most usual words" tar nil])

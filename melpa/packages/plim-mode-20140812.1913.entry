@@ -1,0 +1,2 @@
+
+(plim-mode . [(20140812 1913) nil "Major mode for editing Plim files" single ((:keywords "markup" "language") (:url . "http://github.com/dongweiming/plim-mode"))])

@@ -1,4 +1,4 @@
-haskell-emacs is a library which allows extending emacs in haskell.
+haskell-emacs is a library which allows extending Emacs in haskell.
 It provides an FFI (foreign function interface) for haskell functions.
 
 Run `haskell-emacs-init' or put it into your .emacs.  Afterwards just

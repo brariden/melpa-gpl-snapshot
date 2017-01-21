@@ -1,2 +1,0 @@
-
-(lacarte . [(20151231 1609) nil "Execute menu items as commands, with completion." single ((:keywords "menu-bar" "menu" "command" "help" "abbrev" "minibuffer" "keys" "completion" "matching" "local" "internal" "extensions") (:url . "http://www.emacswiki.org/lacarte.el"))])

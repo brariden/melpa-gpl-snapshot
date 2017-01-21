@@ -1,0 +1,2 @@
+
+(sqlup-mode . [(20161207 2244) nil "Upcase SQL words for you" single ((:keywords "sql" "tools" "redis" "upcase") (:url . "https://github.com/trevoke/sqlup-mode.el"))])

@@ -1,2 +1,0 @@
-
-(sly-quicklisp . [(20160204 1015) ((sly (1 0 0 -2 2))) "A template SLY contrib" tar ((:keywords "languages" "lisp" "sly") (:url . "https://github.com/capitaomorte/sly-quicklisp"))])

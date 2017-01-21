@@ -1,0 +1,2 @@
+
+(helm-grepint . [(20161001 913) ((helm (1 0)) (emacs (24))) "Generic helm interface to grep" single ((:keywords "grep" "grepping" "searching" "helm") (:url . "https://github.com/kopoli/helm-grepint"))])

@@ -1,0 +1,2 @@
+
+(polymode . [(20161218 1526) ((emacs (24))) "Versatile multiple modes with extensive literate programming support" tar ((:url . "https://github.com/vitoshka/polymode"))])

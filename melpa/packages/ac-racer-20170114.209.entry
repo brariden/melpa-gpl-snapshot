@@ -1,0 +1,2 @@
+
+(ac-racer . [(20170114 209) ((emacs (24 3)) (auto-complete (1 5 0)) (racer (0 0 2))) "auto-complete source of racer" single ((:url . "https://github.com/syohex/emacs-ac-racer"))])

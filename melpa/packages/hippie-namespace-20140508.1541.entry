@@ -1,0 +1,2 @@
+
+(hippie-namespace . [(20140508 1541) nil "Special treatment for namespace prefixes in hippie-expand" single ((:keywords "convenience" "lisp" "tools" "completion") (:url . "http://github.com/rolandwalker/hippie-namespace"))])

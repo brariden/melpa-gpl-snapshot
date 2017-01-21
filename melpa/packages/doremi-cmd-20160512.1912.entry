@@ -1,2 +1,0 @@
-
-(doremi-cmd . [(20160512 1912) ((doremi (0))) "Miscellaneous Do Re Mi commands" single ((:keywords "keys" "cycle" "repeat") (:url . "http://www.emacswiki.org/doremi-cmd.el"))])

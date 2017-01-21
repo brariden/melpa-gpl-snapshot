@@ -1,0 +1,2 @@
+
+(flyspell-lazy . [(20141222 852) nil "Improve flyspell responsiveness using idle timers" single ((:keywords "spelling") (:url . "http://github.com/rolandwalker/flyspell-lazy"))])

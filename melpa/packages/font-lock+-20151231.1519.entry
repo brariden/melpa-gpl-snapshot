@@ -1,2 +1,0 @@
-
-(font-lock+ . [(20151231 1519) nil "Enhancements to standard library `font-lock.el'." single ((:keywords "languages" "faces" "highlighting") (:url . "http://www.emacswiki.org/font-lock+.el"))])

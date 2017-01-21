@@ -1,0 +1,2 @@
+
+(persp-mode . [(20170115 851) nil "windows/buffers sets shared among frames + save/load." single ((:keywords "perspectives" "session" "workspace" "persistence" "windows" "buffers" "convenience") (:url . "https://github.com/Bad-ptr/persp-mode.el"))])

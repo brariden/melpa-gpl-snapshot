@@ -1,0 +1,2 @@
+
+(puppet-mode . [(20161204 913) ((emacs (24 1)) (pkg-info (0 4))) "Major mode for Puppet manifests" single ((:keywords "languages") (:url . "https://github.com/voxpupuli/puppet-mode"))])

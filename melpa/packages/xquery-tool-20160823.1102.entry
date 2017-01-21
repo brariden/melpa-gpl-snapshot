@@ -1,0 +1,2 @@
+
+(xquery-tool . [(20160823 1102) nil "A simple interface to saxonb's xquery." single ((:keywords "xml" "xquery" "emacs") (:url . "https://github.com/paddymcall/xquery-tool.el"))])

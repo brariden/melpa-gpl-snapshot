@@ -1,2 +1,0 @@
-
-(per-buffer-theme . [(20160318 1701) ((cl-lib (0 5))) "Change theme according to buffer name or major mode." single ((:keywords "themes") (:url . "https://bitbucket.com/inigoserna/per-buffer-theme.el"))])

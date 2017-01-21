@@ -1,2 +1,0 @@
-
-(browse-at-remote . [(20160413 1921) ((f (0 17 2)) (s (1 9 0)) (cl-lib (0 5))) "Open github/gitlab/bitbucket page from Emacs" single ((:keywords "github" "gitlab" "bitbucket" "convenience"))])

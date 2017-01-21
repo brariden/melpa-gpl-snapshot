@@ -1,0 +1,2 @@
+
+(rdf-prefix . [(20161221 1416) nil "Prefix lookup for RDF" single ((:keywords "convenience" "abbrev") (:url . "https://github.com/simenheg/rdf-prefix"))])

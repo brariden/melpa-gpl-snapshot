@@ -21,21 +21,36 @@ Usage:
 
  Do: `M-x run-js'
  Away you go.
+ `node_modules' is *automatically* searched and appended into environment
+ variable `NODE_PATH'. So 3rd party javascript is usable out of box.
 
  If you have nvm, you can select the versions of node.js installed and run
- them.  This is done thanks to nvm.el
- To enable nvm support, run (js-do-use-nvm)
+ them.  This is done thanks to nvm.el.
+ Please note nvm.el is optional. So you need *manually* install it.
+ To enable nvm support, run `js-do-use-nvm'.
  The first time you start the JS interpreter with run-js, you will be asked
  to select a version of node.js
- If you want to change version of node js, run (js-select-node-version)
+ If you want to change version of node js, run `js-select-node-version'
 
- You can add  the following couple of lines to your .emacs to take advantage of
+ `js-clear' clears the content of REPL.
+
+You may get cleaner output by following setup (highly recommended):
+
+  (defun inferior-js-mode-hook-setup ()
+    (add-hook 'comint-output-filter-functions 'js-comint-process-output))
+  (add-hook 'inferior-js-mode-hook 'inferior-js-mode-hook-setup t)
+
+ `js-comint-process-output' uses `js-comint-drop-regexp' which could be
+ customized by users.
+
+ You can add the following lines to your .emacs to take advantage of
  cool keybindings for sending things to the javascript interpreter inside
  of Steve Yegge's most excellent js2-mode.
 
-(add-hook 'js2-mode-hook '(lambda ()
-                            (local-set-key "\C-x\C-e" 'js-send-last-sexp)
-                            (local-set-key "\C-\M-x" 'js-send-last-sexp-and-go)
-                            (local-set-key "\C-cb" 'js-send-buffer)
-                            (local-set-key "\C-c\C-b" 'js-send-buffer-and-go)
-                            (local-set-key "\C-cl" 'js-load-file-and-go)))
+  (add-hook 'js2-mode-hook
+            (lambda ()
+              (local-set-key (kbd "C-x C-e") 'js-send-last-sexp)
+              (local-set-key (kbd "C-M-x") 'js-send-last-sexp-and-go)
+              (local-set-key (kbd "C-c b") 'js-send-buffer)
+              (local-set-key (kbd "C-c C-b") 'js-send-buffer-and-go)
+              (local-set-key (kbd "C-c l") 'js-load-file-and-go)))

@@ -1,2 +1,0 @@
-
-(gitolite-clone . [(20150819 839) ((dash (2 10 0)) (s (1 9 0)) (pcache (0 3 1)) (emacs (24))) "Clone gitolite repositories from a completing list" single ((:keywords "gitolite" "clone" "git") (:url . "https://github.com/IvanMalison/gitolite-clone"))])

@@ -1,0 +1,2 @@
+
+(google-maps . [(20161210 658) ((emacs (24 3))) "Access Google Maps from Emacs" tar ((:keywords "comm") (:url . "https://julien.danjou.info/projects/emacs-packages#google-maps"))])

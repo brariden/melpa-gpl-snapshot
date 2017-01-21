@@ -1,2 +1,0 @@
-
-(mouse-slider-mode . [(20150910 1600) ((emacs (24 3)) (cl-lib (0 3))) "scale numbers dragged under the mouse" single ((:url . "https://github.com/skeeto/mouse-slider-mode"))])

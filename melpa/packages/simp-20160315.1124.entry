@@ -1,2 +1,0 @@
-
-(simp . [(20160315 1124) nil "Simple project definition, chiefly for file finding, and grepping" tar ((:keywords "project" "grep" "find") (:url . "https://github.com/re5et/simp"))])
