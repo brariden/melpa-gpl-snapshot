@@ -1,0 +1,2 @@
+
+(morlock . [(20161008 1558) nil "more font-lock keywords for elisp" single ((:keywords "convenience") (:url . "https://github.com/tarsius/morlock"))])

@@ -1,0 +1,2 @@
+
+(fontawesome . [(20161219 512) ((helm-core (1 7 7)) (emacs (24 4))) "fontawesome utility" tar ((:url . "https://github.com/syohex/emacs-fontawesome"))])

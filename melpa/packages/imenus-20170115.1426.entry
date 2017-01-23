@@ -1,0 +1,2 @@
+
+(imenus . [(20170115 1426) ((cl-lib (0 5))) "Imenu for multiple buffers and without subgroups" single ((:keywords "tools" "convenience") (:url . "https://github.com/alezost/imenus.el"))])

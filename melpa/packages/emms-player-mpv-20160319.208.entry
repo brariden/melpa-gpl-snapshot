@@ -1,2 +1,0 @@
-
-(emms-player-mpv . [(20160319 208) ((emms (0))) "mpv support for EMMS" single ((:keywords "emms" "mpv") (:url . "https://github.com/dochang/emms-player-mpv/"))])

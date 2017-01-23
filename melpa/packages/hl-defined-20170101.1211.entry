@@ -1,0 +1,2 @@
+
+(hl-defined . [(20170101 1211) nil "Highlight defined or undefined symbols in Emacs-Lisp." single ((:keywords "highlight" "lisp" "functions") (:url . "http://www.emacswiki.org/hl-defined.el"))])

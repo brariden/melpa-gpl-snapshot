@@ -1,2 +1,0 @@
-
-(vhdl-tools . [(20160501 1211) ((ggtags (0 8 11)) (emacs (24 3)) (outshine (2 0)) (projectile (0 13 0)) (helm (1 9 2))) "Utilities for navigating vhdl sources." single ((:keywords "vhdl") (:url . "https://github.com/csantosb/vhdl-tools"))])

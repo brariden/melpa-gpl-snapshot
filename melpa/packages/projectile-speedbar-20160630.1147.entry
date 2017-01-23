@@ -1,0 +1,2 @@
+
+(projectile-speedbar . [(20160630 1147) ((projectile (0 11 0)) (sr-speedbar (0))) "projectile integration for speedbar" single ((:keywords "project" "convenience" "speedbar" "projectile") (:url . "https://github.com/anshulverma/projectile-speedbar"))])

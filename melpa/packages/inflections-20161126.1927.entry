@@ -1,0 +1,2 @@
+
+(inflections . [(20161126 1927) ((cl-lib (0 5)) (emacs (24))) "convert english words between singular and plural" single ((:keywords "languages" "tools" "wp") (:url . "https://github.com/eschulte/jump.el"))])

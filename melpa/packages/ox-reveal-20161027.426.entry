@@ -1,0 +1,2 @@
+
+(ox-reveal . [(20161027 426) ((org (20150330))) "reveal.js Presentation Back-End for Org Export Engine" single ((:keywords "outlines" "hypermedia" "slideshow" "presentation"))])

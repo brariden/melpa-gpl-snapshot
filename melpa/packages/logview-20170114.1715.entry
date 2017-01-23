@@ -1,0 +1,2 @@
+
+(logview . [(20170114 1715) ((emacs (24 1)) (datetime (0 2))) "Major mode for viewing log files" single ((:keywords "files" "tools") (:url . "https://github.com/doublep/logview"))])

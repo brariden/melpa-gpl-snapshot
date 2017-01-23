@@ -1,0 +1,2 @@
+
+(zotxt . [(20170109 2240) ((request-deferred (0 2 0))) "Tools to integrate emacs with Zotero via the zotxt plugin." tar nil])

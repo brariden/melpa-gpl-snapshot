@@ -1,2 +1,0 @@
-
-(reveal-next . [(20151231 1750) nil "Progressively reveal text after the cursor." single ((:keywords "hide" "show" "invisible" "learning") (:url . "http://www.emacswiki.org/reveal-next.el"))])

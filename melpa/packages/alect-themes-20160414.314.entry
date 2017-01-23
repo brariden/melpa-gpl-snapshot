@@ -1,2 +1,0 @@
-
-(alect-themes . [(20160414 314) ((emacs (24 0))) "Configurable light, dark and black themes for Emacs 24 or later" tar ((:keywords "color" "theme") (:url . "https://github.com/alezost/alect-themes"))])

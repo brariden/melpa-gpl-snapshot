@@ -1,0 +1,2 @@
+
+(quickrun . [(20170114 845) ((emacs (24 3))) "Run commands quickly" single ((:url . "https://github.com/syohex/emacs-quickrun"))])

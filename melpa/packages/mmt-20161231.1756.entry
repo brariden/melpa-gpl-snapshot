@@ -1,0 +1,2 @@
+
+(mmt . [(20161231 1756) ((emacs (24 1)) (cl-lib (0 3))) "Missing macro tools for Emacs Lisp" single ((:keywords "macro" "emacs-lisp") (:url . "https://github.com/mrkkrp/mmt"))])

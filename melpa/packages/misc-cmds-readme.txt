@@ -22,9 +22,12 @@
    `recenter-top-bottom-2', `region-length', `region-to-buffer',
    `region-to-file', `resolve-file-name',
    `reversible-transpose-sexps', `revert-buffer-no-confirm',
-   `selection-length', `switch-to-alternate-buffer',
-   `switch-to-alternate-buffer-other-window', `undo-repeat' (Emacs
-   24.3+), `view-X11-colors'.
+   `selection-length', `split-para-at-sentence-ends' (Emacs 21+),
+   `split-para-mode' (Emacs 21+), `switch-to-alternate-buffer',
+   `switch-to-alternate-buffer-other-window',
+   `to-indentation-repeat-backward',
+   `to-indentation-repeat-forward', `undo-repeat' (Emacs 24.3+),
+   `view-X11-colors'.
 
  Non-interactive functions defined here:
 
@@ -49,10 +52,11 @@
   (global-set-key [f5]             'revert-buffer-no-confirm) ; A la MS Windows
   (substitute-key-definition       'kill-buffer
                                    'kill-buffer-and-its-windows global-map)
-  (substitute-key-definition 'recenter 'recenter-top-bottom global-map)
-  (substitute-key-definition 'beginning-of-line 'beginning-of-line+ global-map)
-  (substitute-key-definition 'end-of-line 'end-of-line+ global-map)
-  (substitute-key-definition 'transpose-sexps 'reversible-transpose-sexps global-map)
+  (substitute-key-definition       'recenter 'recenter-top-bottom global-map)
+  (substitute-key-definition       'beginning-of-line 'beginning-of-line+ global-map)
+  (substitute-key-definition       'end-of-line 'end-of-line+ global-map)
+  (substitute-key-definition       'transpose-sexps
+                                   'reversible-transpose-sexps global-map)
 
   The first two of these are needed to remove the default remappings.
   (define-key visual-line-mode-map [remap move-beginning-of-line] nil)
@@ -61,6 +65,8 @@
   (define-key visual-line-mode-map [end]  'end-of-line+)
   (define-key visual-line-mode-map "\C-a" 'beginning-of-visual-line+)
   (define-key visual-line-mode-map "\C-e" 'end-of-visual-line+)
+  (global-set-key "\M-m"           'to-indentation-repeat-backward)
+  (global-set-key "\M-n"           'to-indentation-repeat-forward)
 
   (global-set-key [remap previous-buffer] 'previous-buffer-repeat)
   (global-set-key [remap next-buffer]     'next-buffer-repeat)

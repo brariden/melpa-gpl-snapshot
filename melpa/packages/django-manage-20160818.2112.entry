@@ -1,0 +1,2 @@
+
+(django-manage . [(20160818 2112) ((hydra (0 13 2))) "Django minor mode for commanding manage.py" single ((:keywords "languages"))])

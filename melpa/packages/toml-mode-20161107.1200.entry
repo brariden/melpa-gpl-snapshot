@@ -1,0 +1,2 @@
+
+(toml-mode . [(20161107 1200) ((emacs (24)) (cl-lib (0 5))) "Major mode for editing TOML files" single ((:keywords "data" "toml") (:url . "https://github.com/dryman/toml-mode.el"))])

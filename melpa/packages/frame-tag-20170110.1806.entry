@@ -1,0 +1,2 @@
+
+(frame-tag . [(20170110 1806) ((cl-lib (0 5))) "Minor mode that assigns a unique number to each frame for easy switching" single ((:keywords "frame" "movement") (:url . "http://github.com/liangzan/frame-tag.el"))])

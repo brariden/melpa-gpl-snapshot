@@ -1,2 +1,0 @@
-
-(skewer-less . [(20131015 822) ((skewer-mode (1 5 3))) "Skewer support for live LESS stylesheet updates" single ((:keywords "languages" "tools"))])

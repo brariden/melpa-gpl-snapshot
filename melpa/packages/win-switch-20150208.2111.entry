@@ -1,2 +1,0 @@
-
-(win-switch . [(20150208 2111) nil "fast, dynamic bindings for window-switching/resizing" single ((:keywords "window" "switch" "key bindings" "ergonomic" "efficient") (:url . "http://www.stat.cmu.edu/~genovese/emacs/win-switch/"))])

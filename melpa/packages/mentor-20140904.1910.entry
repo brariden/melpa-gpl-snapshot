@@ -1,2 +1,0 @@
-
-(mentor . [(20140904 1910) ((xml-rpc (1 6 9))) "Frontend for the rTorrent bittorrent client" tar ((:keywords "bittorrent" "rtorrent"))])

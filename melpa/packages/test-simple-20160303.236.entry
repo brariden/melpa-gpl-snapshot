@@ -1,2 +1,0 @@
-
-(test-simple . [(20160303 236) ((cl-lib (0))) "Simple Unit Test Framework for Emacs Lisp" single ((:keywords "unit-test") (:url . "http://github.com/rocky/emacs-test-simple"))])

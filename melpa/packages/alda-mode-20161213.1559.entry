@@ -1,0 +1,2 @@
+
+(alda-mode . [(20161213 1559) ((emacs (24 0))) "A simple major mode for the musical programming language Alda" single ((:keywords "alda" "highlight") (:url . "http://github.com/jgkamat/alda-mode"))])

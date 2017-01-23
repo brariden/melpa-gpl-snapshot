@@ -1,2 +1,0 @@
-
-(synonymous . [(20150909 1034) ((emacs (24)) (cl-lib (0 5)) (request (0 2 0))) "A thesaurus at your fingertips" single ((:keywords "utility") (:url . "http://github.com/toroidal-code/synonymous.el"))])

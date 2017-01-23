@@ -1,0 +1,2 @@
+
+(rpm-spec-mode . [(20160710 636) nil "RPM spec file editing commands for Emacs/XEmacs" single ((:keywords "unix" "languages"))])

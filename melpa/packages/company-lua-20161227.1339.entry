@@ -1,0 +1,2 @@
+
+(company-lua . [(20161227 1339) ((company (0 8 12)) (s (1 10 0)) (f (0 17 0)) (lua-mode (20151025))) "Company backend for Lua" tar nil])

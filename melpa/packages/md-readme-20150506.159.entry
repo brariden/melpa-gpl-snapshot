@@ -1,2 +1,0 @@
-
-(md-readme . [(20150506 159) nil "Markdown-formatted READMEs for your ELisp" tar ((:keywords "lisp" "help" "readme" "markdown" "header" "documentation" "github") (:url . "http://github.com/thomas11/md-readme/tree/master"))])

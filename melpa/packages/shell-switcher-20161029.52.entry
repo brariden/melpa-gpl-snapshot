@@ -1,0 +1,2 @@
+
+(shell-switcher . [(20161029 52) ((emacs (24))) "Provide fast switching between shell buffers." tar nil])

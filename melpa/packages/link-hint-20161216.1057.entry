@@ -1,0 +1,2 @@
+
+(link-hint . [(20161216 1057) ((avy (0 3 0)) (emacs (24 1)) (cl-lib (0 5))) "Use avy to open or copy visible urls." single ((:keywords "url") (:url . "https://github.com/noctuid/link-hint.el"))])

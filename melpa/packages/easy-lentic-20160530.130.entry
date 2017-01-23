@@ -1,2 +1,0 @@
-
-(easy-lentic . [(20160530 130) ((lentic (0 10)) (cl-lib (0 5))) "Write org style comment with lentic" single ((:keywords "convenience") (:url . "https://github.com/tumashu/easy-lentic"))])

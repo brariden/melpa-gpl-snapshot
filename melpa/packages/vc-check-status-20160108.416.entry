@@ -1,2 +1,0 @@
-
-(vc-check-status . [(20160108 416) nil "Warn you when quitting emacs and leaving repo dirty." tar ((:keywords "vc" "convenience") (:url . "https://github.com/thisirs/vc-check-status"))])

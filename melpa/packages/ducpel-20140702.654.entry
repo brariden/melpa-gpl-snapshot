@@ -1,0 +1,2 @@
+
+(ducpel . [(20140702 654) ((cl-lib (0 5))) "Logic game with sokoban elements" tar ((:keywords "games") (:url . "https://github.com/alezost/ducpel"))])

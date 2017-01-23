@@ -1,2 +1,0 @@
-
-(ac-etags . [(20151031 2121) ((auto-complete (1 4))) "etags/ctags completion source for auto-complete" single ((:url . "https://github.com/syohex/emacs-ac-etags"))])

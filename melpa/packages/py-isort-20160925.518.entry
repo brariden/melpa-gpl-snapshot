@@ -1,0 +1,2 @@
+
+(py-isort . [(20160925 518) nil "Use isort to sort the imports in a Python buffer" single ((:url . "http://paetzke.me/project/py-isort.el"))])

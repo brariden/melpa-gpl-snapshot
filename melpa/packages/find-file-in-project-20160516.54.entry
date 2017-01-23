@@ -1,2 +1,0 @@
-
-(find-file-in-project . [(20160516 54) ((swiper (0 7 0)) (emacs (24 3))) "Find files in a project quickly, on any OS" single ((:keywords "project" "convenience") (:url . "https://github.com/technomancy/find-file-in-project"))])

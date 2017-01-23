@@ -1,2 +1,0 @@
-
-(evil-exchange . [(20160407 2318) ((evil (1 2 8)) (cl-lib (0 3))) "Exchange text more easily within Evil" single ((:keywords "evil" "plugin") (:url . "http://github.com/Dewdrops/evil-exchange"))])

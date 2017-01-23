@@ -1,0 +1,2 @@
+
+(kaomoji . [(20160218 220) ((emacs (24 3)) (helm-core (1 9 1))) "Input kaomoji superb easily" tar ((:keywords "tools" "fun") (:url . "https://github.com/kuanyui/kaomoji.el"))])

@@ -1,0 +1,2 @@
+
+(company-nand2tetris . [(20161011 1948) ((nand2tetris (1 0 0)) (company (0 5)) (cl-lib (0 5 0))) "Company backend for nand2tetris major mode" single ((:keywords "nand2tetris" "hdl" "company") (:url . "http://www.github.com/CestDiego/nand2tetris.el/"))])

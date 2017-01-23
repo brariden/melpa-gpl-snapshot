@@ -1,0 +1,2 @@
+
+(init-open-recentf . [(20161206 845) ((emacs (24 4))) "Open recentf immediately after Emacs is started" single ((:keywords "files" "recentf" "after-init-hook") (:url . "https://github.com/zonuexe/init-open-recentf.el"))])

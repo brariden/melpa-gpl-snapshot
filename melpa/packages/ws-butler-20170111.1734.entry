@@ -1,0 +1,2 @@
+
+(ws-butler . [(20170111 1734) nil "Unobtrusively remove trailing whitespace." single ((:url . "https://github.com/lewang/ws-butler"))])

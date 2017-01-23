@@ -1,2 +1,0 @@
-
-(org-tfl . [(20160407 1640) ((org (0 16 2)) (cl-lib (0 5)) (emacs (24 1))) "Transport for London meets Orgmode" tar ((:keywords "org" "tfl") (:url . "https://github.com/storax/org-tfl"))])

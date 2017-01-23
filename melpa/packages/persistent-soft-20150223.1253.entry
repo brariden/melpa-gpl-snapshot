@@ -1,0 +1,2 @@
+
+(persistent-soft . [(20150223 1253) ((pcache (0 3 1)) (list-utils (0 4 2))) "Persistent storage, returning nil on failure" single ((:keywords "data" "extensions") (:url . "http://github.com/rolandwalker/persistent-soft"))])

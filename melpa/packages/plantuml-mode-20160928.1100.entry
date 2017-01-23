@@ -1,0 +1,2 @@
+
+(plantuml-mode . [(20160928 1100) nil "Major mode for plantuml" single ((:keywords "uml" "ascii"))])

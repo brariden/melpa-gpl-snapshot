@@ -1,2 +1,0 @@
-
-(flycheck-package . [(20160502 335) ((cl-lib (0 5)) (flycheck (0 22)) (emacs (24))) "A Flycheck checker for elisp package authors" single ((:keywords "lisp"))])

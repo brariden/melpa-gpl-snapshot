@@ -1,0 +1,2 @@
+
+(strings . [(20170101 1337) nil "Miscellaneous string functions." single ((:keywords "internal" "strings" "text") (:url . "http://www.emacswiki.org/strings.el"))])

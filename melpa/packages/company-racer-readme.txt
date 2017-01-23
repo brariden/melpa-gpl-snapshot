@@ -1,10 +1,12 @@
-[![Travis build status](https://travis-ci.org/emacs-pe/company-racer.svg?branch=master)](https://travis-ci.org/emacs-pe/company-racer)
+> **NOTE**: [emacs-racer][] already offers completion support for through
+> `completion-at-point-functions', so installing both packages could be
+> unnecessary.
 
 A company backend for [racer][].
 
 Setup:
 
-Install and configure [racer][]. And add to your `init.el':
+Install and configure [racer][].  And add to your `init.el':
 
     (require 'company-racer)
 
@@ -26,4 +28,5 @@ TODO:
 + [ ] Add support for find-definition (maybe not in this package.)
 
 [racer]: https://github.com/phildawes/racer
+[emacs-racer]: https://github.com/racer-rust/emacs-racer
 [rust-lang]: http://www.rust-lang.org/

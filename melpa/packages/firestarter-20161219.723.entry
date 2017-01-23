@@ -1,0 +1,2 @@
+
+(firestarter . [(20161219 723) nil "Execute (shell) commands on save" single ((:keywords "convenience") (:url . "https://github.com/wasamasa/firestarter"))])

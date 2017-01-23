@@ -1,2 +1,0 @@
-
-(highlight-escape-sequences . [(20151231 612) nil "Highlight escape sequences" single ((:keywords "convenience") (:url . "https://github.com/dgutov/highlight-escape-sequences"))])

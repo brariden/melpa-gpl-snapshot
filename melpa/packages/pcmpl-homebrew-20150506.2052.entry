@@ -1,2 +1,0 @@
-
-(pcmpl-homebrew . [(20150506 2052) nil "pcomplete for homebrew" single ((:keywords "pcomplete" "homebrew" "tools"))])

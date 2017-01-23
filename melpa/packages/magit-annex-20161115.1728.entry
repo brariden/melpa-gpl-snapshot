@@ -1,0 +1,2 @@
+
+(magit-annex . [(20161115 1728) ((cl-lib (0 3)) (magit (2 3 0))) "Control git-annex from Magit" single ((:keywords "vc" "tools") (:url . "https://github.com/kyleam/magit-annex"))])

@@ -1,2 +1,0 @@
-
-(undo-tree . [(20140509 722) nil "Treat undo history as a tree" single ((:keywords "convenience" "files" "undo" "redo" "history" "tree") (:url . "http://www.dr-qubit.org/emacs.php"))])

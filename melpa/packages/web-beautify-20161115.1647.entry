@@ -1,0 +1,2 @@
+
+(web-beautify . [(20161115 1647) nil "Format HTML, CSS and JavaScript/JSON" single ((:url . "https://github.com/yasuyk/web-beautify"))])

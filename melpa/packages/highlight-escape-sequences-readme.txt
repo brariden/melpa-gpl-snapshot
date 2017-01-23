@@ -1,11 +1,12 @@
 This global minor mode highlights escape sequences in strings and
-other kinds of literals with `hes-escape-sequence-face' which
-inherits from `font-lock-regexp-grouping-construct' face by
-default and with `hes-escape-backslash-face' which inherits from
-`font-lock-regexp-grouping-backslash' face by default.
+other kinds of literals with `hes-escape-sequence-face' and with
+`hes-escape-backslash-face'. They inherit from faces
+`font-lock-regexp-grouping-construct' and
+`font-lock-regexp-grouping-backslash' by default, respectively.
 
-It currently supports `ruby-mode' and some simple modes:
-both main JavaScript modes, Java mode, and C/C++/ObjC modes.
+It currently supports `ruby-mode', `emacs-lisp-mode', JS escape
+sequences in both popular modes, C escapes is `c-mode', `c++-mode'
+and `objc-mode', and Java escapes in `java-mode' and `clojure-mode'.
 
 To enable it elsewhere, customize `hes-mode-alist'.
 

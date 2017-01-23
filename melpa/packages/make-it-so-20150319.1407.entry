@@ -1,2 +1,0 @@
-
-(make-it-so . [(20150319 1407) ((helm (1 5 3)) (emacs (24))) "Transform files with Makefile recipes." tar ((:keywords "make" "dired") (:url . "https://github.com/abo-abo/make-it-so"))])

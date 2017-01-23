@@ -1,0 +1,2 @@
+
+(persistent-scratch . [(20170110 746) ((emacs (24))) "Preserve the scratch buffer across Emacs sessions" single ((:url . "https://github.com/Fanael/persistent-scratch"))])

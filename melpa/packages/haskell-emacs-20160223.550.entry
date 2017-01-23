@@ -1,2 +1,0 @@
-
-(haskell-emacs . [(20160223 550) nil "Write emacs extensions in haskell" tar ((:keywords "haskell" "emacs" "ffi") (:url . "https://github.com/knupfer/haskell-emacs"))])

@@ -1,2 +1,0 @@
-
-(company-irony . [(20160321 1603) ((emacs (24 1)) (company (0 8 0)) (irony (0 2 0)) (cl-lib (0 5))) "company-mode completion back-end for irony-mode" single ((:keywords "convenience") (:url . "https://github.com/Sarcasm/company-irony/"))])

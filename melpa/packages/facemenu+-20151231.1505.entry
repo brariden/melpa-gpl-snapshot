@@ -1,2 +1,0 @@
-
-(facemenu+ . [(20151231 1505) nil "Extensions to `facemenu.el'." single ((:keywords "faces" "extensions" "convenience" "menus" "local") (:url . "http://www.emacswiki.org/facemenu+.el"))])

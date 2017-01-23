@@ -1,0 +1,2 @@
+
+(helm-dash . [(20161207 1432) ((helm (1 9 2)) (cl-lib (0 5))) "Offline documentation browser for +150 APIs using Dash docsets." single ((:keywords "docs") (:url . "http://github.com/areina/helm-dash"))])

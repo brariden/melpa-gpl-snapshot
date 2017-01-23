@@ -1,2 +1,0 @@
-
-(mmm-jinja2 . [(20150904 1334) ((mmm-mode (0 5 4))) "MMM submode class for Jinja2 Templates" single ((:url . "https://github.com/beardedprojamz/mmm-jinja2"))])

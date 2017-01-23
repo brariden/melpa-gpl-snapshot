@@ -1,0 +1,2 @@
+
+(aa-edit-mode . [(20170118 2120) ((emacs (24 3)) (navi2ch (2 0 0))) "Major mode for editing AA(S_JIS Art) and .mlt file" single ((:keywords "wp" "text" "shiftjis" "mlt" "yaruo"))])

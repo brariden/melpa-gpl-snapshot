@@ -1,0 +1,2 @@
+
+(geben . [(20170119 600) ((emacs (24 3)) (cl-lib (0 5))) "DBGp protocol frontend, a script debugger" tar ((:keywords "c" "comm" "tools") (:url . "https://github.com/ahungry/geben"))])

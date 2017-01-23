@@ -1,0 +1,2 @@
+
+(writeroom-mode . [(20160830 816) ((emacs (24 1)) (visual-fill-column (1 9))) "Minor mode for distraction-free writing" tar ((:keywords "text"))])

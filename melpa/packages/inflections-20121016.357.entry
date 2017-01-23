@@ -1,2 +1,0 @@
-
-(inflections . [(20121016 357) nil "convert english words between singular and plural" single ((:keywords "ruby" "rails" "languages" "oop") (:url . "https://github.com/eschulte/jump.el"))])

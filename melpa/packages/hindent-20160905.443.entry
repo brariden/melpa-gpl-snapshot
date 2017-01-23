@@ -1,0 +1,2 @@
+
+(hindent . [(20160905 443) ((cl-lib (0 5))) "Indent haskell code using the \"hindent\" program" single ((:url . "https://github.com/chrisdone/hindent"))])

@@ -1,2 +1,0 @@
-
-(flycheck-nim . [(20150911 1847) ((dash (2 4 0)) (flycheck (0 20))) "Defines a flycheck syntax checker for nim" single ((:url . "https://github.com/ALSchwalm/flycheck-nim"))])

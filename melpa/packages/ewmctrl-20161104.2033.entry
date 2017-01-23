@@ -1,0 +1,2 @@
+
+(ewmctrl . [(20161104 2033) nil "Use `wmctrl' to manage desktop windows via EWMH/NetWM." single ((:keywords "desktop" "windows" "ewmh" "netwm") (:url . "https://github.com/flexibeast/ewmctrl"))])

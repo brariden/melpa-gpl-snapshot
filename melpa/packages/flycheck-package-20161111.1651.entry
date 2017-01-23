@@ -1,0 +1,2 @@
+
+(flycheck-package . [(20161111 1651) ((flycheck (0 22)) (package-lint (0 2))) "A Flycheck checker for elisp package authors" single ((:keywords "lisp"))])

@@ -1,0 +1,2 @@
+
+(dash . [(20161121 255) nil "A modern list library for Emacs" single ((:keywords "lists"))])

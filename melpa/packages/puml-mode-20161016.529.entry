@@ -1,0 +1,2 @@
+
+(puml-mode . [(20161016 529) ((emacs (24))) "Major mode for PlantUML" single ((:keywords "uml" "plantuml" "ascii"))])

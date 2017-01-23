@@ -1,0 +1,2 @@
+
+(dynamic-fonts . [(20140731 726) ((font-utils (0 7 0)) (persistent-soft (0 8 8)) (pcache (0 2 3))) "Set faces based on available fonts" single ((:keywords "faces" "frames") (:url . "http://github.com/rolandwalker/dynamic-fonts"))])

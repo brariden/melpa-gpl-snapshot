@@ -1,0 +1,2 @@
+
+(org-pomodoro . [(20161119 426) ((alert (0 5 10)) (cl-lib (0 5))) "Pomodoro implementation for org-mode." tar ((:url . "https://github.com/lolownia/org-pomodoro"))])

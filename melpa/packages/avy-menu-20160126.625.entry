@@ -1,2 +1,0 @@
-
-(avy-menu . [(20160126 625) ((emacs (24 3)) (avy (0 3 0))) "Library providing avy-powered popup menu" single ((:keywords "popup" "menu") (:url . "https://github.com/mrkkrp/avy-menu"))])

@@ -1,0 +1,2 @@
+
+(jonprl-mode . [(20160818 1959) ((emacs (24 3)) (cl-lib (0 5)) (yasnippet (0 8 0))) "A major mode for editing JonPRL files" tar ((:keywords "languages"))])

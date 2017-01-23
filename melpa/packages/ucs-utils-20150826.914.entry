@@ -1,0 +1,2 @@
+
+(ucs-utils . [(20150826 914) ((persistent-soft (0 8 8)) (pcache (0 2 3)) (list-utils (0 4 2))) "Utilities for Unicode characters" tar ((:keywords "i18n" "extensions") (:url . "http://github.com/rolandwalker/ucs-utils"))])

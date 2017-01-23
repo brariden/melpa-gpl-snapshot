@@ -1,0 +1,2 @@
+
+(datetime-format . [(20160612 1215) nil "Datetime functions" single ((:keywords "datetime" "calendar") (:url . "https://github.com/zonuexe/emacs-datetime"))])

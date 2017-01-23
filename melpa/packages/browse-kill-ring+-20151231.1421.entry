@@ -1,2 +1,0 @@
-
-(browse-kill-ring+ . [(20151231 1421) ((browse-kill-ring (0))) "Extensions to `browse-kill-ring.el'." single ((:keywords "convenience") (:url . "http://www.emacswiki.org/browse-kill-ring+.el"))])

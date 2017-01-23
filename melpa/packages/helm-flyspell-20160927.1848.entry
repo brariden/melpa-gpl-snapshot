@@ -1,0 +1,2 @@
+
+(helm-flyspell . [(20160927 1848) ((helm (1 6 5))) "Helm extension for correcting words with flyspell" single ((:keywords "convenience") (:url . "https://github.com/pronobis/helm-flyspell"))])

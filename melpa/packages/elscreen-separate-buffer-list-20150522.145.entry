@@ -1,2 +1,0 @@
-
-(elscreen-separate-buffer-list . [(20150522 145) ((emacs (24 4)) (elscreen (1 4 6))) "Separate buffer list manager for elscreen" single ((:keywords "elscreen"))])

@@ -1,0 +1,2 @@
+
+(sourcemap . [(20161215 2340) ((emacs (24 3))) "Sourcemap parser" single ((:url . "https://github.com/syohex/emacs-sourcemap"))])

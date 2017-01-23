@@ -1,0 +1,2 @@
+
+(helm-spaces . [(20161001 909) ((helm-core (2 2)) (spaces (0 1 0))) "helm sources for spaces" single ((:keywords "helm" "frames" "convenience") (:url . "https://github.com/yasuyk/helm-spaces"))])

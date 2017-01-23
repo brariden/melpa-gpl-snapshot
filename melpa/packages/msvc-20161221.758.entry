@@ -1,0 +1,2 @@
+
+(msvc . [(20161221 758) ((emacs (24)) (cl-lib (0 5)) (cedet (1 0)) (ac-clang (1 2 0))) "Microsoft Visual C/C++ mode" tar ((:keywords "languages" "completion" "syntax check" "mode" "intellisense") (:url . "https://github.com/yaruopooner/msvc"))])

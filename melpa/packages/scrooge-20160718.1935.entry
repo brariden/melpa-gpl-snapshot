@@ -1,0 +1,2 @@
+
+(scrooge . [(20160718 1935) ((emacs (24)) (thrift (0 9 3))) "Major mode for Twitter Scrooge files" single ((:keywords "scrooge" "thrift"))])

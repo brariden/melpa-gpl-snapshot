@@ -1,0 +1,2 @@
+
+(xahk-mode . [(20161219 111) ((emacs (24 1))) "Major mode for editing AutoHotkey scripts." single ((:keywords "languages") (:url . "http://xahlee.info/mswin/emacs_autohotkey_mode.html"))])

@@ -1,0 +1,2 @@
+
+(sphinx-frontend . [(20161025 258) nil "Launch build process for rst documents via sphinx." single ((:keywords "compile" "sphinx" "restructuredtext") (:url . "https://github.com/kostafey/sphinx-frontend"))])

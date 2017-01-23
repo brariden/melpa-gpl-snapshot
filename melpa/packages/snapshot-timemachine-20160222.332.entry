@@ -1,2 +1,0 @@
-
-(snapshot-timemachine . [(20160222 332) ((emacs (24 4)) (cl-lib (0 5))) "Step through (Btrfs, ZFS, ...) snapshots of files" single ((:url . "https://github.com/mrBliss/snapshot-timemachine"))])

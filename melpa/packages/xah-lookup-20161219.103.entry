@@ -1,0 +1,2 @@
+
+(xah-lookup . [(20161219 103) ((emacs (24 1))) "look up word on internet." single ((:keywords "help" "docs" "convenience") (:url . "http://ergoemacs.org/emacs/xah-lookup.html"))])

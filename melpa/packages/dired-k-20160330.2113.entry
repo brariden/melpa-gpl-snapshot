@@ -1,2 +1,0 @@
-
-(dired-k . [(20160330 2113) ((cl-lib (0 5)) (emacs (24))) "highlight dired buffer by file size, modified time, git status" tar ((:url . "https://github.com/syohex/emacs-dired-k"))])

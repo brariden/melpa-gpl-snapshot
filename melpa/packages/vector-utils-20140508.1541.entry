@@ -1,0 +1,2 @@
+
+(vector-utils . [(20140508 1541) nil "Vector-manipulation utility functions" single ((:keywords "extensions") (:url . "http://github.com/rolandwalker/vector-utils"))])

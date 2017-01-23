@@ -1,0 +1,2 @@
+
+(anaphora . [(20140728 1736) nil "anaphoric macros providing implicit temp variables" single ((:keywords "extensions") (:url . "http://github.com/rolandwalker/anaphora"))])

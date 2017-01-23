@@ -1,2 +1,0 @@
-
-(docker-tramp . [(20160113 2152) ((emacs (24)) (cl-lib (0 5))) "TRAMP integration for docker containers" single ((:keywords "docker" "convenience") (:url . "https://github.com/emacs-pe/docker-tramp.el"))])

@@ -1,0 +1,2 @@
+
+(helm-ghq . [(20161015 317) ((helm (2 2 0))) "ghq with helm interface" single ((:url . "https://github.com/masutaka/emacs-helm-ghq"))])

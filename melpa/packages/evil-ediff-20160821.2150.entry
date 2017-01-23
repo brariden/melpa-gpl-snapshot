@@ -1,0 +1,2 @@
+
+(evil-ediff . [(20160821 2150) ((evil (1 2 3))) "Make ediff a little evil" single ((:url . "https://github.com/justbur/evil-ediff"))])

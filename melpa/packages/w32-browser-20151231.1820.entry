@@ -1,2 +1,0 @@
-
-(w32-browser . [(20151231 1820) nil "Run Windows application associated with a file." single ((:keywords "mouse" "dired" "w32" "explorer") (:url . "http://www.emacswiki.org/w32-browser.el"))])

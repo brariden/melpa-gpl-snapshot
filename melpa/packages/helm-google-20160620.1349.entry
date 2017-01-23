@@ -1,0 +1,2 @@
+
+(helm-google . [(20160620 1349) ((helm (0)) (google (0))) "Emacs Helm Interface for quick Google searches" single ((:keywords "helm" "google" "search" "browse") (:url . "https://github.com/steckerhalter/helm-google"))])

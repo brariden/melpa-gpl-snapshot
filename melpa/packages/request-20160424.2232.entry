@@ -1,2 +1,0 @@
-
-(request . [(20160424 2232) ((emacs (24)) (cl-lib (0 5))) "Compatible layer for URL request in Emacs" single nil])

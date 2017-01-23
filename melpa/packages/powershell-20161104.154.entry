@@ -1,0 +1,2 @@
+
+(powershell . [(20161104 154) ((emacs (24))) "Mode for editing Powershell scripts" single ((:keywords "powershell" "languages") (:url . "http://github.com/jschaf/powershell.el"))])

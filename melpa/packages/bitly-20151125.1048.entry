@@ -1,2 +1,0 @@
-
-(bitly . [(20151125 1048) nil "Shorten URLs using the bitly.com shortener service" single ((:url . "https://github.com/jorgenschaefer/bitly-el"))])

@@ -1,2 +1,0 @@
-
-(xah-fly-keys . [(20160601 536) nil "A efficient modal keybinding set minor mode based on ergonomics." single ((:keywords "convenience" "emulations" "vim" "ergoemacs") (:url . "http://ergoemacs.org/misc/ergoemacs_vi_mode.html"))])

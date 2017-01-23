@@ -1,2 +1,0 @@
-
-(grass-mode . [(20160317 814) ((cl-lib (0 2)) (dash (2 8 0))) "Provides Emacs modes for interacting with the GRASS GIS program" single ((:keywords "grass" "gis"))])

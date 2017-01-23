@@ -1,2 +1,0 @@
-
-(aa-edit-mode . [(20160228 17) ((emacs (24)) (navi2ch (2 0 0))) "Major mode for editing AA" single ((:keywords "text" "shiftjis"))])

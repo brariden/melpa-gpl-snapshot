@@ -1,0 +1,2 @@
+
+(sonic-pi . [(20161024 513) ((cl-lib (0 5)) (osc (0 1)) (dash (2 2 0)) (emacs (24)) (highlight (0))) "A Emacs client for SonicPi" tar ((:keywords "sonicpi" "ruby") (:url . "http://www.github.com/repl-electric/sonic-pi.el"))])

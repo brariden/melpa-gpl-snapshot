@@ -1,0 +1,2 @@
+
+(all-ext . [(20170114 2005) ((all (1 0))) "M-x all with helm-swoop/anything/multiple-cursors/line-number" single ((:keywords "all" "search" "replace" "anything" "helm" "helm-swoop" "occur") (:url . "https://github.com/rubikitch/all-ext"))])

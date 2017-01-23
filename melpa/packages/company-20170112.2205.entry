@@ -1,0 +1,2 @@
+
+(company . [(20170112 2205) ((emacs (24 3))) "Modular text completion framework" tar ((:keywords "abbrev" "convenience" "matching") (:url . "http://company-mode.github.io/"))])

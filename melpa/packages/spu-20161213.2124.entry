@@ -1,0 +1,2 @@
+
+(spu . [(20161213 2124) ((emacs (24 4)) (signal (1 0)) (timp (1 2 0))) "Silently upgrade package in the background" tar ((:keywords "convenience" "package") (:url . "https://github.com/mola-T/spu"))])

@@ -1,0 +1,2 @@
+
+(ruby-test-mode . [(20160930 209) ((ruby-mode (1 0)) (pcre2el (1 8))) "Minor mode for Behaviour and Test Driven" single ((:keywords "ruby" "unit" "test" "rspec"))])

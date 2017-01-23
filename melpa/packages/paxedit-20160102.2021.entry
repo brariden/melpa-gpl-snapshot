@@ -1,2 +1,0 @@
-
-(paxedit . [(20160102 2021) ((cl-lib (0 5)) (paredit (23))) "Structured, Context Driven LISP Editing and Refactoring" single ((:keywords "lisp" "refactoring" "context") (:url . "https://github.com/promethial/paxedit"))])

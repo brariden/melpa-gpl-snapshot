@@ -1,0 +1,2 @@
+
+(filesets+ . [(20170101 1137) nil "Extensions to `filesets.el'." single ((:url . "http://www.emacswiki.org/filesets+.el"))])

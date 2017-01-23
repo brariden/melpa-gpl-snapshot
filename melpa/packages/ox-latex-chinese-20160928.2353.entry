@@ -1,0 +1,2 @@
+
+(ox-latex-chinese . [(20160928 2353) ((emacs (24 4)) (cl-lib (0 5))) "An example org latex exporter configure for Chinese users" single ((:url . "https://github.com/tumashu/ox-latex-chinese"))])

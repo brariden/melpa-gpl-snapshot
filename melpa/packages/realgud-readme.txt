@@ -1,3 +1,12 @@
+A modular, extensible GNU Emacs front-end for interacting with
+external debuggers.
+
+Quick start: https://github.com/realgud/realgud/
+
+See URL `https://github.com/realgud/realgud/wiki/Features' for features, and
+URL `https://github.com/realgud/realgud/wiki/Debuggers-Supported' for
+debuggers we can handle.
+
 Once upon a time in an Emacs far far away and a programming-style
 deservedly banished, there was a monolithic Cathederal-like
 debugger front-end called gub.  This interfaced with a number of
@@ -13,12 +22,6 @@ an Emacs front-end to modern debuggers.
 
 Oh, and because global variables are largely banned, we can support
 several simultaneous debug sessions.
-
-See URL `https://github.com/realgud/realgud/wiki/Features' for
-features.
-
-See URL `https://github.com/realgud/realgud/wiki/Debuggers-Supported' for
-debuggers we can handle.
 
 If you don't see your favorite debugger, see URL
 `https://github.com/realgud/realgud/wiki/How-to-add-a-new-debugger/'

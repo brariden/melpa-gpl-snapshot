@@ -1,0 +1,2 @@
+
+(org-tracktable . [(20161118 729) ((emacs (24)) (cl-lib (0 5))) "Track your writing progress in an org-table" single ((:keywords "org" "writing") (:url . "https://github.com/tty-tourist/org-tracktable"))])

@@ -1,0 +1,2 @@
+
+(buffer-move . [(20160615 1303) nil "easily swap buffers" single ((:keywords "lisp" "convenience") (:url . "https://github.com/lukhas/buffer-move"))])

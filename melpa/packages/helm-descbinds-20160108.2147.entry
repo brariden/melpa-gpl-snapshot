@@ -1,2 +1,0 @@
-
-(helm-descbinds . [(20160108 2147) ((helm (1 5))) "A convenient `describe-bindings' with `helm'" single ((:keywords "helm" "help") (:url . "https://github.com/emacs-helm/helm-descbinds"))])

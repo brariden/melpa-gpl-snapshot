@@ -1,0 +1,2 @@
+
+(git-auto-commit-mode . [(20161229 1017) nil "Emacs Minor mode to automatically commit and push" single ((:keywords "vc") (:url . "http://projects.ryuslash.org/git-auto-commit-mode/"))])

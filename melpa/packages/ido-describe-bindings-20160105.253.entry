@@ -1,2 +1,0 @@
-
-(ido-describe-bindings . [(20160105 253) ((dash (2 11 0))) "Yet another `describe-bindings' with `ido'." single ((:keywords "help") (:url . "https://github.com/danil/ido-describe-bindings"))])

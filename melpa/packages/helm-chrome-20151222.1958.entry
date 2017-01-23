@@ -1,2 +1,0 @@
-
-(helm-chrome . [(20151222 1958) ((helm (1 5)) (cl-lib (0 3)) (emacs (24))) "Helm interface for Chrome bookmarks" single ((:keywords "tools") (:url . "https://github.com/kawabata/helm-chrome"))])

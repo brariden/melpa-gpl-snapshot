@@ -1,0 +1,2 @@
+
+(harvest . [(20160811 2010) ((swiper (0 7 0)) (hydra (0 13 0)) (s (1 11 0))) "Harvest integration" single ((:keywords "harvest") (:url . "https://github.com/kostajh/harvest.el"))])

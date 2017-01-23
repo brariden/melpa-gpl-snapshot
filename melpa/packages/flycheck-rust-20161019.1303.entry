@@ -1,0 +1,2 @@
+
+(flycheck-rust . [(20161019 1303) ((emacs (24 1)) (flycheck (0 20)) (dash (2 13 0)) (seq (2 15))) "Flycheck: Rust additions and Cargo support" single ((:keywords "tools" "convenience") (:url . "https://github.com/flycheck/flycheck-rust"))])

@@ -1,0 +1,2 @@
+
+(planet-theme . [(20161030 2117) ((emacs (24))) "A dark theme inspired by Gmail's 'Planets' theme of yore" single ((:keywords "themes") (:url . "https://github.com/cmack/emacs-planet-theme"))])

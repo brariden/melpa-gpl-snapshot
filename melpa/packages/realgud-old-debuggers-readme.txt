@@ -1,1 +1,1 @@
-realgud support for the Ruby debugger2 debugger
+realgud support for various older debuggers

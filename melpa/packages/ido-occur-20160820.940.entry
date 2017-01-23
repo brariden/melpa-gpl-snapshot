@@ -1,0 +1,2 @@
+
+(ido-occur . [(20160820 940) ((dash (2 13 0))) "Yet another `occur' with `ido'." single ((:keywords "inner" "buffer" "search") (:url . "https://github.com/danil/ido-occur"))])

@@ -30,6 +30,23 @@ Each “block of text” in output is one occurrence.
 For example, if a line in a file has 2 occurrences, then the same line will be reported twice, as 2 “blocks”.
 so, the number of blocks corresponds exactly to the number of occurrences.
 
+Keys
+-----------------------
+TAB             xah-find-next-match
+<backtab>       xah-find-previous-match
+
+RET             xah-find--jump-to-place
+<mouse-1>       xah-find--mouse-jump-to-place
+
+<left>          xah-find-previous-match
+<right>         xah-find-next-match
+
+<down>          xah-find-next-file
+<up>            xah-find-previous-file
+
+M-n             xah-find-next-file
+M-p             xah-find-previous-file
+
 IGNORE DIRECTORIES
 
 By default, .git dir is ignored. You can add to it by adding the following in your init:

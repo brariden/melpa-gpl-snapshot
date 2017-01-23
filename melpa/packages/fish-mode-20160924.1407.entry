@@ -1,0 +1,2 @@
+
+(fish-mode . [(20160924 1407) ((emacs (24))) "Major mode for fish shell scripts" single ((:keywords "fish" "shell"))])

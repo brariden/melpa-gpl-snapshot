@@ -1,0 +1,2 @@
+
+(asn1-mode . [(20160627 40) ((emacs (24 3)) (s (1 10 0))) "ASN.1/GDMO mode for GNU Emacs" single ((:keywords "languages" "processes" "tools") (:url . "https://github.com/kawabata/asn1-mode/"))])

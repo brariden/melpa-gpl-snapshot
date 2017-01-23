@@ -1,2 +1,0 @@
-
-(persistent-overlays . [(20160426 1421) nil "Minor mode to store selected overlays to be loaded later" tar ((:keywords "overlays" "persistent") (:url . "https://github.com/mneilly/Emacs-Persistent-Overlays"))])

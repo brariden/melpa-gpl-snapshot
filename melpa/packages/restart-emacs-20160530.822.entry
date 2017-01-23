@@ -1,2 +1,0 @@
-
-(restart-emacs . [(20160530 822) nil "Restart emacs from within emacs" single ((:keywords "convenience") (:url . "https://github.com/iqbalansari/restart-emacs"))])

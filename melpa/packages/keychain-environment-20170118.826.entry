@@ -1,0 +1,2 @@
+
+(keychain-environment . [(20170118 826) nil "load keychain environment variables" single ((:keywords "gnupg" "pgp" "ssh") (:url . "https://github.com/tarsius/keychain-environment"))])

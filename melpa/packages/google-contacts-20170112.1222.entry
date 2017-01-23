@@ -1,0 +1,2 @@
+
+(google-contacts . [(20170112 1222) ((oauth2 (0 10))) "Support for Google Contacts in Emacs" tar ((:keywords "comm") (:url . "http://julien.danjou.info/projects/emacs-packages#google-contacts"))])

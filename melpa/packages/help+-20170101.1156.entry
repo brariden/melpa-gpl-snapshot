@@ -1,0 +1,2 @@
+
+(help+ . [(20170101 1156) nil "Extensions to `help.el'." single ((:keywords "help") (:url . "http://www.emacswiki.org/help+.el"))])

@@ -12,7 +12,7 @@
  navigate around the sections of this doc.  Linkd mode will
  highlight this Index, as well as the cross-references and section
  headings throughout this file.  You can get `linkd.el' here:
- http://dto.freeshell.org/notebook/Linkd.html.
+ http://www.emacswiki.org/emacs/download/linkd.el.
 
  (@> "Things Defined Here")
  (@> "Documentation")
@@ -54,6 +54,7 @@
    `hlt-highlight-isearch-matches',
    `hlt-highlight-line-dups-region', `hlt-highlight-lines',
    `hlt-highlight-property-with-value',
+   `hlt-highlight-regexp-groups-region',
    `hlt-highlight-regexp-region',
    `hlt-highlight-regexp-region-in-buffers',
    `hlt-highlight-regexp-to-end', `hlt-highlight-region',
@@ -70,6 +71,7 @@
    `hlt-toggle-property-highlighting',
    `hlt-toggle-use-overlays-flag', `hlt-unhighlight-all-prop',
    `hlt-unhighlight-isearch-matches',
+   `hlt-unhighlight-regexp-groups-region',
    `hlt-unhighlight-regexp-region',
    `hlt-unhighlight-regexp-region-in-buffers',
    `hlt-unhighlight-regexp-to-end', `hlt-unhighlight-region',
@@ -89,7 +91,11 @@
 
  Faces defined here:
 
-   `hlt-property-highlight', `minibuffer-prompt' (for Emacs 20).
+   `hlt-property-highlight', `hlt-regexp-level-1',
+   `hlt-regexp-level-2', `hlt-regexp-level-3',
+   `hlt-regexp-level-4', `hlt-regexp-level-5',
+   `hlt-regexp-level-6', `hlt-regexp-level-7',
+   `hlt-regexp-level-8', `minibuffer-prompt' (for Emacs 20).
 
  Non-interactive functions defined here:
 
@@ -98,15 +104,15 @@
    `hlt-+/--read-bufs', `hlt-add-listifying',
    `hlt-add-to-invisibility-spec', `hlt-delete-highlight-overlay',
    `hlt-highlight-faces-in-buffer', `hlt-flat-list',
-   `hlt-highlight-faces-in-buffer',
+   `hlt-highlight-faces-in-buffer', `hlt-highlight-regexp-groups',
    `hlt-listify-invisibility-spec',
    `hlt-mouse-toggle-link-highlighting',
    `hlt-mouse-toggle-property-highlighting',
    `hlt-nonempty-region-p', `hlt-props-to-copy/yank',
    `hlt-read-bg/face-name', `hlt-read-props-completing',
    `hlt-region-or-buffer-limits', `hlt-remove-if-not',
-   `hlt-set-intersection', `hlt-set-union', `hlt-subplist',
-   `hlt-tty-colors', `hlt-unhighlight-for-overlay'.
+   `hlt-set-intersection', `hlt-set-union', `hlt-string-match-p',
+   `hlt-subplist', `hlt-tty-colors', `hlt-unhighlight-for-overlay'.
 
  Internal variables defined here:
 
@@ -301,6 +307,15 @@
  has no effect for `hlt-eraser' unless `hlt-use-overlays-flag' is
  `only', in which case it erases the Nth face in
  `hlt-auto-face-backgrounds', where N is the prefix arg.
+
+ Command `hlt-highlight-regexp-groups-region', like command
+ `hlt-highlight-regexp-region', highlights regexp matches.  But
+ unlike the latter, it highlights the regexp groups (up to 8
+ levels) using different faces - faces `hlt-regexp-level-1' through
+ `hlt-regexp-level-8'.  Use it, for example, when you are trying
+ out a complex regexp, to see what it is actually matching.
+ Command `hlt-unhighlight-regexp-groups-region' unhighlights such
+ highlighting.
 
  Command `hlt-highlight-line-dups-region' highlights the sets of
  duplicate lines in the region (or the buffer, if the region is not

@@ -1,2 +1,0 @@
-
-(cmds-menu . [(20151231 1430) nil "`Recent Commands' submenu for the menu-bar `Tools' menu." single ((:keywords "convenience" "command" "menu") (:url . "http://www.emacswiki.org/cmds-menu.el"))])

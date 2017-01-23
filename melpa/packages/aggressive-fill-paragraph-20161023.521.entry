@@ -1,0 +1,2 @@
+
+(aggressive-fill-paragraph . [(20161023 521) ((dash (2 10 0))) "A mode to automatically keep paragraphs filled" single ((:keywords "fill-paragraph" "automatic" "comments") (:url . "https://github.com/davidshepherd7/aggressive-fill-paragraph-mode"))])

@@ -1,0 +1,2 @@
+
+(osx-lib . [(20160919 1900) ((emacs (24 4))) "Basic function for Apple/OSX." single ((:keywords "apple" "applescript" "osx" "finder" "emacs" "elisp" "vpn" "speech"))])

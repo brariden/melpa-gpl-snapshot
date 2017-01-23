@@ -1,0 +1,2 @@
+
+(move-text . [(20170101 325) nil "Move current line or region with M-up or M-down." single ((:keywords "edit") (:url . "https://github.com/emacsfodder/move-text"))])

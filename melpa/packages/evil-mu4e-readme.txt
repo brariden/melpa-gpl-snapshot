@@ -8,7 +8,8 @@ General commands:
 | Update          | u         |
 
 Commands for view and header mode:
-| Command          | evil-mu4e |
-|------------------+-----------|
-| next message     | C-j       |
-| previous message | C-k       |
+| Command                         | evil-mu4e |
+|---------------------------------+-----------|
+| next message                    | C-j       |
+| previous message                | C-k       |
+| Mark the current thread as read | T         |

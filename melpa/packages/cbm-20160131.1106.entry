@@ -1,2 +1,0 @@
-
-(cbm . [(20160131 1106) ((cl-lib (0 5))) "Switch to \"similiar\" buffers." single ((:keywords "buffers") (:url . "http://github.com/akermu/cbm.el"))])

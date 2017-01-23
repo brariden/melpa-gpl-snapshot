@@ -28,6 +28,7 @@ _________________
 
 Jump to Chinese characters using `ace-jump-mode' or `avy'.
 
+使用 `avy' 或者 `ace-jump-mode' 跳转到中文字符。
 
 [[file:http://melpa.org/packages/ace-pinyin-badge.svg]]
 http://melpa.org/#/ace-pinyin

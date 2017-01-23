@@ -1,0 +1,2 @@
+
+(io-mode . [(20161004 256) nil "Major mode to edit Io language files in Emacs" single ((:keywords "languages" "io") (:url . "https://github.com/superbobry/io-mode"))])

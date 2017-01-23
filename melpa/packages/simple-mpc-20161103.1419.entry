@@ -1,0 +1,2 @@
+
+(simple-mpc . [(20161103 1419) ((s (1 10 0))) "provides a simple interface to mpc" tar ((:keywords "multimedia" "mpd" "mpc") (:url . "https://github.com/jorenvo/simple-mpc"))])

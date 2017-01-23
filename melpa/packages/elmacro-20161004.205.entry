@@ -1,0 +1,2 @@
+
+(elmacro . [(20161004 205) ((s (1 11 0)) (dash (2 13 0))) "Convert keyboard macros to emacs lisp" single ((:keywords "macro" "elisp" "convenience") (:url . "https://github.com/Silex/elmacro"))])

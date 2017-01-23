@@ -1,0 +1,2 @@
+
+(swift-mode . [(20170114 721) ((emacs (24 4))) "Major-mode for Apple's Swift programming language." tar ((:keywords "languages" "swift") (:url . "https://github.com/swift-emacs/swift-mode"))])

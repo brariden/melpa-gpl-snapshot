@@ -1,2 +1,0 @@
-
-(ob-sagemath . [(20160517 1928) ((sage-shell-mode (0 0 8)) (s (1 8 0)) (emacs (24))) "org-babel functions for SageMath evaluation" tar ((:keywords "sagemath" "org-babel") (:url . "https://github.com/stakemori/ob-sagemath"))])

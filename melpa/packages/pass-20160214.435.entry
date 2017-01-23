@@ -1,2 +1,0 @@
-
-(pass . [(20160214 435) ((emacs (24)) (password-store (0 1)) (f (0 17))) "Major mode for password-store.el" single ((:keywords "password-store" "password" "keychain"))])

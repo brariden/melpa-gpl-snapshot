@@ -1,2 +1,0 @@
-
-(async . [(20160513 328) nil "Asynchronous processing in Emacs" tar ((:keywords "async") (:url . "http://elpa.gnu.org/packages/async.html"))])

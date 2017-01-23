@@ -1,0 +1,2 @@
+
+(gotest . [(20161017 404) ((emacs (24 3)) (s (1 11 0)) (f (0 19 0)) (go-mode (1 4 0))) "Launch GO unit tests" single ((:keywords "languages" "go" "tests") (:url . "https://github.com/nlamirault/gotest.el"))])

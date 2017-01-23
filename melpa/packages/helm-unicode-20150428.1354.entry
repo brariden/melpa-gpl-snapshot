@@ -1,2 +1,0 @@
-
-(helm-unicode . [(20150428 1354) ((helm (1 6)) (emacs (24 4))) "Helm command for unicode characters." single nil])

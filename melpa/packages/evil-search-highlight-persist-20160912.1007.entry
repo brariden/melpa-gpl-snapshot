@@ -1,0 +1,2 @@
+
+(evil-search-highlight-persist . [(20160912 1007) ((highlight (0))) "Persistent highlights after search" single nil])

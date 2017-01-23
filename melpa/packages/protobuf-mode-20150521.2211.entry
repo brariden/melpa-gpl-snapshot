@@ -1,2 +1,0 @@
-
-(protobuf-mode . [(20150521 2211) nil "major mode for editing protocol buffers." single ((:keywords "google" "protobuf" "languages"))])

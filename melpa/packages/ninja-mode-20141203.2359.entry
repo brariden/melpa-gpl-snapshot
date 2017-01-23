@@ -1,0 +1,2 @@
+
+(ninja-mode . [(20141203 2359) ((emacs (24))) "Major mode for editing .ninja files" single nil])

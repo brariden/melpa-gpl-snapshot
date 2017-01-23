@@ -1,2 +1,0 @@
-
-(http . [(20160523 1917) ((emacs (24 4)) (request (0 2 0))) "Yet another HTTP client" single ((:keywords "convenience") (:url . "https://github.com/emacs-pe/http.el"))])

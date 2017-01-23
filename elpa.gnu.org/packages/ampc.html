@@ -1,17 +1,34 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!DOCTYPE HTML PUBLIC>
 <html>
-<head>
-  <title>GNU ELPA - ampc</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-</head>
-<body>
-<h1 align="center">GNU ELPA - ampc</h1>
-<p>Description: Asynchronous Music Player Controller</p>
-<p>Latest: <a href="ampc-0.2.el">ampc-0.2.el</a>, 2012-Nov-29,  122kB</p>
-<p>Maintainer: emacs-devel@gnu.org</p>
-<p>Home page: <a href="ampc.html">http://elpa.gnu.org/packages/ampc.html</a></p>
-<p>Browse repository: <a href="http://git.savannah.gnu.org/cgit/emacs/elpa.git/tree/packages/ampc">CGit</a> or <a href="http://git.savannah.gnu.org/gitweb/?p=emacs/elpa.git;a=tree;f=packages/ampc">Gitweb</a></p>
-<h2>Full description</h2><pre>
+    <head>
+        <title>GNU ELPA - ampc</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="shortcut icon" type="image/png" href="../favicon.png">
+        <link rel="stylesheet" href="http://code.cdn.mozilla.net/fonts/fira.css">
+        <link rel="stylesheet" type="text/css" href="../layout.css">
+        <script src="../javascript/jquery.min.js" type="text/javascript"></script>
+        <script src="../javascript/jquery.filtertable.min.js" type="text/javascript"></script>
+        <script src="../javascript/package-search.js" type="text/javascript"></script>
+        <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,width=device-width" />
+    </head>
+    <body>
+
+        <div class="wrapper">
+
+            <div class="header small">
+                <div class="container">
+                    <h1>GNU ELPA - ampc</h1>
+                </div>
+            </div>
+
+            <div class="container">
+<h2 class="package">ampc</h2><dl><dt>Description</dt><dd>Asynchronous Music Player Controller</dd>
+<dt>Latest</dt> <dd><a href="ampc-0.2.el">ampc-0.2.el</a>, 2012-Nov-29,  122kB</dd>
+<dt>Maintainer</dt> <dd>emacs-devel@gnu.org</dd>
+<dt>Home page</dt> <dd><a href="ampc.html">http://elpa.gnu.org/packages/ampc.html</a></dd>
+<dt>Browse repository</dt> <dd><a href="http://git.savannah.gnu.org/cgit/emacs/elpa.git/tree/packages/ampc">CGit</a> or <a href="http://git.savannah.gnu.org/gitweb/?p=emacs/elpa.git;a=tree;f=packages/ampc">Gitweb</a></dd>
+</dl><p>To install this package, run in Emacs:</p>
+                       <pre>M-x <span class="kw">package-install</span> RET <span class="kw">ampc</span> RET</pre><h2>Full description</h2><pre>
 * description
 ampc is a controller for the Music Player Daemon (http://mpd.wikia.com/).
 
@@ -60,11 +77,11 @@ by default localhost:6600.  To make ampc use the full frame rather than the
 selected window for its window setup, customise `ampc-use-full-frame' to a
 non-nil value.
 
-ampc offers three independent views which expose different parts of the user
+ampc offers independent views which expose different parts of the user
 interface.  The current playlist view, the default view at startup, may be
 accessed using the `J' key (that is `S-j').  The playlist view may be
 accessed using the `K' key.  The outputs view may be accessed by pressing
-`L'.
+`L'. The search view may be accessed using the `F' key (find).
 
 *** current playlist view
 The playlist view looks like this:
@@ -144,6 +161,11 @@ order of tag browsers.
 The outputs view contains a single list which shows the configured outputs of
 MPD.  To toggle the enabled property of the selected outputs, press `a'
 (ampc-toggle-output-enabled) or `&lt;mouse-3>'.
+
+*** search view
+The search view contains the result of the last performed search. You can
+start a new search with the `s' key while in the search view or use M-x
+ampc-start-search. Use the `a' key to add a song displayed in result list.
 
 ** tagger
 To start the tagging subsystem, press `I' (ampc-tagger).  This key binding

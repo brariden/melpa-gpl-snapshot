@@ -1,0 +1,2 @@
+
+(xcscope . [(20160629 124) nil "cscope interface for (X)Emacs" single ((:keywords "languages" "c") (:url . "https://github.com/dkogan/xcscope.el"))])

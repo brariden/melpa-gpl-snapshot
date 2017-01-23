@@ -1,2 +1,0 @@
-
-(helm-make . [(20160331 954) ((helm (1 5 3)) (projectile (0 11 0))) "Select a Makefile target with helm" single ((:keywords "makefile") (:url . "https://github.com/abo-abo/helm-make"))])

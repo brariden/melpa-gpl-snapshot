@@ -1,2 +1,0 @@
-
-(desktop+ . [(20160330 812) ((emacs (24 4)) (dash (2 11 0)) (f (0 17 2))) "Handle special buffers when saving & restoring sessions" single ((:url . "https://github.com/ffevotte/desktop-plus"))])

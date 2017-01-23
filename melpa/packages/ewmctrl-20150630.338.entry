@@ -1,2 +1,0 @@
-
-(ewmctrl . [(20150630 338) nil "Use `wmctrl' to manage desktop windows." single ((:keywords "desktop" "windows") (:url . "https://github.com/flexibeast/ewmctrl"))])

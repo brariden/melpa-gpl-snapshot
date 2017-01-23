@@ -1,0 +1,2 @@
+
+(rust-mode . [(20170117 1024) ((emacs (24 0))) "A major emacs mode for editing Rust source code" single ((:keywords "languages") (:url . "https://github.com/rust-lang/rust-mode"))])

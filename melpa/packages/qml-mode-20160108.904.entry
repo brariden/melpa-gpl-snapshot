@@ -1,2 +1,0 @@
-
-(qml-mode . [(20160108 904) nil "Major mode for editing QT Declarative (QML) code." single ((:keywords "qml" "qt" "qt declarative") (:url . "https://github.com/coldnew/qml-mode"))])

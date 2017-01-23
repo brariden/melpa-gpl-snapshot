@@ -1,0 +1,2 @@
+
+(sudo-edit . [(20160909 110) ((emacs (24)) (cl-lib (0 5))) "Open files as another user" single ((:keywords "convenience") (:url . "https://github.com/nflath/sudo-edit"))])

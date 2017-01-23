@@ -1,0 +1,2 @@
+
+(traad . [(20161010 352) ((deferred (0 3 2)) (popup (0 5 0)) (request (0 2 0)) (request-deferred (0 2 0)) (virtualenvwrapper (20151123))) "emacs interface to the traad refactoring server." single ((:url . "https://github.com/abingham/traad"))])

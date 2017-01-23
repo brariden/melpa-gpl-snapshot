@@ -1,0 +1,2 @@
+
+(discover-my-major . [(20170114 106) ((makey (0 2))) "Discover key bindings and their meaning for the current Emacs major mode" single ((:keywords "discover" "help" "major-mode" "keys") (:url . "https://github.com/steckerhalter/discover-my-major"))])

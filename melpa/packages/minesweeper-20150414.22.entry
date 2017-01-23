@@ -1,2 +1,0 @@
-
-(minesweeper . [(20150414 22) nil "play minesweeper in Emacs" single ((:keywords "game" "fun" "minesweeper" "inane" "diversion") (:url . "https://bitbucket.org/zck/minesweeper.el"))])

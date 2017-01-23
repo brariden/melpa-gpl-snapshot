@@ -1,2 +1,0 @@
-
-(company-go . [(20160306 1555) ((company (0 8 0)) (go-mode (1 0 0))) "company-mode backend for Go (using gocode)" single ((:keywords "languages"))])

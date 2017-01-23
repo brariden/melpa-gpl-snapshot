@@ -41,17 +41,19 @@
    `tap-non-nil-symbol-name-nearest-point',
    `tap-non-nil-symbol-nearest-point',
    `tap-number-at-point-decimal', `tap-number-at-point-hex',
-   `tap-number-nearest-point', `tap-region-or-word-at-point',
+   `tap-number-nearest-point', `tap-read-from-whole-string',
+   `tap-region-or-word-at-point',
    `tap-region-or-word-nearest-point',
    `tap-region-or-non-nil-symbol-name-nearest-point',
    `tap-sentence-nearest-point', `tap-sexp-at-point-with-bounds',
    `tap-sexp-nearest-point', `tap-sexp-nearest-point-with-bounds',
    `tap-string-at-point', `tap-string-contents-at-point',
-   `tap-string-contents-nearest-point.', `tap-string-match-p',
+   `tap-string-contents-nearest-point', `tap-string-match-p',
    `tap-string-nearest-point', `tap-symbol-at-point-with-bounds',
    `tap-symbol-name-at-point', `tap-symbol-name-nearest-point',
    `tap-symbol-nearest-point',
-   `tap-symbol-nearest-point-with-bounds',
+   `tap-symbol-nearest-point-with-bounds', `tap-thing-at-point',
+   `tap-thing-at-point-as-string',
    `tap-thing-at-point-with-bounds',
    `tap-thing/form-nearest-point-with-bounds',
    `tap-thing-nearest-point',
@@ -85,15 +87,14 @@
  Load this library after loading the standard GNU file
  `thingatpt.el'.  You can put this in your init file (`~/.emacs'):
 
-   (eval-after-load "thingatpt"
-     '(require 'thingatpt+))
+   (eval-after-load "thingatpt" '(require 'thingatpt+))
 
  That defines new functions and improved versions of some of the
  standard thing-at-point functions.  All such functions have the
  prefix `tap-', so they are not used by default in any way.
 
- That does not at all, however, make Emacs use the improved
- functions.  Merely loading this library does not change the
+ Requiring library `thingatpt+.el' does not, however, make Emacs
+ use the improved functions.  Merely loading it does not change the
  behavior of thing-at-point features.
 
  If you want functions defined here to be used for calls to
@@ -104,6 +105,11 @@
    (eval-after-load "thingatpt"
      '(when (require 'thingatpt+)
         (tap-put-thing-at-point-props))
+
+ Note that some of my other libraries, including Icicles,
+ Bookmark+, `grep+.el', `replace+.el', and `strings.el', do exactly
+ that.  Note too that `tap-put-thing-at-point-props' improves the
+ behavior of (thing-at-point 'list) - see below.
 
  A further step, which I recommend, is to use the `tap-' versions
  of standard functions, defined here, everywhere in place of those

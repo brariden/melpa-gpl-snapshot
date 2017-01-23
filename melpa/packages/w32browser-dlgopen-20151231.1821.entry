@@ -1,2 +1,0 @@
-
-(w32browser-dlgopen . [(20151231 1821) nil "Use w32browser with standard Windows Open File box." single ((:keywords "files" "extensions" "convenience" "dialog") (:url . "http://www.emacswiki.org/w32browser-dlgopen.el"))])

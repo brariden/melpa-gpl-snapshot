@@ -1,0 +1,2 @@
+
+(ivy-gitlab . [(20160519 512) ((s (1 9 0)) (dash (2 9 0)) (ivy (0 8 0)) (gitlab (0 8))) "Ivy interface to Gitlab" single ((:keywords "gitlab" "ivy") (:url . "https://github.com/nlamirault/emacs-gitlab"))])

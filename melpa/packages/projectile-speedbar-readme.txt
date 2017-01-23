@@ -6,7 +6,7 @@ projectile, speedbar will automatically show the directly listing
 of that project as well as expand the tree to show the file in the
 project.
 
-Features that might be required by this library:
+Features that are required by this library:
 
  `speedbar' `sr-speedbar' `projectile'
 

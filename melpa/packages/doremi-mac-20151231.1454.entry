@@ -1,2 +1,0 @@
-
-(doremi-mac . [(20151231 1454) nil "A macro for defining Do Re Mi commands." single ((:keywords "extensions" "convenience" "keys" "repeat" "cycle") (:url . "http://www.emacswiki.org/doremi-mac.el"))])

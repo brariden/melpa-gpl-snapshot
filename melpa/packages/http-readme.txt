@@ -75,7 +75,3 @@ Related projects:
 [restclient.el]: https://github.com/pashky/restclient.el "HTTP REST client tool for Emacs"
 [json-mode]: https://github.com/joshwnj/json-mode "Major mode for editing JSON files with Emacs"
 [json-reformat]: https://github.com/gongo/json-reformat "Reformat tool for JSON"
-
-TODO:
-
-+ [ ] Add code block support for org-mode

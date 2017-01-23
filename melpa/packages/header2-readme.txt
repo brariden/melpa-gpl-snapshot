@@ -8,7 +8,8 @@ as `header2.el'.  The original is here:
 Commands (interactive functions) defined here:
 
   `make-header', `make-revision', `make-divider',
-  `make-box-comment', `update-file-header'.
+  `make-box-comment', `make-box-comment-region',
+  `update-file-header'.
 
 Other functions defined here:
 
@@ -37,7 +38,9 @@ Other functions defined here:
 User options (variables) defined here:
 
   `header-copyright-notice', `header-date-format',
-  `header-history-label', `header-max', `make-header-hook'.
+  `header-history-label', `header-max',
+  `make-box-comment-region-replace-prefix-flag',
+  `make-header-hook'.
 
 Other variables defined here:
 

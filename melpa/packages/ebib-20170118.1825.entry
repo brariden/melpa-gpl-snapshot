@@ -1,0 +1,2 @@
+
+(ebib . [(20170118 1825) ((dash (2 5 0)) (seq (2 15)) (parsebib (1 0)) (emacs (24 4))) "a BibTeX database manager" tar ((:keywords "text" "bibtex"))])

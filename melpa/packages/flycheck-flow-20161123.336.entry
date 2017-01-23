@@ -1,0 +1,2 @@
+
+(flycheck-flow . [(20161123 336) ((flycheck (0 18))) "Support Flow in flycheck" single nil])

@@ -1,0 +1,2 @@
+
+(subr+ . [(20170101 1338) nil "Extensions to standard library `subr.el'." single ((:keywords "strings" "text") (:url . "http://www.emacswiki.org/simple%2b.el"))])

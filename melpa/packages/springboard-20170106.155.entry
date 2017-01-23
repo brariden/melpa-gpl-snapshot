@@ -1,0 +1,2 @@
+
+(springboard . [(20170106 155) ((helm (1 6 9))) "Temporarily change default-directory for one command" single ((:keywords "helm") (:url . "https://github.com/jwiegley/springboard"))])

@@ -1,0 +1,2 @@
+
+(hcl-mode . [(20170107 227) ((emacs (24 3))) "Major mode for Hashicorp" single ((:url . "https://github.com/syohex/emacs-hcl-mode"))])

@@ -1,2 +1,0 @@
-
-(elfeed-web . [(20160525 716) ((simple-httpd (1 4 3)) (elfeed (1 4 0)) (emacs (24 1))) "web interface to Elfeed" tar nil])

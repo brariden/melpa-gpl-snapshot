@@ -1,0 +1,2 @@
+
+(helm-smex . [(20161202 1452) ((emacs (24)) (smex (3 0)) (helm (1 7 7))) "Helm interface for smex" single ((:keywords "convenience"))])

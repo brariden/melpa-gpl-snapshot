@@ -1,2 +1,0 @@
-
-(xah-replace-pairs . [(20150522 533) nil "Multi-pair find/replace in strings and region." single ((:keywords "lisp" "tools" "find replace") (:url . "http://ergoemacs.org/emacs/elisp_replace_string_region.html"))])

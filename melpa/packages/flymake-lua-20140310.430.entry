@@ -1,0 +1,2 @@
+
+(flymake-lua . [(20140310 430) nil "Flymake for Lua" single ((:keywords "lua"))])

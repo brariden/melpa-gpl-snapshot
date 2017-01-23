@@ -1,0 +1,2 @@
+
+(character-fold+ . [(20170102 1116) nil "Extensions to `character-fold.el'" single ((:keywords "isearch" "search" "unicode") (:url . "http://www.emacswiki.org/character-fold+.el"))])

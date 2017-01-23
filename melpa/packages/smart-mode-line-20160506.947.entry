@@ -1,2 +1,0 @@
-
-(smart-mode-line . [(20160506 947) ((emacs (24 3)) (rich-minority (0 1 1))) "A color coded smart mode-line." tar ((:keywords "mode-line" "faces" "themes") (:url . "http://github.com/Malabarba/smart-mode-line"))])

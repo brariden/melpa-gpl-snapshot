@@ -1,2 +1,0 @@
-
-(autotetris-mode . [(20141114 1046) ((cl-lib (0 5))) "automatically play tetris" single ((:url . "https://github.com/skeeto/autotetris-mode"))])

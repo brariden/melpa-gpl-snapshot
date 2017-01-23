@@ -1,0 +1,2 @@
+
+(prosjekt . [(20151127 816) ((dash (2 8 0))) "a software project tool for emacs" tar ((:url . "https://github.com/abingham/prosjekt"))])

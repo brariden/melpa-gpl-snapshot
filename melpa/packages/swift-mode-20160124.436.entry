@@ -1,2 +1,0 @@
-
-(swift-mode . [(20160124 436) ((emacs (24 4))) "Major-mode for Apple's Swift programming language." single ((:keywords "languages" "swift"))])

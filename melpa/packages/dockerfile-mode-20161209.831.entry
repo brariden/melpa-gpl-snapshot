@@ -1,0 +1,2 @@
+
+(dockerfile-mode . [(20161209 831) nil "Major mode for editing Docker's Dockerfiles" single nil])

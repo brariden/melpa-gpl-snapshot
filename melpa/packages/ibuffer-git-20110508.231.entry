@@ -1,0 +1,2 @@
+
+(ibuffer-git . [(20110508 231) nil "show git status in ibuffer column" single ((:keywords "convenience"))])

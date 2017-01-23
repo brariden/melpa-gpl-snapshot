@@ -1,0 +1,2 @@
+
+(dired-details+ . [(20170101 1118) ((dired-details (0))) "Enhancements to library `dired-details+.el'." single ((:keywords "dired" "frames") (:url . "http://www.emacswiki.org/dired-details+.el"))])

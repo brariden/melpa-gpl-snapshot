@@ -1,0 +1,2 @@
+
+(buffer-utils . [(20140512 900) nil "Buffer-manipulation utility functions" single ((:keywords "extensions") (:url . "http://github.com/rolandwalker/buffer-utils"))])

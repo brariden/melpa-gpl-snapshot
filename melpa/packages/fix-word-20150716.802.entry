@@ -1,2 +1,0 @@
-
-(fix-word . [(20150716 802) ((emacs (24 1)) (cl-lib (0 5))) "Convenient word transformation" single ((:keywords "word" "convenience") (:url . "https://github.com/mrkkrp/fix-word"))])

@@ -1,2 +1,0 @@
-
-(babel . [(20131231 925) nil "interface to web translation services such as Babelfish" single ((:keywords "translation" "web") (:url . "http://github.com/juergenhoetzel/babel.el"))])

@@ -1,2 +1,0 @@
-
-(smeargle . [(20151014 42) ((cl-lib (0 5)) (emacs (24))) "Highlighting region by last updated time" single ((:url . "https://github.com/syohex/emacs-smeargle"))])

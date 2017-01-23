@@ -1,13 +1,16 @@
-Highlight TODO keywords in comments and strings.  There are
-many modes like it but this one is mine.  It also happens to
-be simpler than the following alternatives:
+Highlight TODO and similar keywords in comments and strings.  To
+use, turn on `hl-todo-mode' in individual buffers or use the the
+global variant `global-hl-todo-mode'.
 
-- [[http://emacswiki.org/fic-ext-mode.el][fic-ext-mode]]
-- [[https://github.com/lewang/fic-mode][fic-mode]]
-- [[http://emacswiki.org/FixmeMode][fixme-mode]]
-- [[https://github.com/rolandwalker/fixmee][fixmee]]
+This package also provides commands for moving to the next or
+previous keyword and to invoke `occur' with a regexp that matches
+all known keywords.  If you want to use these commands, then you
+should bind them in `hl-todo-mode-map', e.g.:
 
-See [[http://emacswiki.org/FixmeMode][this list]] on the Emacswiki for even more alternatives.
+  (define-key hl-todo-mode-map (kbd "C-c p") 'hl-todo-previous)
+  (define-key hl-todo-mode-map (kbd "C-c n") 'hl-todo-next)
+  (define-key hl-todo-mode-map (kbd "C-c o") 'hl-todo-occur)
 
-If you like this you might also like [[https://github.com/tarsius/orglink][orglink]], if you used
-this, then the above links would not look so ugly.
+See [[http://emacswiki.org/FixmeMode][this list]] on the Emacswiki for other packages that implement
+the same basic features, but which might also provide additional
+features that you might like, but which I don't deem necessary.

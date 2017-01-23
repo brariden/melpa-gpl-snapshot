@@ -1,2 +1,0 @@
-
-(goose-theme . [(20160401 33) ((emacs (24 1))) "A gray color theme" single ((:url . "https://github.com/thwg/goose-theme"))])

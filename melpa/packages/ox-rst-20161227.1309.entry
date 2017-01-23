@@ -1,0 +1,2 @@
+
+(ox-rst . [(20161227 1309) ((emacs (24 4)) (org (8 2 4))) "Export reStructuredText using org-mode." single ((:keywords "org" "rst" "rest" "restructuredtext") (:url . "https://github.com/masayuko/ox-rst"))])

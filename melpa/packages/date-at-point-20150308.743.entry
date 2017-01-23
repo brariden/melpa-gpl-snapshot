@@ -1,0 +1,2 @@
+
+(date-at-point . [(20150308 743) nil "Add `date' to `thing-at-point' function" single ((:keywords "convenience") (:url . "https://github.com/alezost/date-at-point.el"))])

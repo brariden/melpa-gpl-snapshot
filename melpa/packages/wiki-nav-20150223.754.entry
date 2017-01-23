@@ -1,0 +1,2 @@
+
+(wiki-nav . [(20150223 754) ((button-lock (1 0 2)) (nav-flash (1 0 0))) "Simple file navigation using [[WikiStrings]]" single ((:keywords "mouse" "button" "hypermedia" "navigation") (:url . "http://github.com/rolandwalker/button-lock"))])

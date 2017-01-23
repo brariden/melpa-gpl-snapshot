@@ -1,0 +1,2 @@
+
+(ta . [(20160619 1145) ((emacs (24 3)) (cl-lib (0 5))) "A tool to deal with Chinese homophonic characters" single ((:keywords "tools") (:url . "http://github.com/kuanyui/ta.el"))])

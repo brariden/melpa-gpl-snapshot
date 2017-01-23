@@ -1,2 +1,0 @@
-
-(flycheck-cask . [(20150920 653) ((emacs (24 1)) (flycheck (0 14)) (dash (2 4 0))) "Cask support in Flycheck" single ((:keywords "tools" "convenience") (:url . "https://github.com/flycheck/flycheck-cask"))])

@@ -1,0 +1,2 @@
+
+(modern-cpp-font-lock . [(20160622 1521) nil "Font-locking for \"Modern C++\"" single ((:keywords "languages" "c++" "cpp" "font-lock") (:url . "https://github.com/ludwigpacifici/modern-cpp-font-lock"))])

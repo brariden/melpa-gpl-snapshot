@@ -1,2 +1,0 @@
-
-(evil-rails . [(20150803 646) ((evil (1 0)) (projectile-rails (1 0))) "Rails support for Evil Mode" single ((:keywords "ruby" "rails" "vim" "project" "convenience" "web" "evil" "projectile") (:url . "https://github.com/antono/evil-rails"))])

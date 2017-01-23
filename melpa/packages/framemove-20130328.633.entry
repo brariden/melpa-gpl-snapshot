@@ -1,0 +1,2 @@
+
+(framemove . [(20130328 633) nil "directional frame selection routines" single ((:keywords "frame" "movement" "convenience"))])

@@ -39,11 +39,13 @@
   - `c', `M-c' picks a color by name or RGB hex string
   - `M-h' picks a color by HSV components (decimal)
   - `M-r' picks a color by RGB components (decimal)
-  - `~' picks the complement of the current color
+  - `~~' picks the complement of the current color
+  - `~h', `~s', `~v' pick the hue, saturation, and value complement
   - `r', `g', `b', `h', `s', `v' decreases the red, green, blue,
     hue, saturation, value  component of the current color,
     respectively; `R', `G', `B', `H', `S', `V' increases the
     component
+  - `C-M-h', `C-M-s', `C-M-v' set the hue, saturation, and value
   - `q' quits the palette
   - `C-l' refreshes the palette: use if you have a display problem
   - `C-h m' provides info on Color Palette mode
@@ -194,6 +196,14 @@
  and variables.  If for some reason you do load both libraries,
  then load `palette.el' after `eyedropper.el'.
 
+ ** Use with Crosshairs **
+
+ I recommend that you also use library `crosshairs.el', so that you
+ can turn on `crosshairs-mode' (using the suggested key binding of
+ `C-+').  That makes the location of the cursor much more visible,
+ which really helps since it is necessarily very small for the
+ palette.
+
  ** Use with Icicles **
 
  If you use this library with Icicles (`icicles.el' and associated
@@ -242,21 +252,26 @@
    `palette-increase-green', `palette-increase-hue',
    `palette-increase-red', `palette-increase-saturation',
    `palette-increase-value', `palette-left', `palette-left+pick',
-   `palette-list-colors-nearest',
+   `palette-list-colors-nearest', `palette-menu',
    `palette-pick-background-at-mouse',
    `palette-pick-background-at-point', `palette-pick-color-by-hsv',
    `palette-pick-color-by-name', `palette-pick-color-by-rgb',
    `palette-pick-color-complement',
+   `palette-pick-color-hue-complement',
+   `palette-pick-color-saturation-complement',
+   `palette-pick-color-value-complement',
    `palette-pick-foreground-at-mouse',
-   `palette-pick-foreground-at-point', `palette-popup-menu',
-   `palette-quit', `palette-read-color', `palette-refresh',
+   `palette-pick-foreground-at-point', `palette-quit',
+   `palette-read-color', `palette-refresh',
    `palette-restore-old-color', `palette-rgb-info',
    `palette-right', `palette-right+pick', `palette-save-new-color',
-   `palette-swap-last-color', `palette-swatch',
-   `palette-toggle-cursor-color', `palette-toggle-verbose',
-   `palette-up', `palette-up+pick', `palette-where-is-color',
-   `pick-background-color', `pick-foreground-color', `rgb',
-   `toggle-palette-cursor-color', `toggle-palette-verbose'.
+   `palette-set-hsv', `palette-set-hue', `palette-set-saturation',
+   `palette-set-value', `palette-swap-last-color',
+   `palette-swatch', `palette-toggle-cursor-color',
+   `palette-toggle-verbose', `palette-up', `palette-up+pick',
+   `palette-where-is-color', `pick-background-color',
+   `pick-foreground-color', `rgb', `toggle-palette-cursor-color',
+   `toggle-palette-verbose'.
 
  Non-interactive functions defined here:
 
@@ -271,10 +286,11 @@
    `eyedrop-last-picked-color', `eyedrop-picked-background',
    `eyedrop-picked-foreground', `palette-action',
    `palette-current-color', `palette-last-color',
-   `palette-last-picked-color', `palette-mode-map',
+   `palette-last-picked-color', `palette-menu',
+   `palette-menu-complement', `palette-menu-set',
+   `palette-menu-increase-decrease', `palette-mode-map',
    `palette-old-color', `palette-picked-background',
-   `palette-picked-foreground', `palette-popup-map',
-   `palette-saved-blink-cursor-mode'.
+   `palette-picked-foreground', `palette-saved-blink-cursor-mode'.
 
  Do NOT try to use this library without a window manager.
  That is, do not try to use this with `emacs -nw'.

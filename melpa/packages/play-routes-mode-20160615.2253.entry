@@ -1,0 +1,2 @@
+
+(play-routes-mode . [(20160615 2253) nil "Play Framework Routes File Support" single ((:keywords "play" "scala") (:url . "https://github.com/brocode/play-routes-mode/"))])

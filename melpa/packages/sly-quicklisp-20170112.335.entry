@@ -1,0 +1,2 @@
+
+(sly-quicklisp . [(20170112 335) ((sly (1 0 0 -2 2))) "Quicklisp support for SLY" tar ((:keywords "languages" "lisp" "sly") (:url . "https://github.com/capitaomorte/sly-quicklisp"))])

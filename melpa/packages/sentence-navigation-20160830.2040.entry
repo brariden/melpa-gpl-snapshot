@@ -1,0 +1,2 @@
+
+(sentence-navigation . [(20160830 2040) ((ample-regexps (0 1)) (cl-lib (0 5)) (emacs (24 4))) "Commands to navigate one-spaced sentences." single ((:keywords "sentence" "evil") (:url . "https://github.com/noctuid/emacs-sentence-navigation"))])

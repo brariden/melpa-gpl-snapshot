@@ -1,0 +1,2 @@
+
+(aws-ec2 . [(20161007 1414) ((emacs (24 4)) (dash (2 12 1)) (tblui (0 1 0))) "Manage AWS EC2 instances" single ((:url . "https://github.com/Yuki-Inoue/aws.el"))])

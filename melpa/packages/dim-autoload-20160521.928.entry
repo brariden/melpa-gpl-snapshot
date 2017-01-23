@@ -1,2 +1,0 @@
-
-(dim-autoload . [(20160521 928) nil "dim complete autoload cookie lines" single ((:keywords "convenience") (:url . "http://github.com/tarsius/dim-autoload"))])

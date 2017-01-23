@@ -1,0 +1,2 @@
+
+(github-clone . [(20160622 2210) ((gh (0 7 2)) (magit (2 1 0)) (emacs (24 4))) "Fork and clone github repos" single ((:keywords "vc" "tools") (:url . "https://github.com/dgtized/github-clone.el"))])

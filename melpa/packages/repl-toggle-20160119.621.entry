@@ -1,2 +1,0 @@
-
-(repl-toggle . [(20160119 621) ((fullframe (0 0 5))) "Switch to/from repl buffer for current major-mode" single ((:keywords "repl" "buffers" "toggle"))])

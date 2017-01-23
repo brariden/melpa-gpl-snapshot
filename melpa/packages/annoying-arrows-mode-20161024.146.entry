@@ -1,0 +1,2 @@
+
+(annoying-arrows-mode . [(20161024 146) ((cl-lib (0 5))) "Ring the bell if using arrows too much" single nil])

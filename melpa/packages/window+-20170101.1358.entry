@@ -1,0 +1,2 @@
+
+(window+ . [(20170101 1358) nil "Extensions to `window.el'." single ((:keywords "internal" "window") (:url . "http://www.emacswiki.org/window%2b.el"))])

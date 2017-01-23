@@ -1,0 +1,2 @@
+
+(yahoo-weather . [(20160703 2208) ((emacs (24))) "Displays weather information in mode-line" single ((:keywords "weather" "mode-line") (:url . "https://github.com/lujun9972/yahoo-weather-mode"))])

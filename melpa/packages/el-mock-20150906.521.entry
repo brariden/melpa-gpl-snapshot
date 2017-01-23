@@ -1,2 +1,0 @@
-
-(el-mock . [(20150906 521) nil "Tiny Mock and Stub framework in Emacs Lisp" single ((:keywords "lisp" "testing" "unittest") (:url . "http://github.com/rejeep/el-mock.el"))])

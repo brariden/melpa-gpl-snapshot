@@ -1,0 +1,2 @@
+
+(org-elisp-help . [(20161121 1855) ((cl-lib (0 5)) (org (9 0))) "org links to emacs-lisp documentation" single ((:keywords "org" "remember" "lisp") (:url . "https://github.com/tarsius/org-elisp-help"))])

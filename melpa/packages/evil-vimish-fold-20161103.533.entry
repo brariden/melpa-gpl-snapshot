@@ -1,0 +1,2 @@
+
+(evil-vimish-fold . [(20161103 533) ((emacs (24 4)) (evil (1 0 0)) (vimish-fold (0 2 0))) "Integrate vimish-fold with evil" single ((:url . "https://github.com/alexmurray/evil-vimish-fold"))])

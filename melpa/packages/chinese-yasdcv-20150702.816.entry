@@ -1,2 +1,0 @@
-
-(chinese-yasdcv . [(20150702 816) ((cl-lib (0 5)) (chinese-pyim (0 0 1))) "Yet another frontend for the StarDict command-line program" single ((:keywords "convenience" "chinese" "dictionary") (:url . "https://github.com/tumashu/chinese-yasdcv"))])

@@ -1,0 +1,2 @@
+
+(smooth-scrolling . [(20161002 1449) nil "Make emacs scroll smoothly" single ((:keywords "convenience") (:url . "http://github.com/aspiers/smooth-scrolling/"))])

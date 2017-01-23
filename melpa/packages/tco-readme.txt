@@ -12,7 +12,7 @@ speaking, a function `foo':
 Is rewritten as follows:
 
 \(defun foo (...)
-   (flet (foo-thunk (...)
+   (cl-flet (foo-thunk (...)
                (...)
                (lambda () (foo-thunk (...))))
      (let ((result (apply foo-thunk (...))))
